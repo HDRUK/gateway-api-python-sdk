@@ -17,8 +17,8 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from gateway_api_sdk.models.cd41e1bd1b9f9918da2bb53a240b8bfe200_response import Cd41e1bd1b9f9918da2bb53a240b8bfe200Response
-from gateway_api_sdk.models.cd41e1bd1b9f9918da2bb53a240b8bfe_request import Cd41e1bd1b9f9918da2bb53a240b8bfeRequest
+from gateway_api_sdk.models.search_similar_datasets200_response import SearchSimilarDatasets200Response
+from gateway_api_sdk.models.search_similar_datasets_request import SearchSimilarDatasetsRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -39,9 +39,9 @@ class SearchSimilarDatasetsApi:
 
 
     @validate_call
-    def cd41e1bd1b9f9918da2bb53a240b8bfe(
+    def search_similar_datasets(
         self,
-        cd41e1bd1b9f9918da2bb53a240b8bfe_request: Annotated[Cd41e1bd1b9f9918da2bb53a240b8bfeRequest, Field(description="Submit dataset id")],
+        search_similar_datasets_request: Annotated[SearchSimilarDatasetsRequest, Field(description="Submit dataset id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -54,13 +54,13 @@ class SearchSimilarDatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Cd41e1bd1b9f9918da2bb53a240b8bfe200Response:
+    ) -> SearchSimilarDatasets200Response:
         """Search@similarDatasets
 
         Returns top three gateway datasets most similar to the provided dataset
 
-        :param cd41e1bd1b9f9918da2bb53a240b8bfe_request: Submit dataset id (required)
-        :type cd41e1bd1b9f9918da2bb53a240b8bfe_request: Cd41e1bd1b9f9918da2bb53a240b8bfeRequest
+        :param search_similar_datasets_request: Submit dataset id (required)
+        :type search_similar_datasets_request: SearchSimilarDatasetsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -83,8 +83,8 @@ class SearchSimilarDatasetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._cd41e1bd1b9f9918da2bb53a240b8bfe_serialize(
-            cd41e1bd1b9f9918da2bb53a240b8bfe_request=cd41e1bd1b9f9918da2bb53a240b8bfe_request,
+        _param = self._search_similar_datasets_serialize(
+            search_similar_datasets_request=search_similar_datasets_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -92,7 +92,7 @@ class SearchSimilarDatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Cd41e1bd1b9f9918da2bb53a240b8bfe200Response",
+            '200': "SearchSimilarDatasets200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -106,9 +106,9 @@ class SearchSimilarDatasetsApi:
 
 
     @validate_call
-    def cd41e1bd1b9f9918da2bb53a240b8bfe_with_http_info(
+    def search_similar_datasets_with_http_info(
         self,
-        cd41e1bd1b9f9918da2bb53a240b8bfe_request: Annotated[Cd41e1bd1b9f9918da2bb53a240b8bfeRequest, Field(description="Submit dataset id")],
+        search_similar_datasets_request: Annotated[SearchSimilarDatasetsRequest, Field(description="Submit dataset id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -121,13 +121,13 @@ class SearchSimilarDatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Cd41e1bd1b9f9918da2bb53a240b8bfe200Response]:
+    ) -> ApiResponse[SearchSimilarDatasets200Response]:
         """Search@similarDatasets
 
         Returns top three gateway datasets most similar to the provided dataset
 
-        :param cd41e1bd1b9f9918da2bb53a240b8bfe_request: Submit dataset id (required)
-        :type cd41e1bd1b9f9918da2bb53a240b8bfe_request: Cd41e1bd1b9f9918da2bb53a240b8bfeRequest
+        :param search_similar_datasets_request: Submit dataset id (required)
+        :type search_similar_datasets_request: SearchSimilarDatasetsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -150,8 +150,8 @@ class SearchSimilarDatasetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._cd41e1bd1b9f9918da2bb53a240b8bfe_serialize(
-            cd41e1bd1b9f9918da2bb53a240b8bfe_request=cd41e1bd1b9f9918da2bb53a240b8bfe_request,
+        _param = self._search_similar_datasets_serialize(
+            search_similar_datasets_request=search_similar_datasets_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -159,7 +159,7 @@ class SearchSimilarDatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Cd41e1bd1b9f9918da2bb53a240b8bfe200Response",
+            '200': "SearchSimilarDatasets200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -173,9 +173,9 @@ class SearchSimilarDatasetsApi:
 
 
     @validate_call
-    def cd41e1bd1b9f9918da2bb53a240b8bfe_without_preload_content(
+    def search_similar_datasets_without_preload_content(
         self,
-        cd41e1bd1b9f9918da2bb53a240b8bfe_request: Annotated[Cd41e1bd1b9f9918da2bb53a240b8bfeRequest, Field(description="Submit dataset id")],
+        search_similar_datasets_request: Annotated[SearchSimilarDatasetsRequest, Field(description="Submit dataset id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -193,8 +193,8 @@ class SearchSimilarDatasetsApi:
 
         Returns top three gateway datasets most similar to the provided dataset
 
-        :param cd41e1bd1b9f9918da2bb53a240b8bfe_request: Submit dataset id (required)
-        :type cd41e1bd1b9f9918da2bb53a240b8bfe_request: Cd41e1bd1b9f9918da2bb53a240b8bfeRequest
+        :param search_similar_datasets_request: Submit dataset id (required)
+        :type search_similar_datasets_request: SearchSimilarDatasetsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -217,8 +217,8 @@ class SearchSimilarDatasetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._cd41e1bd1b9f9918da2bb53a240b8bfe_serialize(
-            cd41e1bd1b9f9918da2bb53a240b8bfe_request=cd41e1bd1b9f9918da2bb53a240b8bfe_request,
+        _param = self._search_similar_datasets_serialize(
+            search_similar_datasets_request=search_similar_datasets_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -226,7 +226,7 @@ class SearchSimilarDatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Cd41e1bd1b9f9918da2bb53a240b8bfe200Response",
+            '200': "SearchSimilarDatasets200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -235,9 +235,9 @@ class SearchSimilarDatasetsApi:
         return response_data.response
 
 
-    def _cd41e1bd1b9f9918da2bb53a240b8bfe_serialize(
+    def _search_similar_datasets_serialize(
         self,
-        cd41e1bd1b9f9918da2bb53a240b8bfe_request,
+        search_similar_datasets_request,
         _request_auth,
         _content_type,
         _headers,
@@ -263,8 +263,8 @@ class SearchSimilarDatasetsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if cd41e1bd1b9f9918da2bb53a240b8bfe_request is not None:
-            _body_params = cd41e1bd1b9f9918da2bb53a240b8bfe_request
+        if search_similar_datasets_request is not None:
+            _body_params = search_similar_datasets_request
 
 
         # set the HTTP header `Accept`

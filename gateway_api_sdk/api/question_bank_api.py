@@ -18,19 +18,19 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.a3f9ce42420fdef136cfc7b0de8e2683200_response import A3f9ce42420fdef136cfc7b0de8e2683200Response
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.d38b27b30f91d05932ca855e021c8ffd_request import D38b27b30f91d05932ca855e021c8ffdRequest
-from gateway_api_sdk.models.da82f7ce4870bd37af28a192877b22a7200_response import Da82f7ce4870bd37af28a192877b22a7200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.ea6f671b0436fa57891fe098994556a1200_response import Ea6f671b0436fa57891fe098994556a1200Response
-from gateway_api_sdk.models.fa7079be66c6e1f5a236ecac24b63e2b200_response import Fa7079be66c6e1f5a236ecac24b63e2b200Response
-from gateway_api_sdk.models.model04e09f4aada3406dbc08715865880f4f200_response import Model04e09f4aada3406dbc08715865880f4f200Response
-from gateway_api_sdk.models.model17336ba551813e00975d3c2da09211c0200_response import Model17336ba551813e00975d3c2da09211c0200Response
-from gateway_api_sdk.models.model35856fcdf6980ae4da3303ec5a8d90b7200_response import Model35856fcdf6980ae4da3303ec5a8d90b7200Response
-from gateway_api_sdk.models.model38b0b31c2029a219013fa640588a4a69_request import Model38b0b31c2029a219013fa640588a4a69Request
-from gateway_api_sdk.models.model64d6f1d6c88cbcfccd3e511b29c394d6200_response import Model64d6f1d6c88cbcfccd3e511b29c394d6200Response
-from gateway_api_sdk.models.model64d6f1d6c88cbcfccd3e511b29c394d6_request import Model64d6f1d6c88cbcfccd3e511b29c394d6Request
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_question_bank_question_request import CreateQuestionBankQuestionRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.edit_question_bank_question_request import EditQuestionBankQuestionRequest
+from gateway_api_sdk.models.fetch_custom_question_bank_questions200_response import FetchCustomQuestionBankQuestions200Response
+from gateway_api_sdk.models.fetch_question_bank_question200_response import FetchQuestionBankQuestion200Response
+from gateway_api_sdk.models.fetch_question_bank_question_version200_response import FetchQuestionBankQuestionVersion200Response
+from gateway_api_sdk.models.fetch_question_bank_questions200_response import FetchQuestionBankQuestions200Response
+from gateway_api_sdk.models.fetch_standard_question_bank_questions200_response import FetchStandardQuestionBankQuestions200Response
+from gateway_api_sdk.models.fetch_team_question_bank_questions_by_section200_response import FetchTeamQuestionBankQuestionsBySection200Response
+from gateway_api_sdk.models.update_question_bank_question200_response import UpdateQuestionBankQuestion200Response
+from gateway_api_sdk.models.update_question_bank_question_request import UpdateQuestionBankQuestionRequest
+from gateway_api_sdk.models.update_question_bank_question_status200_response import UpdateQuestionBankQuestionStatus200Response
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -51,9 +51,9 @@ class QuestionBankApi:
 
 
     @validate_call
-    def a3f9ce42420fdef136cfc7b0de8e2683(
+    def create_question_bank_question(
         self,
-        id: Annotated[StrictInt, Field(description="question bank question version id")],
+        create_question_bank_question_request: Annotated[CreateQuestionBankQuestionRequest, Field(description="QuestionBank definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -66,13 +66,13 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> A3f9ce42420fdef136cfc7b0de8e2683200Response:
-        """QuestionBank@showVersion
+    ) -> CreateCategories200Response:
+        """QuestionBank@store
 
-        Return a single system question bank question version
+        Create a new system question bank question with FE-helpful input format
 
-        :param id: question bank question version id (required)
-        :type id: int
+        :param create_question_bank_question_request: QuestionBank definition (required)
+        :type create_question_bank_question_request: CreateQuestionBankQuestionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -95,8 +95,8 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a3f9ce42420fdef136cfc7b0de8e2683_serialize(
-            id=id,
+        _param = self._create_question_bank_question_serialize(
+            create_question_bank_question_request=create_question_bank_question_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -104,8 +104,8 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "A3f9ce42420fdef136cfc7b0de8e2683200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -119,9 +119,9 @@ class QuestionBankApi:
 
 
     @validate_call
-    def a3f9ce42420fdef136cfc7b0de8e2683_with_http_info(
+    def create_question_bank_question_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="question bank question version id")],
+        create_question_bank_question_request: Annotated[CreateQuestionBankQuestionRequest, Field(description="QuestionBank definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -134,13 +134,13 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[A3f9ce42420fdef136cfc7b0de8e2683200Response]:
-        """QuestionBank@showVersion
+    ) -> ApiResponse[CreateCategories200Response]:
+        """QuestionBank@store
 
-        Return a single system question bank question version
+        Create a new system question bank question with FE-helpful input format
 
-        :param id: question bank question version id (required)
-        :type id: int
+        :param create_question_bank_question_request: QuestionBank definition (required)
+        :type create_question_bank_question_request: CreateQuestionBankQuestionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -163,8 +163,8 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a3f9ce42420fdef136cfc7b0de8e2683_serialize(
-            id=id,
+        _param = self._create_question_bank_question_serialize(
+            create_question_bank_question_request=create_question_bank_question_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -172,8 +172,8 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "A3f9ce42420fdef136cfc7b0de8e2683200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -187,9 +187,9 @@ class QuestionBankApi:
 
 
     @validate_call
-    def a3f9ce42420fdef136cfc7b0de8e2683_without_preload_content(
+    def create_question_bank_question_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="question bank question version id")],
+        create_question_bank_question_request: Annotated[CreateQuestionBankQuestionRequest, Field(description="QuestionBank definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -203,12 +203,12 @@ class QuestionBankApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """QuestionBank@showVersion
+        """QuestionBank@store
 
-        Return a single system question bank question version
+        Create a new system question bank question with FE-helpful input format
 
-        :param id: question bank question version id (required)
-        :type id: int
+        :param create_question_bank_question_request: QuestionBank definition (required)
+        :type create_question_bank_question_request: CreateQuestionBankQuestionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -231,8 +231,8 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a3f9ce42420fdef136cfc7b0de8e2683_serialize(
-            id=id,
+        _param = self._create_question_bank_question_serialize(
+            create_question_bank_question_request=create_question_bank_question_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -240,8 +240,8 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "A3f9ce42420fdef136cfc7b0de8e2683200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -250,863 +250,9 @@ class QuestionBankApi:
         return response_data.response
 
 
-    def _a3f9ce42420fdef136cfc7b0de8e2683_serialize(
+    def _create_question_bank_question_serialize(
         self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/questions/version/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_04e09f4aada3406dbc08715865880f4f(
-        self,
-        team_id: Annotated[StrictInt, Field(description="Team ID")],
-        section_id: Annotated[StrictInt, Field(description="section id")],
-        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model04e09f4aada3406dbc08715865880f4f200Response:
-        """TeamQuestionBank@indexBySection
-
-        List of question bank questions by section
-
-        :param team_id: Team ID (required)
-        :type team_id: int
-        :param section_id: section id (required)
-        :type section_id: int
-        :param is_child: filter on is_child field
-        :type is_child: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_04e09f4aada3406dbc08715865880f4f_serialize(
-            team_id=team_id,
-            section_id=section_id,
-            is_child=is_child,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model04e09f4aada3406dbc08715865880f4f200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_04e09f4aada3406dbc08715865880f4f_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="Team ID")],
-        section_id: Annotated[StrictInt, Field(description="section id")],
-        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model04e09f4aada3406dbc08715865880f4f200Response]:
-        """TeamQuestionBank@indexBySection
-
-        List of question bank questions by section
-
-        :param team_id: Team ID (required)
-        :type team_id: int
-        :param section_id: section id (required)
-        :type section_id: int
-        :param is_child: filter on is_child field
-        :type is_child: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_04e09f4aada3406dbc08715865880f4f_serialize(
-            team_id=team_id,
-            section_id=section_id,
-            is_child=is_child,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model04e09f4aada3406dbc08715865880f4f200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_04e09f4aada3406dbc08715865880f4f_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="Team ID")],
-        section_id: Annotated[StrictInt, Field(description="section id")],
-        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """TeamQuestionBank@indexBySection
-
-        List of question bank questions by section
-
-        :param team_id: Team ID (required)
-        :type team_id: int
-        :param section_id: section id (required)
-        :type section_id: int
-        :param is_child: filter on is_child field
-        :type is_child: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_04e09f4aada3406dbc08715865880f4f_serialize(
-            team_id=team_id,
-            section_id=section_id,
-            is_child=is_child,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model04e09f4aada3406dbc08715865880f4f200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_04e09f4aada3406dbc08715865880f4f_serialize(
-        self,
-        team_id,
-        section_id,
-        is_child,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if section_id is not None:
-            _path_params['sectionId'] = section_id
-        # process the query parameters
-        if is_child is not None:
-            
-            _query_params.append(('is_child', is_child))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/teams/{teamId}/questions/section/{sectionId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_17336ba551813e00975d3c2da09211c0(
-        self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model17336ba551813e00975d3c2da09211c0200Response:
-        """QuestionBank@show
-
-        Return the latest question bank question version for the supplied question id, in an FE-friendly format
-
-        :param id: question bank question id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_17336ba551813e00975d3c2da09211c0_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model17336ba551813e00975d3c2da09211c0200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_17336ba551813e00975d3c2da09211c0_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model17336ba551813e00975d3c2da09211c0200Response]:
-        """QuestionBank@show
-
-        Return the latest question bank question version for the supplied question id, in an FE-friendly format
-
-        :param id: question bank question id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_17336ba551813e00975d3c2da09211c0_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model17336ba551813e00975d3c2da09211c0200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_17336ba551813e00975d3c2da09211c0_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """QuestionBank@show
-
-        Return the latest question bank question version for the supplied question id, in an FE-friendly format
-
-        :param id: question bank question id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_17336ba551813e00975d3c2da09211c0_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model17336ba551813e00975d3c2da09211c0200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_17336ba551813e00975d3c2da09211c0_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/questions/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_35856fcdf6980ae4da3303ec5a8d90b7(
-        self,
-        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
-        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model35856fcdf6980ae4da3303ec5a8d90b7200Response:
-        """QuestionBank@index
-
-        List of question bank questions
-
-        :param section_id: section id
-        :type section_id: int
-        :param is_child: filter on is_child field
-        :type is_child: int
-        :param per_page: per page
-        :type per_page: int
-        :param page: page
-        :type page: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_35856fcdf6980ae4da3303ec5a8d90b7_serialize(
-            section_id=section_id,
-            is_child=is_child,
-            per_page=per_page,
-            page=page,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model35856fcdf6980ae4da3303ec5a8d90b7200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_35856fcdf6980ae4da3303ec5a8d90b7_with_http_info(
-        self,
-        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
-        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model35856fcdf6980ae4da3303ec5a8d90b7200Response]:
-        """QuestionBank@index
-
-        List of question bank questions
-
-        :param section_id: section id
-        :type section_id: int
-        :param is_child: filter on is_child field
-        :type is_child: int
-        :param per_page: per page
-        :type per_page: int
-        :param page: page
-        :type page: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_35856fcdf6980ae4da3303ec5a8d90b7_serialize(
-            section_id=section_id,
-            is_child=is_child,
-            per_page=per_page,
-            page=page,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model35856fcdf6980ae4da3303ec5a8d90b7200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_35856fcdf6980ae4da3303ec5a8d90b7_without_preload_content(
-        self,
-        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
-        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """QuestionBank@index
-
-        List of question bank questions
-
-        :param section_id: section id
-        :type section_id: int
-        :param is_child: filter on is_child field
-        :type is_child: int
-        :param per_page: per page
-        :type per_page: int
-        :param page: page
-        :type page: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_35856fcdf6980ae4da3303ec5a8d90b7_serialize(
-            section_id=section_id,
-            is_child=is_child,
-            per_page=per_page,
-            page=page,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model35856fcdf6980ae4da3303ec5a8d90b7200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_35856fcdf6980ae4da3303ec5a8d90b7_serialize(
-        self,
-        section_id,
-        is_child,
-        per_page,
-        page,
+        create_question_bank_question_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1129,25 +275,11 @@ class QuestionBankApi:
 
         # process the path parameters
         # process the query parameters
-        if section_id is not None:
-            
-            _query_params.append(('section_id', section_id))
-            
-        if is_child is not None:
-            
-            _query_params.append(('is_child', is_child))
-            
-        if per_page is not None:
-            
-            _query_params.append(('per_page', per_page))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if create_question_bank_question_request is not None:
+            _body_params = create_question_bank_question_request
 
 
         # set the HTTP header `Accept`
@@ -1158,6 +290,19 @@ class QuestionBankApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1165,7 +310,7 @@ class QuestionBankApi:
         ]
 
         return self.api_client.param_serialize(
-            method='GET',
+            method='POST',
             resource_path='/api/v1/questions',
             path_params=_path_params,
             query_params=_query_params,
@@ -1183,10 +328,9 @@ class QuestionBankApi:
 
 
     @validate_call
-    def call_35b36a3a067579d62500b09623dbffb6(
+    def delete_question_bank_question(
         self,
         id: Annotated[StrictInt, Field(description="question bank question id")],
-        file_id: Annotated[StrictInt, Field(description="file uuid")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1199,15 +343,13 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
-        """QuestionBank@destroyFile
+    ) -> DeleteAliases200Response:
+        """QuestionBank@destroy
 
-        Download a system question bank question
+        Delete a system question bank question
 
         :param id: question bank question id (required)
         :type id: int
-        :param file_id: file uuid (required)
-        :type file_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1230,9 +372,8 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_35b36a3a067579d62500b09623dbffb6_serialize(
+        _param = self._delete_question_bank_question_serialize(
             id=id,
-            file_id=file_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1240,9 +381,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1256,7 +397,205 @@ class QuestionBankApi:
 
 
     @validate_call
-    def call_35b36a3a067579d62500b09623dbffb6_with_http_info(
+    def delete_question_bank_question_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[DeleteAliases200Response]:
+        """QuestionBank@destroy
+
+        Delete a system question bank question
+
+        :param id: question bank question id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_question_bank_question_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_question_bank_question_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """QuestionBank@destroy
+
+        Delete a system question bank question
+
+        :param id: question bank question id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_question_bank_question_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_question_bank_question_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/api/v1/questions/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def download_question_bank_question_file(
         self,
         id: Annotated[StrictInt, Field(description="question bank question id")],
         file_id: Annotated[StrictInt, Field(description="file uuid")],
@@ -1272,7 +611,7 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> DeleteAliases200Response:
         """QuestionBank@destroyFile
 
         Download a system question bank question
@@ -1303,7 +642,7 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_35b36a3a067579d62500b09623dbffb6_serialize(
+        _param = self._download_question_bank_question_file_serialize(
             id=id,
             file_id=file_id,
             _request_auth=_request_auth,
@@ -1313,9 +652,82 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def download_question_bank_question_file_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        file_id: Annotated[StrictInt, Field(description="file uuid")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[DeleteAliases200Response]:
+        """QuestionBank@destroyFile
+
+        Download a system question bank question
+
+        :param id: question bank question id (required)
+        :type id: int
+        :param file_id: file uuid (required)
+        :type file_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._download_question_bank_question_file_serialize(
+            id=id,
+            file_id=file_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1329,7 +741,7 @@ class QuestionBankApi:
 
 
     @validate_call
-    def call_35b36a3a067579d62500b09623dbffb6_without_preload_content(
+    def download_question_bank_question_file_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="question bank question id")],
         file_id: Annotated[StrictInt, Field(description="file uuid")],
@@ -1376,7 +788,7 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_35b36a3a067579d62500b09623dbffb6_serialize(
+        _param = self._download_question_bank_question_file_serialize(
             id=id,
             file_id=file_id,
             _request_auth=_request_auth,
@@ -1386,9 +798,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1397,7 +809,7 @@ class QuestionBankApi:
         return response_data.response
 
 
-    def _call_35b36a3a067579d62500b09623dbffb6_serialize(
+    def _download_question_bank_question_file_serialize(
         self,
         id,
         file_id,
@@ -1465,9 +877,10 @@ class QuestionBankApi:
 
 
     @validate_call
-    def call_38b0b31c2029a219013fa640588a4a69(
+    def edit_question_bank_question(
         self,
-        model38b0b31c2029a219013fa640588a4a69_request: Annotated[Model38b0b31c2029a219013fa640588a4a69Request, Field(description="QuestionBank definition")],
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        edit_question_bank_question_request: Annotated[EditQuestionBankQuestionRequest, Field(description="QuestionBank definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1480,13 +893,15 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
-        """QuestionBank@store
+    ) -> UpdateQuestionBankQuestion200Response:
+        """QuestionBank@update
 
-        Create a new system question bank question with FE-helpful input format
+        Edit a system question bank question - use this for parents and children separately
 
-        :param model38b0b31c2029a219013fa640588a4a69_request: QuestionBank definition (required)
-        :type model38b0b31c2029a219013fa640588a4a69_request: Model38b0b31c2029a219013fa640588a4a69Request
+        :param id: question bank question id (required)
+        :type id: int
+        :param edit_question_bank_question_request: QuestionBank definition (required)
+        :type edit_question_bank_question_request: EditQuestionBankQuestionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1509,8 +924,9 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_38b0b31c2029a219013fa640588a4a69_serialize(
-            model38b0b31c2029a219013fa640588a4a69_request=model38b0b31c2029a219013fa640588a4a69_request,
+        _param = self._edit_question_bank_question_serialize(
+            id=id,
+            edit_question_bank_question_request=edit_question_bank_question_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1518,8 +934,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateQuestionBankQuestion200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1533,219 +950,10 @@ class QuestionBankApi:
 
 
     @validate_call
-    def call_38b0b31c2029a219013fa640588a4a69_with_http_info(
-        self,
-        model38b0b31c2029a219013fa640588a4a69_request: Annotated[Model38b0b31c2029a219013fa640588a4a69Request, Field(description="QuestionBank definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
-        """QuestionBank@store
-
-        Create a new system question bank question with FE-helpful input format
-
-        :param model38b0b31c2029a219013fa640588a4a69_request: QuestionBank definition (required)
-        :type model38b0b31c2029a219013fa640588a4a69_request: Model38b0b31c2029a219013fa640588a4a69Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_38b0b31c2029a219013fa640588a4a69_serialize(
-            model38b0b31c2029a219013fa640588a4a69_request=model38b0b31c2029a219013fa640588a4a69_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_38b0b31c2029a219013fa640588a4a69_without_preload_content(
-        self,
-        model38b0b31c2029a219013fa640588a4a69_request: Annotated[Model38b0b31c2029a219013fa640588a4a69Request, Field(description="QuestionBank definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """QuestionBank@store
-
-        Create a new system question bank question with FE-helpful input format
-
-        :param model38b0b31c2029a219013fa640588a4a69_request: QuestionBank definition (required)
-        :type model38b0b31c2029a219013fa640588a4a69_request: Model38b0b31c2029a219013fa640588a4a69Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_38b0b31c2029a219013fa640588a4a69_serialize(
-            model38b0b31c2029a219013fa640588a4a69_request=model38b0b31c2029a219013fa640588a4a69_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_38b0b31c2029a219013fa640588a4a69_serialize(
-        self,
-        model38b0b31c2029a219013fa640588a4a69_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if model38b0b31c2029a219013fa640588a4a69_request is not None:
-            _body_params = model38b0b31c2029a219013fa640588a4a69_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/questions',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_64d6f1d6c88cbcfccd3e511b29c394d6(
+    def edit_question_bank_question_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="question bank question id")],
-        model64d6f1d6c88cbcfccd3e511b29c394d6_request: Annotated[Model64d6f1d6c88cbcfccd3e511b29c394d6Request, Field(description="QuestionBank definition")],
+        edit_question_bank_question_request: Annotated[EditQuestionBankQuestionRequest, Field(description="QuestionBank definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1758,15 +966,15 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model64d6f1d6c88cbcfccd3e511b29c394d6200Response:
+    ) -> ApiResponse[UpdateQuestionBankQuestion200Response]:
         """QuestionBank@update
 
-        Update a system question bank question - children and their versions are updated through parents
+        Edit a system question bank question - use this for parents and children separately
 
         :param id: question bank question id (required)
         :type id: int
-        :param model64d6f1d6c88cbcfccd3e511b29c394d6_request: QuestionBank definition (required)
-        :type model64d6f1d6c88cbcfccd3e511b29c394d6_request: Model64d6f1d6c88cbcfccd3e511b29c394d6Request
+        :param edit_question_bank_question_request: QuestionBank definition (required)
+        :type edit_question_bank_question_request: EditQuestionBankQuestionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1789,9 +997,9 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_64d6f1d6c88cbcfccd3e511b29c394d6_serialize(
+        _param = self._edit_question_bank_question_serialize(
             id=id,
-            model64d6f1d6c88cbcfccd3e511b29c394d6_request=model64d6f1d6c88cbcfccd3e511b29c394d6_request,
+            edit_question_bank_question_request=edit_question_bank_question_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1799,82 +1007,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model64d6f1d6c88cbcfccd3e511b29c394d6200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_64d6f1d6c88cbcfccd3e511b29c394d6_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
-        model64d6f1d6c88cbcfccd3e511b29c394d6_request: Annotated[Model64d6f1d6c88cbcfccd3e511b29c394d6Request, Field(description="QuestionBank definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model64d6f1d6c88cbcfccd3e511b29c394d6200Response]:
-        """QuestionBank@update
-
-        Update a system question bank question - children and their versions are updated through parents
-
-        :param id: question bank question id (required)
-        :type id: int
-        :param model64d6f1d6c88cbcfccd3e511b29c394d6_request: QuestionBank definition (required)
-        :type model64d6f1d6c88cbcfccd3e511b29c394d6_request: Model64d6f1d6c88cbcfccd3e511b29c394d6Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_64d6f1d6c88cbcfccd3e511b29c394d6_serialize(
-            id=id,
-            model64d6f1d6c88cbcfccd3e511b29c394d6_request=model64d6f1d6c88cbcfccd3e511b29c394d6_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model64d6f1d6c88cbcfccd3e511b29c394d6200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateQuestionBankQuestion200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1888,10 +1023,10 @@ class QuestionBankApi:
 
 
     @validate_call
-    def call_64d6f1d6c88cbcfccd3e511b29c394d6_without_preload_content(
+    def edit_question_bank_question_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="question bank question id")],
-        model64d6f1d6c88cbcfccd3e511b29c394d6_request: Annotated[Model64d6f1d6c88cbcfccd3e511b29c394d6Request, Field(description="QuestionBank definition")],
+        edit_question_bank_question_request: Annotated[EditQuestionBankQuestionRequest, Field(description="QuestionBank definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1907,12 +1042,12 @@ class QuestionBankApi:
     ) -> RESTResponseType:
         """QuestionBank@update
 
-        Update a system question bank question - children and their versions are updated through parents
+        Edit a system question bank question - use this for parents and children separately
 
         :param id: question bank question id (required)
         :type id: int
-        :param model64d6f1d6c88cbcfccd3e511b29c394d6_request: QuestionBank definition (required)
-        :type model64d6f1d6c88cbcfccd3e511b29c394d6_request: Model64d6f1d6c88cbcfccd3e511b29c394d6Request
+        :param edit_question_bank_question_request: QuestionBank definition (required)
+        :type edit_question_bank_question_request: EditQuestionBankQuestionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1935,9 +1070,9 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_64d6f1d6c88cbcfccd3e511b29c394d6_serialize(
+        _param = self._edit_question_bank_question_serialize(
             id=id,
-            model64d6f1d6c88cbcfccd3e511b29c394d6_request=model64d6f1d6c88cbcfccd3e511b29c394d6_request,
+            edit_question_bank_question_request=edit_question_bank_question_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1945,9 +1080,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model64d6f1d6c88cbcfccd3e511b29c394d6200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateQuestionBankQuestion200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1956,10 +1091,10 @@ class QuestionBankApi:
         return response_data.response
 
 
-    def _call_64d6f1d6c88cbcfccd3e511b29c394d6_serialize(
+    def _edit_question_bank_question_serialize(
         self,
         id,
-        model64d6f1d6c88cbcfccd3e511b29c394d6_request,
+        edit_question_bank_question_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1987,303 +1122,8 @@ class QuestionBankApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model64d6f1d6c88cbcfccd3e511b29c394d6_request is not None:
-            _body_params = model64d6f1d6c88cbcfccd3e511b29c394d6_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v1/questions/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def d38b27b30f91d05932ca855e021c8ffd(
-        self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
-        d38b27b30f91d05932ca855e021c8ffd_request: Annotated[D38b27b30f91d05932ca855e021c8ffdRequest, Field(description="QuestionBank definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model64d6f1d6c88cbcfccd3e511b29c394d6200Response:
-        """QuestionBank@update
-
-        Edit a system question bank question - use this for parents and children separately
-
-        :param id: question bank question id (required)
-        :type id: int
-        :param d38b27b30f91d05932ca855e021c8ffd_request: QuestionBank definition (required)
-        :type d38b27b30f91d05932ca855e021c8ffd_request: D38b27b30f91d05932ca855e021c8ffdRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._d38b27b30f91d05932ca855e021c8ffd_serialize(
-            id=id,
-            d38b27b30f91d05932ca855e021c8ffd_request=d38b27b30f91d05932ca855e021c8ffd_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model64d6f1d6c88cbcfccd3e511b29c394d6200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def d38b27b30f91d05932ca855e021c8ffd_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
-        d38b27b30f91d05932ca855e021c8ffd_request: Annotated[D38b27b30f91d05932ca855e021c8ffdRequest, Field(description="QuestionBank definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model64d6f1d6c88cbcfccd3e511b29c394d6200Response]:
-        """QuestionBank@update
-
-        Edit a system question bank question - use this for parents and children separately
-
-        :param id: question bank question id (required)
-        :type id: int
-        :param d38b27b30f91d05932ca855e021c8ffd_request: QuestionBank definition (required)
-        :type d38b27b30f91d05932ca855e021c8ffd_request: D38b27b30f91d05932ca855e021c8ffdRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._d38b27b30f91d05932ca855e021c8ffd_serialize(
-            id=id,
-            d38b27b30f91d05932ca855e021c8ffd_request=d38b27b30f91d05932ca855e021c8ffd_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model64d6f1d6c88cbcfccd3e511b29c394d6200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def d38b27b30f91d05932ca855e021c8ffd_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
-        d38b27b30f91d05932ca855e021c8ffd_request: Annotated[D38b27b30f91d05932ca855e021c8ffdRequest, Field(description="QuestionBank definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """QuestionBank@update
-
-        Edit a system question bank question - use this for parents and children separately
-
-        :param id: question bank question id (required)
-        :type id: int
-        :param d38b27b30f91d05932ca855e021c8ffd_request: QuestionBank definition (required)
-        :type d38b27b30f91d05932ca855e021c8ffd_request: D38b27b30f91d05932ca855e021c8ffdRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._d38b27b30f91d05932ca855e021c8ffd_serialize(
-            id=id,
-            d38b27b30f91d05932ca855e021c8ffd_request=d38b27b30f91d05932ca855e021c8ffd_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model64d6f1d6c88cbcfccd3e511b29c394d6200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _d38b27b30f91d05932ca855e021c8ffd_serialize(
-        self,
-        id,
-        d38b27b30f91d05932ca855e021c8ffd_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if d38b27b30f91d05932ca855e021c8ffd_request is not None:
-            _body_params = d38b27b30f91d05932ca855e021c8ffd_request
+        if edit_question_bank_question_request is not None:
+            _body_params = edit_question_bank_question_request
 
 
         # set the HTTP header `Accept`
@@ -2332,289 +1172,7 @@ class QuestionBankApi:
 
 
     @validate_call
-    def da82f7ce4870bd37af28a192877b22a7(
-        self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
-        status: Annotated[StrictStr, Field(description="lock or unlock")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Da82f7ce4870bd37af28a192877b22a7200Response:
-        """QuestionBank@updateStatus
-
-        Lock, unlock, archive or unarchive a question bank question
-
-        :param id: question bank question id (required)
-        :type id: int
-        :param status: lock or unlock (required)
-        :type status: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._da82f7ce4870bd37af28a192877b22a7_serialize(
-            id=id,
-            status=status,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Da82f7ce4870bd37af28a192877b22a7200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def da82f7ce4870bd37af28a192877b22a7_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
-        status: Annotated[StrictStr, Field(description="lock or unlock")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Da82f7ce4870bd37af28a192877b22a7200Response]:
-        """QuestionBank@updateStatus
-
-        Lock, unlock, archive or unarchive a question bank question
-
-        :param id: question bank question id (required)
-        :type id: int
-        :param status: lock or unlock (required)
-        :type status: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._da82f7ce4870bd37af28a192877b22a7_serialize(
-            id=id,
-            status=status,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Da82f7ce4870bd37af28a192877b22a7200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def da82f7ce4870bd37af28a192877b22a7_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
-        status: Annotated[StrictStr, Field(description="lock or unlock")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """QuestionBank@updateStatus
-
-        Lock, unlock, archive or unarchive a question bank question
-
-        :param id: question bank question id (required)
-        :type id: int
-        :param status: lock or unlock (required)
-        :type status: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._da82f7ce4870bd37af28a192877b22a7_serialize(
-            id=id,
-            status=status,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Da82f7ce4870bd37af28a192877b22a7200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _da82f7ce4870bd37af28a192877b22a7_serialize(
-        self,
-        id,
-        status,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        if status is not None:
-            _path_params['status'] = status
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v1/questions/{id}/{status}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def dbaa6922ceaa314314605cba51dbb9df(
+    def fetch_archived_question_bank_questions(
         self,
         section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
         is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
@@ -2632,7 +1190,7 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model35856fcdf6980ae4da3303ec5a8d90b7200Response:
+    ) -> FetchQuestionBankQuestions200Response:
         """QuestionBank@indexArchived
 
         List of archived question bank questions
@@ -2667,7 +1225,7 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._dbaa6922ceaa314314605cba51dbb9df_serialize(
+        _param = self._fetch_archived_question_bank_questions_serialize(
             section_id=section_id,
             is_child=is_child,
             per_page=per_page,
@@ -2679,7 +1237,7 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model35856fcdf6980ae4da3303ec5a8d90b7200Response",
+            '200': "FetchQuestionBankQuestions200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2693,7 +1251,7 @@ class QuestionBankApi:
 
 
     @validate_call
-    def dbaa6922ceaa314314605cba51dbb9df_with_http_info(
+    def fetch_archived_question_bank_questions_with_http_info(
         self,
         section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
         is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
@@ -2711,7 +1269,7 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model35856fcdf6980ae4da3303ec5a8d90b7200Response]:
+    ) -> ApiResponse[FetchQuestionBankQuestions200Response]:
         """QuestionBank@indexArchived
 
         List of archived question bank questions
@@ -2746,7 +1304,7 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._dbaa6922ceaa314314605cba51dbb9df_serialize(
+        _param = self._fetch_archived_question_bank_questions_serialize(
             section_id=section_id,
             is_child=is_child,
             per_page=per_page,
@@ -2758,7 +1316,7 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model35856fcdf6980ae4da3303ec5a8d90b7200Response",
+            '200': "FetchQuestionBankQuestions200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2772,7 +1330,7 @@ class QuestionBankApi:
 
 
     @validate_call
-    def dbaa6922ceaa314314605cba51dbb9df_without_preload_content(
+    def fetch_archived_question_bank_questions_without_preload_content(
         self,
         section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
         is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
@@ -2825,7 +1383,7 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._dbaa6922ceaa314314605cba51dbb9df_serialize(
+        _param = self._fetch_archived_question_bank_questions_serialize(
             section_id=section_id,
             is_child=is_child,
             per_page=per_page,
@@ -2837,7 +1395,7 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model35856fcdf6980ae4da3303ec5a8d90b7200Response",
+            '200': "FetchQuestionBankQuestions200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2846,7 +1404,7 @@ class QuestionBankApi:
         return response_data.response
 
 
-    def _dbaa6922ceaa314314605cba51dbb9df_serialize(
+    def _fetch_archived_question_bank_questions_serialize(
         self,
         section_id,
         is_child,
@@ -2928,9 +1486,12 @@ class QuestionBankApi:
 
 
     @validate_call
-    def e7408526aeb9ed9cc633d4a9f25cfa14(
+    def fetch_custom_question_bank_questions(
         self,
-        id: Annotated[StrictInt, Field(description="question bank question id")],
+        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
+        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
+        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2943,13 +1504,19 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
-        """QuestionBank@destroy
+    ) -> FetchCustomQuestionBankQuestions200Response:
+        """QuestionBank@indexCustom
 
-        Delete a system question bank question
+        List of custom question bank questions
 
-        :param id: question bank question id (required)
-        :type id: int
+        :param section_id: section id
+        :type section_id: int
+        :param is_child: filter on is_child field
+        :type is_child: int
+        :param per_page: per page
+        :type per_page: int
+        :param page: page
+        :type page: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2972,8 +1539,11 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._e7408526aeb9ed9cc633d4a9f25cfa14_serialize(
-            id=id,
+        _param = self._fetch_custom_question_bank_questions_serialize(
+            section_id=section_id,
+            is_child=is_child,
+            per_page=per_page,
+            page=page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2981,9 +1551,7 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "FetchCustomQuestionBankQuestions200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2997,7 +1565,242 @@ class QuestionBankApi:
 
 
     @validate_call
-    def e7408526aeb9ed9cc633d4a9f25cfa14_with_http_info(
+    def fetch_custom_question_bank_questions_with_http_info(
+        self,
+        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
+        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
+        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchCustomQuestionBankQuestions200Response]:
+        """QuestionBank@indexCustom
+
+        List of custom question bank questions
+
+        :param section_id: section id
+        :type section_id: int
+        :param is_child: filter on is_child field
+        :type is_child: int
+        :param per_page: per page
+        :type per_page: int
+        :param page: page
+        :type page: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_custom_question_bank_questions_serialize(
+            section_id=section_id,
+            is_child=is_child,
+            per_page=per_page,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchCustomQuestionBankQuestions200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_custom_question_bank_questions_without_preload_content(
+        self,
+        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
+        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
+        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """QuestionBank@indexCustom
+
+        List of custom question bank questions
+
+        :param section_id: section id
+        :type section_id: int
+        :param is_child: filter on is_child field
+        :type is_child: int
+        :param per_page: per page
+        :type per_page: int
+        :param page: page
+        :type page: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_custom_question_bank_questions_serialize(
+            section_id=section_id,
+            is_child=is_child,
+            per_page=per_page,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchCustomQuestionBankQuestions200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_custom_question_bank_questions_serialize(
+        self,
+        section_id,
+        is_child,
+        per_page,
+        page,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if section_id is not None:
+            
+            _query_params.append(('section_id', section_id))
+            
+        if is_child is not None:
+            
+            _query_params.append(('is_child', is_child))
+            
+        if per_page is not None:
+            
+            _query_params.append(('per_page', per_page))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/questions/custom',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_question_bank_question(
         self,
         id: Annotated[StrictInt, Field(description="question bank question id")],
         _request_timeout: Union[
@@ -3012,10 +1815,10 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
-        """QuestionBank@destroy
+    ) -> FetchQuestionBankQuestion200Response:
+        """QuestionBank@show
 
-        Delete a system question bank question
+        Return the latest question bank question version for the supplied question id, in an FE-friendly format
 
         :param id: question bank question id (required)
         :type id: int
@@ -3041,7 +1844,7 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._e7408526aeb9ed9cc633d4a9f25cfa14_serialize(
+        _param = self._fetch_question_bank_question_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3050,9 +1853,74 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "FetchQuestionBankQuestion200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_question_bank_question_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchQuestionBankQuestion200Response]:
+        """QuestionBank@show
+
+        Return the latest question bank question version for the supplied question id, in an FE-friendly format
+
+        :param id: question bank question id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_question_bank_question_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchQuestionBankQuestion200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3066,7 +1934,7 @@ class QuestionBankApi:
 
 
     @validate_call
-    def e7408526aeb9ed9cc633d4a9f25cfa14_without_preload_content(
+    def fetch_question_bank_question_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="question bank question id")],
         _request_timeout: Union[
@@ -3082,9 +1950,9 @@ class QuestionBankApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """QuestionBank@destroy
+        """QuestionBank@show
 
-        Delete a system question bank question
+        Return the latest question bank question version for the supplied question id, in an FE-friendly format
 
         :param id: question bank question id (required)
         :type id: int
@@ -3110,7 +1978,7 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._e7408526aeb9ed9cc633d4a9f25cfa14_serialize(
+        _param = self._fetch_question_bank_question_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3119,9 +1987,7 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "FetchQuestionBankQuestion200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3130,7 +1996,7 @@ class QuestionBankApi:
         return response_data.response
 
 
-    def _e7408526aeb9ed9cc633d4a9f25cfa14_serialize(
+    def _fetch_question_bank_question_serialize(
         self,
         id,
         _request_auth,
@@ -3177,7 +2043,7 @@ class QuestionBankApi:
         ]
 
         return self.api_client.param_serialize(
-            method='DELETE',
+            method='GET',
             resource_path='/api/v1/questions/{id}',
             path_params=_path_params,
             query_params=_query_params,
@@ -3195,12 +2061,9 @@ class QuestionBankApi:
 
 
     @validate_call
-    def ea6f671b0436fa57891fe098994556a1(
+    def fetch_question_bank_question_version(
         self,
-        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
-        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
+        id: Annotated[StrictInt, Field(description="question bank question version id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3213,19 +2076,13 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Ea6f671b0436fa57891fe098994556a1200Response:
-        """QuestionBank@indexStandard
+    ) -> FetchQuestionBankQuestionVersion200Response:
+        """QuestionBank@showVersion
 
-        List of standard question bank questions
+        Return a single system question bank question version
 
-        :param section_id: section id
-        :type section_id: int
-        :param is_child: filter on is_child field
-        :type is_child: int
-        :param per_page: per page
-        :type per_page: int
-        :param page: page
-        :type page: int
+        :param id: question bank question version id (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3248,11 +2105,8 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ea6f671b0436fa57891fe098994556a1_serialize(
-            section_id=section_id,
-            is_child=is_child,
-            per_page=per_page,
-            page=page,
+        _param = self._fetch_question_bank_question_version_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3260,7 +2114,8 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Ea6f671b0436fa57891fe098994556a1200Response",
+            '200': "FetchQuestionBankQuestionVersion200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3274,7 +2129,203 @@ class QuestionBankApi:
 
 
     @validate_call
-    def ea6f671b0436fa57891fe098994556a1_with_http_info(
+    def fetch_question_bank_question_version_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question version id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchQuestionBankQuestionVersion200Response]:
+        """QuestionBank@showVersion
+
+        Return a single system question bank question version
+
+        :param id: question bank question version id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_question_bank_question_version_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchQuestionBankQuestionVersion200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_question_bank_question_version_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question version id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """QuestionBank@showVersion
+
+        Return a single system question bank question version
+
+        :param id: question bank question version id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_question_bank_question_version_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchQuestionBankQuestionVersion200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_question_bank_question_version_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/questions/version/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_question_bank_questions(
         self,
         section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
         is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
@@ -3292,7 +2343,321 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Ea6f671b0436fa57891fe098994556a1200Response]:
+    ) -> FetchQuestionBankQuestions200Response:
+        """QuestionBank@index
+
+        List of question bank questions
+
+        :param section_id: section id
+        :type section_id: int
+        :param is_child: filter on is_child field
+        :type is_child: int
+        :param per_page: per page
+        :type per_page: int
+        :param page: page
+        :type page: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_question_bank_questions_serialize(
+            section_id=section_id,
+            is_child=is_child,
+            per_page=per_page,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchQuestionBankQuestions200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_question_bank_questions_with_http_info(
+        self,
+        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
+        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
+        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchQuestionBankQuestions200Response]:
+        """QuestionBank@index
+
+        List of question bank questions
+
+        :param section_id: section id
+        :type section_id: int
+        :param is_child: filter on is_child field
+        :type is_child: int
+        :param per_page: per page
+        :type per_page: int
+        :param page: page
+        :type page: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_question_bank_questions_serialize(
+            section_id=section_id,
+            is_child=is_child,
+            per_page=per_page,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchQuestionBankQuestions200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_question_bank_questions_without_preload_content(
+        self,
+        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
+        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
+        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """QuestionBank@index
+
+        List of question bank questions
+
+        :param section_id: section id
+        :type section_id: int
+        :param is_child: filter on is_child field
+        :type is_child: int
+        :param per_page: per page
+        :type per_page: int
+        :param page: page
+        :type page: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_question_bank_questions_serialize(
+            section_id=section_id,
+            is_child=is_child,
+            per_page=per_page,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchQuestionBankQuestions200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_question_bank_questions_serialize(
+        self,
+        section_id,
+        is_child,
+        per_page,
+        page,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if section_id is not None:
+            
+            _query_params.append(('section_id', section_id))
+            
+        if is_child is not None:
+            
+            _query_params.append(('is_child', is_child))
+            
+        if per_page is not None:
+            
+            _query_params.append(('per_page', per_page))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/questions',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_standard_question_bank_questions(
+        self,
+        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
+        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
+        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FetchStandardQuestionBankQuestions200Response:
         """QuestionBank@indexStandard
 
         List of standard question bank questions
@@ -3327,7 +2692,7 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ea6f671b0436fa57891fe098994556a1_serialize(
+        _param = self._fetch_standard_question_bank_questions_serialize(
             section_id=section_id,
             is_child=is_child,
             per_page=per_page,
@@ -3339,7 +2704,86 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Ea6f671b0436fa57891fe098994556a1200Response",
+            '200': "FetchStandardQuestionBankQuestions200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_standard_question_bank_questions_with_http_info(
+        self,
+        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
+        is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
+        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchStandardQuestionBankQuestions200Response]:
+        """QuestionBank@indexStandard
+
+        List of standard question bank questions
+
+        :param section_id: section id
+        :type section_id: int
+        :param is_child: filter on is_child field
+        :type is_child: int
+        :param per_page: per page
+        :type per_page: int
+        :param page: page
+        :type page: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_standard_question_bank_questions_serialize(
+            section_id=section_id,
+            is_child=is_child,
+            per_page=per_page,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchStandardQuestionBankQuestions200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3353,7 +2797,7 @@ class QuestionBankApi:
 
 
     @validate_call
-    def ea6f671b0436fa57891fe098994556a1_without_preload_content(
+    def fetch_standard_question_bank_questions_without_preload_content(
         self,
         section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
         is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
@@ -3406,7 +2850,7 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ea6f671b0436fa57891fe098994556a1_serialize(
+        _param = self._fetch_standard_question_bank_questions_serialize(
             section_id=section_id,
             is_child=is_child,
             per_page=per_page,
@@ -3418,7 +2862,7 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Ea6f671b0436fa57891fe098994556a1200Response",
+            '200': "FetchStandardQuestionBankQuestions200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3427,7 +2871,7 @@ class QuestionBankApi:
         return response_data.response
 
 
-    def _ea6f671b0436fa57891fe098994556a1_serialize(
+    def _fetch_standard_question_bank_questions_serialize(
         self,
         section_id,
         is_child,
@@ -3509,12 +2953,11 @@ class QuestionBankApi:
 
 
     @validate_call
-    def fa7079be66c6e1f5a236ecac24b63e2b(
+    def fetch_team_question_bank_questions_by_section(
         self,
-        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
+        team_id: Annotated[StrictInt, Field(description="Team ID")],
+        section_id: Annotated[StrictInt, Field(description="section id")],
         is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3527,19 +2970,17 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Fa7079be66c6e1f5a236ecac24b63e2b200Response:
-        """QuestionBank@indexCustom
+    ) -> FetchTeamQuestionBankQuestionsBySection200Response:
+        """TeamQuestionBank@indexBySection
 
-        List of custom question bank questions
+        List of question bank questions by section
 
-        :param section_id: section id
+        :param team_id: Team ID (required)
+        :type team_id: int
+        :param section_id: section id (required)
         :type section_id: int
         :param is_child: filter on is_child field
         :type is_child: int
-        :param per_page: per page
-        :type per_page: int
-        :param page: page
-        :type page: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3562,11 +3003,10 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fa7079be66c6e1f5a236ecac24b63e2b_serialize(
+        _param = self._fetch_team_question_bank_questions_by_section_serialize(
+            team_id=team_id,
             section_id=section_id,
             is_child=is_child,
-            per_page=per_page,
-            page=page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3574,7 +3014,7 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Fa7079be66c6e1f5a236ecac24b63e2b200Response",
+            '200': "FetchTeamQuestionBankQuestionsBySection200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3588,12 +3028,11 @@ class QuestionBankApi:
 
 
     @validate_call
-    def fa7079be66c6e1f5a236ecac24b63e2b_with_http_info(
+    def fetch_team_question_bank_questions_by_section_with_http_info(
         self,
-        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
+        team_id: Annotated[StrictInt, Field(description="Team ID")],
+        section_id: Annotated[StrictInt, Field(description="section id")],
         is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3606,19 +3045,17 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Fa7079be66c6e1f5a236ecac24b63e2b200Response]:
-        """QuestionBank@indexCustom
+    ) -> ApiResponse[FetchTeamQuestionBankQuestionsBySection200Response]:
+        """TeamQuestionBank@indexBySection
 
-        List of custom question bank questions
+        List of question bank questions by section
 
-        :param section_id: section id
+        :param team_id: Team ID (required)
+        :type team_id: int
+        :param section_id: section id (required)
         :type section_id: int
         :param is_child: filter on is_child field
         :type is_child: int
-        :param per_page: per page
-        :type per_page: int
-        :param page: page
-        :type page: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3641,11 +3078,10 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fa7079be66c6e1f5a236ecac24b63e2b_serialize(
+        _param = self._fetch_team_question_bank_questions_by_section_serialize(
+            team_id=team_id,
             section_id=section_id,
             is_child=is_child,
-            per_page=per_page,
-            page=page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3653,7 +3089,7 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Fa7079be66c6e1f5a236ecac24b63e2b200Response",
+            '200': "FetchTeamQuestionBankQuestionsBySection200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3667,12 +3103,11 @@ class QuestionBankApi:
 
 
     @validate_call
-    def fa7079be66c6e1f5a236ecac24b63e2b_without_preload_content(
+    def fetch_team_question_bank_questions_by_section_without_preload_content(
         self,
-        section_id: Annotated[Optional[StrictInt], Field(description="section id")] = None,
+        team_id: Annotated[StrictInt, Field(description="Team ID")],
+        section_id: Annotated[StrictInt, Field(description="section id")],
         is_child: Annotated[Optional[StrictInt], Field(description="filter on is_child field")] = None,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="page")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3686,18 +3121,16 @@ class QuestionBankApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """QuestionBank@indexCustom
+        """TeamQuestionBank@indexBySection
 
-        List of custom question bank questions
+        List of question bank questions by section
 
-        :param section_id: section id
+        :param team_id: Team ID (required)
+        :type team_id: int
+        :param section_id: section id (required)
         :type section_id: int
         :param is_child: filter on is_child field
         :type is_child: int
-        :param per_page: per page
-        :type per_page: int
-        :param page: page
-        :type page: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3720,11 +3153,10 @@ class QuestionBankApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fa7079be66c6e1f5a236ecac24b63e2b_serialize(
+        _param = self._fetch_team_question_bank_questions_by_section_serialize(
+            team_id=team_id,
             section_id=section_id,
             is_child=is_child,
-            per_page=per_page,
-            page=page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3732,7 +3164,7 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Fa7079be66c6e1f5a236ecac24b63e2b200Response",
+            '200': "FetchTeamQuestionBankQuestionsBySection200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3741,12 +3173,11 @@ class QuestionBankApi:
         return response_data.response
 
 
-    def _fa7079be66c6e1f5a236ecac24b63e2b_serialize(
+    def _fetch_team_question_bank_questions_by_section_serialize(
         self,
+        team_id,
         section_id,
         is_child,
-        per_page,
-        page,
         _request_auth,
         _content_type,
         _headers,
@@ -3768,22 +3199,14 @@ class QuestionBankApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        # process the query parameters
+        if team_id is not None:
+            _path_params['teamId'] = team_id
         if section_id is not None:
-            
-            _query_params.append(('section_id', section_id))
-            
+            _path_params['sectionId'] = section_id
+        # process the query parameters
         if is_child is not None:
             
             _query_params.append(('is_child', is_child))
-            
-        if per_page is not None:
-            
-            _query_params.append(('per_page', per_page))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
             
         # process the header parameters
         # process the form parameters
@@ -3806,7 +3229,584 @@ class QuestionBankApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/questions/custom',
+            resource_path='/api/v1/teams/{teamId}/questions/section/{sectionId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_question_bank_question(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        update_question_bank_question_request: Annotated[UpdateQuestionBankQuestionRequest, Field(description="QuestionBank definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateQuestionBankQuestion200Response:
+        """QuestionBank@update
+
+        Update a system question bank question - children and their versions are updated through parents
+
+        :param id: question bank question id (required)
+        :type id: int
+        :param update_question_bank_question_request: QuestionBank definition (required)
+        :type update_question_bank_question_request: UpdateQuestionBankQuestionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_question_bank_question_serialize(
+            id=id,
+            update_question_bank_question_request=update_question_bank_question_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateQuestionBankQuestion200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_question_bank_question_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        update_question_bank_question_request: Annotated[UpdateQuestionBankQuestionRequest, Field(description="QuestionBank definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateQuestionBankQuestion200Response]:
+        """QuestionBank@update
+
+        Update a system question bank question - children and their versions are updated through parents
+
+        :param id: question bank question id (required)
+        :type id: int
+        :param update_question_bank_question_request: QuestionBank definition (required)
+        :type update_question_bank_question_request: UpdateQuestionBankQuestionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_question_bank_question_serialize(
+            id=id,
+            update_question_bank_question_request=update_question_bank_question_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateQuestionBankQuestion200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_question_bank_question_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        update_question_bank_question_request: Annotated[UpdateQuestionBankQuestionRequest, Field(description="QuestionBank definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """QuestionBank@update
+
+        Update a system question bank question - children and their versions are updated through parents
+
+        :param id: question bank question id (required)
+        :type id: int
+        :param update_question_bank_question_request: QuestionBank definition (required)
+        :type update_question_bank_question_request: UpdateQuestionBankQuestionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_question_bank_question_serialize(
+            id=id,
+            update_question_bank_question_request=update_question_bank_question_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateQuestionBankQuestion200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_question_bank_question_serialize(
+        self,
+        id,
+        update_question_bank_question_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if update_question_bank_question_request is not None:
+            _body_params = update_question_bank_question_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/api/v1/questions/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_question_bank_question_status(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        status: Annotated[StrictStr, Field(description="lock or unlock")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateQuestionBankQuestionStatus200Response:
+        """QuestionBank@updateStatus
+
+        Lock, unlock, archive or unarchive a question bank question
+
+        :param id: question bank question id (required)
+        :type id: int
+        :param status: lock or unlock (required)
+        :type status: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_question_bank_question_status_serialize(
+            id=id,
+            status=status,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateQuestionBankQuestionStatus200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_question_bank_question_status_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        status: Annotated[StrictStr, Field(description="lock or unlock")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateQuestionBankQuestionStatus200Response]:
+        """QuestionBank@updateStatus
+
+        Lock, unlock, archive or unarchive a question bank question
+
+        :param id: question bank question id (required)
+        :type id: int
+        :param status: lock or unlock (required)
+        :type status: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_question_bank_question_status_serialize(
+            id=id,
+            status=status,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateQuestionBankQuestionStatus200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_question_bank_question_status_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="question bank question id")],
+        status: Annotated[StrictStr, Field(description="lock or unlock")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """QuestionBank@updateStatus
+
+        Lock, unlock, archive or unarchive a question bank question
+
+        :param id: question bank question id (required)
+        :type id: int
+        :param status: lock or unlock (required)
+        :type status: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_question_bank_question_status_serialize(
+            id=id,
+            status=status,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateQuestionBankQuestionStatus200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_question_bank_question_status_serialize(
+        self,
+        id,
+        status,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        if status is not None:
+            _path_params['status'] = status
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PATCH',
+            resource_path='/api/v1/questions/{id}/{status}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -26,8 +26,8 @@ class TestSearchCollectionsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_aa33edfdace17b70600d964e0db4d44b(self) -> None:
-        """Test case for aa33edfdace17b70600d964e0db4d44b
+    def test_search_collections(self) -> None:
+        """Test case for search_collections
 
         Search@collections
         """

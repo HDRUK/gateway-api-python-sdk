@@ -18,12 +18,12 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.fc0e1e343f76b10d80b2332ca24fbfe0200_response import Fc0e1e343f76b10d80b2332ca24fbfe0200Response
-from gateway_api_sdk.models.model24bb1d73f780293f012cbc187f5448f3_request import Model24bb1d73f780293f012cbc187f5448f3Request
-from gateway_api_sdk.models.model2935b32e38ac989b35eab8e0b7552cd3_request import Model2935b32e38ac989b35eab8e0b7552cd3Request
-from gateway_api_sdk.models.model94f1c18e47daa32c1346be4a0d0449e4200_response import Model94f1c18e47daa32c1346be4a0d0449e4200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_section_request import CreateDarSectionRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.fetch_dar_section200_response import FetchDarSection200Response
+from gateway_api_sdk.models.fetch_dar_sections200_response import FetchDarSections200Response
+from gateway_api_sdk.models.patch_dar_section_request import PatchDarSectionRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -44,9 +44,9 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def call_0df3660c2b63970f84f9beec8a6c334e(
+    def create_dar_section(
         self,
-        id: Annotated[StrictInt, Field(description="DAR section id")],
+        create_dar_section_request: Annotated[CreateDarSectionRequest, Field(description="DataAccessSection definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -59,13 +59,13 @@ class DataAccessSectionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
-        """DataAccessSection@destroy
+    ) -> CreateCategories200Response:
+        """DataAccessSection@store
 
-        Delete a system DAR section
+        Creates a new DAR section
 
-        :param id: DAR section id (required)
-        :type id: int
+        :param create_dar_section_request: DataAccessSection definition (required)
+        :type create_dar_section_request: CreateDarSectionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -88,8 +88,8 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_0df3660c2b63970f84f9beec8a6c334e_serialize(
-            id=id,
+        _param = self._create_dar_section_serialize(
+            create_dar_section_request=create_dar_section_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -97,9 +97,8 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -113,7 +112,216 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def call_0df3660c2b63970f84f9beec8a6c334e_with_http_info(
+    def create_dar_section_with_http_info(
+        self,
+        create_dar_section_request: Annotated[CreateDarSectionRequest, Field(description="DataAccessSection definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CreateCategories200Response]:
+        """DataAccessSection@store
+
+        Creates a new DAR section
+
+        :param create_dar_section_request: DataAccessSection definition (required)
+        :type create_dar_section_request: CreateDarSectionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_dar_section_serialize(
+            create_dar_section_request=create_dar_section_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def create_dar_section_without_preload_content(
+        self,
+        create_dar_section_request: Annotated[CreateDarSectionRequest, Field(description="DataAccessSection definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """DataAccessSection@store
+
+        Creates a new DAR section
+
+        :param create_dar_section_request: DataAccessSection definition (required)
+        :type create_dar_section_request: CreateDarSectionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_dar_section_serialize(
+            create_dar_section_request=create_dar_section_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_dar_section_serialize(
+        self,
+        create_dar_section_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if create_dar_section_request is not None:
+            _body_params = create_dar_section_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v1/dar/sections',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def delete_dar_section(
         self,
         id: Annotated[StrictInt, Field(description="DAR section id")],
         _request_timeout: Union[
@@ -128,7 +336,7 @@ class DataAccessSectionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> DeleteAliases200Response:
         """DataAccessSection@destroy
 
         Delete a system DAR section
@@ -157,7 +365,7 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_0df3660c2b63970f84f9beec8a6c334e_serialize(
+        _param = self._delete_dar_section_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -166,9 +374,78 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_dar_section_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="DAR section id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[DeleteAliases200Response]:
+        """DataAccessSection@destroy
+
+        Delete a system DAR section
+
+        :param id: DAR section id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_dar_section_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -182,7 +459,7 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def call_0df3660c2b63970f84f9beec8a6c334e_without_preload_content(
+    def delete_dar_section_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="DAR section id")],
         _request_timeout: Union[
@@ -226,7 +503,7 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_0df3660c2b63970f84f9beec8a6c334e_serialize(
+        _param = self._delete_dar_section_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -235,9 +512,9 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -246,7 +523,7 @@ class DataAccessSectionApi:
         return response_data.response
 
 
-    def _call_0df3660c2b63970f84f9beec8a6c334e_serialize(
+    def _delete_dar_section_serialize(
         self,
         id,
         _request_auth,
@@ -311,10 +588,9 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def call_22b4daa2ab6ab3638657b9f6eee22316(
+    def fetch_dar_section(
         self,
         id: Annotated[StrictInt, Field(description="DAR section id")],
-        model24bb1d73f780293f012cbc187f5448f3_request: Annotated[Model24bb1d73f780293f012cbc187f5448f3Request, Field(description="DataAccessSection definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -327,15 +603,13 @@ class DataAccessSectionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Fc0e1e343f76b10d80b2332ca24fbfe0200Response:
-        """DataAccessSection@update
+    ) -> FetchDarSection200Response:
+        """DataAccessSection@show
 
-        Update a system DAR section
+        Return a single DAR section
 
         :param id: DAR section id (required)
         :type id: int
-        :param model24bb1d73f780293f012cbc187f5448f3_request: DataAccessSection definition (required)
-        :type model24bb1d73f780293f012cbc187f5448f3_request: Model24bb1d73f780293f012cbc187f5448f3Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -358,9 +632,8 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_22b4daa2ab6ab3638657b9f6eee22316_serialize(
+        _param = self._fetch_dar_section_serialize(
             id=id,
-            model24bb1d73f780293f012cbc187f5448f3_request=model24bb1d73f780293f012cbc187f5448f3_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -368,9 +641,8 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Fc0e1e343f76b10d80b2332ca24fbfe0200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "FetchDarSection200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -384,10 +656,9 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def call_22b4daa2ab6ab3638657b9f6eee22316_with_http_info(
+    def fetch_dar_section_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="DAR section id")],
-        model24bb1d73f780293f012cbc187f5448f3_request: Annotated[Model24bb1d73f780293f012cbc187f5448f3Request, Field(description="DataAccessSection definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -400,15 +671,13 @@ class DataAccessSectionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Fc0e1e343f76b10d80b2332ca24fbfe0200Response]:
-        """DataAccessSection@update
+    ) -> ApiResponse[FetchDarSection200Response]:
+        """DataAccessSection@show
 
-        Update a system DAR section
+        Return a single DAR section
 
         :param id: DAR section id (required)
         :type id: int
-        :param model24bb1d73f780293f012cbc187f5448f3_request: DataAccessSection definition (required)
-        :type model24bb1d73f780293f012cbc187f5448f3_request: Model24bb1d73f780293f012cbc187f5448f3Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -431,9 +700,8 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_22b4daa2ab6ab3638657b9f6eee22316_serialize(
+        _param = self._fetch_dar_section_serialize(
             id=id,
-            model24bb1d73f780293f012cbc187f5448f3_request=model24bb1d73f780293f012cbc187f5448f3_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -441,9 +709,8 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Fc0e1e343f76b10d80b2332ca24fbfe0200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "FetchDarSection200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -457,10 +724,9 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def call_22b4daa2ab6ab3638657b9f6eee22316_without_preload_content(
+    def fetch_dar_section_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="DAR section id")],
-        model24bb1d73f780293f012cbc187f5448f3_request: Annotated[Model24bb1d73f780293f012cbc187f5448f3Request, Field(description="DataAccessSection definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -474,14 +740,12 @@ class DataAccessSectionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """DataAccessSection@update
+        """DataAccessSection@show
 
-        Update a system DAR section
+        Return a single DAR section
 
         :param id: DAR section id (required)
         :type id: int
-        :param model24bb1d73f780293f012cbc187f5448f3_request: DataAccessSection definition (required)
-        :type model24bb1d73f780293f012cbc187f5448f3_request: Model24bb1d73f780293f012cbc187f5448f3Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -504,9 +768,8 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_22b4daa2ab6ab3638657b9f6eee22316_serialize(
+        _param = self._fetch_dar_section_serialize(
             id=id,
-            model24bb1d73f780293f012cbc187f5448f3_request=model24bb1d73f780293f012cbc187f5448f3_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -514,9 +777,8 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Fc0e1e343f76b10d80b2332ca24fbfe0200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "FetchDarSection200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -525,10 +787,9 @@ class DataAccessSectionApi:
         return response_data.response
 
 
-    def _call_22b4daa2ab6ab3638657b9f6eee22316_serialize(
+    def _fetch_dar_section_serialize(
         self,
         id,
-        model24bb1d73f780293f012cbc187f5448f3_request,
         _request_auth,
         _content_type,
         _headers,
@@ -556,8 +817,6 @@ class DataAccessSectionApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model24bb1d73f780293f012cbc187f5448f3_request is not None:
-            _body_params = model24bb1d73f780293f012cbc187f5448f3_request
 
 
         # set the HTTP header `Accept`
@@ -568,19 +827,6 @@ class DataAccessSectionApi:
                 ]
             )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -588,7 +834,7 @@ class DataAccessSectionApi:
         ]
 
         return self.api_client.param_serialize(
-            method='PUT',
+            method='GET',
             resource_path='/api/v1/dar/sections/{id}',
             path_params=_path_params,
             query_params=_query_params,
@@ -606,579 +852,7 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def call_24bb1d73f780293f012cbc187f5448f3(
-        self,
-        model24bb1d73f780293f012cbc187f5448f3_request: Annotated[Model24bb1d73f780293f012cbc187f5448f3Request, Field(description="DataAccessSection definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
-        """DataAccessSection@store
-
-        Creates a new DAR section
-
-        :param model24bb1d73f780293f012cbc187f5448f3_request: DataAccessSection definition (required)
-        :type model24bb1d73f780293f012cbc187f5448f3_request: Model24bb1d73f780293f012cbc187f5448f3Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_24bb1d73f780293f012cbc187f5448f3_serialize(
-            model24bb1d73f780293f012cbc187f5448f3_request=model24bb1d73f780293f012cbc187f5448f3_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_24bb1d73f780293f012cbc187f5448f3_with_http_info(
-        self,
-        model24bb1d73f780293f012cbc187f5448f3_request: Annotated[Model24bb1d73f780293f012cbc187f5448f3Request, Field(description="DataAccessSection definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
-        """DataAccessSection@store
-
-        Creates a new DAR section
-
-        :param model24bb1d73f780293f012cbc187f5448f3_request: DataAccessSection definition (required)
-        :type model24bb1d73f780293f012cbc187f5448f3_request: Model24bb1d73f780293f012cbc187f5448f3Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_24bb1d73f780293f012cbc187f5448f3_serialize(
-            model24bb1d73f780293f012cbc187f5448f3_request=model24bb1d73f780293f012cbc187f5448f3_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_24bb1d73f780293f012cbc187f5448f3_without_preload_content(
-        self,
-        model24bb1d73f780293f012cbc187f5448f3_request: Annotated[Model24bb1d73f780293f012cbc187f5448f3Request, Field(description="DataAccessSection definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """DataAccessSection@store
-
-        Creates a new DAR section
-
-        :param model24bb1d73f780293f012cbc187f5448f3_request: DataAccessSection definition (required)
-        :type model24bb1d73f780293f012cbc187f5448f3_request: Model24bb1d73f780293f012cbc187f5448f3Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_24bb1d73f780293f012cbc187f5448f3_serialize(
-            model24bb1d73f780293f012cbc187f5448f3_request=model24bb1d73f780293f012cbc187f5448f3_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_24bb1d73f780293f012cbc187f5448f3_serialize(
-        self,
-        model24bb1d73f780293f012cbc187f5448f3_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if model24bb1d73f780293f012cbc187f5448f3_request is not None:
-            _body_params = model24bb1d73f780293f012cbc187f5448f3_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/dar/sections',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_2935b32e38ac989b35eab8e0b7552cd3(
-        self,
-        id: Annotated[StrictInt, Field(description="DAR section id")],
-        model2935b32e38ac989b35eab8e0b7552cd3_request: Annotated[Model2935b32e38ac989b35eab8e0b7552cd3Request, Field(description="DataAccessSection definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Fc0e1e343f76b10d80b2332ca24fbfe0200Response:
-        """DataAccessSection@update
-
-        Edit a system DAR section
-
-        :param id: DAR section id (required)
-        :type id: int
-        :param model2935b32e38ac989b35eab8e0b7552cd3_request: DataAccessSection definition (required)
-        :type model2935b32e38ac989b35eab8e0b7552cd3_request: Model2935b32e38ac989b35eab8e0b7552cd3Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_2935b32e38ac989b35eab8e0b7552cd3_serialize(
-            id=id,
-            model2935b32e38ac989b35eab8e0b7552cd3_request=model2935b32e38ac989b35eab8e0b7552cd3_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Fc0e1e343f76b10d80b2332ca24fbfe0200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_2935b32e38ac989b35eab8e0b7552cd3_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="DAR section id")],
-        model2935b32e38ac989b35eab8e0b7552cd3_request: Annotated[Model2935b32e38ac989b35eab8e0b7552cd3Request, Field(description="DataAccessSection definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Fc0e1e343f76b10d80b2332ca24fbfe0200Response]:
-        """DataAccessSection@update
-
-        Edit a system DAR section
-
-        :param id: DAR section id (required)
-        :type id: int
-        :param model2935b32e38ac989b35eab8e0b7552cd3_request: DataAccessSection definition (required)
-        :type model2935b32e38ac989b35eab8e0b7552cd3_request: Model2935b32e38ac989b35eab8e0b7552cd3Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_2935b32e38ac989b35eab8e0b7552cd3_serialize(
-            id=id,
-            model2935b32e38ac989b35eab8e0b7552cd3_request=model2935b32e38ac989b35eab8e0b7552cd3_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Fc0e1e343f76b10d80b2332ca24fbfe0200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_2935b32e38ac989b35eab8e0b7552cd3_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="DAR section id")],
-        model2935b32e38ac989b35eab8e0b7552cd3_request: Annotated[Model2935b32e38ac989b35eab8e0b7552cd3Request, Field(description="DataAccessSection definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """DataAccessSection@update
-
-        Edit a system DAR section
-
-        :param id: DAR section id (required)
-        :type id: int
-        :param model2935b32e38ac989b35eab8e0b7552cd3_request: DataAccessSection definition (required)
-        :type model2935b32e38ac989b35eab8e0b7552cd3_request: Model2935b32e38ac989b35eab8e0b7552cd3Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_2935b32e38ac989b35eab8e0b7552cd3_serialize(
-            id=id,
-            model2935b32e38ac989b35eab8e0b7552cd3_request=model2935b32e38ac989b35eab8e0b7552cd3_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Fc0e1e343f76b10d80b2332ca24fbfe0200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_2935b32e38ac989b35eab8e0b7552cd3_serialize(
-        self,
-        id,
-        model2935b32e38ac989b35eab8e0b7552cd3_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if model2935b32e38ac989b35eab8e0b7552cd3_request is not None:
-            _body_params = model2935b32e38ac989b35eab8e0b7552cd3_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v1/dar/sections/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_94f1c18e47daa32c1346be4a0d0449e4(
+    def fetch_dar_sections(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -1193,7 +867,7 @@ class DataAccessSectionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model94f1c18e47daa32c1346be4a0d0449e4200Response:
+    ) -> FetchDarSections200Response:
         """DataAccessSection@index
 
         List of DAR sections
@@ -1222,7 +896,7 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_94f1c18e47daa32c1346be4a0d0449e4_serialize(
+        _param = self._fetch_dar_sections_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1231,7 +905,7 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model94f1c18e47daa32c1346be4a0d0449e4200Response",
+            '200': "FetchDarSections200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1245,7 +919,7 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def call_94f1c18e47daa32c1346be4a0d0449e4_with_http_info(
+    def fetch_dar_sections_with_http_info(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -1260,7 +934,7 @@ class DataAccessSectionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model94f1c18e47daa32c1346be4a0d0449e4200Response]:
+    ) -> ApiResponse[FetchDarSections200Response]:
         """DataAccessSection@index
 
         List of DAR sections
@@ -1289,7 +963,7 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_94f1c18e47daa32c1346be4a0d0449e4_serialize(
+        _param = self._fetch_dar_sections_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1298,7 +972,7 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model94f1c18e47daa32c1346be4a0d0449e4200Response",
+            '200': "FetchDarSections200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1312,7 +986,7 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def call_94f1c18e47daa32c1346be4a0d0449e4_without_preload_content(
+    def fetch_dar_sections_without_preload_content(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -1356,7 +1030,7 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_94f1c18e47daa32c1346be4a0d0449e4_serialize(
+        _param = self._fetch_dar_sections_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1365,7 +1039,7 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model94f1c18e47daa32c1346be4a0d0449e4200Response",
+            '200': "FetchDarSections200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1374,7 +1048,7 @@ class DataAccessSectionApi:
         return response_data.response
 
 
-    def _call_94f1c18e47daa32c1346be4a0d0449e4_serialize(
+    def _fetch_dar_sections_serialize(
         self,
         per_page,
         _request_auth,
@@ -1441,9 +1115,10 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def fc0e1e343f76b10d80b2332ca24fbfe0(
+    def patch_dar_section(
         self,
         id: Annotated[StrictInt, Field(description="DAR section id")],
+        patch_dar_section_request: Annotated[PatchDarSectionRequest, Field(description="DataAccessSection definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1456,13 +1131,15 @@ class DataAccessSectionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Fc0e1e343f76b10d80b2332ca24fbfe0200Response:
-        """DataAccessSection@show
+    ) -> FetchDarSection200Response:
+        """DataAccessSection@update
 
-        Return a single DAR section
+        Edit a system DAR section
 
         :param id: DAR section id (required)
         :type id: int
+        :param patch_dar_section_request: DataAccessSection definition (required)
+        :type patch_dar_section_request: PatchDarSectionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1485,8 +1162,9 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fc0e1e343f76b10d80b2332ca24fbfe0_serialize(
+        _param = self._patch_dar_section_serialize(
             id=id,
+            patch_dar_section_request=patch_dar_section_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1494,8 +1172,9 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Fc0e1e343f76b10d80b2332ca24fbfe0200Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
+            '200': "FetchDarSection200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1509,9 +1188,10 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def fc0e1e343f76b10d80b2332ca24fbfe0_with_http_info(
+    def patch_dar_section_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="DAR section id")],
+        patch_dar_section_request: Annotated[PatchDarSectionRequest, Field(description="DataAccessSection definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1524,13 +1204,15 @@ class DataAccessSectionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Fc0e1e343f76b10d80b2332ca24fbfe0200Response]:
-        """DataAccessSection@show
+    ) -> ApiResponse[FetchDarSection200Response]:
+        """DataAccessSection@update
 
-        Return a single DAR section
+        Edit a system DAR section
 
         :param id: DAR section id (required)
         :type id: int
+        :param patch_dar_section_request: DataAccessSection definition (required)
+        :type patch_dar_section_request: PatchDarSectionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1553,8 +1235,9 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fc0e1e343f76b10d80b2332ca24fbfe0_serialize(
+        _param = self._patch_dar_section_serialize(
             id=id,
+            patch_dar_section_request=patch_dar_section_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1562,8 +1245,9 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Fc0e1e343f76b10d80b2332ca24fbfe0200Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
+            '200': "FetchDarSection200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1577,9 +1261,10 @@ class DataAccessSectionApi:
 
 
     @validate_call
-    def fc0e1e343f76b10d80b2332ca24fbfe0_without_preload_content(
+    def patch_dar_section_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="DAR section id")],
+        patch_dar_section_request: Annotated[PatchDarSectionRequest, Field(description="DataAccessSection definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1593,12 +1278,14 @@ class DataAccessSectionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """DataAccessSection@show
+        """DataAccessSection@update
 
-        Return a single DAR section
+        Edit a system DAR section
 
         :param id: DAR section id (required)
         :type id: int
+        :param patch_dar_section_request: DataAccessSection definition (required)
+        :type patch_dar_section_request: PatchDarSectionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1621,8 +1308,9 @@ class DataAccessSectionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fc0e1e343f76b10d80b2332ca24fbfe0_serialize(
+        _param = self._patch_dar_section_serialize(
             id=id,
+            patch_dar_section_request=patch_dar_section_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1630,8 +1318,9 @@ class DataAccessSectionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Fc0e1e343f76b10d80b2332ca24fbfe0200Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
+            '200': "FetchDarSection200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1640,9 +1329,10 @@ class DataAccessSectionApi:
         return response_data.response
 
 
-    def _fc0e1e343f76b10d80b2332ca24fbfe0_serialize(
+    def _patch_dar_section_serialize(
         self,
         id,
+        patch_dar_section_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1670,6 +1360,8 @@ class DataAccessSectionApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if patch_dar_section_request is not None:
+            _body_params = patch_dar_section_request
 
 
         # set the HTTP header `Accept`
@@ -1680,6 +1372,19 @@ class DataAccessSectionApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1687,7 +1392,302 @@ class DataAccessSectionApi:
         ]
 
         return self.api_client.param_serialize(
-            method='GET',
+            method='PATCH',
+            resource_path='/api/v1/dar/sections/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_dar_section(
+        self,
+        id: Annotated[StrictInt, Field(description="DAR section id")],
+        create_dar_section_request: Annotated[CreateDarSectionRequest, Field(description="DataAccessSection definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FetchDarSection200Response:
+        """DataAccessSection@update
+
+        Update a system DAR section
+
+        :param id: DAR section id (required)
+        :type id: int
+        :param create_dar_section_request: DataAccessSection definition (required)
+        :type create_dar_section_request: CreateDarSectionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_dar_section_serialize(
+            id=id,
+            create_dar_section_request=create_dar_section_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "FetchDarSection200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_dar_section_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="DAR section id")],
+        create_dar_section_request: Annotated[CreateDarSectionRequest, Field(description="DataAccessSection definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchDarSection200Response]:
+        """DataAccessSection@update
+
+        Update a system DAR section
+
+        :param id: DAR section id (required)
+        :type id: int
+        :param create_dar_section_request: DataAccessSection definition (required)
+        :type create_dar_section_request: CreateDarSectionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_dar_section_serialize(
+            id=id,
+            create_dar_section_request=create_dar_section_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "FetchDarSection200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_dar_section_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="DAR section id")],
+        create_dar_section_request: Annotated[CreateDarSectionRequest, Field(description="DataAccessSection definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """DataAccessSection@update
+
+        Update a system DAR section
+
+        :param id: DAR section id (required)
+        :type id: int
+        :param create_dar_section_request: DataAccessSection definition (required)
+        :type create_dar_section_request: CreateDarSectionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_dar_section_serialize(
+            id=id,
+            create_dar_section_request=create_dar_section_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "FetchDarSection200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_dar_section_serialize(
+        self,
+        id,
+        create_dar_section_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if create_dar_section_request is not None:
+            _body_params = create_dar_section_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
             resource_path='/api/v1/dar/sections/{id}',
             path_params=_path_params,
             query_params=_query_params,

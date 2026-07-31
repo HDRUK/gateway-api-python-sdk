@@ -26,83 +26,6 @@ class TestCollectionsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_a18eed83ffe8ac895df3e1efa5ffb421(self) -> None:
-        """Test case for a18eed83ffe8ac895df3e1efa5ffb421
-
-        Update a collection
-        """
-        pass
-
-    def test_b2e32406fe513dd0c0747a0864b5ed28(self) -> None:
-        """Test case for b2e32406fe513dd0c0747a0864b5ed28
-
-        Delete a collection
-        """
-        pass
-
-    def test_call_22bf9932e93726b8338c13e489c7d96e(self) -> None:
-        """Test case for call_22bf9932e93726b8338c13e489c7d96e
-
-        Update a collection
-        """
-        pass
-
-    def test_call_2e589ea17282e3818437328b1a6d2c45(self) -> None:
-        """Test case for call_2e589ea17282e3818437328b1a6d2c45
-
-        Edit a collection
-        """
-        pass
-
-    def test_call_63175dd3a255646e0428a630af683e21(self) -> None:
-        """Test case for call_63175dd3a255646e0428a630af683e21
-
-        Edit a collection
-        """
-        pass
-
-    def test_call_6907582348e596c660cc65263dc3a4fc(self) -> None:
-        """Test case for call_6907582348e596c660cc65263dc3a4fc
-
-        Delete a collection
-        """
-        pass
-
-    def test_call_75c378b5764d9d73e14fe2d65c654910(self) -> None:
-        """Test case for call_75c378b5764d9d73e14fe2d65c654910
-
-        Edit a collection
-        """
-        pass
-
-    def test_call_78c554f5fb0f01c8d788a5789fd0c35b(self) -> None:
-        """Test case for call_78c554f5fb0f01c8d788a5789fd0c35b
-
-        Delete a collection
-        """
-        pass
-
-    def test_call_8abb5928cecc676521f3e3d8eea0c49c(self) -> None:
-        """Test case for call_8abb5928cecc676521f3e3d8eea0c49c
-
-        Update a collection
-        """
-        pass
-
-    def test_call_94ae4ab159160f6240a4bc00d2e6fe5f(self) -> None:
-        """Test case for call_94ae4ab159160f6240a4bc00d2e6fe5f
-
-        Update a collection
-        """
-        pass
-
-    def test_call_9c525a2aaf8e8a81cbcdf1a3033bb1bb(self) -> None:
-        """Test case for call_9c525a2aaf8e8a81cbcdf1a3033bb1bb
-
-        Delete a collection
-        """
-        pass
-
     def test_count_team_unique_fields_collection_v2(self) -> None:
         """Test case for count_team_unique_fields_collection_v2
 
@@ -159,8 +82,57 @@ class TestCollectionsApi(unittest.TestCase):
         """
         pass
 
-    def test_d183a285f65bdc0e6341ed79b3a63670(self) -> None:
-        """Test case for d183a285f65bdc0e6341ed79b3a63670
+    def test_delete_collections_v2(self) -> None:
+        """Test case for delete_collections_v2
+
+        Delete a collection
+        """
+        pass
+
+    def test_delete_team_collections(self) -> None:
+        """Test case for delete_team_collections
+
+        Delete a collection
+        """
+        pass
+
+    def test_delete_team_collections_v2(self) -> None:
+        """Test case for delete_team_collections_v2
+
+        Delete a collection
+        """
+        pass
+
+    def test_delete_user_collections_v2(self) -> None:
+        """Test case for delete_user_collections_v2
+
+        Delete a collection
+        """
+        pass
+
+    def test_edit_collections_v2(self) -> None:
+        """Test case for edit_collections_v2
+
+        Edit a collection
+        """
+        pass
+
+    def test_edit_team_collections(self) -> None:
+        """Test case for edit_team_collections
+
+        Edit a collection
+        """
+        pass
+
+    def test_edit_team_collections_v2(self) -> None:
+        """Test case for edit_team_collections_v2
+
+        Edit a collection
+        """
+        pass
+
+    def test_edit_user_collections_v2(self) -> None:
+        """Test case for edit_user_collections_v2
 
         Edit a collection
         """
@@ -247,6 +219,34 @@ class TestCollectionsApi(unittest.TestCase):
         """Test case for fetch_user_draft_collections_v2
 
         UserCollectionController@indexDraft
+        """
+        pass
+
+    def test_update_collections_v2(self) -> None:
+        """Test case for update_collections_v2
+
+        Update a collection
+        """
+        pass
+
+    def test_update_team_collections(self) -> None:
+        """Test case for update_team_collections
+
+        Update a collection
+        """
+        pass
+
+    def test_update_team_collections_v2(self) -> None:
+        """Test case for update_team_collections_v2
+
+        Update a collection
+        """
+        pass
+
+    def test_update_user_collections_v2(self) -> None:
+        """Test case for update_user_collections_v2
+
+        Update a collection
         """
         pass
 

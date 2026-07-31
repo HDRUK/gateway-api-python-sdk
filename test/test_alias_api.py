@@ -26,45 +26,45 @@ class TestAliasApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_alias_controllerindex(self) -> None:
-        """Test case for alias_controllerindex
-
-        List of aliases
-        """
-        pass
-
-    def test_alias_controllershow(self) -> None:
-        """Test case for alias_controllershow
-
-        Return a single alias
-        """
-        pass
-
-    def test_b801ec1af9f360216286166894719a1e(self) -> None:
-        """Test case for b801ec1af9f360216286166894719a1e
-
-        AliasController@update
-        """
-        pass
-
-    def test_c29b5b3424f7317b69b4bda048ccfafb(self) -> None:
-        """Test case for c29b5b3424f7317b69b4bda048ccfafb
-
-        AliasController@destroy
-        """
-        pass
-
-    def test_call_079b2d545c7f4705016912f5de1bf444(self) -> None:
-        """Test case for call_079b2d545c7f4705016912f5de1bf444
+    def test_create_aliases(self) -> None:
+        """Test case for create_aliases
 
         AliasController@store
         """
         pass
 
-    def test_e93f53867884432d9a6b592066431af3(self) -> None:
-        """Test case for e93f53867884432d9a6b592066431af3
+    def test_delete_aliases(self) -> None:
+        """Test case for delete_aliases
+
+        AliasController@destroy
+        """
+        pass
+
+    def test_edit_aliases(self) -> None:
+        """Test case for edit_aliases
 
         AliasController@edit
+        """
+        pass
+
+    def test_fetch_aliases(self) -> None:
+        """Test case for fetch_aliases
+
+        Return a single alias
+        """
+        pass
+
+    def test_fetch_all_aliases(self) -> None:
+        """Test case for fetch_all_aliases
+
+        List of aliases
+        """
+        pass
+
+    def test_update_aliases(self) -> None:
+        """Test case for update_aliases
+
+        AliasController@update
         """
         pass
 

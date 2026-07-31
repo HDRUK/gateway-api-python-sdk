@@ -17,13 +17,13 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
 from typing_extensions import Annotated
-from gateway_api_sdk.models.a5ca86d5f19ecac396cb830333f307da_request import A5ca86d5f19ecac396cb830333f307daRequest
-from gateway_api_sdk.models.b4f86f6c4f52e080b246d560038cdc9b200_response import B4f86f6c4f52e080b246d560038cdc9b200Response
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.cac3bdde44f0be0512f7d05c0a6064e4200_response import Cac3bdde44f0be0512f7d05c0a6064e4200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.model1fd84d2c66035574da4902f416cbd96a_request import Model1fd84d2c66035574da4902f416cbd96aRequest
-from gateway_api_sdk.models.model22581e4d73af25a9036c6610c7e8fc72200_response import Model22581e4d73af25a9036c6610c7e8fc72200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_notifications_request import CreateNotificationsRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.edit_notifications_request import EditNotificationsRequest
+from gateway_api_sdk.models.fetch_all_notifications200_response import FetchAllNotifications200Response
+from gateway_api_sdk.models.fetch_notifications200_response import FetchNotifications200Response
+from gateway_api_sdk.models.update_notifications200_response import UpdateNotifications200Response
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -44,10 +44,9 @@ class NotificationApi:
 
 
     @validate_call
-    def a5ca86d5f19ecac396cb830333f307da(
+    def create_notifications(
         self,
-        id: Annotated[StrictInt, Field(description="notification id")],
-        a5ca86d5f19ecac396cb830333f307da_request: Annotated[A5ca86d5f19ecac396cb830333f307daRequest, Field(description="Notification definition")],
+        create_notifications_request: Annotated[CreateNotificationsRequest, Field(description="Notification definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -60,848 +59,13 @@ class NotificationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> B4f86f6c4f52e080b246d560038cdc9b200Response:
-        """Notification@edit
-
-        Edit a notification
-
-        :param id: notification id (required)
-        :type id: int
-        :param a5ca86d5f19ecac396cb830333f307da_request: Notification definition (required)
-        :type a5ca86d5f19ecac396cb830333f307da_request: A5ca86d5f19ecac396cb830333f307daRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._a5ca86d5f19ecac396cb830333f307da_serialize(
-            id=id,
-            a5ca86d5f19ecac396cb830333f307da_request=a5ca86d5f19ecac396cb830333f307da_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "B4f86f6c4f52e080b246d560038cdc9b200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def a5ca86d5f19ecac396cb830333f307da_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="notification id")],
-        a5ca86d5f19ecac396cb830333f307da_request: Annotated[A5ca86d5f19ecac396cb830333f307daRequest, Field(description="Notification definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[B4f86f6c4f52e080b246d560038cdc9b200Response]:
-        """Notification@edit
-
-        Edit a notification
-
-        :param id: notification id (required)
-        :type id: int
-        :param a5ca86d5f19ecac396cb830333f307da_request: Notification definition (required)
-        :type a5ca86d5f19ecac396cb830333f307da_request: A5ca86d5f19ecac396cb830333f307daRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._a5ca86d5f19ecac396cb830333f307da_serialize(
-            id=id,
-            a5ca86d5f19ecac396cb830333f307da_request=a5ca86d5f19ecac396cb830333f307da_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "B4f86f6c4f52e080b246d560038cdc9b200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def a5ca86d5f19ecac396cb830333f307da_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="notification id")],
-        a5ca86d5f19ecac396cb830333f307da_request: Annotated[A5ca86d5f19ecac396cb830333f307daRequest, Field(description="Notification definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Notification@edit
-
-        Edit a notification
-
-        :param id: notification id (required)
-        :type id: int
-        :param a5ca86d5f19ecac396cb830333f307da_request: Notification definition (required)
-        :type a5ca86d5f19ecac396cb830333f307da_request: A5ca86d5f19ecac396cb830333f307daRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._a5ca86d5f19ecac396cb830333f307da_serialize(
-            id=id,
-            a5ca86d5f19ecac396cb830333f307da_request=a5ca86d5f19ecac396cb830333f307da_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "B4f86f6c4f52e080b246d560038cdc9b200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _a5ca86d5f19ecac396cb830333f307da_serialize(
-        self,
-        id,
-        a5ca86d5f19ecac396cb830333f307da_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if a5ca86d5f19ecac396cb830333f307da_request is not None:
-            _body_params = a5ca86d5f19ecac396cb830333f307da_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v1/notifications/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def b4f86f6c4f52e080b246d560038cdc9b(
-        self,
-        id: Annotated[StrictInt, Field(description="notification id")],
-        model1fd84d2c66035574da4902f416cbd96a_request: Annotated[Model1fd84d2c66035574da4902f416cbd96aRequest, Field(description="Notification definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> B4f86f6c4f52e080b246d560038cdc9b200Response:
-        """Notification@update
-
-        Update a notification
-
-        :param id: notification id (required)
-        :type id: int
-        :param model1fd84d2c66035574da4902f416cbd96a_request: Notification definition (required)
-        :type model1fd84d2c66035574da4902f416cbd96a_request: Model1fd84d2c66035574da4902f416cbd96aRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._b4f86f6c4f52e080b246d560038cdc9b_serialize(
-            id=id,
-            model1fd84d2c66035574da4902f416cbd96a_request=model1fd84d2c66035574da4902f416cbd96a_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "B4f86f6c4f52e080b246d560038cdc9b200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def b4f86f6c4f52e080b246d560038cdc9b_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="notification id")],
-        model1fd84d2c66035574da4902f416cbd96a_request: Annotated[Model1fd84d2c66035574da4902f416cbd96aRequest, Field(description="Notification definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[B4f86f6c4f52e080b246d560038cdc9b200Response]:
-        """Notification@update
-
-        Update a notification
-
-        :param id: notification id (required)
-        :type id: int
-        :param model1fd84d2c66035574da4902f416cbd96a_request: Notification definition (required)
-        :type model1fd84d2c66035574da4902f416cbd96a_request: Model1fd84d2c66035574da4902f416cbd96aRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._b4f86f6c4f52e080b246d560038cdc9b_serialize(
-            id=id,
-            model1fd84d2c66035574da4902f416cbd96a_request=model1fd84d2c66035574da4902f416cbd96a_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "B4f86f6c4f52e080b246d560038cdc9b200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def b4f86f6c4f52e080b246d560038cdc9b_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="notification id")],
-        model1fd84d2c66035574da4902f416cbd96a_request: Annotated[Model1fd84d2c66035574da4902f416cbd96aRequest, Field(description="Notification definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Notification@update
-
-        Update a notification
-
-        :param id: notification id (required)
-        :type id: int
-        :param model1fd84d2c66035574da4902f416cbd96a_request: Notification definition (required)
-        :type model1fd84d2c66035574da4902f416cbd96a_request: Model1fd84d2c66035574da4902f416cbd96aRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._b4f86f6c4f52e080b246d560038cdc9b_serialize(
-            id=id,
-            model1fd84d2c66035574da4902f416cbd96a_request=model1fd84d2c66035574da4902f416cbd96a_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "B4f86f6c4f52e080b246d560038cdc9b200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _b4f86f6c4f52e080b246d560038cdc9b_serialize(
-        self,
-        id,
-        model1fd84d2c66035574da4902f416cbd96a_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if model1fd84d2c66035574da4902f416cbd96a_request is not None:
-            _body_params = model1fd84d2c66035574da4902f416cbd96a_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v1/notifications/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def cac3bdde44f0be0512f7d05c0a6064e4(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Cac3bdde44f0be0512f7d05c0a6064e4200Response:
-        """Notification@index
-
-        Returns a list of notifications enabled on the system
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._cac3bdde44f0be0512f7d05c0a6064e4_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Cac3bdde44f0be0512f7d05c0a6064e4200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def cac3bdde44f0be0512f7d05c0a6064e4_with_http_info(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Cac3bdde44f0be0512f7d05c0a6064e4200Response]:
-        """Notification@index
-
-        Returns a list of notifications enabled on the system
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._cac3bdde44f0be0512f7d05c0a6064e4_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Cac3bdde44f0be0512f7d05c0a6064e4200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def cac3bdde44f0be0512f7d05c0a6064e4_without_preload_content(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Notification@index
-
-        Returns a list of notifications enabled on the system
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._cac3bdde44f0be0512f7d05c0a6064e4_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Cac3bdde44f0be0512f7d05c0a6064e4200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _cac3bdde44f0be0512f7d05c0a6064e4_serialize(
-        self,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/notifications',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_1fd84d2c66035574da4902f416cbd96a(
-        self,
-        model1fd84d2c66035574da4902f416cbd96a_request: Annotated[Model1fd84d2c66035574da4902f416cbd96aRequest, Field(description="Notification definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """Notification@store
 
         Creates a new notification
 
-        :param model1fd84d2c66035574da4902f416cbd96a_request: Notification definition (required)
-        :type model1fd84d2c66035574da4902f416cbd96a_request: Model1fd84d2c66035574da4902f416cbd96aRequest
+        :param create_notifications_request: Notification definition (required)
+        :type create_notifications_request: CreateNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -924,8 +88,8 @@ class NotificationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_1fd84d2c66035574da4902f416cbd96a_serialize(
-            model1fd84d2c66035574da4902f416cbd96a_request=model1fd84d2c66035574da4902f416cbd96a_request,
+        _param = self._create_notifications_serialize(
+            create_notifications_request=create_notifications_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -933,8 +97,8 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -948,9 +112,9 @@ class NotificationApi:
 
 
     @validate_call
-    def call_1fd84d2c66035574da4902f416cbd96a_with_http_info(
+    def create_notifications_with_http_info(
         self,
-        model1fd84d2c66035574da4902f416cbd96a_request: Annotated[Model1fd84d2c66035574da4902f416cbd96aRequest, Field(description="Notification definition")],
+        create_notifications_request: Annotated[CreateNotificationsRequest, Field(description="Notification definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -963,13 +127,13 @@ class NotificationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """Notification@store
 
         Creates a new notification
 
-        :param model1fd84d2c66035574da4902f416cbd96a_request: Notification definition (required)
-        :type model1fd84d2c66035574da4902f416cbd96a_request: Model1fd84d2c66035574da4902f416cbd96aRequest
+        :param create_notifications_request: Notification definition (required)
+        :type create_notifications_request: CreateNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -992,8 +156,8 @@ class NotificationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_1fd84d2c66035574da4902f416cbd96a_serialize(
-            model1fd84d2c66035574da4902f416cbd96a_request=model1fd84d2c66035574da4902f416cbd96a_request,
+        _param = self._create_notifications_serialize(
+            create_notifications_request=create_notifications_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1001,8 +165,8 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1016,9 +180,9 @@ class NotificationApi:
 
 
     @validate_call
-    def call_1fd84d2c66035574da4902f416cbd96a_without_preload_content(
+    def create_notifications_without_preload_content(
         self,
-        model1fd84d2c66035574da4902f416cbd96a_request: Annotated[Model1fd84d2c66035574da4902f416cbd96aRequest, Field(description="Notification definition")],
+        create_notifications_request: Annotated[CreateNotificationsRequest, Field(description="Notification definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1036,8 +200,8 @@ class NotificationApi:
 
         Creates a new notification
 
-        :param model1fd84d2c66035574da4902f416cbd96a_request: Notification definition (required)
-        :type model1fd84d2c66035574da4902f416cbd96a_request: Model1fd84d2c66035574da4902f416cbd96aRequest
+        :param create_notifications_request: Notification definition (required)
+        :type create_notifications_request: CreateNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1060,8 +224,8 @@ class NotificationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_1fd84d2c66035574da4902f416cbd96a_serialize(
-            model1fd84d2c66035574da4902f416cbd96a_request=model1fd84d2c66035574da4902f416cbd96a_request,
+        _param = self._create_notifications_serialize(
+            create_notifications_request=create_notifications_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1069,8 +233,8 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1079,9 +243,9 @@ class NotificationApi:
         return response_data.response
 
 
-    def _call_1fd84d2c66035574da4902f416cbd96a_serialize(
+    def _create_notifications_serialize(
         self,
-        model1fd84d2c66035574da4902f416cbd96a_request,
+        create_notifications_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1107,8 +271,8 @@ class NotificationApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model1fd84d2c66035574da4902f416cbd96a_request is not None:
-            _body_params = model1fd84d2c66035574da4902f416cbd96a_request
+        if create_notifications_request is not None:
+            _body_params = create_notifications_request
 
 
         # set the HTTP header `Accept`
@@ -1157,7 +321,7 @@ class NotificationApi:
 
 
     @validate_call
-    def call_22581e4d73af25a9036c6610c7e8fc72(
+    def delete_notifications(
         self,
         id: Annotated[StrictInt, Field(description="notification id")],
         _request_timeout: Union[
@@ -1172,10 +336,10 @@ class NotificationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model22581e4d73af25a9036c6610c7e8fc72200Response:
-        """Notification@show
+    ) -> DeleteAliases200Response:
+        """Notification@destroy
 
-        Return a single notification
+        Delete a notification
 
         :param id: notification id (required)
         :type id: int
@@ -1201,7 +365,7 @@ class NotificationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_22581e4d73af25a9036c6610c7e8fc72_serialize(
+        _param = self._delete_notifications_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1210,8 +374,9 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model22581e4d73af25a9036c6610c7e8fc72200Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1225,7 +390,7 @@ class NotificationApi:
 
 
     @validate_call
-    def call_22581e4d73af25a9036c6610c7e8fc72_with_http_info(
+    def delete_notifications_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="notification id")],
         _request_timeout: Union[
@@ -1240,7 +405,746 @@ class NotificationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model22581e4d73af25a9036c6610c7e8fc72200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
+        """Notification@destroy
+
+        Delete a notification
+
+        :param id: notification id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_notifications_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_notifications_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="notification id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Notification@destroy
+
+        Delete a notification
+
+        :param id: notification id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_notifications_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_notifications_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/api/v1/notifications/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def edit_notifications(
+        self,
+        id: Annotated[StrictInt, Field(description="notification id")],
+        edit_notifications_request: Annotated[EditNotificationsRequest, Field(description="Notification definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateNotifications200Response:
+        """Notification@edit
+
+        Edit a notification
+
+        :param id: notification id (required)
+        :type id: int
+        :param edit_notifications_request: Notification definition (required)
+        :type edit_notifications_request: EditNotificationsRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._edit_notifications_serialize(
+            id=id,
+            edit_notifications_request=edit_notifications_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateNotifications200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def edit_notifications_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="notification id")],
+        edit_notifications_request: Annotated[EditNotificationsRequest, Field(description="Notification definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateNotifications200Response]:
+        """Notification@edit
+
+        Edit a notification
+
+        :param id: notification id (required)
+        :type id: int
+        :param edit_notifications_request: Notification definition (required)
+        :type edit_notifications_request: EditNotificationsRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._edit_notifications_serialize(
+            id=id,
+            edit_notifications_request=edit_notifications_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateNotifications200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def edit_notifications_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="notification id")],
+        edit_notifications_request: Annotated[EditNotificationsRequest, Field(description="Notification definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Notification@edit
+
+        Edit a notification
+
+        :param id: notification id (required)
+        :type id: int
+        :param edit_notifications_request: Notification definition (required)
+        :type edit_notifications_request: EditNotificationsRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._edit_notifications_serialize(
+            id=id,
+            edit_notifications_request=edit_notifications_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateNotifications200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _edit_notifications_serialize(
+        self,
+        id,
+        edit_notifications_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if edit_notifications_request is not None:
+            _body_params = edit_notifications_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PATCH',
+            resource_path='/api/v1/notifications/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_all_notifications(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FetchAllNotifications200Response:
+        """Notification@index
+
+        Returns a list of notifications enabled on the system
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_all_notifications_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchAllNotifications200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_all_notifications_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchAllNotifications200Response]:
+        """Notification@index
+
+        Returns a list of notifications enabled on the system
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_all_notifications_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchAllNotifications200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_all_notifications_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Notification@index
+
+        Returns a list of notifications enabled on the system
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_all_notifications_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchAllNotifications200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_all_notifications_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/notifications',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_notifications(
+        self,
+        id: Annotated[StrictInt, Field(description="notification id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FetchNotifications200Response:
         """Notification@show
 
         Return a single notification
@@ -1269,7 +1173,7 @@ class NotificationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_22581e4d73af25a9036c6610c7e8fc72_serialize(
+        _param = self._fetch_notifications_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1278,8 +1182,76 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model22581e4d73af25a9036c6610c7e8fc72200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchNotifications200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_notifications_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="notification id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchNotifications200Response]:
+        """Notification@show
+
+        Return a single notification
+
+        :param id: notification id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_notifications_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchNotifications200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1293,7 +1265,7 @@ class NotificationApi:
 
 
     @validate_call
-    def call_22581e4d73af25a9036c6610c7e8fc72_without_preload_content(
+    def fetch_notifications_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="notification id")],
         _request_timeout: Union[
@@ -1337,7 +1309,7 @@ class NotificationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_22581e4d73af25a9036c6610c7e8fc72_serialize(
+        _param = self._fetch_notifications_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1346,8 +1318,8 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model22581e4d73af25a9036c6610c7e8fc72200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchNotifications200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1356,7 +1328,7 @@ class NotificationApi:
         return response_data.response
 
 
-    def _call_22581e4d73af25a9036c6610c7e8fc72_serialize(
+    def _fetch_notifications_serialize(
         self,
         id,
         _request_auth,
@@ -1421,9 +1393,10 @@ class NotificationApi:
 
 
     @validate_call
-    def call_3f8fe68ea04e79015d8aad5912cadbc1(
+    def update_notifications(
         self,
         id: Annotated[StrictInt, Field(description="notification id")],
+        create_notifications_request: Annotated[CreateNotificationsRequest, Field(description="Notification definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1436,13 +1409,15 @@ class NotificationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
-        """Notification@destroy
+    ) -> UpdateNotifications200Response:
+        """Notification@update
 
-        Delete a notification
+        Update a notification
 
         :param id: notification id (required)
         :type id: int
+        :param create_notifications_request: Notification definition (required)
+        :type create_notifications_request: CreateNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1465,8 +1440,9 @@ class NotificationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3f8fe68ea04e79015d8aad5912cadbc1_serialize(
+        _param = self._update_notifications_serialize(
             id=id,
+            create_notifications_request=create_notifications_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1474,9 +1450,9 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateNotifications200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1490,9 +1466,10 @@ class NotificationApi:
 
 
     @validate_call
-    def call_3f8fe68ea04e79015d8aad5912cadbc1_with_http_info(
+    def update_notifications_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="notification id")],
+        create_notifications_request: Annotated[CreateNotificationsRequest, Field(description="Notification definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1505,13 +1482,15 @@ class NotificationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
-        """Notification@destroy
+    ) -> ApiResponse[UpdateNotifications200Response]:
+        """Notification@update
 
-        Delete a notification
+        Update a notification
 
         :param id: notification id (required)
         :type id: int
+        :param create_notifications_request: Notification definition (required)
+        :type create_notifications_request: CreateNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1534,8 +1513,9 @@ class NotificationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3f8fe68ea04e79015d8aad5912cadbc1_serialize(
+        _param = self._update_notifications_serialize(
             id=id,
+            create_notifications_request=create_notifications_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1543,9 +1523,9 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateNotifications200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1559,9 +1539,10 @@ class NotificationApi:
 
 
     @validate_call
-    def call_3f8fe68ea04e79015d8aad5912cadbc1_without_preload_content(
+    def update_notifications_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="notification id")],
+        create_notifications_request: Annotated[CreateNotificationsRequest, Field(description="Notification definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1575,12 +1556,14 @@ class NotificationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Notification@destroy
+        """Notification@update
 
-        Delete a notification
+        Update a notification
 
         :param id: notification id (required)
         :type id: int
+        :param create_notifications_request: Notification definition (required)
+        :type create_notifications_request: CreateNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1603,8 +1586,9 @@ class NotificationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3f8fe68ea04e79015d8aad5912cadbc1_serialize(
+        _param = self._update_notifications_serialize(
             id=id,
+            create_notifications_request=create_notifications_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1612,9 +1596,9 @@ class NotificationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateNotifications200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1623,9 +1607,10 @@ class NotificationApi:
         return response_data.response
 
 
-    def _call_3f8fe68ea04e79015d8aad5912cadbc1_serialize(
+    def _update_notifications_serialize(
         self,
         id,
+        create_notifications_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1653,6 +1638,8 @@ class NotificationApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if create_notifications_request is not None:
+            _body_params = create_notifications_request
 
 
         # set the HTTP header `Accept`
@@ -1663,6 +1650,19 @@ class NotificationApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1670,7 +1670,7 @@ class NotificationApi:
         ]
 
         return self.api_client.param_serialize(
-            method='DELETE',
+            method='PUT',
             resource_path='/api/v1/notifications/{id}',
             path_params=_path_params,
             query_params=_query_params,

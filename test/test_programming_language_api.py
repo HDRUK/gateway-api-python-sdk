@@ -26,43 +26,43 @@ class TestProgrammingLanguageApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_ac545f07640e752592440f34e55b1ed3(self) -> None:
-        """Test case for ac545f07640e752592440f34e55b1ed3
+    def test_create_programming_languages(self) -> None:
+        """Test case for create_programming_languages
 
         ProgrammingLanguage@store
         """
         pass
 
-    def test_ac75502b12db43904eeea0400eb245d8(self) -> None:
-        """Test case for ac75502b12db43904eeea0400eb245d8
-
-        ProgrammingLanguage@index
-        """
-        pass
-
-    def test_b50ca1696491e4e1ff3cc267fa7e71ee(self) -> None:
-        """Test case for b50ca1696491e4e1ff3cc267fa7e71ee
-
-        ProgrammingLanguage@show
-        """
-        pass
-
-    def test_call_00f9ccd45119f11eb3044b4d61f9e79d(self) -> None:
-        """Test case for call_00f9ccd45119f11eb3044b4d61f9e79d
+    def test_delete_programming_languages(self) -> None:
+        """Test case for delete_programming_languages
 
         ProgrammingLanguage@destroy
         """
         pass
 
-    def test_call_9a975e45459cd2614334b378875d3108(self) -> None:
-        """Test case for call_9a975e45459cd2614334b378875d3108
+    def test_edit_programming_languages(self) -> None:
+        """Test case for edit_programming_languages
 
         ProgrammingLanguage@update
         """
         pass
 
-    def test_f65686cb0c089366a7c7f67bf528c957(self) -> None:
-        """Test case for f65686cb0c089366a7c7f67bf528c957
+    def test_fetch_all_programming_languages(self) -> None:
+        """Test case for fetch_all_programming_languages
+
+        ProgrammingLanguage@index
+        """
+        pass
+
+    def test_fetch_programming_languages(self) -> None:
+        """Test case for fetch_programming_languages
+
+        ProgrammingLanguage@show
+        """
+        pass
+
+    def test_update_programming_languages(self) -> None:
+        """Test case for update_programming_languages
 
         ProgrammingLanguage@update
         """

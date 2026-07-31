@@ -26,31 +26,10 @@ class TestTeamDataAccessApplicationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_0dabe0dfdf4eebd0c76560fd691c6472(self) -> None:
-        """Test case for call_0dabe0dfdf4eebd0c76560fd691c6472
-
-        TeamDataAccessApplicationController@showHeader
-        """
-        pass
-
-    def test_call_0ff8ad69b213abf8d671b3695d0b69b5(self) -> None:
-        """Test case for call_0ff8ad69b213abf8d671b3695d0b69b5
-
-        TeamDataAccessApplicationController@index
-        """
-        pass
-
-    def test_call_3f8472e47cdd8aaabb42e1065a7a0afb(self) -> None:
-        """Test case for call_3f8472e47cdd8aaabb42e1065a7a0afb
+    def test_count_team_dar_applications(self) -> None:
+        """Test case for count_team_dar_applications
 
         TeamDataAccessApplicationController@allCounts
-        """
-        pass
-
-    def test_call_4e4d590ec8943163168e4fc34bd166a1(self) -> None:
-        """Test case for call_4e4d590ec8943163168e4fc34bd166a1
-
-        TeamDataAccessApplicationController@show
         """
         pass
 
@@ -58,6 +37,27 @@ class TestTeamDataAccessApplicationApi(unittest.TestCase):
         """Test case for count_unique_fields_dar_applications
 
         TeamDataAccessApplicationController@count
+        """
+        pass
+
+    def test_fetch_team_dar_application(self) -> None:
+        """Test case for fetch_team_dar_application
+
+        TeamDataAccessApplicationController@show
+        """
+        pass
+
+    def test_fetch_team_dar_application_header(self) -> None:
+        """Test case for fetch_team_dar_application_header
+
+        TeamDataAccessApplicationController@showHeader
+        """
+        pass
+
+    def test_fetch_team_dar_applications(self) -> None:
+        """Test case for fetch_team_dar_applications
+
+        TeamDataAccessApplicationController@index
         """
         pass
 

@@ -18,9 +18,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
-from gateway_api_sdk.models.model234386e06c6b29d5aaca2ed8f89cb9aa200_response import Model234386e06c6b29d5aaca2ed8f89cb9aa200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.fetch_dar_templates200_response import FetchDarTemplates200Response
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -41,7 +41,7 @@ class TeamDataAccessTemplateApi:
 
 
     @validate_call
-    def call_471df4f14ed1f13bf3a66f1a8b70e261(
+    def delete_team_dar_template_file(
         self,
         team_id: Annotated[StrictInt, Field(description="Team id")],
         id: Annotated[StrictInt, Field(description="DAR template id")],
@@ -58,7 +58,7 @@ class TeamDataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """TeamDataAccessTemplateController@destroyFile
 
         Delete a file associated with a DAR template
@@ -91,7 +91,7 @@ class TeamDataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_471df4f14ed1f13bf3a66f1a8b70e261_serialize(
+        _param = self._delete_team_dar_template_file_serialize(
             team_id=team_id,
             id=id,
             file_id=file_id,
@@ -103,8 +103,8 @@ class TeamDataAccessTemplateApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': "CreateTeamCollections401Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -118,7 +118,7 @@ class TeamDataAccessTemplateApi:
 
 
     @validate_call
-    def call_471df4f14ed1f13bf3a66f1a8b70e261_with_http_info(
+    def delete_team_dar_template_file_with_http_info(
         self,
         team_id: Annotated[StrictInt, Field(description="Team id")],
         id: Annotated[StrictInt, Field(description="DAR template id")],
@@ -135,7 +135,7 @@ class TeamDataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """TeamDataAccessTemplateController@destroyFile
 
         Delete a file associated with a DAR template
@@ -168,7 +168,7 @@ class TeamDataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_471df4f14ed1f13bf3a66f1a8b70e261_serialize(
+        _param = self._delete_team_dar_template_file_serialize(
             team_id=team_id,
             id=id,
             file_id=file_id,
@@ -180,8 +180,8 @@ class TeamDataAccessTemplateApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': "CreateTeamCollections401Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -195,7 +195,7 @@ class TeamDataAccessTemplateApi:
 
 
     @validate_call
-    def call_471df4f14ed1f13bf3a66f1a8b70e261_without_preload_content(
+    def delete_team_dar_template_file_without_preload_content(
         self,
         team_id: Annotated[StrictInt, Field(description="Team id")],
         id: Annotated[StrictInt, Field(description="DAR template id")],
@@ -245,7 +245,7 @@ class TeamDataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_471df4f14ed1f13bf3a66f1a8b70e261_serialize(
+        _param = self._delete_team_dar_template_file_serialize(
             team_id=team_id,
             id=id,
             file_id=file_id,
@@ -257,8 +257,8 @@ class TeamDataAccessTemplateApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': "CreateTeamCollections401Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -267,7 +267,7 @@ class TeamDataAccessTemplateApi:
         return response_data.response
 
 
-    def _call_471df4f14ed1f13bf3a66f1a8b70e261_serialize(
+    def _delete_team_dar_template_file_serialize(
         self,
         team_id,
         id,
@@ -338,7 +338,7 @@ class TeamDataAccessTemplateApi:
 
 
     @validate_call
-    def call_883e72f80ed3577c8e6eca9f9437e554(
+    def fetch_team_dar_templates(
         self,
         team_id: Annotated[StrictInt, Field(description="Team id")],
         published: Annotated[Optional[StrictStr], Field(description="Template publication status to filter by (true, false)")] = None,
@@ -354,7 +354,7 @@ class TeamDataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model234386e06c6b29d5aaca2ed8f89cb9aa200Response:
+    ) -> FetchDarTemplates200Response:
         """TeamDataAccessTemplateController@index
 
         List of dar templates belonging to a team
@@ -385,7 +385,7 @@ class TeamDataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_883e72f80ed3577c8e6eca9f9437e554_serialize(
+        _param = self._fetch_team_dar_templates_serialize(
             team_id=team_id,
             published=published,
             _request_auth=_request_auth,
@@ -395,7 +395,7 @@ class TeamDataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model234386e06c6b29d5aaca2ed8f89cb9aa200Response",
+            '200': "FetchDarTemplates200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -409,7 +409,7 @@ class TeamDataAccessTemplateApi:
 
 
     @validate_call
-    def call_883e72f80ed3577c8e6eca9f9437e554_with_http_info(
+    def fetch_team_dar_templates_with_http_info(
         self,
         team_id: Annotated[StrictInt, Field(description="Team id")],
         published: Annotated[Optional[StrictStr], Field(description="Template publication status to filter by (true, false)")] = None,
@@ -425,7 +425,7 @@ class TeamDataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model234386e06c6b29d5aaca2ed8f89cb9aa200Response]:
+    ) -> ApiResponse[FetchDarTemplates200Response]:
         """TeamDataAccessTemplateController@index
 
         List of dar templates belonging to a team
@@ -456,7 +456,7 @@ class TeamDataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_883e72f80ed3577c8e6eca9f9437e554_serialize(
+        _param = self._fetch_team_dar_templates_serialize(
             team_id=team_id,
             published=published,
             _request_auth=_request_auth,
@@ -466,7 +466,7 @@ class TeamDataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model234386e06c6b29d5aaca2ed8f89cb9aa200Response",
+            '200': "FetchDarTemplates200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -480,7 +480,7 @@ class TeamDataAccessTemplateApi:
 
 
     @validate_call
-    def call_883e72f80ed3577c8e6eca9f9437e554_without_preload_content(
+    def fetch_team_dar_templates_without_preload_content(
         self,
         team_id: Annotated[StrictInt, Field(description="Team id")],
         published: Annotated[Optional[StrictStr], Field(description="Template publication status to filter by (true, false)")] = None,
@@ -527,7 +527,7 @@ class TeamDataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_883e72f80ed3577c8e6eca9f9437e554_serialize(
+        _param = self._fetch_team_dar_templates_serialize(
             team_id=team_id,
             published=published,
             _request_auth=_request_auth,
@@ -537,7 +537,7 @@ class TeamDataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model234386e06c6b29d5aaca2ed8f89cb9aa200Response",
+            '200': "FetchDarTemplates200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -546,7 +546,7 @@ class TeamDataAccessTemplateApi:
         return response_data.response
 
 
-    def _call_883e72f80ed3577c8e6eca9f9437e554_serialize(
+    def _fetch_team_dar_templates_serialize(
         self,
         team_id,
         published,

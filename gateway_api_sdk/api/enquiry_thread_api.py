@@ -18,9 +18,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.a961db529080eb3a29e4b7cc13dabaaa_request import A961db529080eb3a29e4b7cc13dabaaaRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.model4321ab5e45636e3e917c94fd21edac28200_response import Model4321ab5e45636e3e917c94fd21edac28200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_enquiry_threads_request import CreateEnquiryThreadsRequest
+from gateway_api_sdk.models.fetch_all_enquiry_threads200_response import FetchAllEnquiryThreads200Response
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -41,9 +41,9 @@ class EnquiryThreadApi:
 
 
     @validate_call
-    def a961db529080eb3a29e4b7cc13dabaaa(
+    def create_enquiry_threads(
         self,
-        a961db529080eb3a29e4b7cc13dabaaa_request: Annotated[A961db529080eb3a29e4b7cc13dabaaaRequest, Field(description="EnquiryThread definition")],
+        create_enquiry_threads_request: Annotated[CreateEnquiryThreadsRequest, Field(description="EnquiryThread definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -56,13 +56,13 @@ class EnquiryThreadApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """EnquiryThread@store
 
         Creates one or more new EnquiryThreads
 
-        :param a961db529080eb3a29e4b7cc13dabaaa_request: EnquiryThread definition (required)
-        :type a961db529080eb3a29e4b7cc13dabaaa_request: A961db529080eb3a29e4b7cc13dabaaaRequest
+        :param create_enquiry_threads_request: EnquiryThread definition (required)
+        :type create_enquiry_threads_request: CreateEnquiryThreadsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -85,8 +85,8 @@ class EnquiryThreadApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a961db529080eb3a29e4b7cc13dabaaa_serialize(
-            a961db529080eb3a29e4b7cc13dabaaa_request=a961db529080eb3a29e4b7cc13dabaaa_request,
+        _param = self._create_enquiry_threads_serialize(
+            create_enquiry_threads_request=create_enquiry_threads_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -94,8 +94,8 @@ class EnquiryThreadApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -109,9 +109,9 @@ class EnquiryThreadApi:
 
 
     @validate_call
-    def a961db529080eb3a29e4b7cc13dabaaa_with_http_info(
+    def create_enquiry_threads_with_http_info(
         self,
-        a961db529080eb3a29e4b7cc13dabaaa_request: Annotated[A961db529080eb3a29e4b7cc13dabaaaRequest, Field(description="EnquiryThread definition")],
+        create_enquiry_threads_request: Annotated[CreateEnquiryThreadsRequest, Field(description="EnquiryThread definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -124,13 +124,13 @@ class EnquiryThreadApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """EnquiryThread@store
 
         Creates one or more new EnquiryThreads
 
-        :param a961db529080eb3a29e4b7cc13dabaaa_request: EnquiryThread definition (required)
-        :type a961db529080eb3a29e4b7cc13dabaaa_request: A961db529080eb3a29e4b7cc13dabaaaRequest
+        :param create_enquiry_threads_request: EnquiryThread definition (required)
+        :type create_enquiry_threads_request: CreateEnquiryThreadsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -153,8 +153,8 @@ class EnquiryThreadApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a961db529080eb3a29e4b7cc13dabaaa_serialize(
-            a961db529080eb3a29e4b7cc13dabaaa_request=a961db529080eb3a29e4b7cc13dabaaa_request,
+        _param = self._create_enquiry_threads_serialize(
+            create_enquiry_threads_request=create_enquiry_threads_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -162,8 +162,8 @@ class EnquiryThreadApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -177,9 +177,9 @@ class EnquiryThreadApi:
 
 
     @validate_call
-    def a961db529080eb3a29e4b7cc13dabaaa_without_preload_content(
+    def create_enquiry_threads_without_preload_content(
         self,
-        a961db529080eb3a29e4b7cc13dabaaa_request: Annotated[A961db529080eb3a29e4b7cc13dabaaaRequest, Field(description="EnquiryThread definition")],
+        create_enquiry_threads_request: Annotated[CreateEnquiryThreadsRequest, Field(description="EnquiryThread definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -197,8 +197,8 @@ class EnquiryThreadApi:
 
         Creates one or more new EnquiryThreads
 
-        :param a961db529080eb3a29e4b7cc13dabaaa_request: EnquiryThread definition (required)
-        :type a961db529080eb3a29e4b7cc13dabaaa_request: A961db529080eb3a29e4b7cc13dabaaaRequest
+        :param create_enquiry_threads_request: EnquiryThread definition (required)
+        :type create_enquiry_threads_request: CreateEnquiryThreadsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -221,8 +221,8 @@ class EnquiryThreadApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a961db529080eb3a29e4b7cc13dabaaa_serialize(
-            a961db529080eb3a29e4b7cc13dabaaa_request=a961db529080eb3a29e4b7cc13dabaaa_request,
+        _param = self._create_enquiry_threads_serialize(
+            create_enquiry_threads_request=create_enquiry_threads_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -230,8 +230,8 @@ class EnquiryThreadApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -240,9 +240,9 @@ class EnquiryThreadApi:
         return response_data.response
 
 
-    def _a961db529080eb3a29e4b7cc13dabaaa_serialize(
+    def _create_enquiry_threads_serialize(
         self,
-        a961db529080eb3a29e4b7cc13dabaaa_request,
+        create_enquiry_threads_request,
         _request_auth,
         _content_type,
         _headers,
@@ -268,8 +268,8 @@ class EnquiryThreadApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if a961db529080eb3a29e4b7cc13dabaaa_request is not None:
-            _body_params = a961db529080eb3a29e4b7cc13dabaaa_request
+        if create_enquiry_threads_request is not None:
+            _body_params = create_enquiry_threads_request
 
 
         # set the HTTP header `Accept`
@@ -318,7 +318,7 @@ class EnquiryThreadApi:
 
 
     @validate_call
-    def call_4321ab5e45636e3e917c94fd21edac28(
+    def fetch_all_enquiry_threads(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -333,7 +333,7 @@ class EnquiryThreadApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model4321ab5e45636e3e917c94fd21edac28200Response:
+    ) -> FetchAllEnquiryThreads200Response:
         """EnquiryThread@index
 
         Returns a list of EnquiryThreads from the system
@@ -362,7 +362,7 @@ class EnquiryThreadApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_4321ab5e45636e3e917c94fd21edac28_serialize(
+        _param = self._fetch_all_enquiry_threads_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -371,7 +371,7 @@ class EnquiryThreadApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4321ab5e45636e3e917c94fd21edac28200Response",
+            '200': "FetchAllEnquiryThreads200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -385,7 +385,7 @@ class EnquiryThreadApi:
 
 
     @validate_call
-    def call_4321ab5e45636e3e917c94fd21edac28_with_http_info(
+    def fetch_all_enquiry_threads_with_http_info(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -400,7 +400,7 @@ class EnquiryThreadApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model4321ab5e45636e3e917c94fd21edac28200Response]:
+    ) -> ApiResponse[FetchAllEnquiryThreads200Response]:
         """EnquiryThread@index
 
         Returns a list of EnquiryThreads from the system
@@ -429,7 +429,7 @@ class EnquiryThreadApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_4321ab5e45636e3e917c94fd21edac28_serialize(
+        _param = self._fetch_all_enquiry_threads_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -438,7 +438,7 @@ class EnquiryThreadApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4321ab5e45636e3e917c94fd21edac28200Response",
+            '200': "FetchAllEnquiryThreads200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -452,7 +452,7 @@ class EnquiryThreadApi:
 
 
     @validate_call
-    def call_4321ab5e45636e3e917c94fd21edac28_without_preload_content(
+    def fetch_all_enquiry_threads_without_preload_content(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -496,7 +496,7 @@ class EnquiryThreadApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_4321ab5e45636e3e917c94fd21edac28_serialize(
+        _param = self._fetch_all_enquiry_threads_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -505,7 +505,7 @@ class EnquiryThreadApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4321ab5e45636e3e917c94fd21edac28200Response",
+            '200': "FetchAllEnquiryThreads200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -514,7 +514,7 @@ class EnquiryThreadApi:
         return response_data.response
 
 
-    def _call_4321ab5e45636e3e917c94fd21edac28_serialize(
+    def _fetch_all_enquiry_threads_serialize(
         self,
         per_page,
         _request_auth,
@@ -581,7 +581,7 @@ class EnquiryThreadApi:
 
 
     @validate_call
-    def fd828cd8df74859b18600bb6b36edf83(
+    def fetch_enquiry_threads(
         self,
         id: Annotated[StrictInt, Field(description="EnquiryThread id")],
         _request_timeout: Union[
@@ -596,7 +596,7 @@ class EnquiryThreadApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model4321ab5e45636e3e917c94fd21edac28200Response:
+    ) -> FetchAllEnquiryThreads200Response:
         """EnquiryThread@show
 
         Return a single EnquiryThread
@@ -625,7 +625,7 @@ class EnquiryThreadApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fd828cd8df74859b18600bb6b36edf83_serialize(
+        _param = self._fetch_enquiry_threads_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -634,8 +634,8 @@ class EnquiryThreadApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4321ab5e45636e3e917c94fd21edac28200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchAllEnquiryThreads200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -649,7 +649,7 @@ class EnquiryThreadApi:
 
 
     @validate_call
-    def fd828cd8df74859b18600bb6b36edf83_with_http_info(
+    def fetch_enquiry_threads_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="EnquiryThread id")],
         _request_timeout: Union[
@@ -664,7 +664,7 @@ class EnquiryThreadApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model4321ab5e45636e3e917c94fd21edac28200Response]:
+    ) -> ApiResponse[FetchAllEnquiryThreads200Response]:
         """EnquiryThread@show
 
         Return a single EnquiryThread
@@ -693,7 +693,7 @@ class EnquiryThreadApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fd828cd8df74859b18600bb6b36edf83_serialize(
+        _param = self._fetch_enquiry_threads_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -702,8 +702,8 @@ class EnquiryThreadApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4321ab5e45636e3e917c94fd21edac28200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchAllEnquiryThreads200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -717,7 +717,7 @@ class EnquiryThreadApi:
 
 
     @validate_call
-    def fd828cd8df74859b18600bb6b36edf83_without_preload_content(
+    def fetch_enquiry_threads_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="EnquiryThread id")],
         _request_timeout: Union[
@@ -761,7 +761,7 @@ class EnquiryThreadApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fd828cd8df74859b18600bb6b36edf83_serialize(
+        _param = self._fetch_enquiry_threads_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -770,8 +770,8 @@ class EnquiryThreadApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4321ab5e45636e3e917c94fd21edac28200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchAllEnquiryThreads200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -780,7 +780,7 @@ class EnquiryThreadApi:
         return response_data.response
 
 
-    def _fd828cd8df74859b18600bb6b36edf83_serialize(
+    def _fetch_enquiry_threads_serialize(
         self,
         id,
         _request_auth,

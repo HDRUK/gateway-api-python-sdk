@@ -26,52 +26,52 @@ class TestDataProviderCollApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_c5bb5300d6a46cc5b1b6a3bb1c3fa869(self) -> None:
-        """Test case for c5bb5300d6a46cc5b1b6a3bb1c3fa869
-
-        DataProviderColl@update
-        """
-        pass
-
-    def test_call_02ada355a680c816624e98ae028dc8b6(self) -> None:
-        """Test case for call_02ada355a680c816624e98ae028dc8b6
+    def test_create_data_provider_coll(self) -> None:
+        """Test case for create_data_provider_coll
 
         DataProviderColl@store
         """
         pass
 
-    def test_call_08f75648c437bdf2ba9f66d0c1371d0c(self) -> None:
-        """Test case for call_08f75648c437bdf2ba9f66d0c1371d0c
-
-        DataProviderColl@show
-        """
-        pass
-
-    def test_call_3351120ae1ae550ab36ee958b1feaf48(self) -> None:
-        """Test case for call_3351120ae1ae550ab36ee958b1feaf48
+    def test_delete_data_provider_coll(self) -> None:
+        """Test case for delete_data_provider_coll
 
         DataProviderColl@destroy
         """
         pass
 
-    def test_call_81b552b8803870790579d840279ce8a3(self) -> None:
-        """Test case for call_81b552b8803870790579d840279ce8a3
+    def test_edit_data_provider_coll(self) -> None:
+        """Test case for edit_data_provider_coll
 
         DataProviderColl@edit
         """
         pass
 
-    def test_d0fe0e1c60dd979135440e3e0b440b75(self) -> None:
-        """Test case for d0fe0e1c60dd979135440e3e0b440b75
+    def test_fetch_data_provider_coll(self) -> None:
+        """Test case for fetch_data_provider_coll
+
+        DataProviderColl@show
+        """
+        pass
+
+    def test_fetch_data_provider_coll_summary(self) -> None:
+        """Test case for fetch_data_provider_coll_summary
+
+        DataProviderColl@showSummary
+        """
+        pass
+
+    def test_fetch_data_provider_colls(self) -> None:
+        """Test case for fetch_data_provider_colls
 
         DataProviderColl@index
         """
         pass
 
-    def test_ed769d8210100bbcd0e3a11660d25dc0(self) -> None:
-        """Test case for ed769d8210100bbcd0e3a11660d25dc0
+    def test_update_data_provider_coll(self) -> None:
+        """Test case for update_data_provider_coll
 
-        DataProviderColl@showSummary
+        DataProviderColl@update
         """
         pass
 

@@ -26,8 +26,8 @@ class TestSearchDataUsesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_8db417727e7fe7c2e99206b060a3b882(self) -> None:
-        """Test case for call_8db417727e7fe7c2e99206b060a3b882
+    def test_search_data_uses(self) -> None:
+        """Test case for search_data_uses
 
         Search@data_uses
         """

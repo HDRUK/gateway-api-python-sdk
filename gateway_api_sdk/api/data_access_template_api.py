@@ -18,14 +18,14 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.model234386e06c6b29d5aaca2ed8f89cb9aa200_response import Model234386e06c6b29d5aaca2ed8f89cb9aa200Response
-from gateway_api_sdk.models.model3f2b4dcc3b5e548e62f79a32aa8f0052200_response import Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response
-from gateway_api_sdk.models.model6196987e50c600396a439939cea635a3200_response import Model6196987e50c600396a439939cea635a3200Response
-from gateway_api_sdk.models.model6196987e50c600396a439939cea635a3_request import Model6196987e50c600396a439939cea635a3Request
-from gateway_api_sdk.models.model6dae0c2af6ca442f90a65e7c65a13252_request import Model6dae0c2af6ca442f90a65e7c65a13252Request
-from gateway_api_sdk.models.model70d4b0fcc281e6491f510f58028762c9_request import Model70d4b0fcc281e6491f510f58028762c9Request
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_template_request import CreateDarTemplateRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.fetch_dar_template200_response import FetchDarTemplate200Response
+from gateway_api_sdk.models.fetch_dar_templates200_response import FetchDarTemplates200Response
+from gateway_api_sdk.models.patch_dar_template200_response import PatchDarTemplate200Response
+from gateway_api_sdk.models.patch_dar_template_request import PatchDarTemplateRequest
+from gateway_api_sdk.models.update_dar_template_request import UpdateDarTemplateRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -46,9 +46,9 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def b1fa0f3b5f03176ce6b96d1d4ee27aa8(
+    def create_dar_template(
         self,
-        id: Annotated[StrictInt, Field(description="DAR template id")],
+        create_dar_template_request: Annotated[CreateDarTemplateRequest, Field(description="DataAccessTemplate definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -61,13 +61,13 @@ class DataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """DataAccessTemplate@downloadFile
+    ) -> CreateCategories200Response:
+        """DataAccessTemplate@store
 
-        Download the template for a file based DAR application
+        Creates a new DAR template
 
-        :param id: DAR template id (required)
-        :type id: int
+        :param create_dar_template_request: DataAccessTemplate definition (required)
+        :type create_dar_template_request: CreateDarTemplateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -90,8 +90,8 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._b1fa0f3b5f03176ce6b96d1d4ee27aa8_serialize(
-            id=id,
+        _param = self._create_dar_template_serialize(
+            create_dar_template_request=create_dar_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -99,8 +99,8 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '404': "AliasControllerShow404Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -114,9 +114,9 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def b1fa0f3b5f03176ce6b96d1d4ee27aa8_with_http_info(
+    def create_dar_template_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="DAR template id")],
+        create_dar_template_request: Annotated[CreateDarTemplateRequest, Field(description="DataAccessTemplate definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -129,13 +129,13 @@ class DataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """DataAccessTemplate@downloadFile
+    ) -> ApiResponse[CreateCategories200Response]:
+        """DataAccessTemplate@store
 
-        Download the template for a file based DAR application
+        Creates a new DAR template
 
-        :param id: DAR template id (required)
-        :type id: int
+        :param create_dar_template_request: DataAccessTemplate definition (required)
+        :type create_dar_template_request: CreateDarTemplateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -158,8 +158,8 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._b1fa0f3b5f03176ce6b96d1d4ee27aa8_serialize(
-            id=id,
+        _param = self._create_dar_template_serialize(
+            create_dar_template_request=create_dar_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -167,8 +167,8 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '404': "AliasControllerShow404Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -182,9 +182,9 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def b1fa0f3b5f03176ce6b96d1d4ee27aa8_without_preload_content(
+    def create_dar_template_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="DAR template id")],
+        create_dar_template_request: Annotated[CreateDarTemplateRequest, Field(description="DataAccessTemplate definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -198,12 +198,12 @@ class DataAccessTemplateApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """DataAccessTemplate@downloadFile
+        """DataAccessTemplate@store
 
-        Download the template for a file based DAR application
+        Creates a new DAR template
 
-        :param id: DAR template id (required)
-        :type id: int
+        :param create_dar_template_request: DataAccessTemplate definition (required)
+        :type create_dar_template_request: CreateDarTemplateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -226,8 +226,8 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._b1fa0f3b5f03176ce6b96d1d4ee27aa8_serialize(
-            id=id,
+        _param = self._create_dar_template_serialize(
+            create_dar_template_request=create_dar_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -235,8 +235,8 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '404': "AliasControllerShow404Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -245,9 +245,9 @@ class DataAccessTemplateApi:
         return response_data.response
 
 
-    def _b1fa0f3b5f03176ce6b96d1d4ee27aa8_serialize(
+    def _create_dar_template_serialize(
         self,
-        id,
+        create_dar_template_request,
         _request_auth,
         _content_type,
         _headers,
@@ -269,23 +269,35 @@ class DataAccessTemplateApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if create_dar_template_request is not None:
+            _body_params = create_dar_template_request
 
 
         # set the HTTP header `Accept`
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'file', 
                     'application/json'
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -293,8 +305,8 @@ class DataAccessTemplateApi:
         ]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/ap1/v1/dar/templates/{id}/download',
+            method='POST',
+            resource_path='/api/v1/dar/templates',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -311,7 +323,7 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def c0e9ad253ec08e6e03a40ed8759e744d(
+    def delete_dar_template(
         self,
         id: Annotated[StrictInt, Field(description="DAR template id")],
         _request_timeout: Union[
@@ -326,7 +338,7 @@ class DataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """DataAccessTemplate@destroy
 
         Delete a system DAR template
@@ -355,7 +367,7 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._c0e9ad253ec08e6e03a40ed8759e744d_serialize(
+        _param = self._delete_dar_template_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -364,9 +376,9 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -380,7 +392,7 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def c0e9ad253ec08e6e03a40ed8759e744d_with_http_info(
+    def delete_dar_template_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="DAR template id")],
         _request_timeout: Union[
@@ -395,7 +407,7 @@ class DataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """DataAccessTemplate@destroy
 
         Delete a system DAR template
@@ -424,7 +436,7 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._c0e9ad253ec08e6e03a40ed8759e744d_serialize(
+        _param = self._delete_dar_template_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -433,9 +445,9 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -449,7 +461,7 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def c0e9ad253ec08e6e03a40ed8759e744d_without_preload_content(
+    def delete_dar_template_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="DAR template id")],
         _request_timeout: Union[
@@ -493,7 +505,7 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._c0e9ad253ec08e6e03a40ed8759e744d_serialize(
+        _param = self._delete_dar_template_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -502,9 +514,9 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -513,7 +525,7 @@ class DataAccessTemplateApi:
         return response_data.response
 
 
-    def _c0e9ad253ec08e6e03a40ed8759e744d_serialize(
+    def _delete_dar_template_serialize(
         self,
         id,
         _request_auth,
@@ -578,10 +590,9 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def call_234386e06c6b29d5aaca2ed8f89cb9aa(
+    def download_dar_template_file(
         self,
-        with_questions: Annotated[Optional[StrictInt], Field(description="Include questions in response")] = None,
-        published: Annotated[Optional[StrictStr], Field(description="Template publication status to filter by (true, false)")] = None,
+        id: Annotated[StrictInt, Field(description="DAR template id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -594,15 +605,13 @@ class DataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model234386e06c6b29d5aaca2ed8f89cb9aa200Response:
-        """DataAccessTemplate@index
+    ) -> None:
+        """DataAccessTemplate@downloadFile
 
-        List of DAR templates
+        Download the template for a file based DAR application
 
-        :param with_questions: Include questions in response
-        :type with_questions: int
-        :param published: Template publication status to filter by (true, false)
-        :type published: str
+        :param id: DAR template id (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -625,9 +634,8 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_234386e06c6b29d5aaca2ed8f89cb9aa_serialize(
-            with_questions=with_questions,
-            published=published,
+        _param = self._download_dar_template_file_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -635,7 +643,8 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model234386e06c6b29d5aaca2ed8f89cb9aa200Response",
+            '200': None,
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -649,7 +658,468 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def call_234386e06c6b29d5aaca2ed8f89cb9aa_with_http_info(
+    def download_dar_template_file_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="DAR template id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """DataAccessTemplate@downloadFile
+
+        Download the template for a file based DAR application
+
+        :param id: DAR template id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._download_dar_template_file_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def download_dar_template_file_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="DAR template id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """DataAccessTemplate@downloadFile
+
+        Download the template for a file based DAR application
+
+        :param id: DAR template id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._download_dar_template_file_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _download_dar_template_file_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'file', 
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/dar/templates/{id}/download',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_dar_template(
+        self,
+        id: Annotated[StrictInt, Field(description="DAR template id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FetchDarTemplate200Response:
+        """DataAccessTemplate@show
+
+        Return a single DAR template
+
+        :param id: DAR template id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_dar_template_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchDarTemplate200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_dar_template_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="DAR template id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchDarTemplate200Response]:
+        """DataAccessTemplate@show
+
+        Return a single DAR template
+
+        :param id: DAR template id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_dar_template_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchDarTemplate200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_dar_template_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="DAR template id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """DataAccessTemplate@show
+
+        Return a single DAR template
+
+        :param id: DAR template id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_dar_template_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchDarTemplate200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_dar_template_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/dar/templates/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_dar_templates(
         self,
         with_questions: Annotated[Optional[StrictInt], Field(description="Include questions in response")] = None,
         published: Annotated[Optional[StrictStr], Field(description="Template publication status to filter by (true, false)")] = None,
@@ -665,7 +1135,7 @@ class DataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model234386e06c6b29d5aaca2ed8f89cb9aa200Response]:
+    ) -> FetchDarTemplates200Response:
         """DataAccessTemplate@index
 
         List of DAR templates
@@ -696,7 +1166,7 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_234386e06c6b29d5aaca2ed8f89cb9aa_serialize(
+        _param = self._fetch_dar_templates_serialize(
             with_questions=with_questions,
             published=published,
             _request_auth=_request_auth,
@@ -706,7 +1176,78 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model234386e06c6b29d5aaca2ed8f89cb9aa200Response",
+            '200': "FetchDarTemplates200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_dar_templates_with_http_info(
+        self,
+        with_questions: Annotated[Optional[StrictInt], Field(description="Include questions in response")] = None,
+        published: Annotated[Optional[StrictStr], Field(description="Template publication status to filter by (true, false)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchDarTemplates200Response]:
+        """DataAccessTemplate@index
+
+        List of DAR templates
+
+        :param with_questions: Include questions in response
+        :type with_questions: int
+        :param published: Template publication status to filter by (true, false)
+        :type published: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_dar_templates_serialize(
+            with_questions=with_questions,
+            published=published,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchDarTemplates200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -720,7 +1261,7 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def call_234386e06c6b29d5aaca2ed8f89cb9aa_without_preload_content(
+    def fetch_dar_templates_without_preload_content(
         self,
         with_questions: Annotated[Optional[StrictInt], Field(description="Include questions in response")] = None,
         published: Annotated[Optional[StrictStr], Field(description="Template publication status to filter by (true, false)")] = None,
@@ -767,7 +1308,7 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_234386e06c6b29d5aaca2ed8f89cb9aa_serialize(
+        _param = self._fetch_dar_templates_serialize(
             with_questions=with_questions,
             published=published,
             _request_auth=_request_auth,
@@ -777,7 +1318,7 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model234386e06c6b29d5aaca2ed8f89cb9aa200Response",
+            '200': "FetchDarTemplates200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -786,7 +1327,7 @@ class DataAccessTemplateApi:
         return response_data.response
 
 
-    def _call_234386e06c6b29d5aaca2ed8f89cb9aa_serialize(
+    def _fetch_dar_templates_serialize(
         self,
         with_questions,
         published,
@@ -858,274 +1399,10 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def call_3f2b4dcc3b5e548e62f79a32aa8f0052(
+    def patch_dar_template(
         self,
         id: Annotated[StrictInt, Field(description="DAR template id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response:
-        """DataAccessTemplate@show
-
-        Return a single DAR template
-
-        :param id: DAR template id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_3f2b4dcc3b5e548e62f79a32aa8f0052_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response",
-            '404': "AliasControllerShow404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_3f2b4dcc3b5e548e62f79a32aa8f0052_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="DAR template id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response]:
-        """DataAccessTemplate@show
-
-        Return a single DAR template
-
-        :param id: DAR template id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_3f2b4dcc3b5e548e62f79a32aa8f0052_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response",
-            '404': "AliasControllerShow404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_3f2b4dcc3b5e548e62f79a32aa8f0052_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="DAR template id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """DataAccessTemplate@show
-
-        Return a single DAR template
-
-        :param id: DAR template id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_3f2b4dcc3b5e548e62f79a32aa8f0052_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response",
-            '404': "AliasControllerShow404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_3f2b4dcc3b5e548e62f79a32aa8f0052_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/dar/templates/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_6196987e50c600396a439939cea635a3(
-        self,
-        id: Annotated[StrictInt, Field(description="DAR template id")],
-        model6196987e50c600396a439939cea635a3_request: Annotated[Model6196987e50c600396a439939cea635a3Request, Field(description="DataAccessTemplate definition")],
+        patch_dar_template_request: Annotated[PatchDarTemplateRequest, Field(description="DataAccessTemplate definition")],
         section_id: Annotated[Optional[StrictInt], Field(description="Section id")] = None,
         _request_timeout: Union[
             None,
@@ -1139,15 +1416,15 @@ class DataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model6196987e50c600396a439939cea635a3200Response:
+    ) -> PatchDarTemplate200Response:
         """DataAccessTemplate@update
 
         Edit a system DAR template
 
         :param id: DAR template id (required)
         :type id: int
-        :param model6196987e50c600396a439939cea635a3_request: DataAccessTemplate definition (required)
-        :type model6196987e50c600396a439939cea635a3_request: Model6196987e50c600396a439939cea635a3Request
+        :param patch_dar_template_request: DataAccessTemplate definition (required)
+        :type patch_dar_template_request: PatchDarTemplateRequest
         :param section_id: Section id
         :type section_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1172,9 +1449,9 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_6196987e50c600396a439939cea635a3_serialize(
+        _param = self._patch_dar_template_serialize(
             id=id,
-            model6196987e50c600396a439939cea635a3_request=model6196987e50c600396a439939cea635a3_request,
+            patch_dar_template_request=patch_dar_template_request,
             section_id=section_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1183,9 +1460,9 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model6196987e50c600396a439939cea635a3200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "PatchDarTemplate200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1199,10 +1476,10 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def call_6196987e50c600396a439939cea635a3_with_http_info(
+    def patch_dar_template_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="DAR template id")],
-        model6196987e50c600396a439939cea635a3_request: Annotated[Model6196987e50c600396a439939cea635a3Request, Field(description="DataAccessTemplate definition")],
+        patch_dar_template_request: Annotated[PatchDarTemplateRequest, Field(description="DataAccessTemplate definition")],
         section_id: Annotated[Optional[StrictInt], Field(description="Section id")] = None,
         _request_timeout: Union[
             None,
@@ -1216,15 +1493,15 @@ class DataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model6196987e50c600396a439939cea635a3200Response]:
+    ) -> ApiResponse[PatchDarTemplate200Response]:
         """DataAccessTemplate@update
 
         Edit a system DAR template
 
         :param id: DAR template id (required)
         :type id: int
-        :param model6196987e50c600396a439939cea635a3_request: DataAccessTemplate definition (required)
-        :type model6196987e50c600396a439939cea635a3_request: Model6196987e50c600396a439939cea635a3Request
+        :param patch_dar_template_request: DataAccessTemplate definition (required)
+        :type patch_dar_template_request: PatchDarTemplateRequest
         :param section_id: Section id
         :type section_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1249,9 +1526,9 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_6196987e50c600396a439939cea635a3_serialize(
+        _param = self._patch_dar_template_serialize(
             id=id,
-            model6196987e50c600396a439939cea635a3_request=model6196987e50c600396a439939cea635a3_request,
+            patch_dar_template_request=patch_dar_template_request,
             section_id=section_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1260,9 +1537,9 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model6196987e50c600396a439939cea635a3200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "PatchDarTemplate200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1276,10 +1553,10 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def call_6196987e50c600396a439939cea635a3_without_preload_content(
+    def patch_dar_template_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="DAR template id")],
-        model6196987e50c600396a439939cea635a3_request: Annotated[Model6196987e50c600396a439939cea635a3Request, Field(description="DataAccessTemplate definition")],
+        patch_dar_template_request: Annotated[PatchDarTemplateRequest, Field(description="DataAccessTemplate definition")],
         section_id: Annotated[Optional[StrictInt], Field(description="Section id")] = None,
         _request_timeout: Union[
             None,
@@ -1300,8 +1577,8 @@ class DataAccessTemplateApi:
 
         :param id: DAR template id (required)
         :type id: int
-        :param model6196987e50c600396a439939cea635a3_request: DataAccessTemplate definition (required)
-        :type model6196987e50c600396a439939cea635a3_request: Model6196987e50c600396a439939cea635a3Request
+        :param patch_dar_template_request: DataAccessTemplate definition (required)
+        :type patch_dar_template_request: PatchDarTemplateRequest
         :param section_id: Section id
         :type section_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1326,9 +1603,9 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_6196987e50c600396a439939cea635a3_serialize(
+        _param = self._patch_dar_template_serialize(
             id=id,
-            model6196987e50c600396a439939cea635a3_request=model6196987e50c600396a439939cea635a3_request,
+            patch_dar_template_request=patch_dar_template_request,
             section_id=section_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1337,9 +1614,9 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model6196987e50c600396a439939cea635a3200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "PatchDarTemplate200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1348,10 +1625,10 @@ class DataAccessTemplateApi:
         return response_data.response
 
 
-    def _call_6196987e50c600396a439939cea635a3_serialize(
+    def _patch_dar_template_serialize(
         self,
         id,
-        model6196987e50c600396a439939cea635a3_request,
+        patch_dar_template_request,
         section_id,
         _request_auth,
         _content_type,
@@ -1384,8 +1661,8 @@ class DataAccessTemplateApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model6196987e50c600396a439939cea635a3_request is not None:
-            _body_params = model6196987e50c600396a439939cea635a3_request
+        if patch_dar_template_request is not None:
+            _body_params = patch_dar_template_request
 
 
         # set the HTTP header `Accept`
@@ -1434,10 +1711,10 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def call_6dae0c2af6ca442f90a65e7c65a13252(
+    def update_dar_template(
         self,
         id: Annotated[StrictInt, Field(description="DAR template id")],
-        model6dae0c2af6ca442f90a65e7c65a13252_request: Annotated[Model6dae0c2af6ca442f90a65e7c65a13252Request, Field(description="DataAccessTemplate definition")],
+        update_dar_template_request: Annotated[UpdateDarTemplateRequest, Field(description="DataAccessTemplate definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1450,15 +1727,15 @@ class DataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response:
+    ) -> FetchDarTemplate200Response:
         """DataAccessTemplate@update
 
         Update a system DAR template
 
         :param id: DAR template id (required)
         :type id: int
-        :param model6dae0c2af6ca442f90a65e7c65a13252_request: DataAccessTemplate definition (required)
-        :type model6dae0c2af6ca442f90a65e7c65a13252_request: Model6dae0c2af6ca442f90a65e7c65a13252Request
+        :param update_dar_template_request: DataAccessTemplate definition (required)
+        :type update_dar_template_request: UpdateDarTemplateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1481,9 +1758,9 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_6dae0c2af6ca442f90a65e7c65a13252_serialize(
+        _param = self._update_dar_template_serialize(
             id=id,
-            model6dae0c2af6ca442f90a65e7c65a13252_request=model6dae0c2af6ca442f90a65e7c65a13252_request,
+            update_dar_template_request=update_dar_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1491,9 +1768,9 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "FetchDarTemplate200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1507,10 +1784,10 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def call_6dae0c2af6ca442f90a65e7c65a13252_with_http_info(
+    def update_dar_template_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="DAR template id")],
-        model6dae0c2af6ca442f90a65e7c65a13252_request: Annotated[Model6dae0c2af6ca442f90a65e7c65a13252Request, Field(description="DataAccessTemplate definition")],
+        update_dar_template_request: Annotated[UpdateDarTemplateRequest, Field(description="DataAccessTemplate definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1523,15 +1800,15 @@ class DataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response]:
+    ) -> ApiResponse[FetchDarTemplate200Response]:
         """DataAccessTemplate@update
 
         Update a system DAR template
 
         :param id: DAR template id (required)
         :type id: int
-        :param model6dae0c2af6ca442f90a65e7c65a13252_request: DataAccessTemplate definition (required)
-        :type model6dae0c2af6ca442f90a65e7c65a13252_request: Model6dae0c2af6ca442f90a65e7c65a13252Request
+        :param update_dar_template_request: DataAccessTemplate definition (required)
+        :type update_dar_template_request: UpdateDarTemplateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1554,9 +1831,9 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_6dae0c2af6ca442f90a65e7c65a13252_serialize(
+        _param = self._update_dar_template_serialize(
             id=id,
-            model6dae0c2af6ca442f90a65e7c65a13252_request=model6dae0c2af6ca442f90a65e7c65a13252_request,
+            update_dar_template_request=update_dar_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1564,9 +1841,9 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "FetchDarTemplate200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1580,10 +1857,10 @@ class DataAccessTemplateApi:
 
 
     @validate_call
-    def call_6dae0c2af6ca442f90a65e7c65a13252_without_preload_content(
+    def update_dar_template_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="DAR template id")],
-        model6dae0c2af6ca442f90a65e7c65a13252_request: Annotated[Model6dae0c2af6ca442f90a65e7c65a13252Request, Field(description="DataAccessTemplate definition")],
+        update_dar_template_request: Annotated[UpdateDarTemplateRequest, Field(description="DataAccessTemplate definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1603,8 +1880,8 @@ class DataAccessTemplateApi:
 
         :param id: DAR template id (required)
         :type id: int
-        :param model6dae0c2af6ca442f90a65e7c65a13252_request: DataAccessTemplate definition (required)
-        :type model6dae0c2af6ca442f90a65e7c65a13252_request: Model6dae0c2af6ca442f90a65e7c65a13252Request
+        :param update_dar_template_request: DataAccessTemplate definition (required)
+        :type update_dar_template_request: UpdateDarTemplateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1627,9 +1904,9 @@ class DataAccessTemplateApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_6dae0c2af6ca442f90a65e7c65a13252_serialize(
+        _param = self._update_dar_template_serialize(
             id=id,
-            model6dae0c2af6ca442f90a65e7c65a13252_request=model6dae0c2af6ca442f90a65e7c65a13252_request,
+            update_dar_template_request=update_dar_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1637,9 +1914,9 @@ class DataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "FetchDarTemplate200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1648,10 +1925,10 @@ class DataAccessTemplateApi:
         return response_data.response
 
 
-    def _call_6dae0c2af6ca442f90a65e7c65a13252_serialize(
+    def _update_dar_template_serialize(
         self,
         id,
-        model6dae0c2af6ca442f90a65e7c65a13252_request,
+        update_dar_template_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1679,8 +1956,8 @@ class DataAccessTemplateApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model6dae0c2af6ca442f90a65e7c65a13252_request is not None:
-            _body_params = model6dae0c2af6ca442f90a65e7c65a13252_request
+        if update_dar_template_request is not None:
+            _body_params = update_dar_template_request
 
 
         # set the HTTP header `Accept`
@@ -1713,283 +1990,6 @@ class DataAccessTemplateApi:
         return self.api_client.param_serialize(
             method='PUT',
             resource_path='/api/v1/dar/templates/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_70d4b0fcc281e6491f510f58028762c9(
-        self,
-        model70d4b0fcc281e6491f510f58028762c9_request: Annotated[Model70d4b0fcc281e6491f510f58028762c9Request, Field(description="DataAccessTemplate definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
-        """DataAccessTemplate@store
-
-        Creates a new DAR template
-
-        :param model70d4b0fcc281e6491f510f58028762c9_request: DataAccessTemplate definition (required)
-        :type model70d4b0fcc281e6491f510f58028762c9_request: Model70d4b0fcc281e6491f510f58028762c9Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_70d4b0fcc281e6491f510f58028762c9_serialize(
-            model70d4b0fcc281e6491f510f58028762c9_request=model70d4b0fcc281e6491f510f58028762c9_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_70d4b0fcc281e6491f510f58028762c9_with_http_info(
-        self,
-        model70d4b0fcc281e6491f510f58028762c9_request: Annotated[Model70d4b0fcc281e6491f510f58028762c9Request, Field(description="DataAccessTemplate definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
-        """DataAccessTemplate@store
-
-        Creates a new DAR template
-
-        :param model70d4b0fcc281e6491f510f58028762c9_request: DataAccessTemplate definition (required)
-        :type model70d4b0fcc281e6491f510f58028762c9_request: Model70d4b0fcc281e6491f510f58028762c9Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_70d4b0fcc281e6491f510f58028762c9_serialize(
-            model70d4b0fcc281e6491f510f58028762c9_request=model70d4b0fcc281e6491f510f58028762c9_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_70d4b0fcc281e6491f510f58028762c9_without_preload_content(
-        self,
-        model70d4b0fcc281e6491f510f58028762c9_request: Annotated[Model70d4b0fcc281e6491f510f58028762c9Request, Field(description="DataAccessTemplate definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """DataAccessTemplate@store
-
-        Creates a new DAR template
-
-        :param model70d4b0fcc281e6491f510f58028762c9_request: DataAccessTemplate definition (required)
-        :type model70d4b0fcc281e6491f510f58028762c9_request: Model70d4b0fcc281e6491f510f58028762c9Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_70d4b0fcc281e6491f510f58028762c9_serialize(
-            model70d4b0fcc281e6491f510f58028762c9_request=model70d4b0fcc281e6491f510f58028762c9_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_70d4b0fcc281e6491f510f58028762c9_serialize(
-        self,
-        model70d4b0fcc281e6491f510f58028762c9_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if model70d4b0fcc281e6491f510f58028762c9_request is not None:
-            _body_params = model70d4b0fcc281e6491f510f58028762c9_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/dar/templates',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

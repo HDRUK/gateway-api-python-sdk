@@ -26,31 +26,24 @@ class TestReviewsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_205dc23d44b18ca0b5c26a293cc69cf7(self) -> None:
-        """Test case for call_205dc23d44b18ca0b5c26a293cc69cf7
+    def test_create_reviews(self) -> None:
+        """Test case for create_reviews
+
+        ReviewController@store
+        """
+        pass
+
+    def test_delete_reviews(self) -> None:
+        """Test case for delete_reviews
 
         Delete a review
         """
         pass
 
-    def test_call_31ad2467e98e52298b4e39e2741447f1(self) -> None:
-        """Test case for call_31ad2467e98e52298b4e39e2741447f1
+    def test_edit_reviews(self) -> None:
+        """Test case for edit_reviews
 
         Edit a review
-        """
-        pass
-
-    def test_call_64b4b952592ebe8e0b00204e76bd991c(self) -> None:
-        """Test case for call_64b4b952592ebe8e0b00204e76bd991c
-
-        Update a review
-        """
-        pass
-
-    def test_create_reviews(self) -> None:
-        """Test case for create_reviews
-
-        ReviewController@store
         """
         pass
 
@@ -65,6 +58,13 @@ class TestReviewsApi(unittest.TestCase):
         """Test case for fetch_reviews
 
         ReviewController@show
+        """
+        pass
+
+    def test_update_reviews(self) -> None:
+        """Test case for update_reviews
+
+        Update a review
         """
         pass
 

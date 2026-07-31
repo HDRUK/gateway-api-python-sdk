@@ -26,36 +26,29 @@ class TestLibraryApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_077bba41c87bc61e6c290b3fea2a5848(self) -> None:
-        """Test case for call_077bba41c87bc61e6c290b3fea2a5848
-
-        Library@update
-        """
-        pass
-
-    def test_call_3b22aa4bb101550915e675702f8f3174(self) -> None:
-        """Test case for call_3b22aa4bb101550915e675702f8f3174
+    def test_create_libraries(self) -> None:
+        """Test case for create_libraries
 
         Library@store
         """
         pass
 
-    def test_call_416921483907d62b39163e3c4188d10c(self) -> None:
-        """Test case for call_416921483907d62b39163e3c4188d10c
+    def test_delete_libraries(self) -> None:
+        """Test case for delete_libraries
 
         Library@destroy
         """
         pass
 
-    def test_call_771bea7be0a7f7d2e0056f8c192100ad(self) -> None:
-        """Test case for call_771bea7be0a7f7d2e0056f8c192100ad
+    def test_edit_libraries(self) -> None:
+        """Test case for edit_libraries
 
         Library@update
         """
         pass
 
-    def test_d736d637e675097aaf709dfd755864c7(self) -> None:
-        """Test case for d736d637e675097aaf709dfd755864c7
+    def test_fetch_libraries(self) -> None:
+        """Test case for fetch_libraries
 
         Return a single library
         """
@@ -65,6 +58,13 @@ class TestLibraryApi(unittest.TestCase):
         """Test case for list_libraries
 
         Retrieve a list of libraries
+        """
+        pass
+
+    def test_update_libraries(self) -> None:
+        """Test case for update_libraries
+
+        Library@update
         """
         pass
 

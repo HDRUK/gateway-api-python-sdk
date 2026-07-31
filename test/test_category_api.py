@@ -26,45 +26,45 @@ class TestCategoryApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_a5f6e0a9550d3c58c50dda55412cd051(self) -> None:
-        """Test case for a5f6e0a9550d3c58c50dda55412cd051
-
-        Category@update
-        """
-        pass
-
-    def test_call_37196d259228d2274dd9dbef8b00e547(self) -> None:
-        """Test case for call_37196d259228d2274dd9dbef8b00e547
-
-        Category@destroy
-        """
-        pass
-
-    def test_call_988e8695bc991d7f8e40131db5ba7a76(self) -> None:
-        """Test case for call_988e8695bc991d7f8e40131db5ba7a76
-
-        Category@update
-        """
-        pass
-
-    def test_call_9c4934d1b68a6d4440ec72cfc8ae7074(self) -> None:
-        """Test case for call_9c4934d1b68a6d4440ec72cfc8ae7074
-
-        Category@show
-        """
-        pass
-
-    def test_dd76b8d73b7ea8b4951f03d7c0904c92(self) -> None:
-        """Test case for dd76b8d73b7ea8b4951f03d7c0904c92
+    def test_create_categories(self) -> None:
+        """Test case for create_categories
 
         Category@store
         """
         pass
 
-    def test_e225c2b7eb5daf7fb16e00f4f07ff030(self) -> None:
-        """Test case for e225c2b7eb5daf7fb16e00f4f07ff030
+    def test_delete_categories(self) -> None:
+        """Test case for delete_categories
+
+        Category@destroy
+        """
+        pass
+
+    def test_edit_categories(self) -> None:
+        """Test case for edit_categories
+
+        Category@update
+        """
+        pass
+
+    def test_fetch_all_categories(self) -> None:
+        """Test case for fetch_all_categories
 
         Category@index
+        """
+        pass
+
+    def test_fetch_categories(self) -> None:
+        """Test case for fetch_categories
+
+        Category@show
+        """
+        pass
+
+    def test_update_categories(self) -> None:
+        """Test case for update_categories
+
+        Category@update
         """
         pass
 

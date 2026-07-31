@@ -26,34 +26,6 @@ class TestDataUseRegistersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_220a00f946309dea9f126baed550c9cd(self) -> None:
-        """Test case for call_220a00f946309dea9f126baed550c9cd
-
-        DurController@exportTemplate
-        """
-        pass
-
-    def test_call_2c16b33b0f6636db91657b64f4a7bbda(self) -> None:
-        """Test case for call_2c16b33b0f6636db91657b64f4a7bbda
-
-        Update a dur by id
-        """
-        pass
-
-    def test_call_3d9acaab46169ca5e55cf017e9659f8e(self) -> None:
-        """Test case for call_3d9acaab46169ca5e55cf017e9659f8e
-
-        Edit a dur
-        """
-        pass
-
-    def test_call_491cd8b54449d3269b5d69d4d5732523(self) -> None:
-        """Test case for call_491cd8b54449d3269b5d69d4d5732523
-
-        DurController@exportTemplate
-        """
-        pass
-
     def test_count_team_unique_fields_dur_v2(self) -> None:
         """Test case for count_team_unique_fields_dur_v2
 
@@ -75,6 +47,13 @@ class TestDataUseRegistersApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_dur(self) -> None:
+        """Test case for delete_dur
+
+        Delete a dur
+        """
+        pass
+
     def test_delete_durs_v2_by_team_id(self) -> None:
         """Test case for delete_durs_v2_by_team_id
 
@@ -82,10 +61,10 @@ class TestDataUseRegistersApi(unittest.TestCase):
         """
         pass
 
-    def test_e78bbbfec43b70397fd580225bb968ce(self) -> None:
-        """Test case for e78bbbfec43b70397fd580225bb968ce
+    def test_edit_dur(self) -> None:
+        """Test case for edit_dur
 
-        Delete a dur
+        Edit a dur
         """
         pass
 
@@ -93,6 +72,20 @@ class TestDataUseRegistersApi(unittest.TestCase):
         """Test case for edit_durs_v2_by_team_id
 
         TeamDurController@edit
+        """
+        pass
+
+    def test_export_dur_template(self) -> None:
+        """Test case for export_dur_template
+
+        DurController@exportTemplate
+        """
+        pass
+
+    def test_export_dur_template_v2(self) -> None:
+        """Test case for export_dur_template_v2
+
+        DurController@exportTemplate
         """
         pass
 
@@ -142,6 +135,13 @@ class TestDataUseRegistersApi(unittest.TestCase):
         """Test case for fetch_dur_by_team_and_by_id_v2
 
         TeamDurController@show
+        """
+        pass
+
+    def test_update_dur(self) -> None:
+        """Test case for update_dur
+
+        Update a dur by id
         """
         pass
 

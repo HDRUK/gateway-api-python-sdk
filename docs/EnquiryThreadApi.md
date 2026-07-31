@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**a961db529080eb3a29e4b7cc13dabaaa**](EnquiryThreadApi.md#a961db529080eb3a29e4b7cc13dabaaa) | **POST** /api/v1/enquiry_threads | EnquiryThread@store
-[**call_4321ab5e45636e3e917c94fd21edac28**](EnquiryThreadApi.md#call_4321ab5e45636e3e917c94fd21edac28) | **GET** /api/v1/enquiry_threads | EnquiryThread@index
-[**fd828cd8df74859b18600bb6b36edf83**](EnquiryThreadApi.md#fd828cd8df74859b18600bb6b36edf83) | **GET** /api/v1/enquiry_threads/{id} | EnquiryThread@show
+[**create_enquiry_threads**](EnquiryThreadApi.md#create_enquiry_threads) | **POST** /api/v1/enquiry_threads | EnquiryThread@store
+[**fetch_all_enquiry_threads**](EnquiryThreadApi.md#fetch_all_enquiry_threads) | **GET** /api/v1/enquiry_threads | EnquiryThread@index
+[**fetch_enquiry_threads**](EnquiryThreadApi.md#fetch_enquiry_threads) | **GET** /api/v1/enquiry_threads/{id} | EnquiryThread@show
 
 
-# **a961db529080eb3a29e4b7cc13dabaaa**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response a961db529080eb3a29e4b7cc13dabaaa(a961db529080eb3a29e4b7cc13dabaaa_request)
+# **create_enquiry_threads**
+> CreateCategories200Response create_enquiry_threads(create_enquiry_threads_request)
 
 EnquiryThread@store
 
@@ -22,8 +22,8 @@ Creates one or more new EnquiryThreads
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.a961db529080eb3a29e4b7cc13dabaaa_request import A961db529080eb3a29e4b7cc13dabaaaRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_enquiry_threads_request import CreateEnquiryThreadsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -47,15 +47,15 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.EnquiryThreadApi(api_client)
-    a961db529080eb3a29e4b7cc13dabaaa_request = gateway_api_sdk.A961db529080eb3a29e4b7cc13dabaaaRequest() # A961db529080eb3a29e4b7cc13dabaaaRequest | EnquiryThread definition
+    create_enquiry_threads_request = gateway_api_sdk.CreateEnquiryThreadsRequest() # CreateEnquiryThreadsRequest | EnquiryThread definition
 
     try:
         # EnquiryThread@store
-        api_response = api_instance.a961db529080eb3a29e4b7cc13dabaaa(a961db529080eb3a29e4b7cc13dabaaa_request)
-        print("The response of EnquiryThreadApi->a961db529080eb3a29e4b7cc13dabaaa:\n")
+        api_response = api_instance.create_enquiry_threads(create_enquiry_threads_request)
+        print("The response of EnquiryThreadApi->create_enquiry_threads:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling EnquiryThreadApi->a961db529080eb3a29e4b7cc13dabaaa: %s\n" % e)
+        print("Exception when calling EnquiryThreadApi->create_enquiry_threads: %s\n" % e)
 ```
 
 
@@ -65,11 +65,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **a961db529080eb3a29e4b7cc13dabaaa_request** | [**A961db529080eb3a29e4b7cc13dabaaaRequest**](A961db529080eb3a29e4b7cc13dabaaaRequest.md)| EnquiryThread definition | 
+ **create_enquiry_threads_request** | [**CreateEnquiryThreadsRequest**](CreateEnquiryThreadsRequest.md)| EnquiryThread definition | 
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -89,8 +89,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **call_4321ab5e45636e3e917c94fd21edac28**
-> Model4321ab5e45636e3e917c94fd21edac28200Response call_4321ab5e45636e3e917c94fd21edac28(per_page=per_page)
+# **fetch_all_enquiry_threads**
+> FetchAllEnquiryThreads200Response fetch_all_enquiry_threads(per_page=per_page)
 
 EnquiryThread@index
 
@@ -102,7 +102,7 @@ Returns a list of EnquiryThreads from the system
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model4321ab5e45636e3e917c94fd21edac28200_response import Model4321ab5e45636e3e917c94fd21edac28200Response
+from gateway_api_sdk.models.fetch_all_enquiry_threads200_response import FetchAllEnquiryThreads200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -130,11 +130,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # EnquiryThread@index
-        api_response = api_instance.call_4321ab5e45636e3e917c94fd21edac28(per_page=per_page)
-        print("The response of EnquiryThreadApi->call_4321ab5e45636e3e917c94fd21edac28:\n")
+        api_response = api_instance.fetch_all_enquiry_threads(per_page=per_page)
+        print("The response of EnquiryThreadApi->fetch_all_enquiry_threads:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling EnquiryThreadApi->call_4321ab5e45636e3e917c94fd21edac28: %s\n" % e)
+        print("Exception when calling EnquiryThreadApi->fetch_all_enquiry_threads: %s\n" % e)
 ```
 
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Model4321ab5e45636e3e917c94fd21edac28200Response**](Model4321ab5e45636e3e917c94fd21edac28200Response.md)
+[**FetchAllEnquiryThreads200Response**](FetchAllEnquiryThreads200Response.md)
 
 ### Authorization
 
@@ -167,8 +167,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **fd828cd8df74859b18600bb6b36edf83**
-> Model4321ab5e45636e3e917c94fd21edac28200Response fd828cd8df74859b18600bb6b36edf83(id)
+# **fetch_enquiry_threads**
+> FetchAllEnquiryThreads200Response fetch_enquiry_threads(id)
 
 EnquiryThread@show
 
@@ -180,7 +180,7 @@ Return a single EnquiryThread
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model4321ab5e45636e3e917c94fd21edac28200_response import Model4321ab5e45636e3e917c94fd21edac28200Response
+from gateway_api_sdk.models.fetch_all_enquiry_threads200_response import FetchAllEnquiryThreads200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -208,11 +208,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # EnquiryThread@show
-        api_response = api_instance.fd828cd8df74859b18600bb6b36edf83(id)
-        print("The response of EnquiryThreadApi->fd828cd8df74859b18600bb6b36edf83:\n")
+        api_response = api_instance.fetch_enquiry_threads(id)
+        print("The response of EnquiryThreadApi->fetch_enquiry_threads:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling EnquiryThreadApi->fd828cd8df74859b18600bb6b36edf83: %s\n" % e)
+        print("Exception when calling EnquiryThreadApi->fetch_enquiry_threads: %s\n" % e)
 ```
 
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Model4321ab5e45636e3e917c94fd21edac28200Response**](Model4321ab5e45636e3e917c94fd21edac28200Response.md)
+[**FetchAllEnquiryThreads200Response**](FetchAllEnquiryThreads200Response.md)
 
 ### Authorization
 

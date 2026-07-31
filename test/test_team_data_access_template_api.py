@@ -26,15 +26,15 @@ class TestTeamDataAccessTemplateApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_471df4f14ed1f13bf3a66f1a8b70e261(self) -> None:
-        """Test case for call_471df4f14ed1f13bf3a66f1a8b70e261
+    def test_delete_team_dar_template_file(self) -> None:
+        """Test case for delete_team_dar_template_file
 
         TeamDataAccessTemplateController@destroyFile
         """
         pass
 
-    def test_call_883e72f80ed3577c8e6eca9f9437e554(self) -> None:
-        """Test case for call_883e72f80ed3577c8e6eca9f9437e554
+    def test_fetch_team_dar_templates(self) -> None:
+        """Test case for fetch_team_dar_templates
 
         TeamDataAccessTemplateController@index
         """

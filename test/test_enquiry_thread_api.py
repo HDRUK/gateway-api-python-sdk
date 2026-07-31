@@ -26,22 +26,22 @@ class TestEnquiryThreadApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_a961db529080eb3a29e4b7cc13dabaaa(self) -> None:
-        """Test case for a961db529080eb3a29e4b7cc13dabaaa
+    def test_create_enquiry_threads(self) -> None:
+        """Test case for create_enquiry_threads
 
         EnquiryThread@store
         """
         pass
 
-    def test_call_4321ab5e45636e3e917c94fd21edac28(self) -> None:
-        """Test case for call_4321ab5e45636e3e917c94fd21edac28
+    def test_fetch_all_enquiry_threads(self) -> None:
+        """Test case for fetch_all_enquiry_threads
 
         EnquiryThread@index
         """
         pass
 
-    def test_fd828cd8df74859b18600bb6b36edf83(self) -> None:
-        """Test case for fd828cd8df74859b18600bb6b36edf83
+    def test_fetch_enquiry_threads(self) -> None:
+        """Test case for fetch_enquiry_threads
 
         EnquiryThread@show
         """

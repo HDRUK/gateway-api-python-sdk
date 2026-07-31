@@ -26,17 +26,17 @@ class TestCustomerSatisfactionApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_2e155418e5f0de41829414447919439e(self) -> None:
-        """Test case for call_2e155418e5f0de41829414447919439e
+    def test_create_csat(self) -> None:
+        """Test case for create_csat
 
-        Update Customer Satisfaction Description
+        Create Customer Satisfaction Score
         """
         pass
 
-    def test_call_3604171bd1ea2588906fe1cf65353366(self) -> None:
-        """Test case for call_3604171bd1ea2588906fe1cf65353366
+    def test_edit_csat(self) -> None:
+        """Test case for edit_csat
 
-        Create Customer Satisfaction Score
+        Update Customer Satisfaction Description
         """
         pass
 

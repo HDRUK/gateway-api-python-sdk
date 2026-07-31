@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tools**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_tools(create_tools_request)
+> CreateCategories200Response create_tools(create_tools_request)
 
 ToolController@store
 
@@ -288,8 +288,8 @@ Create a new tool
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_tools_request import CreateToolsRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tools_by_team_v2**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_tools_by_team_v2(team_id, create_tools_request)
+> CreateCategories200Response create_tools_by_team_v2(team_id, create_tools_request)
 
 ToolController@store
 
@@ -370,8 +370,8 @@ Create a new tool by team v2
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_tools_request import CreateToolsRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tools_by_user_v2**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_tools_by_user_v2(user_id, create_tools_request)
+> CreateCategories200Response create_tools_by_user_v2(user_id, create_tools_request)
 
 UserToolController@store
 
@@ -454,8 +454,8 @@ Create a new tool by user v2
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_tools_request import CreateToolsRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -526,7 +526,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tools_integrations**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_tools_integrations(create_tools_integrations_request)
+> CreateCategories200Response create_tools_integrations(create_tools_integrations_request)
 
 IntegrationToolController@store
 
@@ -538,8 +538,8 @@ Create a new tool
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_tools_integrations_request import CreateToolsIntegrationsRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -585,7 +585,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 

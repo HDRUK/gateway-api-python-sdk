@@ -18,13 +18,13 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.fa314398c7a73002fee4ffc7e62e9fb6_request import Fa314398c7a73002fee4ffc7e62e9fb6Request
-from gateway_api_sdk.models.model39500344ecf1a14150bbe26c4a138c56_request import Model39500344ecf1a14150bbe26c4a138c56Request
-from gateway_api_sdk.models.model3b59d921ea47286a669054ef67350b03200_response import Model3b59d921ea47286a669054ef67350b03200Response
-from gateway_api_sdk.models.model3b59d921ea47286a669054ef67350b03_request import Model3b59d921ea47286a669054ef67350b03Request
-from gateway_api_sdk.models.model4f2a3c56631a5fccb45a9e7972df02b0200_response import Model4f2a3c56631a5fccb45a9e7972df02b0200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_saved_searches_request import CreateSavedSearchesRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.edit_saved_searches_request import EditSavedSearchesRequest
+from gateway_api_sdk.models.fetch_all_saved_searches200_response import FetchAllSavedSearches200Response
+from gateway_api_sdk.models.update_saved_searches200_response import UpdateSavedSearches200Response
+from gateway_api_sdk.models.update_saved_searches_request import UpdateSavedSearchesRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -45,9 +45,9 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_39500344ecf1a14150bbe26c4a138c56(
+    def create_saved_searches(
         self,
-        model39500344ecf1a14150bbe26c4a138c56_request: Annotated[Model39500344ecf1a14150bbe26c4a138c56Request, Field(description="Saved search definition")],
+        create_saved_searches_request: Annotated[CreateSavedSearchesRequest, Field(description="Saved search definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -60,13 +60,13 @@ class SavedSearchApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """SavedSearch@store
 
         Creates a new saved search
 
-        :param model39500344ecf1a14150bbe26c4a138c56_request: Saved search definition (required)
-        :type model39500344ecf1a14150bbe26c4a138c56_request: Model39500344ecf1a14150bbe26c4a138c56Request
+        :param create_saved_searches_request: Saved search definition (required)
+        :type create_saved_searches_request: CreateSavedSearchesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -89,8 +89,8 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_39500344ecf1a14150bbe26c4a138c56_serialize(
-            model39500344ecf1a14150bbe26c4a138c56_request=model39500344ecf1a14150bbe26c4a138c56_request,
+        _param = self._create_saved_searches_serialize(
+            create_saved_searches_request=create_saved_searches_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -98,8 +98,8 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -113,9 +113,9 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_39500344ecf1a14150bbe26c4a138c56_with_http_info(
+    def create_saved_searches_with_http_info(
         self,
-        model39500344ecf1a14150bbe26c4a138c56_request: Annotated[Model39500344ecf1a14150bbe26c4a138c56Request, Field(description="Saved search definition")],
+        create_saved_searches_request: Annotated[CreateSavedSearchesRequest, Field(description="Saved search definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -128,13 +128,13 @@ class SavedSearchApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """SavedSearch@store
 
         Creates a new saved search
 
-        :param model39500344ecf1a14150bbe26c4a138c56_request: Saved search definition (required)
-        :type model39500344ecf1a14150bbe26c4a138c56_request: Model39500344ecf1a14150bbe26c4a138c56Request
+        :param create_saved_searches_request: Saved search definition (required)
+        :type create_saved_searches_request: CreateSavedSearchesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -157,8 +157,8 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_39500344ecf1a14150bbe26c4a138c56_serialize(
-            model39500344ecf1a14150bbe26c4a138c56_request=model39500344ecf1a14150bbe26c4a138c56_request,
+        _param = self._create_saved_searches_serialize(
+            create_saved_searches_request=create_saved_searches_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -166,8 +166,8 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -181,9 +181,9 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_39500344ecf1a14150bbe26c4a138c56_without_preload_content(
+    def create_saved_searches_without_preload_content(
         self,
-        model39500344ecf1a14150bbe26c4a138c56_request: Annotated[Model39500344ecf1a14150bbe26c4a138c56Request, Field(description="Saved search definition")],
+        create_saved_searches_request: Annotated[CreateSavedSearchesRequest, Field(description="Saved search definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -201,8 +201,8 @@ class SavedSearchApi:
 
         Creates a new saved search
 
-        :param model39500344ecf1a14150bbe26c4a138c56_request: Saved search definition (required)
-        :type model39500344ecf1a14150bbe26c4a138c56_request: Model39500344ecf1a14150bbe26c4a138c56Request
+        :param create_saved_searches_request: Saved search definition (required)
+        :type create_saved_searches_request: CreateSavedSearchesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -225,8 +225,8 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_39500344ecf1a14150bbe26c4a138c56_serialize(
-            model39500344ecf1a14150bbe26c4a138c56_request=model39500344ecf1a14150bbe26c4a138c56_request,
+        _param = self._create_saved_searches_serialize(
+            create_saved_searches_request=create_saved_searches_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -234,8 +234,8 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -244,9 +244,9 @@ class SavedSearchApi:
         return response_data.response
 
 
-    def _call_39500344ecf1a14150bbe26c4a138c56_serialize(
+    def _create_saved_searches_serialize(
         self,
-        model39500344ecf1a14150bbe26c4a138c56_request,
+        create_saved_searches_request,
         _request_auth,
         _content_type,
         _headers,
@@ -272,8 +272,8 @@ class SavedSearchApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model39500344ecf1a14150bbe26c4a138c56_request is not None:
-            _body_params = model39500344ecf1a14150bbe26c4a138c56_request
+        if create_saved_searches_request is not None:
+            _body_params = create_saved_searches_request
 
 
         # set the HTTP header `Accept`
@@ -322,10 +322,9 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_3b59d921ea47286a669054ef67350b03(
+    def delete_saved_searches(
         self,
         id: Annotated[StrictInt, Field(description="saved search id")],
-        model3b59d921ea47286a669054ef67350b03_request: Annotated[Model3b59d921ea47286a669054ef67350b03Request, Field(description="Saved search definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -338,15 +337,13 @@ class SavedSearchApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model3b59d921ea47286a669054ef67350b03200Response:
-        """SavedSearch@update
+    ) -> DeleteAliases200Response:
+        """SavedSearch@destroy
 
-        Update a saved search
+        Delete a saved search
 
         :param id: saved search id (required)
         :type id: int
-        :param model3b59d921ea47286a669054ef67350b03_request: Saved search definition (required)
-        :type model3b59d921ea47286a669054ef67350b03_request: Model3b59d921ea47286a669054ef67350b03Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -369,9 +366,8 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3b59d921ea47286a669054ef67350b03_serialize(
+        _param = self._delete_saved_searches_serialize(
             id=id,
-            model3b59d921ea47286a669054ef67350b03_request=model3b59d921ea47286a669054ef67350b03_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -379,9 +375,9 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model3b59d921ea47286a669054ef67350b03200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -395,10 +391,9 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_3b59d921ea47286a669054ef67350b03_with_http_info(
+    def delete_saved_searches_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="saved search id")],
-        model3b59d921ea47286a669054ef67350b03_request: Annotated[Model3b59d921ea47286a669054ef67350b03Request, Field(description="Saved search definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -411,15 +406,13 @@ class SavedSearchApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model3b59d921ea47286a669054ef67350b03200Response]:
-        """SavedSearch@update
+    ) -> ApiResponse[DeleteAliases200Response]:
+        """SavedSearch@destroy
 
-        Update a saved search
+        Delete a saved search
 
         :param id: saved search id (required)
         :type id: int
-        :param model3b59d921ea47286a669054ef67350b03_request: Saved search definition (required)
-        :type model3b59d921ea47286a669054ef67350b03_request: Model3b59d921ea47286a669054ef67350b03Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -442,9 +435,8 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3b59d921ea47286a669054ef67350b03_serialize(
+        _param = self._delete_saved_searches_serialize(
             id=id,
-            model3b59d921ea47286a669054ef67350b03_request=model3b59d921ea47286a669054ef67350b03_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -452,9 +444,9 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model3b59d921ea47286a669054ef67350b03200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -468,10 +460,9 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_3b59d921ea47286a669054ef67350b03_without_preload_content(
+    def delete_saved_searches_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="saved search id")],
-        model3b59d921ea47286a669054ef67350b03_request: Annotated[Model3b59d921ea47286a669054ef67350b03Request, Field(description="Saved search definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -485,14 +476,12 @@ class SavedSearchApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """SavedSearch@update
+        """SavedSearch@destroy
 
-        Update a saved search
+        Delete a saved search
 
         :param id: saved search id (required)
         :type id: int
-        :param model3b59d921ea47286a669054ef67350b03_request: Saved search definition (required)
-        :type model3b59d921ea47286a669054ef67350b03_request: Model3b59d921ea47286a669054ef67350b03Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -515,9 +504,8 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3b59d921ea47286a669054ef67350b03_serialize(
+        _param = self._delete_saved_searches_serialize(
             id=id,
-            model3b59d921ea47286a669054ef67350b03_request=model3b59d921ea47286a669054ef67350b03_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -525,9 +513,9 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model3b59d921ea47286a669054ef67350b03200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -536,10 +524,9 @@ class SavedSearchApi:
         return response_data.response
 
 
-    def _call_3b59d921ea47286a669054ef67350b03_serialize(
+    def _delete_saved_searches_serialize(
         self,
         id,
-        model3b59d921ea47286a669054ef67350b03_request,
         _request_auth,
         _content_type,
         _headers,
@@ -567,8 +554,288 @@ class SavedSearchApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model3b59d921ea47286a669054ef67350b03_request is not None:
-            _body_params = model3b59d921ea47286a669054ef67350b03_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/api/v1/saved_searches/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def edit_saved_searches(
+        self,
+        id: Annotated[StrictInt, Field(description="saved search id")],
+        edit_saved_searches_request: Annotated[EditSavedSearchesRequest, Field(description="Saved search definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateSavedSearches200Response:
+        """SavedSearch@update
+
+        Edit a saved search
+
+        :param id: saved search id (required)
+        :type id: int
+        :param edit_saved_searches_request: Saved search definition (required)
+        :type edit_saved_searches_request: EditSavedSearchesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._edit_saved_searches_serialize(
+            id=id,
+            edit_saved_searches_request=edit_saved_searches_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateSavedSearches200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def edit_saved_searches_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="saved search id")],
+        edit_saved_searches_request: Annotated[EditSavedSearchesRequest, Field(description="Saved search definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateSavedSearches200Response]:
+        """SavedSearch@update
+
+        Edit a saved search
+
+        :param id: saved search id (required)
+        :type id: int
+        :param edit_saved_searches_request: Saved search definition (required)
+        :type edit_saved_searches_request: EditSavedSearchesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._edit_saved_searches_serialize(
+            id=id,
+            edit_saved_searches_request=edit_saved_searches_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateSavedSearches200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def edit_saved_searches_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="saved search id")],
+        edit_saved_searches_request: Annotated[EditSavedSearchesRequest, Field(description="Saved search definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """SavedSearch@update
+
+        Edit a saved search
+
+        :param id: saved search id (required)
+        :type id: int
+        :param edit_saved_searches_request: Saved search definition (required)
+        :type edit_saved_searches_request: EditSavedSearchesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._edit_saved_searches_serialize(
+            id=id,
+            edit_saved_searches_request=edit_saved_searches_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateSavedSearches200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _edit_saved_searches_serialize(
+        self,
+        id,
+        edit_saved_searches_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if edit_saved_searches_request is not None:
+            _body_params = edit_saved_searches_request
 
 
         # set the HTTP header `Accept`
@@ -599,7 +866,7 @@ class SavedSearchApi:
         ]
 
         return self.api_client.param_serialize(
-            method='PUT',
+            method='PATCH',
             resource_path='/api/v1/saved_searches/{id}',
             path_params=_path_params,
             query_params=_query_params,
@@ -617,7 +884,7 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_4f2a3c56631a5fccb45a9e7972df02b0(
+    def fetch_all_saved_searches(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="Specify number of results per page")] = None,
         _request_timeout: Union[
@@ -632,7 +899,7 @@ class SavedSearchApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model4f2a3c56631a5fccb45a9e7972df02b0200Response:
+    ) -> FetchAllSavedSearches200Response:
         """SavedSearch@index
 
         Returns a list of saved searches enabled on the system
@@ -661,7 +928,7 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_4f2a3c56631a5fccb45a9e7972df02b0_serialize(
+        _param = self._fetch_all_saved_searches_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -670,7 +937,7 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4f2a3c56631a5fccb45a9e7972df02b0200Response",
+            '200': "FetchAllSavedSearches200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -684,7 +951,7 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_4f2a3c56631a5fccb45a9e7972df02b0_with_http_info(
+    def fetch_all_saved_searches_with_http_info(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="Specify number of results per page")] = None,
         _request_timeout: Union[
@@ -699,7 +966,7 @@ class SavedSearchApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model4f2a3c56631a5fccb45a9e7972df02b0200Response]:
+    ) -> ApiResponse[FetchAllSavedSearches200Response]:
         """SavedSearch@index
 
         Returns a list of saved searches enabled on the system
@@ -728,7 +995,7 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_4f2a3c56631a5fccb45a9e7972df02b0_serialize(
+        _param = self._fetch_all_saved_searches_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -737,7 +1004,7 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4f2a3c56631a5fccb45a9e7972df02b0200Response",
+            '200': "FetchAllSavedSearches200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -751,7 +1018,7 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_4f2a3c56631a5fccb45a9e7972df02b0_without_preload_content(
+    def fetch_all_saved_searches_without_preload_content(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="Specify number of results per page")] = None,
         _request_timeout: Union[
@@ -795,7 +1062,7 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_4f2a3c56631a5fccb45a9e7972df02b0_serialize(
+        _param = self._fetch_all_saved_searches_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -804,7 +1071,7 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4f2a3c56631a5fccb45a9e7972df02b0200Response",
+            '200': "FetchAllSavedSearches200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -813,7 +1080,7 @@ class SavedSearchApi:
         return response_data.response
 
 
-    def _call_4f2a3c56631a5fccb45a9e7972df02b0_serialize(
+    def _fetch_all_saved_searches_serialize(
         self,
         per_page,
         _request_auth,
@@ -880,7 +1147,7 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_8d6878e4937dd67c5e2480c6f4e9149f(
+    def fetch_saved_searches(
         self,
         id: Annotated[StrictInt, Field(description="saved search id")],
         _request_timeout: Union[
@@ -895,7 +1162,7 @@ class SavedSearchApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model4f2a3c56631a5fccb45a9e7972df02b0200Response:
+    ) -> FetchAllSavedSearches200Response:
         """SavedSearch@show
 
         Return a single saved search
@@ -924,7 +1191,7 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_8d6878e4937dd67c5e2480c6f4e9149f_serialize(
+        _param = self._fetch_saved_searches_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -933,8 +1200,8 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4f2a3c56631a5fccb45a9e7972df02b0200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchAllSavedSearches200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -948,7 +1215,7 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_8d6878e4937dd67c5e2480c6f4e9149f_with_http_info(
+    def fetch_saved_searches_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="saved search id")],
         _request_timeout: Union[
@@ -963,7 +1230,7 @@ class SavedSearchApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model4f2a3c56631a5fccb45a9e7972df02b0200Response]:
+    ) -> ApiResponse[FetchAllSavedSearches200Response]:
         """SavedSearch@show
 
         Return a single saved search
@@ -992,7 +1259,7 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_8d6878e4937dd67c5e2480c6f4e9149f_serialize(
+        _param = self._fetch_saved_searches_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1001,8 +1268,8 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4f2a3c56631a5fccb45a9e7972df02b0200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchAllSavedSearches200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1016,7 +1283,7 @@ class SavedSearchApi:
 
 
     @validate_call
-    def call_8d6878e4937dd67c5e2480c6f4e9149f_without_preload_content(
+    def fetch_saved_searches_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="saved search id")],
         _request_timeout: Union[
@@ -1060,7 +1327,7 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_8d6878e4937dd67c5e2480c6f4e9149f_serialize(
+        _param = self._fetch_saved_searches_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1069,8 +1336,8 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model4f2a3c56631a5fccb45a9e7972df02b0200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchAllSavedSearches200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1079,7 +1346,7 @@ class SavedSearchApi:
         return response_data.response
 
 
-    def _call_8d6878e4937dd67c5e2480c6f4e9149f_serialize(
+    def _fetch_saved_searches_serialize(
         self,
         id,
         _request_auth,
@@ -1144,9 +1411,10 @@ class SavedSearchApi:
 
 
     @validate_call
-    def cdcdceead49fe1554534af83c50c8af5(
+    def update_saved_searches(
         self,
         id: Annotated[StrictInt, Field(description="saved search id")],
+        update_saved_searches_request: Annotated[UpdateSavedSearchesRequest, Field(description="Saved search definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1159,13 +1427,15 @@ class SavedSearchApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
-        """SavedSearch@destroy
+    ) -> UpdateSavedSearches200Response:
+        """SavedSearch@update
 
-        Delete a saved search
+        Update a saved search
 
         :param id: saved search id (required)
         :type id: int
+        :param update_saved_searches_request: Saved search definition (required)
+        :type update_saved_searches_request: UpdateSavedSearchesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1188,8 +1458,9 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._cdcdceead49fe1554534af83c50c8af5_serialize(
+        _param = self._update_saved_searches_serialize(
             id=id,
+            update_saved_searches_request=update_saved_searches_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1197,9 +1468,9 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateSavedSearches200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1213,9 +1484,10 @@ class SavedSearchApi:
 
 
     @validate_call
-    def cdcdceead49fe1554534af83c50c8af5_with_http_info(
+    def update_saved_searches_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="saved search id")],
+        update_saved_searches_request: Annotated[UpdateSavedSearchesRequest, Field(description="Saved search definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1228,13 +1500,15 @@ class SavedSearchApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
-        """SavedSearch@destroy
+    ) -> ApiResponse[UpdateSavedSearches200Response]:
+        """SavedSearch@update
 
-        Delete a saved search
+        Update a saved search
 
         :param id: saved search id (required)
         :type id: int
+        :param update_saved_searches_request: Saved search definition (required)
+        :type update_saved_searches_request: UpdateSavedSearchesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1257,8 +1531,9 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._cdcdceead49fe1554534af83c50c8af5_serialize(
+        _param = self._update_saved_searches_serialize(
             id=id,
+            update_saved_searches_request=update_saved_searches_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1266,9 +1541,9 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateSavedSearches200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1282,9 +1557,10 @@ class SavedSearchApi:
 
 
     @validate_call
-    def cdcdceead49fe1554534af83c50c8af5_without_preload_content(
+    def update_saved_searches_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="saved search id")],
+        update_saved_searches_request: Annotated[UpdateSavedSearchesRequest, Field(description="Saved search definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1298,12 +1574,14 @@ class SavedSearchApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """SavedSearch@destroy
+        """SavedSearch@update
 
-        Delete a saved search
+        Update a saved search
 
         :param id: saved search id (required)
         :type id: int
+        :param update_saved_searches_request: Saved search definition (required)
+        :type update_saved_searches_request: UpdateSavedSearchesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1326,8 +1604,9 @@ class SavedSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._cdcdceead49fe1554534af83c50c8af5_serialize(
+        _param = self._update_saved_searches_serialize(
             id=id,
+            update_saved_searches_request=update_saved_searches_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1335,9 +1614,9 @@ class SavedSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateSavedSearches200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1346,9 +1625,10 @@ class SavedSearchApi:
         return response_data.response
 
 
-    def _cdcdceead49fe1554534af83c50c8af5_serialize(
+    def _update_saved_searches_serialize(
         self,
         id,
+        update_saved_searches_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1376,288 +1656,8 @@ class SavedSearchApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/api/v1/saved_searches/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def fa314398c7a73002fee4ffc7e62e9fb6(
-        self,
-        id: Annotated[StrictInt, Field(description="saved search id")],
-        fa314398c7a73002fee4ffc7e62e9fb6_request: Annotated[Fa314398c7a73002fee4ffc7e62e9fb6Request, Field(description="Saved search definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model3b59d921ea47286a669054ef67350b03200Response:
-        """SavedSearch@update
-
-        Edit a saved search
-
-        :param id: saved search id (required)
-        :type id: int
-        :param fa314398c7a73002fee4ffc7e62e9fb6_request: Saved search definition (required)
-        :type fa314398c7a73002fee4ffc7e62e9fb6_request: Fa314398c7a73002fee4ffc7e62e9fb6Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fa314398c7a73002fee4ffc7e62e9fb6_serialize(
-            id=id,
-            fa314398c7a73002fee4ffc7e62e9fb6_request=fa314398c7a73002fee4ffc7e62e9fb6_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model3b59d921ea47286a669054ef67350b03200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fa314398c7a73002fee4ffc7e62e9fb6_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="saved search id")],
-        fa314398c7a73002fee4ffc7e62e9fb6_request: Annotated[Fa314398c7a73002fee4ffc7e62e9fb6Request, Field(description="Saved search definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model3b59d921ea47286a669054ef67350b03200Response]:
-        """SavedSearch@update
-
-        Edit a saved search
-
-        :param id: saved search id (required)
-        :type id: int
-        :param fa314398c7a73002fee4ffc7e62e9fb6_request: Saved search definition (required)
-        :type fa314398c7a73002fee4ffc7e62e9fb6_request: Fa314398c7a73002fee4ffc7e62e9fb6Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fa314398c7a73002fee4ffc7e62e9fb6_serialize(
-            id=id,
-            fa314398c7a73002fee4ffc7e62e9fb6_request=fa314398c7a73002fee4ffc7e62e9fb6_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model3b59d921ea47286a669054ef67350b03200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fa314398c7a73002fee4ffc7e62e9fb6_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="saved search id")],
-        fa314398c7a73002fee4ffc7e62e9fb6_request: Annotated[Fa314398c7a73002fee4ffc7e62e9fb6Request, Field(description="Saved search definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """SavedSearch@update
-
-        Edit a saved search
-
-        :param id: saved search id (required)
-        :type id: int
-        :param fa314398c7a73002fee4ffc7e62e9fb6_request: Saved search definition (required)
-        :type fa314398c7a73002fee4ffc7e62e9fb6_request: Fa314398c7a73002fee4ffc7e62e9fb6Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fa314398c7a73002fee4ffc7e62e9fb6_serialize(
-            id=id,
-            fa314398c7a73002fee4ffc7e62e9fb6_request=fa314398c7a73002fee4ffc7e62e9fb6_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model3b59d921ea47286a669054ef67350b03200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fa314398c7a73002fee4ffc7e62e9fb6_serialize(
-        self,
-        id,
-        fa314398c7a73002fee4ffc7e62e9fb6_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if fa314398c7a73002fee4ffc7e62e9fb6_request is not None:
-            _body_params = fa314398c7a73002fee4ffc7e62e9fb6_request
+        if update_saved_searches_request is not None:
+            _body_params = update_saved_searches_request
 
 
         # set the HTTP header `Accept`
@@ -1688,7 +1688,7 @@ class SavedSearchApi:
         ]
 
         return self.api_client.param_serialize(
-            method='PATCH',
+            method='PUT',
             resource_path='/api/v1/saved_searches/{id}',
             path_params=_path_params,
             query_params=_query_params,

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **create_federation_team**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_federation_team(team_id, create_federation_team_request)
+> CreateCategories200Response create_federation_team(team_id, create_federation_team_request)
 
 FederationController@store
 
@@ -28,8 +28,8 @@ Create federation
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_federation_team_request import CreateFederationTeamRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_federation_team**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response edit_federation_team(team_id, federation_id, create_federation_team_request)
+> CreateCategories200Response edit_federation_team(team_id, federation_id, create_federation_team_request)
 
 FederationController@edit
 
@@ -194,8 +194,8 @@ Edit federation for team
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_federation_team_request import CreateFederationTeamRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -665,7 +665,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_federation_team**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response update_federation_team(team_id, federation_id, update_federation_team_request)
+> CreateCategories200Response update_federation_team(team_id, federation_id, update_federation_team_request)
 
 FederationController@update
 
@@ -677,7 +677,7 @@ Update federation for team
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.update_federation_team_request import UpdateFederationTeamRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -728,7 +728,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 

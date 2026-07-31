@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**call_1c45c3c6908e92d680ce50910d6d4061**](DatasetsApi.md#call_1c45c3c6908e92d680ce50910d6d4061) | **POST** /api/v1/datasets/admin_ctrl/trigger/term_extraction | Trigger Term Extraction for Datasets
-[**call_7f39b24417648f048a9457326619439c**](DatasetsApi.md#call_7f39b24417648f048a9457326619439c) | **POST** /api/v1/datasets/admin_ctrl/trigger/linkage_extraction | Trigger Term Extraction for Datasets
 [**count_team_unique_fields_datasets_v2**](DatasetsApi.md#count_team_unique_fields_datasets_v2) | **GET** /api/v2/teams/{teamId}/datasets/count/{field} | TeamDatasetController@count
 [**count_unique_fields**](DatasetsApi.md#count_unique_fields) | **GET** /api/v1/datasets/count/{field} | DatasetController@count
 [**create_datasets**](DatasetsApi.md#create_datasets) | **POST** /api/v1/datasets | DatasetController@store
 [**create_datasets_integrations**](DatasetsApi.md#create_datasets_integrations) | **POST** /api/v1/integrations/datasets | IntegrationDatasetController@store
+[**create_datasets_linkage_extraction**](DatasetsApi.md#create_datasets_linkage_extraction) | **POST** /api/v1/datasets/admin_ctrl/trigger/linkage_extraction | Trigger Term Extraction for Datasets
+[**create_datasets_term_extraction**](DatasetsApi.md#create_datasets_term_extraction) | **POST** /api/v1/datasets/admin_ctrl/trigger/term_extraction | Trigger Term Extraction for Datasets
 [**create_datasets_v2**](DatasetsApi.md#create_datasets_v2) | **POST** /api/v2/datasets | DatasetController@store
 [**create_team_datasets_v2**](DatasetsApi.md#create_team_datasets_v2) | **POST** /api/v2/teams/{teamId}/datasets | TeamDatasetController@store
 [**delete_datasets**](DatasetsApi.md#delete_datasets) | **DELETE** /api/v1/datasets/{id} | DatasetController@destroy
@@ -38,152 +38,6 @@ Method | HTTP request | Description
 [**update_datasets_v2**](DatasetsApi.md#update_datasets_v2) | **PUT** /api/v2/datasets/{id} | DatasetController@update
 [**update_team_datasets_v2**](DatasetsApi.md#update_team_datasets_v2) | **PUT** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@update
 
-
-# **call_1c45c3c6908e92d680ce50910d6d4061**
-> Model1c45c3c6908e92d680ce50910d6d4061200Response call_1c45c3c6908e92d680ce50910d6d4061(authorization, role, model1c45c3c6908e92d680ce50910d6d4061_request)
-
-Trigger Term Extraction for Datasets
-
-Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
-
-### Example
-
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.model1c45c3c6908e92d680ce50910d6d4061200_response import Model1c45c3c6908e92d680ce50910d6d4061200Response
-from gateway_api_sdk.models.model1c45c3c6908e92d680ce50910d6d4061_request import Model1c45c3c6908e92d680ce50910d6d4061Request
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    authorization = 'authorization_example' # str | JWT token for authorization in the format 'Bearer {token}'
-    role = 'role_example' # str | Role required to access this endpoint, e.g., 'hdruk.superadmin'
-    model1c45c3c6908e92d680ce50910d6d4061_request = gateway_api_sdk.Model1c45c3c6908e92d680ce50910d6d4061Request() # Model1c45c3c6908e92d680ce50910d6d4061Request | 
-
-    try:
-        # Trigger Term Extraction for Datasets
-        api_response = api_instance.call_1c45c3c6908e92d680ce50910d6d4061(authorization, role, model1c45c3c6908e92d680ce50910d6d4061_request)
-        print("The response of DatasetsApi->call_1c45c3c6908e92d680ce50910d6d4061:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->call_1c45c3c6908e92d680ce50910d6d4061: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorization** | **str**| JWT token for authorization in the format &#39;Bearer {token}&#39; | 
- **role** | **str**| Role required to access this endpoint, e.g., &#39;hdruk.superadmin&#39; | 
- **model1c45c3c6908e92d680ce50910d6d4061_request** | [**Model1c45c3c6908e92d680ce50910d6d4061Request**](Model1c45c3c6908e92d680ce50910d6d4061Request.md)|  | 
-
-### Return type
-
-[**Model1c45c3c6908e92d680ce50910d6d4061200Response**](Model1c45c3c6908e92d680ce50910d6d4061200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Term extraction triggered successfully |  -  |
-**500** | Internal server error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **call_7f39b24417648f048a9457326619439c**
-> Model7f39b24417648f048a9457326619439c200Response call_7f39b24417648f048a9457326619439c(authorization, model7f39b24417648f048a9457326619439c_request)
-
-Trigger Term Extraction for Datasets
-
-Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
-
-### Example
-
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.model7f39b24417648f048a9457326619439c200_response import Model7f39b24417648f048a9457326619439c200Response
-from gateway_api_sdk.models.model7f39b24417648f048a9457326619439c_request import Model7f39b24417648f048a9457326619439cRequest
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    authorization = 'authorization_example' # str | JWT token for authorization in the format 'Bearer {token}'
-    model7f39b24417648f048a9457326619439c_request = gateway_api_sdk.Model7f39b24417648f048a9457326619439cRequest() # Model7f39b24417648f048a9457326619439cRequest | 
-
-    try:
-        # Trigger Term Extraction for Datasets
-        api_response = api_instance.call_7f39b24417648f048a9457326619439c(authorization, model7f39b24417648f048a9457326619439c_request)
-        print("The response of DatasetsApi->call_7f39b24417648f048a9457326619439c:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->call_7f39b24417648f048a9457326619439c: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorization** | **str**| JWT token for authorization in the format &#39;Bearer {token}&#39; | 
- **model7f39b24417648f048a9457326619439c_request** | [**Model7f39b24417648f048a9457326619439cRequest**](Model7f39b24417648f048a9457326619439cRequest.md)|  | 
-
-### Return type
-
-[**Model7f39b24417648f048a9457326619439c200Response**](Model7f39b24417648f048a9457326619439c200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Linkage extraction triggered successfully |  -  |
-**500** | Internal server error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **count_team_unique_fields_datasets_v2**
 > CountUniqueFieldsCollections200Response count_team_unique_fields_datasets_v2(team_id, var_field)
@@ -346,7 +200,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_datasets**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_datasets(create_datasets_request)
+> CreateCategories200Response create_datasets(create_datasets_request)
 
 DatasetController@store
 
@@ -358,8 +212,8 @@ Create a new dataset
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_datasets_request import CreateDatasetsRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -405,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -427,7 +281,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_datasets_integrations**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_datasets_integrations(datasets_test_request, input_schema=input_schema, input_version=input_version)
+> CreateCategories200Response create_datasets_integrations(datasets_test_request, input_schema=input_schema, input_version=input_version)
 
 IntegrationDatasetController@store
 
@@ -439,8 +293,8 @@ Create a new dataset
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.datasets_test_request import DatasetsTestRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -490,7 +344,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -511,8 +365,154 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_datasets_linkage_extraction**
+> CreateDatasetsLinkageExtraction200Response create_datasets_linkage_extraction(authorization, create_datasets_linkage_extraction_request)
+
+Trigger Term Extraction for Datasets
+
+Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
+
+### Example
+
+
+```python
+import gateway_api_sdk
+from gateway_api_sdk.models.create_datasets_linkage_extraction200_response import CreateDatasetsLinkageExtraction200Response
+from gateway_api_sdk.models.create_datasets_linkage_extraction_request import CreateDatasetsLinkageExtractionRequest
+from gateway_api_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gateway_api_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with gateway_api_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gateway_api_sdk.DatasetsApi(api_client)
+    authorization = 'authorization_example' # str | JWT token for authorization in the format 'Bearer {token}'
+    create_datasets_linkage_extraction_request = gateway_api_sdk.CreateDatasetsLinkageExtractionRequest() # CreateDatasetsLinkageExtractionRequest | 
+
+    try:
+        # Trigger Term Extraction for Datasets
+        api_response = api_instance.create_datasets_linkage_extraction(authorization, create_datasets_linkage_extraction_request)
+        print("The response of DatasetsApi->create_datasets_linkage_extraction:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DatasetsApi->create_datasets_linkage_extraction: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| JWT token for authorization in the format &#39;Bearer {token}&#39; | 
+ **create_datasets_linkage_extraction_request** | [**CreateDatasetsLinkageExtractionRequest**](CreateDatasetsLinkageExtractionRequest.md)|  | 
+
+### Return type
+
+[**CreateDatasetsLinkageExtraction200Response**](CreateDatasetsLinkageExtraction200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Linkage extraction triggered successfully |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_datasets_term_extraction**
+> CreateDatasetsTermExtraction200Response create_datasets_term_extraction(authorization, role, create_datasets_term_extraction_request)
+
+Trigger Term Extraction for Datasets
+
+Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
+
+### Example
+
+
+```python
+import gateway_api_sdk
+from gateway_api_sdk.models.create_datasets_term_extraction200_response import CreateDatasetsTermExtraction200Response
+from gateway_api_sdk.models.create_datasets_term_extraction_request import CreateDatasetsTermExtractionRequest
+from gateway_api_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gateway_api_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with gateway_api_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gateway_api_sdk.DatasetsApi(api_client)
+    authorization = 'authorization_example' # str | JWT token for authorization in the format 'Bearer {token}'
+    role = 'role_example' # str | Role required to access this endpoint, e.g., 'hdruk.superadmin'
+    create_datasets_term_extraction_request = gateway_api_sdk.CreateDatasetsTermExtractionRequest() # CreateDatasetsTermExtractionRequest | 
+
+    try:
+        # Trigger Term Extraction for Datasets
+        api_response = api_instance.create_datasets_term_extraction(authorization, role, create_datasets_term_extraction_request)
+        print("The response of DatasetsApi->create_datasets_term_extraction:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DatasetsApi->create_datasets_term_extraction: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| JWT token for authorization in the format &#39;Bearer {token}&#39; | 
+ **role** | **str**| Role required to access this endpoint, e.g., &#39;hdruk.superadmin&#39; | 
+ **create_datasets_term_extraction_request** | [**CreateDatasetsTermExtractionRequest**](CreateDatasetsTermExtractionRequest.md)|  | 
+
+### Return type
+
+[**CreateDatasetsTermExtraction200Response**](CreateDatasetsTermExtraction200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Term extraction triggered successfully |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_datasets_v2**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_datasets_v2(create_datasets_v2_request)
+> CreateCategories200Response create_datasets_v2(create_datasets_v2_request)
 
 DatasetController@store
 
@@ -524,8 +524,8 @@ Create a new dataset
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_datasets_v2_request import CreateDatasetsV2Request
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -571,7 +571,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -593,7 +593,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_team_datasets_v2**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_team_datasets_v2(team_id, create_team_datasets_v2_request)
+> CreateCategories200Response create_team_datasets_v2(team_id, create_team_datasets_v2_request)
 
 TeamDatasetController@store
 
@@ -605,8 +605,8 @@ Create a new dataset for a team
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_team_datasets_v2_request import CreateTeamDatasetsV2Request
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -654,7 +654,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -676,7 +676,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_datasets**
-> C29b5b3424f7317b69b4bda048ccfafb200Response delete_datasets(id)
+> DeleteAliases200Response delete_datasets(id)
 
 DatasetController@destroy
 
@@ -688,7 +688,7 @@ Delete a dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -734,7 +734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -756,7 +756,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_datasets_integrations**
-> C29b5b3424f7317b69b4bda048ccfafb200Response delete_datasets_integrations(id)
+> DeleteAliases200Response delete_datasets_integrations(id)
 
 IntegrationDatasetController@destroy
 
@@ -768,7 +768,7 @@ Delete a dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -814,7 +814,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -836,7 +836,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_datasets_v2**
-> C29b5b3424f7317b69b4bda048ccfafb200Response delete_datasets_v2(id)
+> DeleteAliases200Response delete_datasets_v2(id)
 
 Delete a dataset
 
@@ -848,7 +848,7 @@ Delete a dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -894,7 +894,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -916,7 +916,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_team_datasets_v2**
-> C29b5b3424f7317b69b4bda048ccfafb200Response delete_team_datasets_v2(team_id, id)
+> DeleteAliases200Response delete_team_datasets_v2(team_id, id)
 
 TeamDatasetController@destroy
 
@@ -928,7 +928,7 @@ Delete a team's dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -976,7 +976,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -2080,7 +2080,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_datasets**
-> C29b5b3424f7317b69b4bda048ccfafb200Response patch_datasets(id, unarchive=unarchive)
+> DeleteAliases200Response patch_datasets(id, unarchive=unarchive)
 
 DatasetController@edit
 
@@ -2092,7 +2092,7 @@ Patch dataset by id
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -2140,7 +2140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -2161,7 +2161,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_datasets_integrations**
-> C29b5b3424f7317b69b4bda048ccfafb200Response patch_datasets_integrations(id, unarchive=unarchive)
+> DeleteAliases200Response patch_datasets_integrations(id, unarchive=unarchive)
 
 IntegrationDatasetController@edit
 
@@ -2173,7 +2173,7 @@ Patch dataset by id
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -2221,7 +2221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -2242,7 +2242,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_datasets_v2**
-> C29b5b3424f7317b69b4bda048ccfafb200Response patch_datasets_v2(id, patch_datasets_v2_request)
+> DeleteAliases200Response patch_datasets_v2(id, patch_datasets_v2_request)
 
 DatasetController@edit
 
@@ -2254,7 +2254,7 @@ Patch dataset by id
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -2303,7 +2303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -2324,7 +2324,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_team_datasets_v2**
-> C29b5b3424f7317b69b4bda048ccfafb200Response patch_team_datasets_v2(team_id, id, patch_datasets_v2_request)
+> DeleteAliases200Response patch_team_datasets_v2(team_id, id, patch_datasets_v2_request)
 
 TeamDatasetController@edit
 
@@ -2336,7 +2336,7 @@ Edit a dataset owned by a team
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -2387,7 +2387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -2408,7 +2408,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_datasets**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response update_datasets(id, update_datasets_request)
+> CreateCategories200Response update_datasets(id, update_datasets_request)
 
 DatasetController@update
 
@@ -2420,7 +2420,7 @@ Update a dataset with a new dataset version
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.update_datasets_request import UpdateDatasetsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -2469,7 +2469,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -2578,7 +2578,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_datasets_v2**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response update_datasets_v2(id, update_datasets_request)
+> CreateCategories200Response update_datasets_v2(id, update_datasets_request)
 
 DatasetController@update
 
@@ -2590,7 +2590,7 @@ Update a dataset with a new dataset version
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.update_datasets_request import UpdateDatasetsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -2639,7 +2639,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -2661,7 +2661,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_team_datasets_v2**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response update_team_datasets_v2(team_id, id, patch_datasets_v2_request)
+> CreateCategories200Response update_team_datasets_v2(team_id, id, patch_datasets_v2_request)
 
 TeamDatasetController@update
 
@@ -2673,7 +2673,7 @@ Update a team dataset with a new dataset version
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -2724,7 +2724,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 

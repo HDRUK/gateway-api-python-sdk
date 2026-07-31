@@ -18,8 +18,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_federation_team_request import CreateFederationTeamRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.models.delete_federation200_response import DeleteFederation200Response
 from gateway_api_sdk.models.get_federation_by_federation_id_and_team_id200_response import GetFederationByFederationIdAndTeamId200Response
 from gateway_api_sdk.models.get_federation_history200_response import GetFederationHistory200Response
@@ -62,7 +62,7 @@ class TeamFederationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """FederationController@store
 
         Create federation
@@ -103,9 +103,9 @@ class TeamFederationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -135,7 +135,7 @@ class TeamFederationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """FederationController@store
 
         Create federation
@@ -176,9 +176,9 @@ class TeamFederationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -249,9 +249,9 @@ class TeamFederationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -401,7 +401,7 @@ class TeamFederationsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -475,7 +475,7 @@ class TeamFederationsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -549,7 +549,7 @@ class TeamFederationsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -643,7 +643,7 @@ class TeamFederationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """FederationController@edit
 
         Edit federation for team
@@ -687,9 +687,9 @@ class TeamFederationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -720,7 +720,7 @@ class TeamFederationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """FederationController@edit
 
         Edit federation for team
@@ -764,9 +764,9 @@ class TeamFederationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -841,9 +841,9 @@ class TeamFederationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2320,7 +2320,7 @@ class TeamFederationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """FederationController@update
 
         Update federation for team
@@ -2364,9 +2364,9 @@ class TeamFederationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2397,7 +2397,7 @@ class TeamFederationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """FederationController@update
 
         Update federation for team
@@ -2441,9 +2441,9 @@ class TeamFederationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2518,9 +2518,9 @@ class TeamFederationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

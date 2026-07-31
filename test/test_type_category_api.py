@@ -26,43 +26,43 @@ class TestTypeCategoryApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_016393e03d3b197d2172abf0d7ce08f5(self) -> None:
-        """Test case for call_016393e03d3b197d2172abf0d7ce08f5
-
-        TypeCategory@update
-        """
-        pass
-
-    def test_call_4864cc161acae07c9aaf81414fa6bebd(self) -> None:
-        """Test case for call_4864cc161acae07c9aaf81414fa6bebd
-
-        TypeCategory@destroy
-        """
-        pass
-
-    def test_call_83ae406abb0fb38fa792b4cfcbbbebbf(self) -> None:
-        """Test case for call_83ae406abb0fb38fa792b4cfcbbbebbf
+    def test_create_type_categories(self) -> None:
+        """Test case for create_type_categories
 
         TypeCategory@store
         """
         pass
 
-    def test_cd1f252c1f5296d0e6007eb543ef9099(self) -> None:
-        """Test case for cd1f252c1f5296d0e6007eb543ef9099
+    def test_delete_type_categories(self) -> None:
+        """Test case for delete_type_categories
 
-        TypeCategory@show
+        TypeCategory@destroy
         """
         pass
 
-    def test_f5f0b860854ee5a33ee3d4b5f8a6d2fc(self) -> None:
-        """Test case for f5f0b860854ee5a33ee3d4b5f8a6d2fc
+    def test_edit_type_categories(self) -> None:
+        """Test case for edit_type_categories
+
+        TypeCategory@update
+        """
+        pass
+
+    def test_fetch_all_type_categories(self) -> None:
+        """Test case for fetch_all_type_categories
 
         TypeCategory@index
         """
         pass
 
-    def test_faae0a9813b380e92fba8a26820717ee(self) -> None:
-        """Test case for faae0a9813b380e92fba8a26820717ee
+    def test_fetch_type_categories(self) -> None:
+        """Test case for fetch_type_categories
+
+        TypeCategory@show
+        """
+        pass
+
+    def test_update_type_categories(self) -> None:
+        """Test case for update_type_categories
 
         TypeCategory@update
         """

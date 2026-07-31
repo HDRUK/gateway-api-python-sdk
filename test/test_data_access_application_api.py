@@ -26,115 +26,115 @@ class TestDataAccessApplicationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_a3e2f5885d871929e4b5d81f58ddf867(self) -> None:
-        """Test case for a3e2f5885d871929e4b5d81f58ddf867
-
-        DataAccessApplication@showFiles
-        """
-        pass
-
-    def test_a6ad90e00b65d8dbf974c30b43586052(self) -> None:
-        """Test case for a6ad90e00b65d8dbf974c30b43586052
-
-        DataAccessApplication@downloadFile
-        """
-        pass
-
-    def test_bcfd40c79f3f5e7e33e2efd241a9b1a5(self) -> None:
-        """Test case for bcfd40c79f3f5e7e33e2efd241a9b1a5
-
-        DataAccessApplication@update
-        """
-        pass
-
-    def test_call_2692176ac531294e07a905f5735d15ac(self) -> None:
-        """Test case for call_2692176ac531294e07a905f5735d15ac
+    def test_create_dar_applications(self) -> None:
+        """Test case for create_dar_applications
 
         DataAccessApplication@store
         """
         pass
 
-    def test_call_27b8f8d036cdb3330072da6d0aaf7344(self) -> None:
-        """Test case for call_27b8f8d036cdb3330072da6d0aaf7344
-
-        DataAccessApplication@destroy
-        """
-        pass
-
-    def test_call_2e4f31039d1a014480ec9444231e5f23(self) -> None:
-        """Test case for call_2e4f31039d1a014480ec9444231e5f23
+    def test_delete_dar_application_files(self) -> None:
+        """Test case for delete_dar_application_files
 
         DataAccessApplication@destroyFile
         """
         pass
 
-    def test_call_3da503b7dd0562e285ce75c4c026ce76(self) -> None:
-        """Test case for call_3da503b7dd0562e285ce75c4c026ce76
+    def test_delete_dar_applications(self) -> None:
+        """Test case for delete_dar_applications
 
         DataAccessApplication@destroy
         """
         pass
 
-    def test_call_473ee45c3962ae2a02abbac5015dce6a(self) -> None:
-        """Test case for call_473ee45c3962ae2a02abbac5015dce6a
+    def test_delete_team_dar_application_file(self) -> None:
+        """Test case for delete_team_dar_application_file
+
+        DataAccessApplication@destroyFile
+        """
+        pass
+
+    def test_delete_user_dar_application(self) -> None:
+        """Test case for delete_user_dar_application
+
+        DataAccessApplication@destroy
+        """
+        pass
+
+    def test_delete_user_dar_application_file(self) -> None:
+        """Test case for delete_user_dar_application_file
+
+        DataAccessApplication@destroyFile
+        """
+        pass
+
+    def test_fetch_team_dar_application_answers(self) -> None:
+        """Test case for fetch_team_dar_application_answers
 
         DataAccessApplication@showAnswers
         """
         pass
 
-    def test_call_5cd6e8b93c6db11618e96a968b037db9(self) -> None:
-        """Test case for call_5cd6e8b93c6db11618e96a968b037db9
+    def test_fetch_team_dar_application_download_zip(self) -> None:
+        """Test case for fetch_team_dar_application_download_zip
 
         DataAccessApplication@download
         """
         pass
 
-    def test_call_74f3b5729b08a4be0d17e4b1c7fa2aa9(self) -> None:
-        """Test case for call_74f3b5729b08a4be0d17e4b1c7fa2aa9
-
-        DataAccessApplication@status
-        """
-        pass
-
-    def test_call_897ef426f5db99512aaed03854777419(self) -> None:
-        """Test case for call_897ef426f5db99512aaed03854777419
-
-        DataAccessApplication@destroyFile
-        """
-        pass
-
-    def test_call_928c1c4e39f13593bdec88641ee83120(self) -> None:
-        """Test case for call_928c1c4e39f13593bdec88641ee83120
-
-        DataAccessApplication@showFiles
-        """
-        pass
-
-    def test_f07acaef191991ba38aa72f6d40d988f(self) -> None:
-        """Test case for f07acaef191991ba38aa72f6d40d988f
+    def test_fetch_team_dar_application_file(self) -> None:
+        """Test case for fetch_team_dar_application_file
 
         DataAccessApplication@downloadFile
         """
         pass
 
-    def test_f5e83ee26e8a390328a3bf23e750b153(self) -> None:
-        """Test case for f5e83ee26e8a390328a3bf23e750b153
+    def test_fetch_team_dar_application_files(self) -> None:
+        """Test case for fetch_team_dar_application_files
+
+        DataAccessApplication@showFiles
+        """
+        pass
+
+    def test_fetch_team_dar_application_status_history(self) -> None:
+        """Test case for fetch_team_dar_application_status_history
+
+        DataAccessApplication@status
+        """
+        pass
+
+    def test_fetch_user_dar_application_file(self) -> None:
+        """Test case for fetch_user_dar_application_file
+
+        DataAccessApplication@downloadFile
+        """
+        pass
+
+    def test_fetch_user_dar_application_files(self) -> None:
+        """Test case for fetch_user_dar_application_files
+
+        DataAccessApplication@showFiles
+        """
+        pass
+
+    def test_patch_user_dar_application(self) -> None:
+        """Test case for patch_user_dar_application
 
         DataAccessApplication@update
         """
         pass
 
-    def test_fe59a4a568b5a79e886e86951f29518a(self) -> None:
-        """Test case for fe59a4a568b5a79e886e86951f29518a
+    def test_update_team_dar_application(self) -> None:
+        """Test case for update_team_dar_application
 
         DataAccessApplication@update
         """
         pass
 
-    def test_ff8efbb0c9dffd80c3eb2ea675a94c99(self) -> None:
-        """Test case for ff8efbb0c9dffd80c3eb2ea675a94c99
+    def test_update_user_dar_application(self) -> None:
+        """Test case for update_user_dar_application
 
-        DataAccessApplication@destroyFile
+        DataAccessApplication@update
         """
         pass
 

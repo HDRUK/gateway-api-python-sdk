@@ -26,20 +26,6 @@ class TestDatasetsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_1c45c3c6908e92d680ce50910d6d4061(self) -> None:
-        """Test case for call_1c45c3c6908e92d680ce50910d6d4061
-
-        Trigger Term Extraction for Datasets
-        """
-        pass
-
-    def test_call_7f39b24417648f048a9457326619439c(self) -> None:
-        """Test case for call_7f39b24417648f048a9457326619439c
-
-        Trigger Term Extraction for Datasets
-        """
-        pass
-
     def test_count_team_unique_fields_datasets_v2(self) -> None:
         """Test case for count_team_unique_fields_datasets_v2
 
@@ -65,6 +51,20 @@ class TestDatasetsApi(unittest.TestCase):
         """Test case for create_datasets_integrations
 
         IntegrationDatasetController@store
+        """
+        pass
+
+    def test_create_datasets_linkage_extraction(self) -> None:
+        """Test case for create_datasets_linkage_extraction
+
+        Trigger Term Extraction for Datasets
+        """
+        pass
+
+    def test_create_datasets_term_extraction(self) -> None:
+        """Test case for create_datasets_term_extraction
+
+        Trigger Term Extraction for Datasets
         """
         pass
 

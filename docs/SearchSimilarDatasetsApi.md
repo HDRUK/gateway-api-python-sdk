@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cd41e1bd1b9f9918da2bb53a240b8bfe**](SearchSimilarDatasetsApi.md#cd41e1bd1b9f9918da2bb53a240b8bfe) | **POST** /api/v1/search/similar/datasets | Search@similarDatasets
+[**search_similar_datasets**](SearchSimilarDatasetsApi.md#search_similar_datasets) | **POST** /api/v1/search/similar/datasets | Search@similarDatasets
 
 
-# **cd41e1bd1b9f9918da2bb53a240b8bfe**
-> Cd41e1bd1b9f9918da2bb53a240b8bfe200Response cd41e1bd1b9f9918da2bb53a240b8bfe(cd41e1bd1b9f9918da2bb53a240b8bfe_request)
+# **search_similar_datasets**
+> SearchSimilarDatasets200Response search_similar_datasets(search_similar_datasets_request)
 
 Search@similarDatasets
 
@@ -19,8 +19,8 @@ Returns top three gateway datasets most similar to the provided dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.cd41e1bd1b9f9918da2bb53a240b8bfe200_response import Cd41e1bd1b9f9918da2bb53a240b8bfe200Response
-from gateway_api_sdk.models.cd41e1bd1b9f9918da2bb53a240b8bfe_request import Cd41e1bd1b9f9918da2bb53a240b8bfeRequest
+from gateway_api_sdk.models.search_similar_datasets200_response import SearchSimilarDatasets200Response
+from gateway_api_sdk.models.search_similar_datasets_request import SearchSimilarDatasetsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -35,15 +35,15 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.SearchSimilarDatasetsApi(api_client)
-    cd41e1bd1b9f9918da2bb53a240b8bfe_request = gateway_api_sdk.Cd41e1bd1b9f9918da2bb53a240b8bfeRequest() # Cd41e1bd1b9f9918da2bb53a240b8bfeRequest | Submit dataset id
+    search_similar_datasets_request = gateway_api_sdk.SearchSimilarDatasetsRequest() # SearchSimilarDatasetsRequest | Submit dataset id
 
     try:
         # Search@similarDatasets
-        api_response = api_instance.cd41e1bd1b9f9918da2bb53a240b8bfe(cd41e1bd1b9f9918da2bb53a240b8bfe_request)
-        print("The response of SearchSimilarDatasetsApi->cd41e1bd1b9f9918da2bb53a240b8bfe:\n")
+        api_response = api_instance.search_similar_datasets(search_similar_datasets_request)
+        print("The response of SearchSimilarDatasetsApi->search_similar_datasets:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SearchSimilarDatasetsApi->cd41e1bd1b9f9918da2bb53a240b8bfe: %s\n" % e)
+        print("Exception when calling SearchSimilarDatasetsApi->search_similar_datasets: %s\n" % e)
 ```
 
 
@@ -53,11 +53,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cd41e1bd1b9f9918da2bb53a240b8bfe_request** | [**Cd41e1bd1b9f9918da2bb53a240b8bfeRequest**](Cd41e1bd1b9f9918da2bb53a240b8bfeRequest.md)| Submit dataset id | 
+ **search_similar_datasets_request** | [**SearchSimilarDatasetsRequest**](SearchSimilarDatasetsRequest.md)| Submit dataset id | 
 
 ### Return type
 
-[**Cd41e1bd1b9f9918da2bb53a240b8bfe200Response**](Cd41e1bd1b9f9918da2bb53a240b8bfe200Response.md)
+[**SearchSimilarDatasets200Response**](SearchSimilarDatasets200Response.md)
 
 ### Authorization
 

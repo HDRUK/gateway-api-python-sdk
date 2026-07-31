@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**call_805e0e12862cf992698405bf5795b042**](AdminDataCustodianNetworksApi.md#call_805e0e12862cf992698405bf5795b042) | **GET** /api/v2/admin/data_custodian_networks | DataCustodianNetworks@adminIndex
+[**fetch_admin_data_custodian_networks**](AdminDataCustodianNetworksApi.md#fetch_admin_data_custodian_networks) | **GET** /api/v2/admin/data_custodian_networks | DataCustodianNetworks@adminIndex
 
 
-# **call_805e0e12862cf992698405bf5795b042**
-> call_805e0e12862cf992698405bf5795b042(per_page=per_page)
+# **fetch_admin_data_custodian_networks**
+> fetch_admin_data_custodian_networks(per_page=per_page)
 
 DataCustodianNetworks@adminIndex
 
@@ -37,9 +37,9 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # DataCustodianNetworks@adminIndex
-        api_instance.call_805e0e12862cf992698405bf5795b042(per_page=per_page)
+        api_instance.fetch_admin_data_custodian_networks(per_page=per_page)
     except Exception as e:
-        print("Exception when calling AdminDataCustodianNetworksApi->call_805e0e12862cf992698405bf5795b042: %s\n" % e)
+        print("Exception when calling AdminDataCustodianNetworksApi->fetch_admin_data_custodian_networks: %s\n" % e)
 ```
 
 

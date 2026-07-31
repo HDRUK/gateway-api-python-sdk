@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_publications**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_publications(create_publications_request)
+> CreateCategories200Response create_publications(create_publications_request)
 
 PublicationController@store
 
@@ -284,8 +284,8 @@ Create a new publication
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_publications_request import CreatePublicationsRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_publications_v2_by_team_id**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_publications_v2_by_team_id(team_id, create_publications_request)
+> CreateCategories200Response create_publications_v2_by_team_id(team_id, create_publications_request)
 
 TeamPublicationController@store
 
@@ -365,8 +365,8 @@ Create a new publication by team id
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_publications_request import CreatePublicationsRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_publications_v2_by_user_id**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_publications_v2_by_user_id(user_id, create_publications_request)
+> CreateCategories200Response create_publications_v2_by_user_id(user_id, create_publications_request)
 
 UserPublicationController@store
 
@@ -448,8 +448,8 @@ Create a new publication by user id
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_publications_request import CreatePublicationsRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 

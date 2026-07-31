@@ -26,45 +26,45 @@ class TestKeywordApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_c144e4dec467e0666f1a6eb1b905a080(self) -> None:
-        """Test case for c144e4dec467e0666f1a6eb1b905a080
-
-        KeywordController@destroy
-        """
-        pass
-
-    def test_call_5e7d6f311632134045864947649b04d4(self) -> None:
-        """Test case for call_5e7d6f311632134045864947649b04d4
-
-        KeywordController@update
-        """
-        pass
-
-    def test_d59dbdaa4244200f6b9060e166e337d9(self) -> None:
-        """Test case for d59dbdaa4244200f6b9060e166e337d9
-
-        KeywordController@index
-        """
-        pass
-
-    def test_ec00b8619507d4ac62cec63eb9684501(self) -> None:
-        """Test case for ec00b8619507d4ac62cec63eb9684501
+    def test_create_keywords(self) -> None:
+        """Test case for create_keywords
 
         KeywordController@store
         """
         pass
 
-    def test_f2450127ddd5aa4ad77c822ba256e01a(self) -> None:
-        """Test case for f2450127ddd5aa4ad77c822ba256e01a
+    def test_delete_keywords(self) -> None:
+        """Test case for delete_keywords
+
+        KeywordController@destroy
+        """
+        pass
+
+    def test_edit_keywords(self) -> None:
+        """Test case for edit_keywords
 
         KeywordController@update
         """
         pass
 
-    def test_faadd5f355273c0ee61ef48436d03ded(self) -> None:
-        """Test case for faadd5f355273c0ee61ef48436d03ded
+    def test_fetch_all_keywords(self) -> None:
+        """Test case for fetch_all_keywords
+
+        KeywordController@index
+        """
+        pass
+
+    def test_fetch_keywords(self) -> None:
+        """Test case for fetch_keywords
 
         KeywordController@show
+        """
+        pass
+
+    def test_update_keywords(self) -> None:
+        """Test case for update_keywords
+
+        KeywordController@update
         """
         pass
 

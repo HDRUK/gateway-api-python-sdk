@@ -4,99 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**call_077bba41c87bc61e6c290b3fea2a5848**](LibraryApi.md#call_077bba41c87bc61e6c290b3fea2a5848) | **PUT** /api/v1/libraries/{id} | Library@update
-[**call_3b22aa4bb101550915e675702f8f3174**](LibraryApi.md#call_3b22aa4bb101550915e675702f8f3174) | **POST** /api/v1/libraries | Library@store
-[**call_416921483907d62b39163e3c4188d10c**](LibraryApi.md#call_416921483907d62b39163e3c4188d10c) | **DELETE** /api/v1/libraries/{id} | Library@destroy
-[**call_771bea7be0a7f7d2e0056f8c192100ad**](LibraryApi.md#call_771bea7be0a7f7d2e0056f8c192100ad) | **PATCH** /api/v1/libraries/{id} | Library@update
-[**d736d637e675097aaf709dfd755864c7**](LibraryApi.md#d736d637e675097aaf709dfd755864c7) | **GET** /api/v1/libraries/{id} | Return a single library
+[**create_libraries**](LibraryApi.md#create_libraries) | **POST** /api/v1/libraries | Library@store
+[**delete_libraries**](LibraryApi.md#delete_libraries) | **DELETE** /api/v1/libraries/{id} | Library@destroy
+[**edit_libraries**](LibraryApi.md#edit_libraries) | **PATCH** /api/v1/libraries/{id} | Library@update
+[**fetch_libraries**](LibraryApi.md#fetch_libraries) | **GET** /api/v1/libraries/{id} | Return a single library
 [**list_libraries**](LibraryApi.md#list_libraries) | **GET** /api/v1/libraries | Retrieve a list of libraries
+[**update_libraries**](LibraryApi.md#update_libraries) | **PUT** /api/v1/libraries/{id} | Library@update
 
 
-# **call_077bba41c87bc61e6c290b3fea2a5848**
-> Model077bba41c87bc61e6c290b3fea2a5848200Response call_077bba41c87bc61e6c290b3fea2a5848(id, model3b22aa4bb101550915e675702f8f3174_request)
-
-Library@update
-
-Update a library
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.model077bba41c87bc61e6c290b3fea2a5848200_response import Model077bba41c87bc61e6c290b3fea2a5848200Response
-from gateway_api_sdk.models.model3b22aa4bb101550915e675702f8f3174_request import Model3b22aa4bb101550915e675702f8f3174Request
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.LibraryApi(api_client)
-    id = 1 # int | library id
-    model3b22aa4bb101550915e675702f8f3174_request = gateway_api_sdk.Model3b22aa4bb101550915e675702f8f3174Request() # Model3b22aa4bb101550915e675702f8f3174Request | library definition
-
-    try:
-        # Library@update
-        api_response = api_instance.call_077bba41c87bc61e6c290b3fea2a5848(id, model3b22aa4bb101550915e675702f8f3174_request)
-        print("The response of LibraryApi->call_077bba41c87bc61e6c290b3fea2a5848:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling LibraryApi->call_077bba41c87bc61e6c290b3fea2a5848: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| library id | 
- **model3b22aa4bb101550915e675702f8f3174_request** | [**Model3b22aa4bb101550915e675702f8f3174Request**](Model3b22aa4bb101550915e675702f8f3174Request.md)| library definition | 
-
-### Return type
-
-[**Model077bba41c87bc61e6c290b3fea2a5848200Response**](Model077bba41c87bc61e6c290b3fea2a5848200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**404** | Not found response |  -  |
-**200** | Success |  -  |
-**500** | Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **call_3b22aa4bb101550915e675702f8f3174**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response call_3b22aa4bb101550915e675702f8f3174(model3b22aa4bb101550915e675702f8f3174_request)
+# **create_libraries**
+> CreateCategories200Response create_libraries(create_libraries_request)
 
 Library@store
 
@@ -108,8 +25,8 @@ Creates a new library
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.model3b22aa4bb101550915e675702f8f3174_request import Model3b22aa4bb101550915e675702f8f3174Request
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_libraries_request import CreateLibrariesRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -133,15 +50,15 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.LibraryApi(api_client)
-    model3b22aa4bb101550915e675702f8f3174_request = gateway_api_sdk.Model3b22aa4bb101550915e675702f8f3174Request() # Model3b22aa4bb101550915e675702f8f3174Request | library definition
+    create_libraries_request = gateway_api_sdk.CreateLibrariesRequest() # CreateLibrariesRequest | library definition
 
     try:
         # Library@store
-        api_response = api_instance.call_3b22aa4bb101550915e675702f8f3174(model3b22aa4bb101550915e675702f8f3174_request)
-        print("The response of LibraryApi->call_3b22aa4bb101550915e675702f8f3174:\n")
+        api_response = api_instance.create_libraries(create_libraries_request)
+        print("The response of LibraryApi->create_libraries:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling LibraryApi->call_3b22aa4bb101550915e675702f8f3174: %s\n" % e)
+        print("Exception when calling LibraryApi->create_libraries: %s\n" % e)
 ```
 
 
@@ -151,11 +68,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model3b22aa4bb101550915e675702f8f3174_request** | [**Model3b22aa4bb101550915e675702f8f3174Request**](Model3b22aa4bb101550915e675702f8f3174Request.md)| library definition | 
+ **create_libraries_request** | [**CreateLibrariesRequest**](CreateLibrariesRequest.md)| library definition | 
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -175,8 +92,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **call_416921483907d62b39163e3c4188d10c**
-> C29b5b3424f7317b69b4bda048ccfafb200Response call_416921483907d62b39163e3c4188d10c(id)
+# **delete_libraries**
+> DeleteAliases200Response delete_libraries(id)
 
 Library@destroy
 
@@ -188,7 +105,7 @@ Delete a library
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -216,11 +133,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Library@destroy
-        api_response = api_instance.call_416921483907d62b39163e3c4188d10c(id)
-        print("The response of LibraryApi->call_416921483907d62b39163e3c4188d10c:\n")
+        api_response = api_instance.delete_libraries(id)
+        print("The response of LibraryApi->delete_libraries:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling LibraryApi->call_416921483907d62b39163e3c4188d10c: %s\n" % e)
+        print("Exception when calling LibraryApi->delete_libraries: %s\n" % e)
 ```
 
 
@@ -234,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -255,8 +172,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **call_771bea7be0a7f7d2e0056f8c192100ad**
-> Model077bba41c87bc61e6c290b3fea2a5848200Response call_771bea7be0a7f7d2e0056f8c192100ad(id, model3b22aa4bb101550915e675702f8f3174_request)
+# **edit_libraries**
+> UpdateLibraries200Response edit_libraries(id, create_libraries_request)
 
 Library@update
 
@@ -268,8 +185,8 @@ Edit a library
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model077bba41c87bc61e6c290b3fea2a5848200_response import Model077bba41c87bc61e6c290b3fea2a5848200Response
-from gateway_api_sdk.models.model3b22aa4bb101550915e675702f8f3174_request import Model3b22aa4bb101550915e675702f8f3174Request
+from gateway_api_sdk.models.create_libraries_request import CreateLibrariesRequest
+from gateway_api_sdk.models.update_libraries200_response import UpdateLibraries200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -294,15 +211,15 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.LibraryApi(api_client)
     id = 1 # int | library id
-    model3b22aa4bb101550915e675702f8f3174_request = gateway_api_sdk.Model3b22aa4bb101550915e675702f8f3174Request() # Model3b22aa4bb101550915e675702f8f3174Request | library definition
+    create_libraries_request = gateway_api_sdk.CreateLibrariesRequest() # CreateLibrariesRequest | library definition
 
     try:
         # Library@update
-        api_response = api_instance.call_771bea7be0a7f7d2e0056f8c192100ad(id, model3b22aa4bb101550915e675702f8f3174_request)
-        print("The response of LibraryApi->call_771bea7be0a7f7d2e0056f8c192100ad:\n")
+        api_response = api_instance.edit_libraries(id, create_libraries_request)
+        print("The response of LibraryApi->edit_libraries:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling LibraryApi->call_771bea7be0a7f7d2e0056f8c192100ad: %s\n" % e)
+        print("Exception when calling LibraryApi->edit_libraries: %s\n" % e)
 ```
 
 
@@ -313,11 +230,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| library id | 
- **model3b22aa4bb101550915e675702f8f3174_request** | [**Model3b22aa4bb101550915e675702f8f3174Request**](Model3b22aa4bb101550915e675702f8f3174Request.md)| library definition | 
+ **create_libraries_request** | [**CreateLibrariesRequest**](CreateLibrariesRequest.md)| library definition | 
 
 ### Return type
 
-[**Model077bba41c87bc61e6c290b3fea2a5848200Response**](Model077bba41c87bc61e6c290b3fea2a5848200Response.md)
+[**UpdateLibraries200Response**](UpdateLibraries200Response.md)
 
 ### Authorization
 
@@ -338,8 +255,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **d736d637e675097aaf709dfd755864c7**
-> D736d637e675097aaf709dfd755864c7200Response d736d637e675097aaf709dfd755864c7(id)
+# **fetch_libraries**
+> FetchLibraries200Response fetch_libraries(id)
 
 Return a single library
 
@@ -351,7 +268,7 @@ Return a single library
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.d736d637e675097aaf709dfd755864c7200_response import D736d637e675097aaf709dfd755864c7200Response
+from gateway_api_sdk.models.fetch_libraries200_response import FetchLibraries200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -379,11 +296,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Return a single library
-        api_response = api_instance.d736d637e675097aaf709dfd755864c7(id)
-        print("The response of LibraryApi->d736d637e675097aaf709dfd755864c7:\n")
+        api_response = api_instance.fetch_libraries(id)
+        print("The response of LibraryApi->fetch_libraries:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling LibraryApi->d736d637e675097aaf709dfd755864c7: %s\n" % e)
+        print("Exception when calling LibraryApi->fetch_libraries: %s\n" % e)
 ```
 
 
@@ -397,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**D736d637e675097aaf709dfd755864c7200Response**](D736d637e675097aaf709dfd755864c7200Response.md)
+[**FetchLibraries200Response**](FetchLibraries200Response.md)
 
 ### Authorization
 
@@ -492,6 +409,89 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_libraries**
+> UpdateLibraries200Response update_libraries(id, create_libraries_request)
+
+Library@update
+
+Update a library
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import gateway_api_sdk
+from gateway_api_sdk.models.create_libraries_request import CreateLibrariesRequest
+from gateway_api_sdk.models.update_libraries200_response import UpdateLibraries200Response
+from gateway_api_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gateway_api_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = gateway_api_sdk.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with gateway_api_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gateway_api_sdk.LibraryApi(api_client)
+    id = 1 # int | library id
+    create_libraries_request = gateway_api_sdk.CreateLibrariesRequest() # CreateLibrariesRequest | library definition
+
+    try:
+        # Library@update
+        api_response = api_instance.update_libraries(id, create_libraries_request)
+        print("The response of LibraryApi->update_libraries:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling LibraryApi->update_libraries: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| library id | 
+ **create_libraries_request** | [**CreateLibrariesRequest**](CreateLibrariesRequest.md)| library definition | 
+
+### Return type
+
+[**UpdateLibraries200Response**](UpdateLibraries200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**404** | Not found response |  -  |
+**200** | Success |  -  |
+**500** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

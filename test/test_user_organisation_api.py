@@ -26,8 +26,8 @@ class TestUserOrganisationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_58e41162a49b5b1bf92231b359ea70cb(self) -> None:
-        """Test case for call_58e41162a49b5b1bf92231b359ea70cb
+    def test_fetch_user_organisations(self) -> None:
+        """Test case for fetch_user_organisations
 
         UserOrganisation@index
         """

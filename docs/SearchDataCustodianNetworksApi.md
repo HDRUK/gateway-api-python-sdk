@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**call_9b95892cc29cee3ccd11e3f92223224c**](SearchDataCustodianNetworksApi.md#call_9b95892cc29cee3ccd11e3f92223224c) | **POST** /api/v1/search/data_custodian_networks | Search@data_custodian_networks
+[**search_data_custodian_networks**](SearchDataCustodianNetworksApi.md#search_data_custodian_networks) | **POST** /api/v1/search/data_custodian_networks | Search@data_custodian_networks
 
 
-# **call_9b95892cc29cee3ccd11e3f92223224c**
-> Model9b95892cc29cee3ccd11e3f92223224c200Response call_9b95892cc29cee3ccd11e3f92223224c(model9b95892cc29cee3ccd11e3f92223224c_request, sort=sort, direction=direction)
+# **search_data_custodian_networks**
+> SearchDataCustodianNetworks200Response search_data_custodian_networks(search_data_custodian_networks_request, sort=sort, direction=direction)
 
 Search@data_custodian_networks
 
@@ -20,8 +20,8 @@ Returns gateway data custodian networks related to the provided query term(s)
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model9b95892cc29cee3ccd11e3f92223224c200_response import Model9b95892cc29cee3ccd11e3f92223224c200Response
-from gateway_api_sdk.models.model9b95892cc29cee3ccd11e3f92223224c_request import Model9b95892cc29cee3ccd11e3f92223224cRequest
+from gateway_api_sdk.models.search_data_custodian_networks200_response import SearchDataCustodianNetworks200Response
+from gateway_api_sdk.models.search_data_custodian_networks_request import SearchDataCustodianNetworksRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -45,17 +45,17 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.SearchDataCustodianNetworksApi(api_client)
-    model9b95892cc29cee3ccd11e3f92223224c_request = gateway_api_sdk.Model9b95892cc29cee3ccd11e3f92223224cRequest() # Model9b95892cc29cee3ccd11e3f92223224cRequest | Submit search query
+    search_data_custodian_networks_request = gateway_api_sdk.SearchDataCustodianNetworksRequest() # SearchDataCustodianNetworksRequest | Submit search query
     sort = 'created' # str | Field to sort by (default: 'score') (optional)
     direction = 'desc' # str | Sort direction ('asc' or 'desc', default: 'desc') (optional)
 
     try:
         # Search@data_custodian_networks
-        api_response = api_instance.call_9b95892cc29cee3ccd11e3f92223224c(model9b95892cc29cee3ccd11e3f92223224c_request, sort=sort, direction=direction)
-        print("The response of SearchDataCustodianNetworksApi->call_9b95892cc29cee3ccd11e3f92223224c:\n")
+        api_response = api_instance.search_data_custodian_networks(search_data_custodian_networks_request, sort=sort, direction=direction)
+        print("The response of SearchDataCustodianNetworksApi->search_data_custodian_networks:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SearchDataCustodianNetworksApi->call_9b95892cc29cee3ccd11e3f92223224c: %s\n" % e)
+        print("Exception when calling SearchDataCustodianNetworksApi->search_data_custodian_networks: %s\n" % e)
 ```
 
 
@@ -65,13 +65,13 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model9b95892cc29cee3ccd11e3f92223224c_request** | [**Model9b95892cc29cee3ccd11e3f92223224cRequest**](Model9b95892cc29cee3ccd11e3f92223224cRequest.md)| Submit search query | 
+ **search_data_custodian_networks_request** | [**SearchDataCustodianNetworksRequest**](SearchDataCustodianNetworksRequest.md)| Submit search query | 
  **sort** | **str**| Field to sort by (default: &#39;score&#39;) | [optional] 
  **direction** | **str**| Sort direction (&#39;asc&#39; or &#39;desc&#39;, default: &#39;desc&#39;) | [optional] 
 
 ### Return type
 
-[**Model9b95892cc29cee3ccd11e3f92223224c200Response**](Model9b95892cc29cee3ccd11e3f92223224c200Response.md)
+[**SearchDataCustodianNetworks200Response**](SearchDataCustodianNetworks200Response.md)
 
 ### Authorization
 

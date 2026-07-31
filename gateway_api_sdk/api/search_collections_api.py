@@ -18,8 +18,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.aa33edfdace17b70600d964e0db4d44b200_response import Aa33edfdace17b70600d964e0db4d44b200Response
-from gateway_api_sdk.models.aa33edfdace17b70600d964e0db4d44b_request import Aa33edfdace17b70600d964e0db4d44bRequest
+from gateway_api_sdk.models.search_collections200_response import SearchCollections200Response
+from gateway_api_sdk.models.search_collections_request import SearchCollectionsRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -40,9 +40,9 @@ class SearchCollectionsApi:
 
 
     @validate_call
-    def aa33edfdace17b70600d964e0db4d44b(
+    def search_collections(
         self,
-        aa33edfdace17b70600d964e0db4d44b_request: Annotated[Aa33edfdace17b70600d964e0db4d44bRequest, Field(description="Submit search query")],
+        search_collections_request: Annotated[SearchCollectionsRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         _request_timeout: Union[
@@ -57,13 +57,13 @@ class SearchCollectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Aa33edfdace17b70600d964e0db4d44b200Response:
+    ) -> SearchCollections200Response:
         """Search@collections
 
         Returns gateway collections related to the provided query term(s)
 
-        :param aa33edfdace17b70600d964e0db4d44b_request: Submit search query (required)
-        :type aa33edfdace17b70600d964e0db4d44b_request: Aa33edfdace17b70600d964e0db4d44bRequest
+        :param search_collections_request: Submit search query (required)
+        :type search_collections_request: SearchCollectionsRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -90,8 +90,8 @@ class SearchCollectionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._aa33edfdace17b70600d964e0db4d44b_serialize(
-            aa33edfdace17b70600d964e0db4d44b_request=aa33edfdace17b70600d964e0db4d44b_request,
+        _param = self._search_collections_serialize(
+            search_collections_request=search_collections_request,
             sort=sort,
             direction=direction,
             _request_auth=_request_auth,
@@ -101,7 +101,7 @@ class SearchCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Aa33edfdace17b70600d964e0db4d44b200Response",
+            '200': "SearchCollections200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -115,9 +115,9 @@ class SearchCollectionsApi:
 
 
     @validate_call
-    def aa33edfdace17b70600d964e0db4d44b_with_http_info(
+    def search_collections_with_http_info(
         self,
-        aa33edfdace17b70600d964e0db4d44b_request: Annotated[Aa33edfdace17b70600d964e0db4d44bRequest, Field(description="Submit search query")],
+        search_collections_request: Annotated[SearchCollectionsRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         _request_timeout: Union[
@@ -132,13 +132,13 @@ class SearchCollectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Aa33edfdace17b70600d964e0db4d44b200Response]:
+    ) -> ApiResponse[SearchCollections200Response]:
         """Search@collections
 
         Returns gateway collections related to the provided query term(s)
 
-        :param aa33edfdace17b70600d964e0db4d44b_request: Submit search query (required)
-        :type aa33edfdace17b70600d964e0db4d44b_request: Aa33edfdace17b70600d964e0db4d44bRequest
+        :param search_collections_request: Submit search query (required)
+        :type search_collections_request: SearchCollectionsRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -165,8 +165,8 @@ class SearchCollectionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._aa33edfdace17b70600d964e0db4d44b_serialize(
-            aa33edfdace17b70600d964e0db4d44b_request=aa33edfdace17b70600d964e0db4d44b_request,
+        _param = self._search_collections_serialize(
+            search_collections_request=search_collections_request,
             sort=sort,
             direction=direction,
             _request_auth=_request_auth,
@@ -176,7 +176,7 @@ class SearchCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Aa33edfdace17b70600d964e0db4d44b200Response",
+            '200': "SearchCollections200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -190,9 +190,9 @@ class SearchCollectionsApi:
 
 
     @validate_call
-    def aa33edfdace17b70600d964e0db4d44b_without_preload_content(
+    def search_collections_without_preload_content(
         self,
-        aa33edfdace17b70600d964e0db4d44b_request: Annotated[Aa33edfdace17b70600d964e0db4d44bRequest, Field(description="Submit search query")],
+        search_collections_request: Annotated[SearchCollectionsRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         _request_timeout: Union[
@@ -212,8 +212,8 @@ class SearchCollectionsApi:
 
         Returns gateway collections related to the provided query term(s)
 
-        :param aa33edfdace17b70600d964e0db4d44b_request: Submit search query (required)
-        :type aa33edfdace17b70600d964e0db4d44b_request: Aa33edfdace17b70600d964e0db4d44bRequest
+        :param search_collections_request: Submit search query (required)
+        :type search_collections_request: SearchCollectionsRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -240,8 +240,8 @@ class SearchCollectionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._aa33edfdace17b70600d964e0db4d44b_serialize(
-            aa33edfdace17b70600d964e0db4d44b_request=aa33edfdace17b70600d964e0db4d44b_request,
+        _param = self._search_collections_serialize(
+            search_collections_request=search_collections_request,
             sort=sort,
             direction=direction,
             _request_auth=_request_auth,
@@ -251,7 +251,7 @@ class SearchCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Aa33edfdace17b70600d964e0db4d44b200Response",
+            '200': "SearchCollections200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -260,9 +260,9 @@ class SearchCollectionsApi:
         return response_data.response
 
 
-    def _aa33edfdace17b70600d964e0db4d44b_serialize(
+    def _search_collections_serialize(
         self,
-        aa33edfdace17b70600d964e0db4d44b_request,
+        search_collections_request,
         sort,
         direction,
         _request_auth,
@@ -298,8 +298,8 @@ class SearchCollectionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if aa33edfdace17b70600d964e0db4d44b_request is not None:
-            _body_params = aa33edfdace17b70600d964e0db4d44b_request
+        if search_collections_request is not None:
+            _body_params = search_collections_request
 
 
         # set the HTTP header `Accept`

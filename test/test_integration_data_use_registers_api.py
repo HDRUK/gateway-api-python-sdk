@@ -26,31 +26,24 @@ class TestIntegrationDataUseRegistersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_3c0f53b5284c481bc135c2035d40c017(self) -> None:
-        """Test case for call_3c0f53b5284c481bc135c2035d40c017
+    def test_create_dur_integrations(self) -> None:
+        """Test case for create_dur_integrations
 
-        Edit a dur
+        IntegrationDurController@store
         """
         pass
 
-    def test_call_3c79eaaecaae1de1b86c443337841895(self) -> None:
-        """Test case for call_3c79eaaecaae1de1b86c443337841895
-
-        Update a dur by id
-        """
-        pass
-
-    def test_call_7170e7dc71293d3b5042d6cb03298eb4(self) -> None:
-        """Test case for call_7170e7dc71293d3b5042d6cb03298eb4
+    def test_delete_dur_integrations(self) -> None:
+        """Test case for delete_dur_integrations
 
         Delete a dur
         """
         pass
 
-    def test_create_dur_integrations(self) -> None:
-        """Test case for create_dur_integrations
+    def test_edit_dur_integrations(self) -> None:
+        """Test case for edit_dur_integrations
 
-        IntegrationDurController@store
+        Edit a dur
         """
         pass
 
@@ -65,6 +58,13 @@ class TestIntegrationDataUseRegistersApi(unittest.TestCase):
         """Test case for fetch_dur_by_id_integrations
 
         IntegrationDurController@show
+        """
+        pass
+
+    def test_update_dur_integrations(self) -> None:
+        """Test case for update_dur_integrations
+
+        Update a dur by id
         """
         pass
 

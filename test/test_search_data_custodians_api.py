@@ -26,8 +26,8 @@ class TestSearchDataCustodiansApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_ada26698c9cdc86c01aaf53b0677a48d(self) -> None:
-        """Test case for ada26698c9cdc86c01aaf53b0677a48d
+    def test_search_data_custodians(self) -> None:
+        """Test case for search_data_custodians
 
         Search@data_custodians
         """

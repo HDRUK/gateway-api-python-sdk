@@ -19,9 +19,9 @@ from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_tools_integrations_request import CreateToolsIntegrationsRequest
 from gateway_api_sdk.models.create_tools_request import CreateToolsRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.models.delete_federation200_response import DeleteFederation200Response
 from gateway_api_sdk.models.fetch_all_tools200_response import FetchAllTools200Response
 from gateway_api_sdk.models.fetch_all_tools_integrations200_response import FetchAllToolsIntegrations200Response
@@ -896,7 +896,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """(Deprecated) ToolController@store
 
         Create a new tool
@@ -935,10 +935,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -967,7 +967,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """(Deprecated) ToolController@store
 
         Create a new tool
@@ -1006,10 +1006,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1077,10 +1077,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1183,7 +1183,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """ToolController@store
 
         Create a new tool by team v2
@@ -1224,10 +1224,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1257,7 +1257,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """ToolController@store
 
         Create a new tool by team v2
@@ -1298,10 +1298,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1372,10 +1372,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1481,7 +1481,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """UserToolController@store
 
         Create a new tool by user v2
@@ -1522,10 +1522,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1555,7 +1555,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """UserToolController@store
 
         Create a new tool by user v2
@@ -1596,10 +1596,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1670,10 +1670,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1778,7 +1778,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """(Deprecated) IntegrationToolController@store
 
         Create a new tool
@@ -1817,10 +1817,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1849,7 +1849,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """(Deprecated) IntegrationToolController@store
 
         Create a new tool
@@ -1888,10 +1888,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1959,10 +1959,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2106,7 +2106,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2177,7 +2177,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2248,7 +2248,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2382,7 +2382,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2456,7 +2456,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2530,7 +2530,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2667,7 +2667,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2741,7 +2741,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2815,7 +2815,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2949,7 +2949,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3020,7 +3020,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3091,7 +3091,7 @@ class ToolsApi:
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3230,7 +3230,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3309,7 +3309,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3388,7 +3388,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3547,7 +3547,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3625,7 +3625,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3703,7 +3703,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3860,7 +3860,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3938,7 +3938,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4016,7 +4016,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4170,7 +4170,7 @@ class ToolsApi:
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4245,7 +4245,7 @@ class ToolsApi:
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4320,7 +4320,7 @@ class ToolsApi:
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5039,7 +5039,7 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllTools200Response",
-            '400': "Da82f7ce4870bd37af28a192877b22a7200Response",
+            '400': "UpdateQuestionBankQuestionStatus200Response",
             '500': "FetchAllTools500Response",
         }
         response_data = self.api_client.call_api(
@@ -5125,7 +5125,7 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllTools200Response",
-            '400': "Da82f7ce4870bd37af28a192877b22a7200Response",
+            '400': "UpdateQuestionBankQuestionStatus200Response",
             '500': "FetchAllTools500Response",
         }
         response_data = self.api_client.call_api(
@@ -5211,7 +5211,7 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllTools200Response",
-            '400': "Da82f7ce4870bd37af28a192877b22a7200Response",
+            '400': "UpdateQuestionBankQuestionStatus200Response",
             '500': "FetchAllTools500Response",
         }
         response_data = self.api_client.call_api(
@@ -5615,7 +5615,7 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllTools200Response",
-            '400': "Da82f7ce4870bd37af28a192877b22a7200Response",
+            '400': "UpdateQuestionBankQuestionStatus200Response",
             '500': "FetchAllTools500Response",
         }
         response_data = self.api_client.call_api(
@@ -5688,7 +5688,7 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllTools200Response",
-            '400': "Da82f7ce4870bd37af28a192877b22a7200Response",
+            '400': "UpdateQuestionBankQuestionStatus200Response",
             '500': "FetchAllTools500Response",
         }
         response_data = self.api_client.call_api(
@@ -5761,7 +5761,7 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllTools200Response",
-            '400': "Da82f7ce4870bd37af28a192877b22a7200Response",
+            '400': "UpdateQuestionBankQuestionStatus200Response",
             '500': "FetchAllTools500Response",
         }
         response_data = self.api_client.call_api(
@@ -5903,7 +5903,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5977,7 +5977,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6051,7 +6051,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6193,7 +6193,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6270,7 +6270,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6347,7 +6347,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6492,7 +6492,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6569,7 +6569,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6646,7 +6646,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6784,7 +6784,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6854,7 +6854,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6924,7 +6924,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7053,7 +7053,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7122,7 +7122,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7191,7 +7191,7 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7326,7 +7326,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7401,7 +7401,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7476,7 +7476,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7630,7 +7630,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7708,7 +7708,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7786,7 +7786,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7943,7 +7943,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8021,7 +8021,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8099,7 +8099,7 @@ class ToolsApi:
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8253,7 +8253,7 @@ class ToolsApi:
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8328,7 +8328,7 @@ class ToolsApi:
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8403,7 +8403,7 @@ class ToolsApi:
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

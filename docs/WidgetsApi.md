@@ -4,182 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**a439b274e045e4ae8ab3006c33290aff**](WidgetsApi.md#a439b274e045e4ae8ab3006c33290aff) | **GET** /api/v1/teams/{teamId}/widgets/data | WidgetController@getWidgetData
-[**c9939b681f1c7deb438e5d7a25ea9509**](WidgetsApi.md#c9939b681f1c7deb438e5d7a25ea9509) | **PATCH** /api/v1/teams/{teamId}/widgets/{id} | Update an existing widget
 [**create_widget**](WidgetsApi.md#create_widget) | **POST** /api/v1/teams/{teamId}/widgets | Create a new widget
 [**delete_widget**](WidgetsApi.md#delete_widget) | **DELETE** /api/v1/teams/{teamId}/widgets/{id} | Delete a widget
 [**fetch_all_widgets**](WidgetsApi.md#fetch_all_widgets) | **GET** /api/v1/teams/{teamId}/widgets | WidgetController@index
 [**fetch_widget**](WidgetsApi.md#fetch_widget) | **GET** /api/v1/teams/{teamId}/widgets/{id} | WidgetController@retrieve
+[**fetch_widget_data_sources**](WidgetsApi.md#fetch_widget_data_sources) | **GET** /api/v1/teams/{teamId}/widgets/data | WidgetController@getWidgetData
 [**retrieve_widget_data**](WidgetsApi.md#retrieve_widget_data) | **GET** /api/v1/teams/{teamId}/widgets/{id}/data | Retrieve data related to a widget
 [**track_widget_event**](WidgetsApi.md#track_widget_event) | **POST** /api/v1/teams/{teamId}/widgets/{id}/track | Record a widget analytics event
+[**update_widget**](WidgetsApi.md#update_widget) | **PATCH** /api/v1/teams/{teamId}/widgets/{id} | Update an existing widget
 [**widget_analytics**](WidgetsApi.md#widget_analytics) | **GET** /api/v1/teams/{teamId}/widgets/analytics | Get widget analytics for a team
 
-
-# **a439b274e045e4ae8ab3006c33290aff**
-> A439b274e045e4ae8ab3006c33290aff200Response a439b274e045e4ae8ab3006c33290aff(team_id, team_ids)
-
-WidgetController@getWidgetData
-
-Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.a439b274e045e4ae8ab3006c33290aff200_response import A439b274e045e4ae8ab3006c33290aff200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.WidgetsApi(api_client)
-    team_id = 56 # int | Team ID
-    team_ids = '1,2,3' # str | Comma-separated list of team IDs to filter data
-
-    try:
-        # WidgetController@getWidgetData
-        api_response = api_instance.a439b274e045e4ae8ab3006c33290aff(team_id, team_ids)
-        print("The response of WidgetsApi->a439b274e045e4ae8ab3006c33290aff:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling WidgetsApi->a439b274e045e4ae8ab3006c33290aff: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **team_id** | **int**| Team ID | 
- **team_ids** | **str**| Comma-separated list of team IDs to filter data | 
-
-### Return type
-
-[**A439b274e045e4ae8ab3006c33290aff200Response**](A439b274e045e4ae8ab3006c33290aff200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Aggregated data retrieved successfully |  -  |
-**400** | Invalid or missing teamIds parameter |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **c9939b681f1c7deb438e5d7a25ea9509**
-> C9939b681f1c7deb438e5d7a25ea9509200Response c9939b681f1c7deb438e5d7a25ea9509(team_id, id, c9939b681f1c7deb438e5d7a25ea9509_request=c9939b681f1c7deb438e5d7a25ea9509_request)
-
-Update an existing widget
-
-Updates an existing widget for a given team ID
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.c9939b681f1c7deb438e5d7a25ea9509200_response import C9939b681f1c7deb438e5d7a25ea9509200Response
-from gateway_api_sdk.models.c9939b681f1c7deb438e5d7a25ea9509_request import C9939b681f1c7deb438e5d7a25ea9509Request
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.WidgetsApi(api_client)
-    team_id = 1 # int | Team ID
-    id = 12 # int | Widget ID
-    c9939b681f1c7deb438e5d7a25ea9509_request = gateway_api_sdk.C9939b681f1c7deb438e5d7a25ea9509Request() # C9939b681f1c7deb438e5d7a25ea9509Request |  (optional)
-
-    try:
-        # Update an existing widget
-        api_response = api_instance.c9939b681f1c7deb438e5d7a25ea9509(team_id, id, c9939b681f1c7deb438e5d7a25ea9509_request=c9939b681f1c7deb438e5d7a25ea9509_request)
-        print("The response of WidgetsApi->c9939b681f1c7deb438e5d7a25ea9509:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling WidgetsApi->c9939b681f1c7deb438e5d7a25ea9509: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **team_id** | **int**| Team ID | 
- **id** | **int**| Widget ID | 
- **c9939b681f1c7deb438e5d7a25ea9509_request** | [**C9939b681f1c7deb438e5d7a25ea9509Request**](C9939b681f1c7deb438e5d7a25ea9509Request.md)|  | [optional] 
-
-### Return type
-
-[**C9939b681f1c7deb438e5d7a25ea9509200Response**](C9939b681f1c7deb438e5d7a25ea9509200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Widget successfully updated |  -  |
-**404** | Widget not found |  -  |
-**500** | Internal server error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_widget**
 > CreateWidget201Response create_widget(team_id, create_widget_request)
@@ -265,7 +99,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_widget**
-> C29b5b3424f7317b69b4bda048ccfafb200Response delete_widget(team_id, id)
+> DeleteAliases200Response delete_widget(team_id, id)
 
 Delete a widget
 
@@ -277,7 +111,7 @@ Soft delete a widget belonging to a specific team
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -325,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -505,6 +339,87 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **fetch_widget_data_sources**
+> FetchWidgetDataSources200Response fetch_widget_data_sources(team_id, team_ids)
+
+WidgetController@getWidgetData
+
+Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import gateway_api_sdk
+from gateway_api_sdk.models.fetch_widget_data_sources200_response import FetchWidgetDataSources200Response
+from gateway_api_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gateway_api_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = gateway_api_sdk.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with gateway_api_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gateway_api_sdk.WidgetsApi(api_client)
+    team_id = 56 # int | Team ID
+    team_ids = '1,2,3' # str | Comma-separated list of team IDs to filter data
+
+    try:
+        # WidgetController@getWidgetData
+        api_response = api_instance.fetch_widget_data_sources(team_id, team_ids)
+        print("The response of WidgetsApi->fetch_widget_data_sources:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WidgetsApi->fetch_widget_data_sources: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **team_id** | **int**| Team ID | 
+ **team_ids** | **str**| Comma-separated list of team IDs to filter data | 
+
+### Return type
+
+[**FetchWidgetDataSources200Response**](FetchWidgetDataSources200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Aggregated data retrieved successfully |  -  |
+**400** | Invalid or missing teamIds parameter |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **retrieve_widget_data**
 > RetrieveWidgetData200Response retrieve_widget_data(team_id, id, domain_origin)
 
@@ -658,6 +573,91 @@ No authorization required
 **204** | Event recorded |  -  |
 **404** | Widget not found |  -  |
 **422** | Validation error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_widget**
+> UpdateWidget200Response update_widget(team_id, id, update_widget_request=update_widget_request)
+
+Update an existing widget
+
+Updates an existing widget for a given team ID
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import gateway_api_sdk
+from gateway_api_sdk.models.update_widget200_response import UpdateWidget200Response
+from gateway_api_sdk.models.update_widget_request import UpdateWidgetRequest
+from gateway_api_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gateway_api_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = gateway_api_sdk.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with gateway_api_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gateway_api_sdk.WidgetsApi(api_client)
+    team_id = 1 # int | Team ID
+    id = 12 # int | Widget ID
+    update_widget_request = gateway_api_sdk.UpdateWidgetRequest() # UpdateWidgetRequest |  (optional)
+
+    try:
+        # Update an existing widget
+        api_response = api_instance.update_widget(team_id, id, update_widget_request=update_widget_request)
+        print("The response of WidgetsApi->update_widget:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WidgetsApi->update_widget: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **team_id** | **int**| Team ID | 
+ **id** | **int**| Widget ID | 
+ **update_widget_request** | [**UpdateWidgetRequest**](UpdateWidgetRequest.md)|  | [optional] 
+
+### Return type
+
+[**UpdateWidget200Response**](UpdateWidget200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Widget successfully updated |  -  |
+**404** | Widget not found |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

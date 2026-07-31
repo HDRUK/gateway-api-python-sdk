@@ -15,8 +15,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from gateway_api_sdk.models.model4ff0fc5e7c66284608ce55dc6cb7d846_request import Model4ff0fc5e7c66284608ce55dc6cb7d846Request
-from gateway_api_sdk.models.model92a06ea019f5560b5c9e76e02fe38e31_request import Model92a06ea019f5560b5c9e76e02fe38e31Request
+from gateway_api_sdk.models.create_admin_search_reindex_request import CreateAdminSearchReindexRequest
+from gateway_api_sdk.models.update_admin_search_feature_request import UpdateAdminSearchFeatureRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -37,9 +37,9 @@ class AdminSearchApi:
 
 
     @validate_call
-    def call_4ff0fc5e7c66284608ce55dc6cb7d846(
+    def create_admin_search_reindex(
         self,
-        model4ff0fc5e7c66284608ce55dc6cb7d846_request: Model4ff0fc5e7c66284608ce55dc6cb7d846Request,
+        create_admin_search_reindex_request: CreateAdminSearchReindexRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -53,11 +53,11 @@ class AdminSearchApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """Activate or deactivate a search-related Pennant feature flag
+        """Queue a drop+recreate+import of a search entity's Typesense collection
 
 
-        :param model4ff0fc5e7c66284608ce55dc6cb7d846_request: (required)
-        :type model4ff0fc5e7c66284608ce55dc6cb7d846_request: Model4ff0fc5e7c66284608ce55dc6cb7d846Request
+        :param create_admin_search_reindex_request: (required)
+        :type create_admin_search_reindex_request: CreateAdminSearchReindexRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -80,8 +80,8 @@ class AdminSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_4ff0fc5e7c66284608ce55dc6cb7d846_serialize(
-            model4ff0fc5e7c66284608ce55dc6cb7d846_request=model4ff0fc5e7c66284608ce55dc6cb7d846_request,
+        _param = self._create_admin_search_reindex_serialize(
+            create_admin_search_reindex_request=create_admin_search_reindex_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -89,7 +89,7 @@ class AdminSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '202': None,
             '422': None,
         }
         response_data = self.api_client.call_api(
@@ -104,9 +104,9 @@ class AdminSearchApi:
 
 
     @validate_call
-    def call_4ff0fc5e7c66284608ce55dc6cb7d846_with_http_info(
+    def create_admin_search_reindex_with_http_info(
         self,
-        model4ff0fc5e7c66284608ce55dc6cb7d846_request: Model4ff0fc5e7c66284608ce55dc6cb7d846Request,
+        create_admin_search_reindex_request: CreateAdminSearchReindexRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -120,11 +120,11 @@ class AdminSearchApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """Activate or deactivate a search-related Pennant feature flag
+        """Queue a drop+recreate+import of a search entity's Typesense collection
 
 
-        :param model4ff0fc5e7c66284608ce55dc6cb7d846_request: (required)
-        :type model4ff0fc5e7c66284608ce55dc6cb7d846_request: Model4ff0fc5e7c66284608ce55dc6cb7d846Request
+        :param create_admin_search_reindex_request: (required)
+        :type create_admin_search_reindex_request: CreateAdminSearchReindexRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -147,8 +147,8 @@ class AdminSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_4ff0fc5e7c66284608ce55dc6cb7d846_serialize(
-            model4ff0fc5e7c66284608ce55dc6cb7d846_request=model4ff0fc5e7c66284608ce55dc6cb7d846_request,
+        _param = self._create_admin_search_reindex_serialize(
+            create_admin_search_reindex_request=create_admin_search_reindex_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -156,7 +156,7 @@ class AdminSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '202': None,
             '422': None,
         }
         response_data = self.api_client.call_api(
@@ -171,9 +171,9 @@ class AdminSearchApi:
 
 
     @validate_call
-    def call_4ff0fc5e7c66284608ce55dc6cb7d846_without_preload_content(
+    def create_admin_search_reindex_without_preload_content(
         self,
-        model4ff0fc5e7c66284608ce55dc6cb7d846_request: Model4ff0fc5e7c66284608ce55dc6cb7d846Request,
+        create_admin_search_reindex_request: CreateAdminSearchReindexRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -187,11 +187,11 @@ class AdminSearchApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Activate or deactivate a search-related Pennant feature flag
+        """Queue a drop+recreate+import of a search entity's Typesense collection
 
 
-        :param model4ff0fc5e7c66284608ce55dc6cb7d846_request: (required)
-        :type model4ff0fc5e7c66284608ce55dc6cb7d846_request: Model4ff0fc5e7c66284608ce55dc6cb7d846Request
+        :param create_admin_search_reindex_request: (required)
+        :type create_admin_search_reindex_request: CreateAdminSearchReindexRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -214,8 +214,8 @@ class AdminSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_4ff0fc5e7c66284608ce55dc6cb7d846_serialize(
-            model4ff0fc5e7c66284608ce55dc6cb7d846_request=model4ff0fc5e7c66284608ce55dc6cb7d846_request,
+        _param = self._create_admin_search_reindex_serialize(
+            create_admin_search_reindex_request=create_admin_search_reindex_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -223,7 +223,7 @@ class AdminSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '202': None,
             '422': None,
         }
         response_data = self.api_client.call_api(
@@ -233,9 +233,9 @@ class AdminSearchApi:
         return response_data.response
 
 
-    def _call_4ff0fc5e7c66284608ce55dc6cb7d846_serialize(
+    def _create_admin_search_reindex_serialize(
         self,
-        model4ff0fc5e7c66284608ce55dc6cb7d846_request,
+        create_admin_search_reindex_request,
         _request_auth,
         _content_type,
         _headers,
@@ -261,8 +261,8 @@ class AdminSearchApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model4ff0fc5e7c66284608ce55dc6cb7d846_request is not None:
-            _body_params = model4ff0fc5e7c66284608ce55dc6cb7d846_request
+        if create_admin_search_reindex_request is not None:
+            _body_params = create_admin_search_reindex_request
 
 
 
@@ -286,7 +286,7 @@ class AdminSearchApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/admin/search/feature',
+            resource_path='/api/v1/admin/search/reindex',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -303,7 +303,7 @@ class AdminSearchApi:
 
 
     @validate_call
-    def call_8918bd9dfb8e055a335f3c0695428e73(
+    def fetch_admin_search_status(
         self,
         _request_timeout: Union[
             None,
@@ -343,7 +343,7 @@ class AdminSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_8918bd9dfb8e055a335f3c0695428e73_serialize(
+        _param = self._fetch_admin_search_status_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -365,7 +365,7 @@ class AdminSearchApi:
 
 
     @validate_call
-    def call_8918bd9dfb8e055a335f3c0695428e73_with_http_info(
+    def fetch_admin_search_status_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -405,7 +405,7 @@ class AdminSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_8918bd9dfb8e055a335f3c0695428e73_serialize(
+        _param = self._fetch_admin_search_status_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -427,7 +427,7 @@ class AdminSearchApi:
 
 
     @validate_call
-    def call_8918bd9dfb8e055a335f3c0695428e73_without_preload_content(
+    def fetch_admin_search_status_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -467,7 +467,7 @@ class AdminSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_8918bd9dfb8e055a335f3c0695428e73_serialize(
+        _param = self._fetch_admin_search_status_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -484,7 +484,7 @@ class AdminSearchApi:
         return response_data.response
 
 
-    def _call_8918bd9dfb8e055a335f3c0695428e73_serialize(
+    def _fetch_admin_search_status_serialize(
         self,
         _request_auth,
         _content_type,
@@ -538,9 +538,9 @@ class AdminSearchApi:
 
 
     @validate_call
-    def call_92a06ea019f5560b5c9e76e02fe38e31(
+    def update_admin_search_feature(
         self,
-        model92a06ea019f5560b5c9e76e02fe38e31_request: Model92a06ea019f5560b5c9e76e02fe38e31Request,
+        update_admin_search_feature_request: UpdateAdminSearchFeatureRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -554,11 +554,11 @@ class AdminSearchApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """Queue a drop+recreate+import of a search entity's Typesense collection
+        """Activate or deactivate a search-related Pennant feature flag
 
 
-        :param model92a06ea019f5560b5c9e76e02fe38e31_request: (required)
-        :type model92a06ea019f5560b5c9e76e02fe38e31_request: Model92a06ea019f5560b5c9e76e02fe38e31Request
+        :param update_admin_search_feature_request: (required)
+        :type update_admin_search_feature_request: UpdateAdminSearchFeatureRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -581,8 +581,8 @@ class AdminSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_92a06ea019f5560b5c9e76e02fe38e31_serialize(
-            model92a06ea019f5560b5c9e76e02fe38e31_request=model92a06ea019f5560b5c9e76e02fe38e31_request,
+        _param = self._update_admin_search_feature_serialize(
+            update_admin_search_feature_request=update_admin_search_feature_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -590,7 +590,7 @@ class AdminSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': None,
+            '200': None,
             '422': None,
         }
         response_data = self.api_client.call_api(
@@ -605,9 +605,9 @@ class AdminSearchApi:
 
 
     @validate_call
-    def call_92a06ea019f5560b5c9e76e02fe38e31_with_http_info(
+    def update_admin_search_feature_with_http_info(
         self,
-        model92a06ea019f5560b5c9e76e02fe38e31_request: Model92a06ea019f5560b5c9e76e02fe38e31Request,
+        update_admin_search_feature_request: UpdateAdminSearchFeatureRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -621,11 +621,11 @@ class AdminSearchApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """Queue a drop+recreate+import of a search entity's Typesense collection
+        """Activate or deactivate a search-related Pennant feature flag
 
 
-        :param model92a06ea019f5560b5c9e76e02fe38e31_request: (required)
-        :type model92a06ea019f5560b5c9e76e02fe38e31_request: Model92a06ea019f5560b5c9e76e02fe38e31Request
+        :param update_admin_search_feature_request: (required)
+        :type update_admin_search_feature_request: UpdateAdminSearchFeatureRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -648,8 +648,8 @@ class AdminSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_92a06ea019f5560b5c9e76e02fe38e31_serialize(
-            model92a06ea019f5560b5c9e76e02fe38e31_request=model92a06ea019f5560b5c9e76e02fe38e31_request,
+        _param = self._update_admin_search_feature_serialize(
+            update_admin_search_feature_request=update_admin_search_feature_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -657,7 +657,7 @@ class AdminSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': None,
+            '200': None,
             '422': None,
         }
         response_data = self.api_client.call_api(
@@ -672,9 +672,9 @@ class AdminSearchApi:
 
 
     @validate_call
-    def call_92a06ea019f5560b5c9e76e02fe38e31_without_preload_content(
+    def update_admin_search_feature_without_preload_content(
         self,
-        model92a06ea019f5560b5c9e76e02fe38e31_request: Model92a06ea019f5560b5c9e76e02fe38e31Request,
+        update_admin_search_feature_request: UpdateAdminSearchFeatureRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -688,11 +688,11 @@ class AdminSearchApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Queue a drop+recreate+import of a search entity's Typesense collection
+        """Activate or deactivate a search-related Pennant feature flag
 
 
-        :param model92a06ea019f5560b5c9e76e02fe38e31_request: (required)
-        :type model92a06ea019f5560b5c9e76e02fe38e31_request: Model92a06ea019f5560b5c9e76e02fe38e31Request
+        :param update_admin_search_feature_request: (required)
+        :type update_admin_search_feature_request: UpdateAdminSearchFeatureRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -715,8 +715,8 @@ class AdminSearchApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_92a06ea019f5560b5c9e76e02fe38e31_serialize(
-            model92a06ea019f5560b5c9e76e02fe38e31_request=model92a06ea019f5560b5c9e76e02fe38e31_request,
+        _param = self._update_admin_search_feature_serialize(
+            update_admin_search_feature_request=update_admin_search_feature_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -724,7 +724,7 @@ class AdminSearchApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': None,
+            '200': None,
             '422': None,
         }
         response_data = self.api_client.call_api(
@@ -734,9 +734,9 @@ class AdminSearchApi:
         return response_data.response
 
 
-    def _call_92a06ea019f5560b5c9e76e02fe38e31_serialize(
+    def _update_admin_search_feature_serialize(
         self,
-        model92a06ea019f5560b5c9e76e02fe38e31_request,
+        update_admin_search_feature_request,
         _request_auth,
         _content_type,
         _headers,
@@ -762,8 +762,8 @@ class AdminSearchApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model92a06ea019f5560b5c9e76e02fe38e31_request is not None:
-            _body_params = model92a06ea019f5560b5c9e76e02fe38e31_request
+        if update_admin_search_feature_request is not None:
+            _body_params = update_admin_search_feature_request
 
 
 
@@ -787,7 +787,7 @@ class AdminSearchApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/admin/search/reindex',
+            resource_path='/api/v1/admin/search/feature',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

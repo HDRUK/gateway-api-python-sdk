@@ -26,94 +26,94 @@ class TestDataAccessApplicationReviewApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_bdc71807f7e3ab85967e343d06f95228(self) -> None:
-        """Test case for bdc71807f7e3ab85967e343d06f95228
+    def test_create_team_dar_application_question_review(self) -> None:
+        """Test case for create_team_dar_application_question_review
 
         DataAccessApplicationReview@store
         """
         pass
 
-    def test_call_05c982367b9c911ca1ec6d6352fa23fe(self) -> None:
-        """Test case for call_05c982367b9c911ca1ec6d6352fa23fe
+    def test_create_team_dar_application_review(self) -> None:
+        """Test case for create_team_dar_application_review
 
-        DataAccessApplicationReview@destroyFile
+        DataAccessApplicationReview@storeGlobal
         """
         pass
 
-    def test_call_154214db8250a7ff2fbbc9b6050ce1ab(self) -> None:
-        """Test case for call_154214db8250a7ff2fbbc9b6050ce1ab
-
-        DataAccessApplicationReview@downloadFile
-        """
-        pass
-
-    def test_call_1fe1b50e52ecaba3d4a895720df962c7(self) -> None:
-        """Test case for call_1fe1b50e52ecaba3d4a895720df962c7
-
-        DataAccessApplicationReview@destroyGlobal
-        """
-        pass
-
-    def test_call_3f912cdc3d1bff9db206309ee384c782(self) -> None:
-        """Test case for call_3f912cdc3d1bff9db206309ee384c782
-
-        DataAccessApplicationReview@downloadUserFile
-        """
-        pass
-
-    def test_call_53ba4c05c761d4787bfd1f1841d4b345(self) -> None:
-        """Test case for call_53ba4c05c761d4787bfd1f1841d4b345
+    def test_delete_team_dar_application_question_review(self) -> None:
+        """Test case for delete_team_dar_application_question_review
 
         DataAccessApplicationReview@destroy
         """
         pass
 
-    def test_call_5766dcceb641169f89fecb537e8f79e4(self) -> None:
-        """Test case for call_5766dcceb641169f89fecb537e8f79e4
+    def test_delete_team_dar_application_review(self) -> None:
+        """Test case for delete_team_dar_application_review
+
+        DataAccessApplicationReview@destroyGlobal
+        """
+        pass
+
+    def test_delete_team_dar_application_review_file(self) -> None:
+        """Test case for delete_team_dar_application_review_file
+
+        DataAccessApplicationReview@destroyFile
+        """
+        pass
+
+    def test_fetch_team_dar_application_review_file(self) -> None:
+        """Test case for fetch_team_dar_application_review_file
+
+        DataAccessApplicationReview@downloadFile
+        """
+        pass
+
+    def test_fetch_team_dar_application_reviews(self) -> None:
+        """Test case for fetch_team_dar_application_reviews
 
         DataAccessApplicationReview@index
         """
         pass
 
-    def test_call_63f5c8e9d4d96d169c64e6e0bd4d8ae1(self) -> None:
-        """Test case for call_63f5c8e9d4d96d169c64e6e0bd4d8ae1
+    def test_fetch_user_dar_application_review_file(self) -> None:
+        """Test case for fetch_user_dar_application_review_file
+
+        DataAccessApplicationReview@downloadUserFile
+        """
+        pass
+
+    def test_fetch_user_dar_application_reviews(self) -> None:
+        """Test case for fetch_user_dar_application_reviews
 
         DataAccessApplicationReview@index
         """
         pass
 
-    def test_call_64625be7555cbc341f14b96ee6677188(self) -> None:
-        """Test case for call_64625be7555cbc341f14b96ee6677188
-
-        DataAccessApplicationReview@userUpdate
-        """
-        pass
-
-    def test_call_657e412d92e286b217a1892e7f84395c(self) -> None:
-        """Test case for call_657e412d92e286b217a1892e7f84395c
+    def test_update_team_dar_application_question_review(self) -> None:
+        """Test case for update_team_dar_application_question_review
 
         DataAccessApplicationReview@update
         """
         pass
 
-    def test_call_98785fe27d508b80baad6eb609d00f49(self) -> None:
-        """Test case for call_98785fe27d508b80baad6eb609d00f49
-
-        DataAccessApplicationReview@userUpdateGlobal
-        """
-        pass
-
-    def test_dd0ec98127c9183bf7f9d4a24085d8a8(self) -> None:
-        """Test case for dd0ec98127c9183bf7f9d4a24085d8a8
+    def test_update_team_dar_application_review(self) -> None:
+        """Test case for update_team_dar_application_review
 
         DataAccessApplicationReview@updateGlobal
         """
         pass
 
-    def test_de86e9675c626354e1d2c5d385712d90(self) -> None:
-        """Test case for de86e9675c626354e1d2c5d385712d90
+    def test_update_user_dar_application_question_review(self) -> None:
+        """Test case for update_user_dar_application_question_review
 
-        DataAccessApplicationReview@storeGlobal
+        DataAccessApplicationReview@userUpdate
+        """
+        pass
+
+    def test_update_user_dar_application_review(self) -> None:
+        """Test case for update_user_dar_application_review
+
+        DataAccessApplicationReview@userUpdateGlobal
         """
         pass
 

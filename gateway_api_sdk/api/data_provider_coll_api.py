@@ -18,15 +18,15 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.c5bb5300d6a46cc5b1b6a3bb1c3fa869200_response import C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response
-from gateway_api_sdk.models.c5bb5300d6a46cc5b1b6a3bb1c3fa869_request import C5bb5300d6a46cc5b1b6a3bb1c3fa869Request
-from gateway_api_sdk.models.d0fe0e1c60dd979135440e3e0b440b75200_response import D0fe0e1c60dd979135440e3e0b440b75200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.ed769d8210100bbcd0e3a11660d25dc0200_response import Ed769d8210100bbcd0e3a11660d25dc0200Response
-from gateway_api_sdk.models.model02ada355a680c816624e98ae028dc8b6_request import Model02ada355a680c816624e98ae028dc8b6Request
-from gateway_api_sdk.models.model08f75648c437bdf2ba9f66d0c1371d0c200_response import Model08f75648c437bdf2ba9f66d0c1371d0c200Response
-from gateway_api_sdk.models.model81b552b8803870790579d840279ce8a3_request import Model81b552b8803870790579d840279ce8a3Request
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_data_provider_coll_request import CreateDataProviderCollRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.edit_data_provider_coll_request import EditDataProviderCollRequest
+from gateway_api_sdk.models.fetch_data_provider_coll200_response import FetchDataProviderColl200Response
+from gateway_api_sdk.models.fetch_data_provider_coll_summary200_response import FetchDataProviderCollSummary200Response
+from gateway_api_sdk.models.fetch_data_provider_colls200_response import FetchDataProviderColls200Response
+from gateway_api_sdk.models.update_data_provider_coll200_response import UpdateDataProviderColl200Response
+from gateway_api_sdk.models.update_data_provider_coll_request import UpdateDataProviderCollRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -47,10 +47,9 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def c5bb5300d6a46cc5b1b6a3bb1c3fa869(
+    def create_data_provider_coll(
         self,
-        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
-        c5bb5300d6a46cc5b1b6a3bb1c3fa869_request: Annotated[C5bb5300d6a46cc5b1b6a3bb1c3fa869Request, Field(description="DataProviderColl definition")],
+        create_data_provider_coll_request: Annotated[CreateDataProviderCollRequest, Field(description="DataProviderColl definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -63,15 +62,13 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response:
-        """DataProviderColl@update
+    ) -> CreateCategories200Response:
+        """DataProviderColl@store
 
-        Update a DataProviderColl
+        Creates a new DataProviderColl
 
-        :param id: DataProviderColl ID (required)
-        :type id: int
-        :param c5bb5300d6a46cc5b1b6a3bb1c3fa869_request: DataProviderColl definition (required)
-        :type c5bb5300d6a46cc5b1b6a3bb1c3fa869_request: C5bb5300d6a46cc5b1b6a3bb1c3fa869Request
+        :param create_data_provider_coll_request: DataProviderColl definition (required)
+        :type create_data_provider_coll_request: CreateDataProviderCollRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -94,9 +91,8 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._c5bb5300d6a46cc5b1b6a3bb1c3fa869_serialize(
-            id=id,
-            c5bb5300d6a46cc5b1b6a3bb1c3fa869_request=c5bb5300d6a46cc5b1b6a3bb1c3fa869_request,
+        _param = self._create_data_provider_coll_serialize(
+            create_data_provider_coll_request=create_data_provider_coll_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -104,9 +100,8 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -120,10 +115,9 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def c5bb5300d6a46cc5b1b6a3bb1c3fa869_with_http_info(
+    def create_data_provider_coll_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
-        c5bb5300d6a46cc5b1b6a3bb1c3fa869_request: Annotated[C5bb5300d6a46cc5b1b6a3bb1c3fa869Request, Field(description="DataProviderColl definition")],
+        create_data_provider_coll_request: Annotated[CreateDataProviderCollRequest, Field(description="DataProviderColl definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -136,234 +130,13 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response]:
-        """DataProviderColl@update
-
-        Update a DataProviderColl
-
-        :param id: DataProviderColl ID (required)
-        :type id: int
-        :param c5bb5300d6a46cc5b1b6a3bb1c3fa869_request: DataProviderColl definition (required)
-        :type c5bb5300d6a46cc5b1b6a3bb1c3fa869_request: C5bb5300d6a46cc5b1b6a3bb1c3fa869Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._c5bb5300d6a46cc5b1b6a3bb1c3fa869_serialize(
-            id=id,
-            c5bb5300d6a46cc5b1b6a3bb1c3fa869_request=c5bb5300d6a46cc5b1b6a3bb1c3fa869_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def c5bb5300d6a46cc5b1b6a3bb1c3fa869_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
-        c5bb5300d6a46cc5b1b6a3bb1c3fa869_request: Annotated[C5bb5300d6a46cc5b1b6a3bb1c3fa869Request, Field(description="DataProviderColl definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """DataProviderColl@update
-
-        Update a DataProviderColl
-
-        :param id: DataProviderColl ID (required)
-        :type id: int
-        :param c5bb5300d6a46cc5b1b6a3bb1c3fa869_request: DataProviderColl definition (required)
-        :type c5bb5300d6a46cc5b1b6a3bb1c3fa869_request: C5bb5300d6a46cc5b1b6a3bb1c3fa869Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._c5bb5300d6a46cc5b1b6a3bb1c3fa869_serialize(
-            id=id,
-            c5bb5300d6a46cc5b1b6a3bb1c3fa869_request=c5bb5300d6a46cc5b1b6a3bb1c3fa869_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _c5bb5300d6a46cc5b1b6a3bb1c3fa869_serialize(
-        self,
-        id,
-        c5bb5300d6a46cc5b1b6a3bb1c3fa869_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if c5bb5300d6a46cc5b1b6a3bb1c3fa869_request is not None:
-            _body_params = c5bb5300d6a46cc5b1b6a3bb1c3fa869_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v1/data_provider_colls/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_02ada355a680c816624e98ae028dc8b6(
-        self,
-        model02ada355a680c816624e98ae028dc8b6_request: Annotated[Model02ada355a680c816624e98ae028dc8b6Request, Field(description="DataProviderColl definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> ApiResponse[CreateCategories200Response]:
         """DataProviderColl@store
 
         Creates a new DataProviderColl
 
-        :param model02ada355a680c816624e98ae028dc8b6_request: DataProviderColl definition (required)
-        :type model02ada355a680c816624e98ae028dc8b6_request: Model02ada355a680c816624e98ae028dc8b6Request
+        :param create_data_provider_coll_request: DataProviderColl definition (required)
+        :type create_data_provider_coll_request: CreateDataProviderCollRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -386,8 +159,8 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_02ada355a680c816624e98ae028dc8b6_serialize(
-            model02ada355a680c816624e98ae028dc8b6_request=model02ada355a680c816624e98ae028dc8b6_request,
+        _param = self._create_data_provider_coll_serialize(
+            create_data_provider_coll_request=create_data_provider_coll_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -395,76 +168,8 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_02ada355a680c816624e98ae028dc8b6_with_http_info(
-        self,
-        model02ada355a680c816624e98ae028dc8b6_request: Annotated[Model02ada355a680c816624e98ae028dc8b6Request, Field(description="DataProviderColl definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
-        """DataProviderColl@store
-
-        Creates a new DataProviderColl
-
-        :param model02ada355a680c816624e98ae028dc8b6_request: DataProviderColl definition (required)
-        :type model02ada355a680c816624e98ae028dc8b6_request: Model02ada355a680c816624e98ae028dc8b6Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_02ada355a680c816624e98ae028dc8b6_serialize(
-            model02ada355a680c816624e98ae028dc8b6_request=model02ada355a680c816624e98ae028dc8b6_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -478,9 +183,9 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def call_02ada355a680c816624e98ae028dc8b6_without_preload_content(
+    def create_data_provider_coll_without_preload_content(
         self,
-        model02ada355a680c816624e98ae028dc8b6_request: Annotated[Model02ada355a680c816624e98ae028dc8b6Request, Field(description="DataProviderColl definition")],
+        create_data_provider_coll_request: Annotated[CreateDataProviderCollRequest, Field(description="DataProviderColl definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -498,8 +203,8 @@ class DataProviderCollApi:
 
         Creates a new DataProviderColl
 
-        :param model02ada355a680c816624e98ae028dc8b6_request: DataProviderColl definition (required)
-        :type model02ada355a680c816624e98ae028dc8b6_request: Model02ada355a680c816624e98ae028dc8b6Request
+        :param create_data_provider_coll_request: DataProviderColl definition (required)
+        :type create_data_provider_coll_request: CreateDataProviderCollRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -522,8 +227,8 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_02ada355a680c816624e98ae028dc8b6_serialize(
-            model02ada355a680c816624e98ae028dc8b6_request=model02ada355a680c816624e98ae028dc8b6_request,
+        _param = self._create_data_provider_coll_serialize(
+            create_data_provider_coll_request=create_data_provider_coll_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -531,8 +236,8 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -541,9 +246,9 @@ class DataProviderCollApi:
         return response_data.response
 
 
-    def _call_02ada355a680c816624e98ae028dc8b6_serialize(
+    def _create_data_provider_coll_serialize(
         self,
-        model02ada355a680c816624e98ae028dc8b6_request,
+        create_data_provider_coll_request,
         _request_auth,
         _content_type,
         _headers,
@@ -569,8 +274,8 @@ class DataProviderCollApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model02ada355a680c816624e98ae028dc8b6_request is not None:
-            _body_params = model02ada355a680c816624e98ae028dc8b6_request
+        if create_data_provider_coll_request is not None:
+            _body_params = create_data_provider_coll_request
 
 
         # set the HTTP header `Accept`
@@ -619,7 +324,7 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def call_08f75648c437bdf2ba9f66d0c1371d0c(
+    def delete_data_provider_coll(
         self,
         id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
         _request_timeout: Union[
@@ -634,271 +339,7 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model08f75648c437bdf2ba9f66d0c1371d0c200Response:
-        """DataProviderColl@show
-
-        Return a single DataProviderColl
-
-        :param id: DataProviderColl ID (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_08f75648c437bdf2ba9f66d0c1371d0c_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model08f75648c437bdf2ba9f66d0c1371d0c200Response",
-            '404': "AliasControllerShow404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_08f75648c437bdf2ba9f66d0c1371d0c_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model08f75648c437bdf2ba9f66d0c1371d0c200Response]:
-        """DataProviderColl@show
-
-        Return a single DataProviderColl
-
-        :param id: DataProviderColl ID (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_08f75648c437bdf2ba9f66d0c1371d0c_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model08f75648c437bdf2ba9f66d0c1371d0c200Response",
-            '404': "AliasControllerShow404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_08f75648c437bdf2ba9f66d0c1371d0c_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """DataProviderColl@show
-
-        Return a single DataProviderColl
-
-        :param id: DataProviderColl ID (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_08f75648c437bdf2ba9f66d0c1371d0c_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model08f75648c437bdf2ba9f66d0c1371d0c200Response",
-            '404': "AliasControllerShow404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_08f75648c437bdf2ba9f66d0c1371d0c_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/data_provider_colls/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_3351120ae1ae550ab36ee958b1feaf48(
-        self,
-        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """DataProviderColl@destroy
 
         Delete a DataProviderColl
@@ -927,7 +368,7 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3351120ae1ae550ab36ee958b1feaf48_serialize(
+        _param = self._delete_data_provider_coll_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -936,9 +377,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -952,7 +393,7 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def call_3351120ae1ae550ab36ee958b1feaf48_with_http_info(
+    def delete_data_provider_coll_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
         _request_timeout: Union[
@@ -967,7 +408,7 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """DataProviderColl@destroy
 
         Delete a DataProviderColl
@@ -996,7 +437,7 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3351120ae1ae550ab36ee958b1feaf48_serialize(
+        _param = self._delete_data_provider_coll_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1005,9 +446,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1021,7 +462,7 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def call_3351120ae1ae550ab36ee958b1feaf48_without_preload_content(
+    def delete_data_provider_coll_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
         _request_timeout: Union[
@@ -1065,7 +506,7 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3351120ae1ae550ab36ee958b1feaf48_serialize(
+        _param = self._delete_data_provider_coll_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1074,9 +515,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1085,7 +526,7 @@ class DataProviderCollApi:
         return response_data.response
 
 
-    def _call_3351120ae1ae550ab36ee958b1feaf48_serialize(
+    def _delete_data_provider_coll_serialize(
         self,
         id,
         _request_auth,
@@ -1150,10 +591,10 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def call_81b552b8803870790579d840279ce8a3(
+    def edit_data_provider_coll(
         self,
         id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
-        model81b552b8803870790579d840279ce8a3_request: Annotated[Model81b552b8803870790579d840279ce8a3Request, Field(description="DataProviderColl definition")],
+        edit_data_provider_coll_request: Annotated[EditDataProviderCollRequest, Field(description="DataProviderColl definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1166,15 +607,15 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response:
+    ) -> UpdateDataProviderColl200Response:
         """DataProviderColl@edit
 
         Edit a DataProviderColl
 
         :param id: DataProviderColl ID (required)
         :type id: int
-        :param model81b552b8803870790579d840279ce8a3_request: DataProviderColl definition (required)
-        :type model81b552b8803870790579d840279ce8a3_request: Model81b552b8803870790579d840279ce8a3Request
+        :param edit_data_provider_coll_request: DataProviderColl definition (required)
+        :type edit_data_provider_coll_request: EditDataProviderCollRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1197,9 +638,9 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_81b552b8803870790579d840279ce8a3_serialize(
+        _param = self._edit_data_provider_coll_serialize(
             id=id,
-            model81b552b8803870790579d840279ce8a3_request=model81b552b8803870790579d840279ce8a3_request,
+            edit_data_provider_coll_request=edit_data_provider_coll_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1207,9 +648,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateDataProviderColl200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1223,10 +664,10 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def call_81b552b8803870790579d840279ce8a3_with_http_info(
+    def edit_data_provider_coll_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
-        model81b552b8803870790579d840279ce8a3_request: Annotated[Model81b552b8803870790579d840279ce8a3Request, Field(description="DataProviderColl definition")],
+        edit_data_provider_coll_request: Annotated[EditDataProviderCollRequest, Field(description="DataProviderColl definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1239,15 +680,15 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response]:
+    ) -> ApiResponse[UpdateDataProviderColl200Response]:
         """DataProviderColl@edit
 
         Edit a DataProviderColl
 
         :param id: DataProviderColl ID (required)
         :type id: int
-        :param model81b552b8803870790579d840279ce8a3_request: DataProviderColl definition (required)
-        :type model81b552b8803870790579d840279ce8a3_request: Model81b552b8803870790579d840279ce8a3Request
+        :param edit_data_provider_coll_request: DataProviderColl definition (required)
+        :type edit_data_provider_coll_request: EditDataProviderCollRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1270,9 +711,9 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_81b552b8803870790579d840279ce8a3_serialize(
+        _param = self._edit_data_provider_coll_serialize(
             id=id,
-            model81b552b8803870790579d840279ce8a3_request=model81b552b8803870790579d840279ce8a3_request,
+            edit_data_provider_coll_request=edit_data_provider_coll_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1280,9 +721,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateDataProviderColl200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1296,10 +737,10 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def call_81b552b8803870790579d840279ce8a3_without_preload_content(
+    def edit_data_provider_coll_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
-        model81b552b8803870790579d840279ce8a3_request: Annotated[Model81b552b8803870790579d840279ce8a3Request, Field(description="DataProviderColl definition")],
+        edit_data_provider_coll_request: Annotated[EditDataProviderCollRequest, Field(description="DataProviderColl definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1319,8 +760,8 @@ class DataProviderCollApi:
 
         :param id: DataProviderColl ID (required)
         :type id: int
-        :param model81b552b8803870790579d840279ce8a3_request: DataProviderColl definition (required)
-        :type model81b552b8803870790579d840279ce8a3_request: Model81b552b8803870790579d840279ce8a3Request
+        :param edit_data_provider_coll_request: DataProviderColl definition (required)
+        :type edit_data_provider_coll_request: EditDataProviderCollRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1343,9 +784,9 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_81b552b8803870790579d840279ce8a3_serialize(
+        _param = self._edit_data_provider_coll_serialize(
             id=id,
-            model81b552b8803870790579d840279ce8a3_request=model81b552b8803870790579d840279ce8a3_request,
+            edit_data_provider_coll_request=edit_data_provider_coll_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1353,9 +794,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateDataProviderColl200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1364,10 +805,10 @@ class DataProviderCollApi:
         return response_data.response
 
 
-    def _call_81b552b8803870790579d840279ce8a3_serialize(
+    def _edit_data_provider_coll_serialize(
         self,
         id,
-        model81b552b8803870790579d840279ce8a3_request,
+        edit_data_provider_coll_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1395,8 +836,8 @@ class DataProviderCollApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model81b552b8803870790579d840279ce8a3_request is not None:
-            _body_params = model81b552b8803870790579d840279ce8a3_request
+        if edit_data_provider_coll_request is not None:
+            _body_params = edit_data_provider_coll_request
 
 
         # set the HTTP header `Accept`
@@ -1445,9 +886,9 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def d0fe0e1c60dd979135440e3e0b440b75(
+    def fetch_data_provider_coll(
         self,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
+        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1460,13 +901,13 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> D0fe0e1c60dd979135440e3e0b440b75200Response:
-        """DataProviderColl@index
+    ) -> FetchDataProviderColl200Response:
+        """DataProviderColl@show
 
-        Returns a list of DataProviderColls enabled on the system
+        Return a single DataProviderColl
 
-        :param per_page: per page
-        :type per_page: int
+        :param id: DataProviderColl ID (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1489,8 +930,8 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._d0fe0e1c60dd979135440e3e0b440b75_serialize(
-            per_page=per_page,
+        _param = self._fetch_data_provider_coll_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1498,7 +939,8 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "D0fe0e1c60dd979135440e3e0b440b75200Response",
+            '200': "FetchDataProviderColl200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1512,7 +954,467 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def d0fe0e1c60dd979135440e3e0b440b75_with_http_info(
+    def fetch_data_provider_coll_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchDataProviderColl200Response]:
+        """DataProviderColl@show
+
+        Return a single DataProviderColl
+
+        :param id: DataProviderColl ID (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_data_provider_coll_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchDataProviderColl200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_data_provider_coll_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """DataProviderColl@show
+
+        Return a single DataProviderColl
+
+        :param id: DataProviderColl ID (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_data_provider_coll_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchDataProviderColl200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_data_provider_coll_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/data_provider_colls/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_data_provider_coll_summary(
+        self,
+        id: Annotated[StrictInt, Field(description="DataProviderColl ID - summary")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FetchDataProviderCollSummary200Response:
+        """DataProviderColl@showSummary
+
+        Return a single DataProviderColl - summary
+
+        :param id: DataProviderColl ID - summary (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_data_provider_coll_summary_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchDataProviderCollSummary200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_data_provider_coll_summary_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="DataProviderColl ID - summary")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchDataProviderCollSummary200Response]:
+        """DataProviderColl@showSummary
+
+        Return a single DataProviderColl - summary
+
+        :param id: DataProviderColl ID - summary (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_data_provider_coll_summary_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchDataProviderCollSummary200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_data_provider_coll_summary_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="DataProviderColl ID - summary")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """DataProviderColl@showSummary
+
+        Return a single DataProviderColl - summary
+
+        :param id: DataProviderColl ID - summary (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_data_provider_coll_summary_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchDataProviderCollSummary200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_data_provider_coll_summary_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/data_provider_colls/{id}/summary',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_data_provider_colls(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -1527,7 +1429,7 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[D0fe0e1c60dd979135440e3e0b440b75200Response]:
+    ) -> FetchDataProviderColls200Response:
         """DataProviderColl@index
 
         Returns a list of DataProviderColls enabled on the system
@@ -1556,7 +1458,7 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._d0fe0e1c60dd979135440e3e0b440b75_serialize(
+        _param = self._fetch_data_provider_colls_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1565,7 +1467,74 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "D0fe0e1c60dd979135440e3e0b440b75200Response",
+            '200': "FetchDataProviderColls200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_data_provider_colls_with_http_info(
+        self,
+        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchDataProviderColls200Response]:
+        """DataProviderColl@index
+
+        Returns a list of DataProviderColls enabled on the system
+
+        :param per_page: per page
+        :type per_page: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_data_provider_colls_serialize(
+            per_page=per_page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchDataProviderColls200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1579,7 +1548,7 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def d0fe0e1c60dd979135440e3e0b440b75_without_preload_content(
+    def fetch_data_provider_colls_without_preload_content(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -1623,7 +1592,7 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._d0fe0e1c60dd979135440e3e0b440b75_serialize(
+        _param = self._fetch_data_provider_colls_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1632,7 +1601,7 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "D0fe0e1c60dd979135440e3e0b440b75200Response",
+            '200': "FetchDataProviderColls200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1641,7 +1610,7 @@ class DataProviderCollApi:
         return response_data.response
 
 
-    def _d0fe0e1c60dd979135440e3e0b440b75_serialize(
+    def _fetch_data_provider_colls_serialize(
         self,
         per_page,
         _request_auth,
@@ -1708,9 +1677,10 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def ed769d8210100bbcd0e3a11660d25dc0(
+    def update_data_provider_coll(
         self,
-        id: Annotated[StrictInt, Field(description="DataProviderColl ID - summary")],
+        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
+        update_data_provider_coll_request: Annotated[UpdateDataProviderCollRequest, Field(description="DataProviderColl definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1723,13 +1693,15 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Ed769d8210100bbcd0e3a11660d25dc0200Response:
-        """DataProviderColl@showSummary
+    ) -> UpdateDataProviderColl200Response:
+        """DataProviderColl@update
 
-        Return a single DataProviderColl - summary
+        Update a DataProviderColl
 
-        :param id: DataProviderColl ID - summary (required)
+        :param id: DataProviderColl ID (required)
         :type id: int
+        :param update_data_provider_coll_request: DataProviderColl definition (required)
+        :type update_data_provider_coll_request: UpdateDataProviderCollRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1752,8 +1724,9 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ed769d8210100bbcd0e3a11660d25dc0_serialize(
+        _param = self._update_data_provider_coll_serialize(
             id=id,
+            update_data_provider_coll_request=update_data_provider_coll_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1761,8 +1734,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Ed769d8210100bbcd0e3a11660d25dc0200Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateDataProviderColl200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1776,9 +1750,10 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def ed769d8210100bbcd0e3a11660d25dc0_with_http_info(
+    def update_data_provider_coll_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="DataProviderColl ID - summary")],
+        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
+        update_data_provider_coll_request: Annotated[UpdateDataProviderCollRequest, Field(description="DataProviderColl definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1791,13 +1766,15 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Ed769d8210100bbcd0e3a11660d25dc0200Response]:
-        """DataProviderColl@showSummary
+    ) -> ApiResponse[UpdateDataProviderColl200Response]:
+        """DataProviderColl@update
 
-        Return a single DataProviderColl - summary
+        Update a DataProviderColl
 
-        :param id: DataProviderColl ID - summary (required)
+        :param id: DataProviderColl ID (required)
         :type id: int
+        :param update_data_provider_coll_request: DataProviderColl definition (required)
+        :type update_data_provider_coll_request: UpdateDataProviderCollRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1820,8 +1797,9 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ed769d8210100bbcd0e3a11660d25dc0_serialize(
+        _param = self._update_data_provider_coll_serialize(
             id=id,
+            update_data_provider_coll_request=update_data_provider_coll_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1829,8 +1807,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Ed769d8210100bbcd0e3a11660d25dc0200Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateDataProviderColl200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1844,9 +1823,10 @@ class DataProviderCollApi:
 
 
     @validate_call
-    def ed769d8210100bbcd0e3a11660d25dc0_without_preload_content(
+    def update_data_provider_coll_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="DataProviderColl ID - summary")],
+        id: Annotated[StrictInt, Field(description="DataProviderColl ID")],
+        update_data_provider_coll_request: Annotated[UpdateDataProviderCollRequest, Field(description="DataProviderColl definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1860,12 +1840,14 @@ class DataProviderCollApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """DataProviderColl@showSummary
+        """DataProviderColl@update
 
-        Return a single DataProviderColl - summary
+        Update a DataProviderColl
 
-        :param id: DataProviderColl ID - summary (required)
+        :param id: DataProviderColl ID (required)
         :type id: int
+        :param update_data_provider_coll_request: DataProviderColl definition (required)
+        :type update_data_provider_coll_request: UpdateDataProviderCollRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1888,8 +1870,9 @@ class DataProviderCollApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ed769d8210100bbcd0e3a11660d25dc0_serialize(
+        _param = self._update_data_provider_coll_serialize(
             id=id,
+            update_data_provider_coll_request=update_data_provider_coll_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1897,8 +1880,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Ed769d8210100bbcd0e3a11660d25dc0200Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateDataProviderColl200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1907,9 +1891,10 @@ class DataProviderCollApi:
         return response_data.response
 
 
-    def _ed769d8210100bbcd0e3a11660d25dc0_serialize(
+    def _update_data_provider_coll_serialize(
         self,
         id,
+        update_data_provider_coll_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1937,6 +1922,8 @@ class DataProviderCollApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if update_data_provider_coll_request is not None:
+            _body_params = update_data_provider_coll_request
 
 
         # set the HTTP header `Accept`
@@ -1947,6 +1934,19 @@ class DataProviderCollApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1954,8 +1954,8 @@ class DataProviderCollApi:
         ]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/data_provider_colls/{id}/summary',
+            method='PUT',
+            resource_path='/api/v1/data_provider_colls/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

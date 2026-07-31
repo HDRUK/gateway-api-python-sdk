@@ -18,12 +18,12 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.d736d637e675097aaf709dfd755864c7200_response import D736d637e675097aaf709dfd755864c7200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_libraries_request import CreateLibrariesRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.fetch_libraries200_response import FetchLibraries200Response
 from gateway_api_sdk.models.list_libraries200_response import ListLibraries200Response
-from gateway_api_sdk.models.model077bba41c87bc61e6c290b3fea2a5848200_response import Model077bba41c87bc61e6c290b3fea2a5848200Response
-from gateway_api_sdk.models.model3b22aa4bb101550915e675702f8f3174_request import Model3b22aa4bb101550915e675702f8f3174Request
+from gateway_api_sdk.models.update_libraries200_response import UpdateLibraries200Response
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -44,10 +44,9 @@ class LibraryApi:
 
 
     @validate_call
-    def call_077bba41c87bc61e6c290b3fea2a5848(
+    def create_libraries(
         self,
-        id: Annotated[StrictInt, Field(description="library id")],
-        model3b22aa4bb101550915e675702f8f3174_request: Annotated[Model3b22aa4bb101550915e675702f8f3174Request, Field(description="library definition")],
+        create_libraries_request: Annotated[CreateLibrariesRequest, Field(description="library definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -60,15 +59,13 @@ class LibraryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model077bba41c87bc61e6c290b3fea2a5848200Response:
-        """Library@update
+    ) -> CreateCategories200Response:
+        """Library@store
 
-        Update a library
+        Creates a new library
 
-        :param id: library id (required)
-        :type id: int
-        :param model3b22aa4bb101550915e675702f8f3174_request: library definition (required)
-        :type model3b22aa4bb101550915e675702f8f3174_request: Model3b22aa4bb101550915e675702f8f3174Request
+        :param create_libraries_request: library definition (required)
+        :type create_libraries_request: CreateLibrariesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -91,9 +88,8 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_077bba41c87bc61e6c290b3fea2a5848_serialize(
-            id=id,
-            model3b22aa4bb101550915e675702f8f3174_request=model3b22aa4bb101550915e675702f8f3174_request,
+        _param = self._create_libraries_serialize(
+            create_libraries_request=create_libraries_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -101,9 +97,8 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model077bba41c87bc61e6c290b3fea2a5848200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -117,10 +112,9 @@ class LibraryApi:
 
 
     @validate_call
-    def call_077bba41c87bc61e6c290b3fea2a5848_with_http_info(
+    def create_libraries_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="library id")],
-        model3b22aa4bb101550915e675702f8f3174_request: Annotated[Model3b22aa4bb101550915e675702f8f3174Request, Field(description="library definition")],
+        create_libraries_request: Annotated[CreateLibrariesRequest, Field(description="library definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -133,234 +127,13 @@ class LibraryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model077bba41c87bc61e6c290b3fea2a5848200Response]:
-        """Library@update
-
-        Update a library
-
-        :param id: library id (required)
-        :type id: int
-        :param model3b22aa4bb101550915e675702f8f3174_request: library definition (required)
-        :type model3b22aa4bb101550915e675702f8f3174_request: Model3b22aa4bb101550915e675702f8f3174Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_077bba41c87bc61e6c290b3fea2a5848_serialize(
-            id=id,
-            model3b22aa4bb101550915e675702f8f3174_request=model3b22aa4bb101550915e675702f8f3174_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model077bba41c87bc61e6c290b3fea2a5848200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_077bba41c87bc61e6c290b3fea2a5848_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="library id")],
-        model3b22aa4bb101550915e675702f8f3174_request: Annotated[Model3b22aa4bb101550915e675702f8f3174Request, Field(description="library definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Library@update
-
-        Update a library
-
-        :param id: library id (required)
-        :type id: int
-        :param model3b22aa4bb101550915e675702f8f3174_request: library definition (required)
-        :type model3b22aa4bb101550915e675702f8f3174_request: Model3b22aa4bb101550915e675702f8f3174Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_077bba41c87bc61e6c290b3fea2a5848_serialize(
-            id=id,
-            model3b22aa4bb101550915e675702f8f3174_request=model3b22aa4bb101550915e675702f8f3174_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model077bba41c87bc61e6c290b3fea2a5848200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_077bba41c87bc61e6c290b3fea2a5848_serialize(
-        self,
-        id,
-        model3b22aa4bb101550915e675702f8f3174_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if model3b22aa4bb101550915e675702f8f3174_request is not None:
-            _body_params = model3b22aa4bb101550915e675702f8f3174_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v1/libraries/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_3b22aa4bb101550915e675702f8f3174(
-        self,
-        model3b22aa4bb101550915e675702f8f3174_request: Annotated[Model3b22aa4bb101550915e675702f8f3174Request, Field(description="library definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> ApiResponse[CreateCategories200Response]:
         """Library@store
 
         Creates a new library
 
-        :param model3b22aa4bb101550915e675702f8f3174_request: library definition (required)
-        :type model3b22aa4bb101550915e675702f8f3174_request: Model3b22aa4bb101550915e675702f8f3174Request
+        :param create_libraries_request: library definition (required)
+        :type create_libraries_request: CreateLibrariesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -383,8 +156,8 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3b22aa4bb101550915e675702f8f3174_serialize(
-            model3b22aa4bb101550915e675702f8f3174_request=model3b22aa4bb101550915e675702f8f3174_request,
+        _param = self._create_libraries_serialize(
+            create_libraries_request=create_libraries_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -392,76 +165,8 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_3b22aa4bb101550915e675702f8f3174_with_http_info(
-        self,
-        model3b22aa4bb101550915e675702f8f3174_request: Annotated[Model3b22aa4bb101550915e675702f8f3174Request, Field(description="library definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
-        """Library@store
-
-        Creates a new library
-
-        :param model3b22aa4bb101550915e675702f8f3174_request: library definition (required)
-        :type model3b22aa4bb101550915e675702f8f3174_request: Model3b22aa4bb101550915e675702f8f3174Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_3b22aa4bb101550915e675702f8f3174_serialize(
-            model3b22aa4bb101550915e675702f8f3174_request=model3b22aa4bb101550915e675702f8f3174_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -475,9 +180,9 @@ class LibraryApi:
 
 
     @validate_call
-    def call_3b22aa4bb101550915e675702f8f3174_without_preload_content(
+    def create_libraries_without_preload_content(
         self,
-        model3b22aa4bb101550915e675702f8f3174_request: Annotated[Model3b22aa4bb101550915e675702f8f3174Request, Field(description="library definition")],
+        create_libraries_request: Annotated[CreateLibrariesRequest, Field(description="library definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -495,8 +200,8 @@ class LibraryApi:
 
         Creates a new library
 
-        :param model3b22aa4bb101550915e675702f8f3174_request: library definition (required)
-        :type model3b22aa4bb101550915e675702f8f3174_request: Model3b22aa4bb101550915e675702f8f3174Request
+        :param create_libraries_request: library definition (required)
+        :type create_libraries_request: CreateLibrariesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -519,8 +224,8 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_3b22aa4bb101550915e675702f8f3174_serialize(
-            model3b22aa4bb101550915e675702f8f3174_request=model3b22aa4bb101550915e675702f8f3174_request,
+        _param = self._create_libraries_serialize(
+            create_libraries_request=create_libraries_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -528,8 +233,8 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -538,9 +243,9 @@ class LibraryApi:
         return response_data.response
 
 
-    def _call_3b22aa4bb101550915e675702f8f3174_serialize(
+    def _create_libraries_serialize(
         self,
-        model3b22aa4bb101550915e675702f8f3174_request,
+        create_libraries_request,
         _request_auth,
         _content_type,
         _headers,
@@ -566,8 +271,8 @@ class LibraryApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model3b22aa4bb101550915e675702f8f3174_request is not None:
-            _body_params = model3b22aa4bb101550915e675702f8f3174_request
+        if create_libraries_request is not None:
+            _body_params = create_libraries_request
 
 
         # set the HTTP header `Accept`
@@ -616,7 +321,7 @@ class LibraryApi:
 
 
     @validate_call
-    def call_416921483907d62b39163e3c4188d10c(
+    def delete_libraries(
         self,
         id: Annotated[StrictInt, Field(description="library id")],
         _request_timeout: Union[
@@ -631,7 +336,7 @@ class LibraryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """Library@destroy
 
         Delete a library
@@ -660,7 +365,7 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_416921483907d62b39163e3c4188d10c_serialize(
+        _param = self._delete_libraries_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -669,9 +374,9 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -685,7 +390,7 @@ class LibraryApi:
 
 
     @validate_call
-    def call_416921483907d62b39163e3c4188d10c_with_http_info(
+    def delete_libraries_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="library id")],
         _request_timeout: Union[
@@ -700,7 +405,7 @@ class LibraryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """Library@destroy
 
         Delete a library
@@ -729,7 +434,7 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_416921483907d62b39163e3c4188d10c_serialize(
+        _param = self._delete_libraries_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -738,9 +443,9 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -754,7 +459,7 @@ class LibraryApi:
 
 
     @validate_call
-    def call_416921483907d62b39163e3c4188d10c_without_preload_content(
+    def delete_libraries_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="library id")],
         _request_timeout: Union[
@@ -798,7 +503,7 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_416921483907d62b39163e3c4188d10c_serialize(
+        _param = self._delete_libraries_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -807,9 +512,9 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -818,7 +523,7 @@ class LibraryApi:
         return response_data.response
 
 
-    def _call_416921483907d62b39163e3c4188d10c_serialize(
+    def _delete_libraries_serialize(
         self,
         id,
         _request_auth,
@@ -883,10 +588,10 @@ class LibraryApi:
 
 
     @validate_call
-    def call_771bea7be0a7f7d2e0056f8c192100ad(
+    def edit_libraries(
         self,
         id: Annotated[StrictInt, Field(description="library id")],
-        model3b22aa4bb101550915e675702f8f3174_request: Annotated[Model3b22aa4bb101550915e675702f8f3174Request, Field(description="library definition")],
+        create_libraries_request: Annotated[CreateLibrariesRequest, Field(description="library definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -899,15 +604,15 @@ class LibraryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model077bba41c87bc61e6c290b3fea2a5848200Response:
+    ) -> UpdateLibraries200Response:
         """Library@update
 
         Edit a library
 
         :param id: library id (required)
         :type id: int
-        :param model3b22aa4bb101550915e675702f8f3174_request: library definition (required)
-        :type model3b22aa4bb101550915e675702f8f3174_request: Model3b22aa4bb101550915e675702f8f3174Request
+        :param create_libraries_request: library definition (required)
+        :type create_libraries_request: CreateLibrariesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -930,9 +635,9 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_771bea7be0a7f7d2e0056f8c192100ad_serialize(
+        _param = self._edit_libraries_serialize(
             id=id,
-            model3b22aa4bb101550915e675702f8f3174_request=model3b22aa4bb101550915e675702f8f3174_request,
+            create_libraries_request=create_libraries_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -940,9 +645,9 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model077bba41c87bc61e6c290b3fea2a5848200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateLibraries200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -956,10 +661,10 @@ class LibraryApi:
 
 
     @validate_call
-    def call_771bea7be0a7f7d2e0056f8c192100ad_with_http_info(
+    def edit_libraries_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="library id")],
-        model3b22aa4bb101550915e675702f8f3174_request: Annotated[Model3b22aa4bb101550915e675702f8f3174Request, Field(description="library definition")],
+        create_libraries_request: Annotated[CreateLibrariesRequest, Field(description="library definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -972,15 +677,15 @@ class LibraryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model077bba41c87bc61e6c290b3fea2a5848200Response]:
+    ) -> ApiResponse[UpdateLibraries200Response]:
         """Library@update
 
         Edit a library
 
         :param id: library id (required)
         :type id: int
-        :param model3b22aa4bb101550915e675702f8f3174_request: library definition (required)
-        :type model3b22aa4bb101550915e675702f8f3174_request: Model3b22aa4bb101550915e675702f8f3174Request
+        :param create_libraries_request: library definition (required)
+        :type create_libraries_request: CreateLibrariesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1003,9 +708,9 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_771bea7be0a7f7d2e0056f8c192100ad_serialize(
+        _param = self._edit_libraries_serialize(
             id=id,
-            model3b22aa4bb101550915e675702f8f3174_request=model3b22aa4bb101550915e675702f8f3174_request,
+            create_libraries_request=create_libraries_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1013,9 +718,9 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model077bba41c87bc61e6c290b3fea2a5848200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateLibraries200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1029,10 +734,10 @@ class LibraryApi:
 
 
     @validate_call
-    def call_771bea7be0a7f7d2e0056f8c192100ad_without_preload_content(
+    def edit_libraries_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="library id")],
-        model3b22aa4bb101550915e675702f8f3174_request: Annotated[Model3b22aa4bb101550915e675702f8f3174Request, Field(description="library definition")],
+        create_libraries_request: Annotated[CreateLibrariesRequest, Field(description="library definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1052,8 +757,8 @@ class LibraryApi:
 
         :param id: library id (required)
         :type id: int
-        :param model3b22aa4bb101550915e675702f8f3174_request: library definition (required)
-        :type model3b22aa4bb101550915e675702f8f3174_request: Model3b22aa4bb101550915e675702f8f3174Request
+        :param create_libraries_request: library definition (required)
+        :type create_libraries_request: CreateLibrariesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1076,9 +781,9 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_771bea7be0a7f7d2e0056f8c192100ad_serialize(
+        _param = self._edit_libraries_serialize(
             id=id,
-            model3b22aa4bb101550915e675702f8f3174_request=model3b22aa4bb101550915e675702f8f3174_request,
+            create_libraries_request=create_libraries_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1086,9 +791,9 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model077bba41c87bc61e6c290b3fea2a5848200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateLibraries200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1097,10 +802,10 @@ class LibraryApi:
         return response_data.response
 
 
-    def _call_771bea7be0a7f7d2e0056f8c192100ad_serialize(
+    def _edit_libraries_serialize(
         self,
         id,
-        model3b22aa4bb101550915e675702f8f3174_request,
+        create_libraries_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1128,8 +833,8 @@ class LibraryApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model3b22aa4bb101550915e675702f8f3174_request is not None:
-            _body_params = model3b22aa4bb101550915e675702f8f3174_request
+        if create_libraries_request is not None:
+            _body_params = create_libraries_request
 
 
         # set the HTTP header `Accept`
@@ -1178,7 +883,7 @@ class LibraryApi:
 
 
     @validate_call
-    def d736d637e675097aaf709dfd755864c7(
+    def fetch_libraries(
         self,
         id: Annotated[StrictInt, Field(description="library id")],
         _request_timeout: Union[
@@ -1193,7 +898,7 @@ class LibraryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> D736d637e675097aaf709dfd755864c7200Response:
+    ) -> FetchLibraries200Response:
         """Return a single library
 
         Return a single library
@@ -1222,7 +927,7 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._d736d637e675097aaf709dfd755864c7_serialize(
+        _param = self._fetch_libraries_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1231,8 +936,8 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "D736d637e675097aaf709dfd755864c7200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchLibraries200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1246,7 +951,7 @@ class LibraryApi:
 
 
     @validate_call
-    def d736d637e675097aaf709dfd755864c7_with_http_info(
+    def fetch_libraries_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="library id")],
         _request_timeout: Union[
@@ -1261,7 +966,7 @@ class LibraryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[D736d637e675097aaf709dfd755864c7200Response]:
+    ) -> ApiResponse[FetchLibraries200Response]:
         """Return a single library
 
         Return a single library
@@ -1290,7 +995,7 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._d736d637e675097aaf709dfd755864c7_serialize(
+        _param = self._fetch_libraries_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1299,8 +1004,8 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "D736d637e675097aaf709dfd755864c7200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchLibraries200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1314,7 +1019,7 @@ class LibraryApi:
 
 
     @validate_call
-    def d736d637e675097aaf709dfd755864c7_without_preload_content(
+    def fetch_libraries_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="library id")],
         _request_timeout: Union[
@@ -1358,7 +1063,7 @@ class LibraryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._d736d637e675097aaf709dfd755864c7_serialize(
+        _param = self._fetch_libraries_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1367,8 +1072,8 @@ class LibraryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "D736d637e675097aaf709dfd755864c7200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchLibraries200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1377,7 +1082,7 @@ class LibraryApi:
         return response_data.response
 
 
-    def _d736d637e675097aaf709dfd755864c7_serialize(
+    def _fetch_libraries_serialize(
         self,
         id,
         _request_auth,
@@ -1689,6 +1394,301 @@ class LibraryApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v1/libraries',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_libraries(
+        self,
+        id: Annotated[StrictInt, Field(description="library id")],
+        create_libraries_request: Annotated[CreateLibrariesRequest, Field(description="library definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateLibraries200Response:
+        """Library@update
+
+        Update a library
+
+        :param id: library id (required)
+        :type id: int
+        :param create_libraries_request: library definition (required)
+        :type create_libraries_request: CreateLibrariesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_libraries_serialize(
+            id=id,
+            create_libraries_request=create_libraries_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateLibraries200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_libraries_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="library id")],
+        create_libraries_request: Annotated[CreateLibrariesRequest, Field(description="library definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateLibraries200Response]:
+        """Library@update
+
+        Update a library
+
+        :param id: library id (required)
+        :type id: int
+        :param create_libraries_request: library definition (required)
+        :type create_libraries_request: CreateLibrariesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_libraries_serialize(
+            id=id,
+            create_libraries_request=create_libraries_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateLibraries200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_libraries_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="library id")],
+        create_libraries_request: Annotated[CreateLibrariesRequest, Field(description="library definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Library@update
+
+        Update a library
+
+        :param id: library id (required)
+        :type id: int
+        :param create_libraries_request: library definition (required)
+        :type create_libraries_request: CreateLibrariesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_libraries_serialize(
+            id=id,
+            create_libraries_request=create_libraries_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateLibraries200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_libraries_serialize(
+        self,
+        id,
+        create_libraries_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if create_libraries_request is not None:
+            _body_params = create_libraries_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/api/v1/libraries/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

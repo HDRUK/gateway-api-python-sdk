@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **integrations_datasets_test**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response integrations_datasets_test(datasets_test_request)
+> CreateCategories200Response integrations_datasets_test(datasets_test_request)
 
 IntegrationDatasetController@datasetTest
 
@@ -19,8 +19,8 @@ Integrations datasets test
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.datasets_test_request import DatasetsTestRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 

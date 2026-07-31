@@ -15,7 +15,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -50,7 +50,7 @@ class LogoutApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """LogoutController@logout
 
         logout
@@ -85,7 +85,7 @@ class LogoutApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
+            '200': "DeleteAliases200Response",
             '401': "CreateTeamCollections401Response",
         }
         response_data = self.api_client.call_api(
@@ -114,7 +114,7 @@ class LogoutApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """LogoutController@logout
 
         logout
@@ -149,7 +149,7 @@ class LogoutApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
+            '200': "DeleteAliases200Response",
             '401': "CreateTeamCollections401Response",
         }
         response_data = self.api_client.call_api(
@@ -213,7 +213,7 @@ class LogoutApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
+            '200': "DeleteAliases200Response",
             '401': "CreateTeamCollections401Response",
         }
         response_data = self.api_client.call_api(

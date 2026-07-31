@@ -18,13 +18,13 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.a5f6e0a9550d3c58c50dda55412cd051_request import A5f6e0a9550d3c58c50dda55412cd051Request
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92_request import Dd76b8d73b7ea8b4951f03d7c0904c92Request
-from gateway_api_sdk.models.e225c2b7eb5daf7fb16e00f4f07ff030200_response import E225c2b7eb5daf7fb16e00f4f07ff030200Response
-from gateway_api_sdk.models.model988e8695bc991d7f8e40131db5ba7a76200_response import Model988e8695bc991d7f8e40131db5ba7a76200Response
-from gateway_api_sdk.models.model988e8695bc991d7f8e40131db5ba7a76_request import Model988e8695bc991d7f8e40131db5ba7a76Request
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_categories_request import CreateCategoriesRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.edit_categories_request import EditCategoriesRequest
+from gateway_api_sdk.models.fetch_all_categories200_response import FetchAllCategories200Response
+from gateway_api_sdk.models.update_categories200_response import UpdateCategories200Response
+from gateway_api_sdk.models.update_categories_request import UpdateCategoriesRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -45,10 +45,9 @@ class CategoryApi:
 
 
     @validate_call
-    def a5f6e0a9550d3c58c50dda55412cd051(
+    def create_categories(
         self,
-        id: Annotated[StrictInt, Field(description="category id")],
-        a5f6e0a9550d3c58c50dda55412cd051_request: Annotated[A5f6e0a9550d3c58c50dda55412cd051Request, Field(description="Category definition")],
+        create_categories_request: Annotated[CreateCategoriesRequest, Field(description="Category definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -61,15 +60,13 @@ class CategoryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model988e8695bc991d7f8e40131db5ba7a76200Response:
-        """Category@update
+    ) -> CreateCategories200Response:
+        """Category@store
 
-        Edit a tool category
+        Creates a new tool category
 
-        :param id: category id (required)
-        :type id: int
-        :param a5f6e0a9550d3c58c50dda55412cd051_request: Category definition (required)
-        :type a5f6e0a9550d3c58c50dda55412cd051_request: A5f6e0a9550d3c58c50dda55412cd051Request
+        :param create_categories_request: Category definition (required)
+        :type create_categories_request: CreateCategoriesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -92,9 +89,8 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a5f6e0a9550d3c58c50dda55412cd051_serialize(
-            id=id,
-            a5f6e0a9550d3c58c50dda55412cd051_request=a5f6e0a9550d3c58c50dda55412cd051_request,
+        _param = self._create_categories_serialize(
+            create_categories_request=create_categories_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -102,9 +98,8 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model988e8695bc991d7f8e40131db5ba7a76200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -118,10 +113,9 @@ class CategoryApi:
 
 
     @validate_call
-    def a5f6e0a9550d3c58c50dda55412cd051_with_http_info(
+    def create_categories_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="category id")],
-        a5f6e0a9550d3c58c50dda55412cd051_request: Annotated[A5f6e0a9550d3c58c50dda55412cd051Request, Field(description="Category definition")],
+        create_categories_request: Annotated[CreateCategoriesRequest, Field(description="Category definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -134,15 +128,13 @@ class CategoryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model988e8695bc991d7f8e40131db5ba7a76200Response]:
-        """Category@update
+    ) -> ApiResponse[CreateCategories200Response]:
+        """Category@store
 
-        Edit a tool category
+        Creates a new tool category
 
-        :param id: category id (required)
-        :type id: int
-        :param a5f6e0a9550d3c58c50dda55412cd051_request: Category definition (required)
-        :type a5f6e0a9550d3c58c50dda55412cd051_request: A5f6e0a9550d3c58c50dda55412cd051Request
+        :param create_categories_request: Category definition (required)
+        :type create_categories_request: CreateCategoriesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -165,9 +157,8 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a5f6e0a9550d3c58c50dda55412cd051_serialize(
-            id=id,
-            a5f6e0a9550d3c58c50dda55412cd051_request=a5f6e0a9550d3c58c50dda55412cd051_request,
+        _param = self._create_categories_serialize(
+            create_categories_request=create_categories_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -175,9 +166,8 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model988e8695bc991d7f8e40131db5ba7a76200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -191,10 +181,9 @@ class CategoryApi:
 
 
     @validate_call
-    def a5f6e0a9550d3c58c50dda55412cd051_without_preload_content(
+    def create_categories_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="category id")],
-        a5f6e0a9550d3c58c50dda55412cd051_request: Annotated[A5f6e0a9550d3c58c50dda55412cd051Request, Field(description="Category definition")],
+        create_categories_request: Annotated[CreateCategoriesRequest, Field(description="Category definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -208,14 +197,12 @@ class CategoryApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Category@update
+        """Category@store
 
-        Edit a tool category
+        Creates a new tool category
 
-        :param id: category id (required)
-        :type id: int
-        :param a5f6e0a9550d3c58c50dda55412cd051_request: Category definition (required)
-        :type a5f6e0a9550d3c58c50dda55412cd051_request: A5f6e0a9550d3c58c50dda55412cd051Request
+        :param create_categories_request: Category definition (required)
+        :type create_categories_request: CreateCategoriesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -238,9 +225,8 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a5f6e0a9550d3c58c50dda55412cd051_serialize(
-            id=id,
-            a5f6e0a9550d3c58c50dda55412cd051_request=a5f6e0a9550d3c58c50dda55412cd051_request,
+        _param = self._create_categories_serialize(
+            create_categories_request=create_categories_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -248,9 +234,8 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model988e8695bc991d7f8e40131db5ba7a76200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -259,10 +244,9 @@ class CategoryApi:
         return response_data.response
 
 
-    def _a5f6e0a9550d3c58c50dda55412cd051_serialize(
+    def _create_categories_serialize(
         self,
-        id,
-        a5f6e0a9550d3c58c50dda55412cd051_request,
+        create_categories_request,
         _request_auth,
         _content_type,
         _headers,
@@ -284,14 +268,12 @@ class CategoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if a5f6e0a9550d3c58c50dda55412cd051_request is not None:
-            _body_params = a5f6e0a9550d3c58c50dda55412cd051_request
+        if create_categories_request is not None:
+            _body_params = create_categories_request
 
 
         # set the HTTP header `Accept`
@@ -322,8 +304,8 @@ class CategoryApi:
         ]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v1/categories/{id}',
+            method='POST',
+            resource_path='/api/v1/categories',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -340,7 +322,7 @@ class CategoryApi:
 
 
     @validate_call
-    def call_37196d259228d2274dd9dbef8b00e547(
+    def delete_categories(
         self,
         id: Annotated[StrictInt, Field(description="category id")],
         _request_timeout: Union[
@@ -355,7 +337,7 @@ class CategoryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """Category@destroy
 
         Delete a tool category
@@ -384,7 +366,7 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_37196d259228d2274dd9dbef8b00e547_serialize(
+        _param = self._delete_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -393,9 +375,9 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -409,7 +391,7 @@ class CategoryApi:
 
 
     @validate_call
-    def call_37196d259228d2274dd9dbef8b00e547_with_http_info(
+    def delete_categories_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="category id")],
         _request_timeout: Union[
@@ -424,7 +406,7 @@ class CategoryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """Category@destroy
 
         Delete a tool category
@@ -453,7 +435,7 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_37196d259228d2274dd9dbef8b00e547_serialize(
+        _param = self._delete_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -462,9 +444,9 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -478,7 +460,7 @@ class CategoryApi:
 
 
     @validate_call
-    def call_37196d259228d2274dd9dbef8b00e547_without_preload_content(
+    def delete_categories_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="category id")],
         _request_timeout: Union[
@@ -522,7 +504,7 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_37196d259228d2274dd9dbef8b00e547_serialize(
+        _param = self._delete_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -531,9 +513,9 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -542,7 +524,7 @@ class CategoryApi:
         return response_data.response
 
 
-    def _call_37196d259228d2274dd9dbef8b00e547_serialize(
+    def _delete_categories_serialize(
         self,
         id,
         _request_auth,
@@ -607,10 +589,10 @@ class CategoryApi:
 
 
     @validate_call
-    def call_988e8695bc991d7f8e40131db5ba7a76(
+    def edit_categories(
         self,
         id: Annotated[StrictInt, Field(description="category id")],
-        model988e8695bc991d7f8e40131db5ba7a76_request: Annotated[Model988e8695bc991d7f8e40131db5ba7a76Request, Field(description="Category definition")],
+        edit_categories_request: Annotated[EditCategoriesRequest, Field(description="Category definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -623,15 +605,15 @@ class CategoryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model988e8695bc991d7f8e40131db5ba7a76200Response:
+    ) -> UpdateCategories200Response:
         """Category@update
 
-        Update a tool category
+        Edit a tool category
 
         :param id: category id (required)
         :type id: int
-        :param model988e8695bc991d7f8e40131db5ba7a76_request: Category definition (required)
-        :type model988e8695bc991d7f8e40131db5ba7a76_request: Model988e8695bc991d7f8e40131db5ba7a76Request
+        :param edit_categories_request: Category definition (required)
+        :type edit_categories_request: EditCategoriesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -654,9 +636,9 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_988e8695bc991d7f8e40131db5ba7a76_serialize(
+        _param = self._edit_categories_serialize(
             id=id,
-            model988e8695bc991d7f8e40131db5ba7a76_request=model988e8695bc991d7f8e40131db5ba7a76_request,
+            edit_categories_request=edit_categories_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -664,9 +646,9 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model988e8695bc991d7f8e40131db5ba7a76200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -680,10 +662,10 @@ class CategoryApi:
 
 
     @validate_call
-    def call_988e8695bc991d7f8e40131db5ba7a76_with_http_info(
+    def edit_categories_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="category id")],
-        model988e8695bc991d7f8e40131db5ba7a76_request: Annotated[Model988e8695bc991d7f8e40131db5ba7a76Request, Field(description="Category definition")],
+        edit_categories_request: Annotated[EditCategoriesRequest, Field(description="Category definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -696,15 +678,15 @@ class CategoryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model988e8695bc991d7f8e40131db5ba7a76200Response]:
+    ) -> ApiResponse[UpdateCategories200Response]:
         """Category@update
 
-        Update a tool category
+        Edit a tool category
 
         :param id: category id (required)
         :type id: int
-        :param model988e8695bc991d7f8e40131db5ba7a76_request: Category definition (required)
-        :type model988e8695bc991d7f8e40131db5ba7a76_request: Model988e8695bc991d7f8e40131db5ba7a76Request
+        :param edit_categories_request: Category definition (required)
+        :type edit_categories_request: EditCategoriesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -727,9 +709,9 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_988e8695bc991d7f8e40131db5ba7a76_serialize(
+        _param = self._edit_categories_serialize(
             id=id,
-            model988e8695bc991d7f8e40131db5ba7a76_request=model988e8695bc991d7f8e40131db5ba7a76_request,
+            edit_categories_request=edit_categories_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -737,9 +719,9 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model988e8695bc991d7f8e40131db5ba7a76200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -753,10 +735,10 @@ class CategoryApi:
 
 
     @validate_call
-    def call_988e8695bc991d7f8e40131db5ba7a76_without_preload_content(
+    def edit_categories_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="category id")],
-        model988e8695bc991d7f8e40131db5ba7a76_request: Annotated[Model988e8695bc991d7f8e40131db5ba7a76Request, Field(description="Category definition")],
+        edit_categories_request: Annotated[EditCategoriesRequest, Field(description="Category definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -772,12 +754,12 @@ class CategoryApi:
     ) -> RESTResponseType:
         """Category@update
 
-        Update a tool category
+        Edit a tool category
 
         :param id: category id (required)
         :type id: int
-        :param model988e8695bc991d7f8e40131db5ba7a76_request: Category definition (required)
-        :type model988e8695bc991d7f8e40131db5ba7a76_request: Model988e8695bc991d7f8e40131db5ba7a76Request
+        :param edit_categories_request: Category definition (required)
+        :type edit_categories_request: EditCategoriesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -800,9 +782,9 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_988e8695bc991d7f8e40131db5ba7a76_serialize(
+        _param = self._edit_categories_serialize(
             id=id,
-            model988e8695bc991d7f8e40131db5ba7a76_request=model988e8695bc991d7f8e40131db5ba7a76_request,
+            edit_categories_request=edit_categories_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -810,9 +792,9 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "Model988e8695bc991d7f8e40131db5ba7a76200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateCategories200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -821,10 +803,10 @@ class CategoryApi:
         return response_data.response
 
 
-    def _call_988e8695bc991d7f8e40131db5ba7a76_serialize(
+    def _edit_categories_serialize(
         self,
         id,
-        model988e8695bc991d7f8e40131db5ba7a76_request,
+        edit_categories_request,
         _request_auth,
         _content_type,
         _headers,
@@ -852,8 +834,8 @@ class CategoryApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model988e8695bc991d7f8e40131db5ba7a76_request is not None:
-            _body_params = model988e8695bc991d7f8e40131db5ba7a76_request
+        if edit_categories_request is not None:
+            _body_params = edit_categories_request
 
 
         # set the HTTP header `Accept`
@@ -884,7 +866,7 @@ class CategoryApi:
         ]
 
         return self.api_client.param_serialize(
-            method='PUT',
+            method='PATCH',
             resource_path='/api/v1/categories/{id}',
             path_params=_path_params,
             query_params=_query_params,
@@ -902,548 +884,7 @@ class CategoryApi:
 
 
     @validate_call
-    def call_9c4934d1b68a6d4440ec72cfc8ae7074(
-        self,
-        id: Annotated[StrictInt, Field(description="category id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> E225c2b7eb5daf7fb16e00f4f07ff030200Response:
-        """Category@show
-
-        Return a single tool category
-
-        :param id: category id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_9c4934d1b68a6d4440ec72cfc8ae7074_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "E225c2b7eb5daf7fb16e00f4f07ff030200Response",
-            '404': "AliasControllerShow404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_9c4934d1b68a6d4440ec72cfc8ae7074_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="category id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[E225c2b7eb5daf7fb16e00f4f07ff030200Response]:
-        """Category@show
-
-        Return a single tool category
-
-        :param id: category id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_9c4934d1b68a6d4440ec72cfc8ae7074_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "E225c2b7eb5daf7fb16e00f4f07ff030200Response",
-            '404': "AliasControllerShow404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_9c4934d1b68a6d4440ec72cfc8ae7074_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="category id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Category@show
-
-        Return a single tool category
-
-        :param id: category id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_9c4934d1b68a6d4440ec72cfc8ae7074_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "E225c2b7eb5daf7fb16e00f4f07ff030200Response",
-            '404': "AliasControllerShow404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_9c4934d1b68a6d4440ec72cfc8ae7074_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/categories/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def dd76b8d73b7ea8b4951f03d7c0904c92(
-        self,
-        dd76b8d73b7ea8b4951f03d7c0904c92_request: Annotated[Dd76b8d73b7ea8b4951f03d7c0904c92Request, Field(description="Category definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
-        """Category@store
-
-        Creates a new tool category
-
-        :param dd76b8d73b7ea8b4951f03d7c0904c92_request: Category definition (required)
-        :type dd76b8d73b7ea8b4951f03d7c0904c92_request: Dd76b8d73b7ea8b4951f03d7c0904c92Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._dd76b8d73b7ea8b4951f03d7c0904c92_serialize(
-            dd76b8d73b7ea8b4951f03d7c0904c92_request=dd76b8d73b7ea8b4951f03d7c0904c92_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def dd76b8d73b7ea8b4951f03d7c0904c92_with_http_info(
-        self,
-        dd76b8d73b7ea8b4951f03d7c0904c92_request: Annotated[Dd76b8d73b7ea8b4951f03d7c0904c92Request, Field(description="Category definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
-        """Category@store
-
-        Creates a new tool category
-
-        :param dd76b8d73b7ea8b4951f03d7c0904c92_request: Category definition (required)
-        :type dd76b8d73b7ea8b4951f03d7c0904c92_request: Dd76b8d73b7ea8b4951f03d7c0904c92Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._dd76b8d73b7ea8b4951f03d7c0904c92_serialize(
-            dd76b8d73b7ea8b4951f03d7c0904c92_request=dd76b8d73b7ea8b4951f03d7c0904c92_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def dd76b8d73b7ea8b4951f03d7c0904c92_without_preload_content(
-        self,
-        dd76b8d73b7ea8b4951f03d7c0904c92_request: Annotated[Dd76b8d73b7ea8b4951f03d7c0904c92Request, Field(description="Category definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Category@store
-
-        Creates a new tool category
-
-        :param dd76b8d73b7ea8b4951f03d7c0904c92_request: Category definition (required)
-        :type dd76b8d73b7ea8b4951f03d7c0904c92_request: Dd76b8d73b7ea8b4951f03d7c0904c92Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._dd76b8d73b7ea8b4951f03d7c0904c92_serialize(
-            dd76b8d73b7ea8b4951f03d7c0904c92_request=dd76b8d73b7ea8b4951f03d7c0904c92_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _dd76b8d73b7ea8b4951f03d7c0904c92_serialize(
-        self,
-        dd76b8d73b7ea8b4951f03d7c0904c92_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if dd76b8d73b7ea8b4951f03d7c0904c92_request is not None:
-            _body_params = dd76b8d73b7ea8b4951f03d7c0904c92_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/categories',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def e225c2b7eb5daf7fb16e00f4f07ff030(
+    def fetch_all_categories(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -1458,7 +899,7 @@ class CategoryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> E225c2b7eb5daf7fb16e00f4f07ff030200Response:
+    ) -> FetchAllCategories200Response:
         """Category@index
 
         Returns a list of categories enabled on the system
@@ -1487,7 +928,7 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._e225c2b7eb5daf7fb16e00f4f07ff030_serialize(
+        _param = self._fetch_all_categories_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1496,7 +937,7 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "E225c2b7eb5daf7fb16e00f4f07ff030200Response",
+            '200': "FetchAllCategories200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1510,7 +951,7 @@ class CategoryApi:
 
 
     @validate_call
-    def e225c2b7eb5daf7fb16e00f4f07ff030_with_http_info(
+    def fetch_all_categories_with_http_info(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -1525,7 +966,7 @@ class CategoryApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[E225c2b7eb5daf7fb16e00f4f07ff030200Response]:
+    ) -> ApiResponse[FetchAllCategories200Response]:
         """Category@index
 
         Returns a list of categories enabled on the system
@@ -1554,7 +995,7 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._e225c2b7eb5daf7fb16e00f4f07ff030_serialize(
+        _param = self._fetch_all_categories_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1563,7 +1004,7 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "E225c2b7eb5daf7fb16e00f4f07ff030200Response",
+            '200': "FetchAllCategories200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1577,7 +1018,7 @@ class CategoryApi:
 
 
     @validate_call
-    def e225c2b7eb5daf7fb16e00f4f07ff030_without_preload_content(
+    def fetch_all_categories_without_preload_content(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -1621,7 +1062,7 @@ class CategoryApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._e225c2b7eb5daf7fb16e00f4f07ff030_serialize(
+        _param = self._fetch_all_categories_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1630,7 +1071,7 @@ class CategoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "E225c2b7eb5daf7fb16e00f4f07ff030200Response",
+            '200': "FetchAllCategories200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1639,7 +1080,7 @@ class CategoryApi:
         return response_data.response
 
 
-    def _e225c2b7eb5daf7fb16e00f4f07ff030_serialize(
+    def _fetch_all_categories_serialize(
         self,
         per_page,
         _request_auth,
@@ -1690,6 +1131,565 @@ class CategoryApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v1/categories',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_categories(
+        self,
+        id: Annotated[StrictInt, Field(description="category id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FetchAllCategories200Response:
+        """Category@show
+
+        Return a single tool category
+
+        :param id: category id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_categories_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchAllCategories200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_categories_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="category id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchAllCategories200Response]:
+        """Category@show
+
+        Return a single tool category
+
+        :param id: category id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_categories_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchAllCategories200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_categories_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="category id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Category@show
+
+        Return a single tool category
+
+        :param id: category id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_categories_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchAllCategories200Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_categories_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/categories/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_categories(
+        self,
+        id: Annotated[StrictInt, Field(description="category id")],
+        update_categories_request: Annotated[UpdateCategoriesRequest, Field(description="Category definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateCategories200Response:
+        """Category@update
+
+        Update a tool category
+
+        :param id: category id (required)
+        :type id: int
+        :param update_categories_request: Category definition (required)
+        :type update_categories_request: UpdateCategoriesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_categories_serialize(
+            id=id,
+            update_categories_request=update_categories_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateCategories200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_categories_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="category id")],
+        update_categories_request: Annotated[UpdateCategoriesRequest, Field(description="Category definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateCategories200Response]:
+        """Category@update
+
+        Update a tool category
+
+        :param id: category id (required)
+        :type id: int
+        :param update_categories_request: Category definition (required)
+        :type update_categories_request: UpdateCategoriesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_categories_serialize(
+            id=id,
+            update_categories_request=update_categories_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateCategories200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_categories_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="category id")],
+        update_categories_request: Annotated[UpdateCategoriesRequest, Field(description="Category definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Category@update
+
+        Update a tool category
+
+        :param id: category id (required)
+        :type id: int
+        :param update_categories_request: Category definition (required)
+        :type update_categories_request: UpdateCategoriesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_categories_serialize(
+            id=id,
+            update_categories_request=update_categories_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateCategories200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_categories_serialize(
+        self,
+        id,
+        update_categories_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if update_categories_request is not None:
+            _body_params = update_categories_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/api/v1/categories/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

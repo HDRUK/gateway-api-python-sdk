@@ -18,16 +18,16 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.a439b274e045e4ae8ab3006c33290aff200_response import A439b274e045e4ae8ab3006c33290aff200Response
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.c9939b681f1c7deb438e5d7a25ea9509200_response import C9939b681f1c7deb438e5d7a25ea9509200Response
-from gateway_api_sdk.models.c9939b681f1c7deb438e5d7a25ea9509_request import C9939b681f1c7deb438e5d7a25ea9509Request
 from gateway_api_sdk.models.create_widget201_response import CreateWidget201Response
 from gateway_api_sdk.models.create_widget_request import CreateWidgetRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.models.fetch_all_widgets200_response import FetchAllWidgets200Response
 from gateway_api_sdk.models.fetch_widget200_response import FetchWidget200Response
+from gateway_api_sdk.models.fetch_widget_data_sources200_response import FetchWidgetDataSources200Response
 from gateway_api_sdk.models.retrieve_widget_data200_response import RetrieveWidgetData200Response
 from gateway_api_sdk.models.track_widget_event_request import TrackWidgetEventRequest
+from gateway_api_sdk.models.update_widget200_response import UpdateWidget200Response
+from gateway_api_sdk.models.update_widget_request import UpdateWidgetRequest
 from gateway_api_sdk.models.widget_analytics200_response import WidgetAnalytics200Response
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
@@ -46,597 +46,6 @@ class WidgetsApi:
         if api_client is None:
             api_client = ApiClient.get_default()
         self.api_client = api_client
-
-
-    @validate_call
-    def a439b274e045e4ae8ab3006c33290aff(
-        self,
-        team_id: Annotated[StrictInt, Field(description="Team ID")],
-        team_ids: Annotated[StrictStr, Field(description="Comma-separated list of team IDs to filter data")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> A439b274e045e4ae8ab3006c33290aff200Response:
-        """WidgetController@getWidgetData
-
-        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
-
-        :param team_id: Team ID (required)
-        :type team_id: int
-        :param team_ids: Comma-separated list of team IDs to filter data (required)
-        :type team_ids: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._a439b274e045e4ae8ab3006c33290aff_serialize(
-            team_id=team_id,
-            team_ids=team_ids,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "A439b274e045e4ae8ab3006c33290aff200Response",
-            '400': "A439b274e045e4ae8ab3006c33290aff400Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def a439b274e045e4ae8ab3006c33290aff_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="Team ID")],
-        team_ids: Annotated[StrictStr, Field(description="Comma-separated list of team IDs to filter data")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[A439b274e045e4ae8ab3006c33290aff200Response]:
-        """WidgetController@getWidgetData
-
-        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
-
-        :param team_id: Team ID (required)
-        :type team_id: int
-        :param team_ids: Comma-separated list of team IDs to filter data (required)
-        :type team_ids: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._a439b274e045e4ae8ab3006c33290aff_serialize(
-            team_id=team_id,
-            team_ids=team_ids,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "A439b274e045e4ae8ab3006c33290aff200Response",
-            '400': "A439b274e045e4ae8ab3006c33290aff400Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def a439b274e045e4ae8ab3006c33290aff_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="Team ID")],
-        team_ids: Annotated[StrictStr, Field(description="Comma-separated list of team IDs to filter data")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """WidgetController@getWidgetData
-
-        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
-
-        :param team_id: Team ID (required)
-        :type team_id: int
-        :param team_ids: Comma-separated list of team IDs to filter data (required)
-        :type team_ids: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._a439b274e045e4ae8ab3006c33290aff_serialize(
-            team_id=team_id,
-            team_ids=team_ids,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "A439b274e045e4ae8ab3006c33290aff200Response",
-            '400': "A439b274e045e4ae8ab3006c33290aff400Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _a439b274e045e4ae8ab3006c33290aff_serialize(
-        self,
-        team_id,
-        team_ids,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        # process the query parameters
-        if team_ids is not None:
-            
-            _query_params.append(('team_ids', team_ids))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/teams/{teamId}/widgets/data',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def c9939b681f1c7deb438e5d7a25ea9509(
-        self,
-        team_id: Annotated[StrictInt, Field(description="Team ID")],
-        id: Annotated[StrictInt, Field(description="Widget ID")],
-        c9939b681f1c7deb438e5d7a25ea9509_request: Optional[C9939b681f1c7deb438e5d7a25ea9509Request] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C9939b681f1c7deb438e5d7a25ea9509200Response:
-        """Update an existing widget
-
-        Updates an existing widget for a given team ID
-
-        :param team_id: Team ID (required)
-        :type team_id: int
-        :param id: Widget ID (required)
-        :type id: int
-        :param c9939b681f1c7deb438e5d7a25ea9509_request:
-        :type c9939b681f1c7deb438e5d7a25ea9509_request: C9939b681f1c7deb438e5d7a25ea9509Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._c9939b681f1c7deb438e5d7a25ea9509_serialize(
-            team_id=team_id,
-            id=id,
-            c9939b681f1c7deb438e5d7a25ea9509_request=c9939b681f1c7deb438e5d7a25ea9509_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C9939b681f1c7deb438e5d7a25ea9509200Response",
-            '404': None,
-            '500': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def c9939b681f1c7deb438e5d7a25ea9509_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="Team ID")],
-        id: Annotated[StrictInt, Field(description="Widget ID")],
-        c9939b681f1c7deb438e5d7a25ea9509_request: Optional[C9939b681f1c7deb438e5d7a25ea9509Request] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C9939b681f1c7deb438e5d7a25ea9509200Response]:
-        """Update an existing widget
-
-        Updates an existing widget for a given team ID
-
-        :param team_id: Team ID (required)
-        :type team_id: int
-        :param id: Widget ID (required)
-        :type id: int
-        :param c9939b681f1c7deb438e5d7a25ea9509_request:
-        :type c9939b681f1c7deb438e5d7a25ea9509_request: C9939b681f1c7deb438e5d7a25ea9509Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._c9939b681f1c7deb438e5d7a25ea9509_serialize(
-            team_id=team_id,
-            id=id,
-            c9939b681f1c7deb438e5d7a25ea9509_request=c9939b681f1c7deb438e5d7a25ea9509_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C9939b681f1c7deb438e5d7a25ea9509200Response",
-            '404': None,
-            '500': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def c9939b681f1c7deb438e5d7a25ea9509_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="Team ID")],
-        id: Annotated[StrictInt, Field(description="Widget ID")],
-        c9939b681f1c7deb438e5d7a25ea9509_request: Optional[C9939b681f1c7deb438e5d7a25ea9509Request] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Update an existing widget
-
-        Updates an existing widget for a given team ID
-
-        :param team_id: Team ID (required)
-        :type team_id: int
-        :param id: Widget ID (required)
-        :type id: int
-        :param c9939b681f1c7deb438e5d7a25ea9509_request:
-        :type c9939b681f1c7deb438e5d7a25ea9509_request: C9939b681f1c7deb438e5d7a25ea9509Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._c9939b681f1c7deb438e5d7a25ea9509_serialize(
-            team_id=team_id,
-            id=id,
-            c9939b681f1c7deb438e5d7a25ea9509_request=c9939b681f1c7deb438e5d7a25ea9509_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C9939b681f1c7deb438e5d7a25ea9509200Response",
-            '404': None,
-            '500': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _c9939b681f1c7deb438e5d7a25ea9509_serialize(
-        self,
-        team_id,
-        id,
-        c9939b681f1c7deb438e5d7a25ea9509_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if c9939b681f1c7deb438e5d7a25ea9509_request is not None:
-            _body_params = c9939b681f1c7deb438e5d7a25ea9509_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v1/teams/{teamId}/widgets/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
 
 
     @validate_call
@@ -699,7 +108,7 @@ class WidgetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateWidget201Response",
             '400': "CreateWidget400Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -772,7 +181,7 @@ class WidgetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateWidget201Response",
             '400': "CreateWidget400Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -845,7 +254,7 @@ class WidgetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateWidget201Response",
             '400': "CreateWidget400Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -951,7 +360,7 @@ class WidgetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """Delete a widget
 
         Soft delete a widget belonging to a specific team
@@ -992,9 +401,9 @@ class WidgetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1024,7 +433,7 @@ class WidgetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """Delete a widget
 
         Soft delete a widget belonging to a specific team
@@ -1065,9 +474,9 @@ class WidgetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1138,9 +547,9 @@ class WidgetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1536,7 +945,7 @@ class WidgetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchWidget200Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1608,7 +1017,7 @@ class WidgetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchWidget200Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1680,7 +1089,7 @@ class WidgetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchWidget200Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1741,6 +1150,287 @@ class WidgetsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v1/teams/{teamId}/widgets/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_widget_data_sources(
+        self,
+        team_id: Annotated[StrictInt, Field(description="Team ID")],
+        team_ids: Annotated[StrictStr, Field(description="Comma-separated list of team IDs to filter data")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FetchWidgetDataSources200Response:
+        """WidgetController@getWidgetData
+
+        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+
+        :param team_id: Team ID (required)
+        :type team_id: int
+        :param team_ids: Comma-separated list of team IDs to filter data (required)
+        :type team_ids: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_widget_data_sources_serialize(
+            team_id=team_id,
+            team_ids=team_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchWidgetDataSources200Response",
+            '400': "FetchWidgetDataSources400Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_widget_data_sources_with_http_info(
+        self,
+        team_id: Annotated[StrictInt, Field(description="Team ID")],
+        team_ids: Annotated[StrictStr, Field(description="Comma-separated list of team IDs to filter data")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchWidgetDataSources200Response]:
+        """WidgetController@getWidgetData
+
+        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+
+        :param team_id: Team ID (required)
+        :type team_id: int
+        :param team_ids: Comma-separated list of team IDs to filter data (required)
+        :type team_ids: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_widget_data_sources_serialize(
+            team_id=team_id,
+            team_ids=team_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchWidgetDataSources200Response",
+            '400': "FetchWidgetDataSources400Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_widget_data_sources_without_preload_content(
+        self,
+        team_id: Annotated[StrictInt, Field(description="Team ID")],
+        team_ids: Annotated[StrictStr, Field(description="Comma-separated list of team IDs to filter data")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """WidgetController@getWidgetData
+
+        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+
+        :param team_id: Team ID (required)
+        :type team_id: int
+        :param team_ids: Comma-separated list of team IDs to filter data (required)
+        :type team_ids: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_widget_data_sources_serialize(
+            team_id=team_id,
+            team_ids=team_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchWidgetDataSources200Response",
+            '400': "FetchWidgetDataSources400Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_widget_data_sources_serialize(
+        self,
+        team_id,
+        team_ids,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if team_id is not None:
+            _path_params['teamId'] = team_id
+        # process the query parameters
+        if team_ids is not None:
+            
+            _query_params.append(('team_ids', team_ids))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/teams/{teamId}/widgets/data',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2342,6 +2032,316 @@ class WidgetsApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/api/v1/teams/{teamId}/widgets/{id}/track',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_widget(
+        self,
+        team_id: Annotated[StrictInt, Field(description="Team ID")],
+        id: Annotated[StrictInt, Field(description="Widget ID")],
+        update_widget_request: Optional[UpdateWidgetRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateWidget200Response:
+        """Update an existing widget
+
+        Updates an existing widget for a given team ID
+
+        :param team_id: Team ID (required)
+        :type team_id: int
+        :param id: Widget ID (required)
+        :type id: int
+        :param update_widget_request:
+        :type update_widget_request: UpdateWidgetRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_widget_serialize(
+            team_id=team_id,
+            id=id,
+            update_widget_request=update_widget_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateWidget200Response",
+            '404': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_widget_with_http_info(
+        self,
+        team_id: Annotated[StrictInt, Field(description="Team ID")],
+        id: Annotated[StrictInt, Field(description="Widget ID")],
+        update_widget_request: Optional[UpdateWidgetRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateWidget200Response]:
+        """Update an existing widget
+
+        Updates an existing widget for a given team ID
+
+        :param team_id: Team ID (required)
+        :type team_id: int
+        :param id: Widget ID (required)
+        :type id: int
+        :param update_widget_request:
+        :type update_widget_request: UpdateWidgetRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_widget_serialize(
+            team_id=team_id,
+            id=id,
+            update_widget_request=update_widget_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateWidget200Response",
+            '404': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_widget_without_preload_content(
+        self,
+        team_id: Annotated[StrictInt, Field(description="Team ID")],
+        id: Annotated[StrictInt, Field(description="Widget ID")],
+        update_widget_request: Optional[UpdateWidgetRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Update an existing widget
+
+        Updates an existing widget for a given team ID
+
+        :param team_id: Team ID (required)
+        :type team_id: int
+        :param id: Widget ID (required)
+        :type id: int
+        :param update_widget_request:
+        :type update_widget_request: UpdateWidgetRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_widget_serialize(
+            team_id=team_id,
+            id=id,
+            update_widget_request=update_widget_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateWidget200Response",
+            '404': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_widget_serialize(
+        self,
+        team_id,
+        id,
+        update_widget_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if team_id is not None:
+            _path_params['teamId'] = team_id
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if update_widget_request is not None:
+            _body_params = update_widget_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PATCH',
+            resource_path='/api/v1/teams/{teamId}/widgets/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

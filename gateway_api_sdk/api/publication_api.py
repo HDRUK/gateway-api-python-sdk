@@ -19,8 +19,8 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_publications_request import CreatePublicationsRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.models.delete_federation200_response import DeleteFederation200Response
 from gateway_api_sdk.models.fetch_all_publications200_response import FetchAllPublications200Response
 from gateway_api_sdk.models.fetch_publications200_response import FetchPublications200Response
@@ -911,7 +911,7 @@ class PublicationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """(Deprecated) PublicationController@store
 
         Create a new publication
@@ -950,9 +950,9 @@ class PublicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -981,7 +981,7 @@ class PublicationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """(Deprecated) PublicationController@store
 
         Create a new publication
@@ -1020,9 +1020,9 @@ class PublicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1090,9 +1090,9 @@ class PublicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1195,7 +1195,7 @@ class PublicationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """TeamPublicationController@store
 
         Create a new publication by team id
@@ -1236,9 +1236,9 @@ class PublicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1268,7 +1268,7 @@ class PublicationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """TeamPublicationController@store
 
         Create a new publication by team id
@@ -1309,9 +1309,9 @@ class PublicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1382,9 +1382,9 @@ class PublicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1490,7 +1490,7 @@ class PublicationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """UserPublicationController@store
 
         Create a new publication by user id
@@ -1531,9 +1531,9 @@ class PublicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1563,7 +1563,7 @@ class PublicationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """UserPublicationController@store
 
         Create a new publication by user id
@@ -1604,9 +1604,9 @@ class PublicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1677,9 +1677,9 @@ class PublicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1826,7 +1826,7 @@ class PublicationApi:
             '200': "DeleteFederation200Response",
             '401': "CreateTeamCollections401Response",
             '404': "DeleteFederation404Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1897,7 +1897,7 @@ class PublicationApi:
             '200': "DeleteFederation200Response",
             '401': "CreateTeamCollections401Response",
             '404': "DeleteFederation404Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1968,7 +1968,7 @@ class PublicationApi:
             '200': "DeleteFederation200Response",
             '401': "CreateTeamCollections401Response",
             '404': "DeleteFederation404Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2102,7 +2102,7 @@ class PublicationApi:
             '200': "DeleteFederation200Response",
             '401': "CreateTeamCollections401Response",
             '404': "DeleteFederation404Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2176,7 +2176,7 @@ class PublicationApi:
             '200': "DeleteFederation200Response",
             '401': "CreateTeamCollections401Response",
             '404': "DeleteFederation404Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2250,7 +2250,7 @@ class PublicationApi:
             '200': "DeleteFederation200Response",
             '401': "CreateTeamCollections401Response",
             '404': "DeleteFederation404Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2387,7 +2387,7 @@ class PublicationApi:
             '200': "DeleteFederation200Response",
             '401': "CreateTeamCollections401Response",
             '404': "DeleteFederation404Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2461,7 +2461,7 @@ class PublicationApi:
             '200': "DeleteFederation200Response",
             '401': "CreateTeamCollections401Response",
             '404': "DeleteFederation404Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2535,7 +2535,7 @@ class PublicationApi:
             '200': "DeleteFederation200Response",
             '401': "CreateTeamCollections401Response",
             '404': "DeleteFederation404Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2677,7 +2677,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2756,7 +2756,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2835,7 +2835,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2994,7 +2994,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3072,7 +3072,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3150,7 +3150,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3307,7 +3307,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3385,7 +3385,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3463,7 +3463,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4816,7 +4816,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4886,7 +4886,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4956,7 +4956,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5089,7 +5089,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5162,7 +5162,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5235,7 +5235,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5371,7 +5371,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5444,7 +5444,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5517,7 +5517,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5649,7 +5649,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5718,7 +5718,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5787,7 +5787,7 @@ class PublicationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchPublications200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5922,7 +5922,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5997,7 +5997,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6072,7 +6072,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6226,7 +6226,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6304,7 +6304,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6382,7 +6382,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6539,7 +6539,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6617,7 +6617,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6695,7 +6695,7 @@ class PublicationApi:
             '200': "FetchPublications200Response",
             '400': "CreateToolsIntegrations400Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

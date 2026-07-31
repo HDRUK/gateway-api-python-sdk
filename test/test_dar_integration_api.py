@@ -26,45 +26,45 @@ class TestDarIntegrationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_c663ccf8b1926d7678370d095b9b358f(self) -> None:
-        """Test case for c663ccf8b1926d7678370d095b9b358f
-
-        DarIntegration@edit
-        """
-        pass
-
-    def test_call_09c033f0336380c3d8bb6801e96378bc(self) -> None:
-        """Test case for call_09c033f0336380c3d8bb6801e96378bc
-
-        DarIntegration@update
-        """
-        pass
-
-    def test_call_17fa1074b71d9cefd3e65f2757117b57(self) -> None:
-        """Test case for call_17fa1074b71d9cefd3e65f2757117b57
-
-        DarIntegration@destroy
-        """
-        pass
-
-    def test_call_406144045c21a19659ee66f6d4a78235(self) -> None:
-        """Test case for call_406144045c21a19659ee66f6d4a78235
-
-        DarIntegration@show
-        """
-        pass
-
-    def test_call_757fd0f4616caa763b0789d7ad7b3053(self) -> None:
-        """Test case for call_757fd0f4616caa763b0789d7ad7b3053
+    def test_create_dar_integration(self) -> None:
+        """Test case for create_dar_integration
 
         DarIntegration@store
         """
         pass
 
-    def test_call_7ab50add4fe0a4b7cff7eab0f4b8df18(self) -> None:
-        """Test case for call_7ab50add4fe0a4b7cff7eab0f4b8df18
+    def test_delete_dar_integration(self) -> None:
+        """Test case for delete_dar_integration
+
+        DarIntegration@destroy
+        """
+        pass
+
+    def test_edit_dar_integration(self) -> None:
+        """Test case for edit_dar_integration
+
+        DarIntegration@edit
+        """
+        pass
+
+    def test_fetch_all_dar_integrations(self) -> None:
+        """Test case for fetch_all_dar_integrations
 
         DarIntegration@index
+        """
+        pass
+
+    def test_fetch_dar_integration(self) -> None:
+        """Test case for fetch_dar_integration
+
+        DarIntegration@show
+        """
+        pass
+
+    def test_update_dar_integration(self) -> None:
+        """Test case for update_dar_integration
+
+        DarIntegration@update
         """
         pass
 

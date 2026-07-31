@@ -17,8 +17,8 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from gateway_api_sdk.models.b60e5c6bd58001740003449e91216454200_response import B60e5c6bd58001740003449e91216454200Response
-from gateway_api_sdk.models.b60e5c6bd58001740003449e91216454_request import B60e5c6bd58001740003449e91216454Request
+from gateway_api_sdk.models.search_datasets200_response import SearchDatasets200Response
+from gateway_api_sdk.models.search_datasets_request import SearchDatasetsRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -39,9 +39,9 @@ class SearchDatasetsApi:
 
 
     @validate_call
-    def b60e5c6bd58001740003449e91216454(
+    def search_datasets(
         self,
-        b60e5c6bd58001740003449e91216454_request: Annotated[B60e5c6bd58001740003449e91216454Request, Field(description="Submit search query")],
+        search_datasets_request: Annotated[SearchDatasetsRequest, Field(description="Submit search query")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -54,13 +54,13 @@ class SearchDatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> B60e5c6bd58001740003449e91216454200Response:
+    ) -> SearchDatasets200Response:
         """Search@datasets
 
         Returns gateway datasets related to the provided query term(s)
 
-        :param b60e5c6bd58001740003449e91216454_request: Submit search query (required)
-        :type b60e5c6bd58001740003449e91216454_request: B60e5c6bd58001740003449e91216454Request
+        :param search_datasets_request: Submit search query (required)
+        :type search_datasets_request: SearchDatasetsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -83,8 +83,8 @@ class SearchDatasetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._b60e5c6bd58001740003449e91216454_serialize(
-            b60e5c6bd58001740003449e91216454_request=b60e5c6bd58001740003449e91216454_request,
+        _param = self._search_datasets_serialize(
+            search_datasets_request=search_datasets_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -92,7 +92,7 @@ class SearchDatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "B60e5c6bd58001740003449e91216454200Response",
+            '200': "SearchDatasets200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -106,9 +106,9 @@ class SearchDatasetsApi:
 
 
     @validate_call
-    def b60e5c6bd58001740003449e91216454_with_http_info(
+    def search_datasets_with_http_info(
         self,
-        b60e5c6bd58001740003449e91216454_request: Annotated[B60e5c6bd58001740003449e91216454Request, Field(description="Submit search query")],
+        search_datasets_request: Annotated[SearchDatasetsRequest, Field(description="Submit search query")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -121,13 +121,13 @@ class SearchDatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[B60e5c6bd58001740003449e91216454200Response]:
+    ) -> ApiResponse[SearchDatasets200Response]:
         """Search@datasets
 
         Returns gateway datasets related to the provided query term(s)
 
-        :param b60e5c6bd58001740003449e91216454_request: Submit search query (required)
-        :type b60e5c6bd58001740003449e91216454_request: B60e5c6bd58001740003449e91216454Request
+        :param search_datasets_request: Submit search query (required)
+        :type search_datasets_request: SearchDatasetsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -150,8 +150,8 @@ class SearchDatasetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._b60e5c6bd58001740003449e91216454_serialize(
-            b60e5c6bd58001740003449e91216454_request=b60e5c6bd58001740003449e91216454_request,
+        _param = self._search_datasets_serialize(
+            search_datasets_request=search_datasets_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -159,7 +159,7 @@ class SearchDatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "B60e5c6bd58001740003449e91216454200Response",
+            '200': "SearchDatasets200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -173,9 +173,9 @@ class SearchDatasetsApi:
 
 
     @validate_call
-    def b60e5c6bd58001740003449e91216454_without_preload_content(
+    def search_datasets_without_preload_content(
         self,
-        b60e5c6bd58001740003449e91216454_request: Annotated[B60e5c6bd58001740003449e91216454Request, Field(description="Submit search query")],
+        search_datasets_request: Annotated[SearchDatasetsRequest, Field(description="Submit search query")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -193,8 +193,8 @@ class SearchDatasetsApi:
 
         Returns gateway datasets related to the provided query term(s)
 
-        :param b60e5c6bd58001740003449e91216454_request: Submit search query (required)
-        :type b60e5c6bd58001740003449e91216454_request: B60e5c6bd58001740003449e91216454Request
+        :param search_datasets_request: Submit search query (required)
+        :type search_datasets_request: SearchDatasetsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -217,8 +217,8 @@ class SearchDatasetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._b60e5c6bd58001740003449e91216454_serialize(
-            b60e5c6bd58001740003449e91216454_request=b60e5c6bd58001740003449e91216454_request,
+        _param = self._search_datasets_serialize(
+            search_datasets_request=search_datasets_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -226,7 +226,7 @@ class SearchDatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "B60e5c6bd58001740003449e91216454200Response",
+            '200': "SearchDatasets200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -235,9 +235,9 @@ class SearchDatasetsApi:
         return response_data.response
 
 
-    def _b60e5c6bd58001740003449e91216454_serialize(
+    def _search_datasets_serialize(
         self,
-        b60e5c6bd58001740003449e91216454_request,
+        search_datasets_request,
         _request_auth,
         _content_type,
         _headers,
@@ -263,8 +263,8 @@ class SearchDatasetsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if b60e5c6bd58001740003449e91216454_request is not None:
-            _body_params = b60e5c6bd58001740003449e91216454_request
+        if search_datasets_request is not None:
+            _body_params = search_datasets_request
 
 
         # set the HTTP header `Accept`

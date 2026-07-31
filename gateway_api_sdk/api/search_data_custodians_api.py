@@ -18,8 +18,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.ada26698c9cdc86c01aaf53b0677a48d200_response import Ada26698c9cdc86c01aaf53b0677a48d200Response
-from gateway_api_sdk.models.ada26698c9cdc86c01aaf53b0677a48d_request import Ada26698c9cdc86c01aaf53b0677a48dRequest
+from gateway_api_sdk.models.search_data_custodians200_response import SearchDataCustodians200Response
+from gateway_api_sdk.models.search_data_custodians_request import SearchDataCustodiansRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -40,9 +40,9 @@ class SearchDataCustodiansApi:
 
 
     @validate_call
-    def ada26698c9cdc86c01aaf53b0677a48d(
+    def search_data_custodians(
         self,
-        ada26698c9cdc86c01aaf53b0677a48d_request: Annotated[Ada26698c9cdc86c01aaf53b0677a48dRequest, Field(description="Submit search query")],
+        search_data_custodians_request: Annotated[SearchDataCustodiansRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         per_page: Annotated[Optional[StrictInt], Field(description="Number of results to return per page")] = None,
@@ -58,13 +58,13 @@ class SearchDataCustodiansApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Ada26698c9cdc86c01aaf53b0677a48d200Response:
+    ) -> SearchDataCustodians200Response:
         """Search@data_custodians
 
         Returns gateway data custodians related to the provided query term(s)
 
-        :param ada26698c9cdc86c01aaf53b0677a48d_request: Submit search query (required)
-        :type ada26698c9cdc86c01aaf53b0677a48d_request: Ada26698c9cdc86c01aaf53b0677a48dRequest
+        :param search_data_custodians_request: Submit search query (required)
+        :type search_data_custodians_request: SearchDataCustodiansRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -93,8 +93,8 @@ class SearchDataCustodiansApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ada26698c9cdc86c01aaf53b0677a48d_serialize(
-            ada26698c9cdc86c01aaf53b0677a48d_request=ada26698c9cdc86c01aaf53b0677a48d_request,
+        _param = self._search_data_custodians_serialize(
+            search_data_custodians_request=search_data_custodians_request,
             sort=sort,
             direction=direction,
             per_page=per_page,
@@ -105,7 +105,7 @@ class SearchDataCustodiansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Ada26698c9cdc86c01aaf53b0677a48d200Response",
+            '200': "SearchDataCustodians200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -119,9 +119,9 @@ class SearchDataCustodiansApi:
 
 
     @validate_call
-    def ada26698c9cdc86c01aaf53b0677a48d_with_http_info(
+    def search_data_custodians_with_http_info(
         self,
-        ada26698c9cdc86c01aaf53b0677a48d_request: Annotated[Ada26698c9cdc86c01aaf53b0677a48dRequest, Field(description="Submit search query")],
+        search_data_custodians_request: Annotated[SearchDataCustodiansRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         per_page: Annotated[Optional[StrictInt], Field(description="Number of results to return per page")] = None,
@@ -137,13 +137,13 @@ class SearchDataCustodiansApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Ada26698c9cdc86c01aaf53b0677a48d200Response]:
+    ) -> ApiResponse[SearchDataCustodians200Response]:
         """Search@data_custodians
 
         Returns gateway data custodians related to the provided query term(s)
 
-        :param ada26698c9cdc86c01aaf53b0677a48d_request: Submit search query (required)
-        :type ada26698c9cdc86c01aaf53b0677a48d_request: Ada26698c9cdc86c01aaf53b0677a48dRequest
+        :param search_data_custodians_request: Submit search query (required)
+        :type search_data_custodians_request: SearchDataCustodiansRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -172,8 +172,8 @@ class SearchDataCustodiansApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ada26698c9cdc86c01aaf53b0677a48d_serialize(
-            ada26698c9cdc86c01aaf53b0677a48d_request=ada26698c9cdc86c01aaf53b0677a48d_request,
+        _param = self._search_data_custodians_serialize(
+            search_data_custodians_request=search_data_custodians_request,
             sort=sort,
             direction=direction,
             per_page=per_page,
@@ -184,7 +184,7 @@ class SearchDataCustodiansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Ada26698c9cdc86c01aaf53b0677a48d200Response",
+            '200': "SearchDataCustodians200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -198,9 +198,9 @@ class SearchDataCustodiansApi:
 
 
     @validate_call
-    def ada26698c9cdc86c01aaf53b0677a48d_without_preload_content(
+    def search_data_custodians_without_preload_content(
         self,
-        ada26698c9cdc86c01aaf53b0677a48d_request: Annotated[Ada26698c9cdc86c01aaf53b0677a48dRequest, Field(description="Submit search query")],
+        search_data_custodians_request: Annotated[SearchDataCustodiansRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         per_page: Annotated[Optional[StrictInt], Field(description="Number of results to return per page")] = None,
@@ -221,8 +221,8 @@ class SearchDataCustodiansApi:
 
         Returns gateway data custodians related to the provided query term(s)
 
-        :param ada26698c9cdc86c01aaf53b0677a48d_request: Submit search query (required)
-        :type ada26698c9cdc86c01aaf53b0677a48d_request: Ada26698c9cdc86c01aaf53b0677a48dRequest
+        :param search_data_custodians_request: Submit search query (required)
+        :type search_data_custodians_request: SearchDataCustodiansRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -251,8 +251,8 @@ class SearchDataCustodiansApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ada26698c9cdc86c01aaf53b0677a48d_serialize(
-            ada26698c9cdc86c01aaf53b0677a48d_request=ada26698c9cdc86c01aaf53b0677a48d_request,
+        _param = self._search_data_custodians_serialize(
+            search_data_custodians_request=search_data_custodians_request,
             sort=sort,
             direction=direction,
             per_page=per_page,
@@ -263,7 +263,7 @@ class SearchDataCustodiansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Ada26698c9cdc86c01aaf53b0677a48d200Response",
+            '200': "SearchDataCustodians200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -272,9 +272,9 @@ class SearchDataCustodiansApi:
         return response_data.response
 
 
-    def _ada26698c9cdc86c01aaf53b0677a48d_serialize(
+    def _search_data_custodians_serialize(
         self,
-        ada26698c9cdc86c01aaf53b0677a48d_request,
+        search_data_custodians_request,
         sort,
         direction,
         per_page,
@@ -315,8 +315,8 @@ class SearchDataCustodiansApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if ada26698c9cdc86c01aaf53b0677a48d_request is not None:
-            _body_params = ada26698c9cdc86c01aaf53b0677a48d_request
+        if search_data_custodians_request is not None:
+            _body_params = search_data_custodians_request
 
 
         # set the HTTP header `Accept`

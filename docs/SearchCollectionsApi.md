@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**aa33edfdace17b70600d964e0db4d44b**](SearchCollectionsApi.md#aa33edfdace17b70600d964e0db4d44b) | **POST** /api/v1/search/collections | Search@collections
+[**search_collections**](SearchCollectionsApi.md#search_collections) | **POST** /api/v1/search/collections | Search@collections
 
 
-# **aa33edfdace17b70600d964e0db4d44b**
-> Aa33edfdace17b70600d964e0db4d44b200Response aa33edfdace17b70600d964e0db4d44b(aa33edfdace17b70600d964e0db4d44b_request, sort=sort, direction=direction)
+# **search_collections**
+> SearchCollections200Response search_collections(search_collections_request, sort=sort, direction=direction)
 
 Search@collections
 
@@ -20,8 +20,8 @@ Returns gateway collections related to the provided query term(s)
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.aa33edfdace17b70600d964e0db4d44b200_response import Aa33edfdace17b70600d964e0db4d44b200Response
-from gateway_api_sdk.models.aa33edfdace17b70600d964e0db4d44b_request import Aa33edfdace17b70600d964e0db4d44bRequest
+from gateway_api_sdk.models.search_collections200_response import SearchCollections200Response
+from gateway_api_sdk.models.search_collections_request import SearchCollectionsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -45,17 +45,17 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.SearchCollectionsApi(api_client)
-    aa33edfdace17b70600d964e0db4d44b_request = gateway_api_sdk.Aa33edfdace17b70600d964e0db4d44bRequest() # Aa33edfdace17b70600d964e0db4d44bRequest | Submit search query
+    search_collections_request = gateway_api_sdk.SearchCollectionsRequest() # SearchCollectionsRequest | Submit search query
     sort = 'created' # str | Field to sort by (default: 'score') (optional)
     direction = 'desc' # str | Sort direction ('asc' or 'desc', default: 'desc') (optional)
 
     try:
         # Search@collections
-        api_response = api_instance.aa33edfdace17b70600d964e0db4d44b(aa33edfdace17b70600d964e0db4d44b_request, sort=sort, direction=direction)
-        print("The response of SearchCollectionsApi->aa33edfdace17b70600d964e0db4d44b:\n")
+        api_response = api_instance.search_collections(search_collections_request, sort=sort, direction=direction)
+        print("The response of SearchCollectionsApi->search_collections:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SearchCollectionsApi->aa33edfdace17b70600d964e0db4d44b: %s\n" % e)
+        print("Exception when calling SearchCollectionsApi->search_collections: %s\n" % e)
 ```
 
 
@@ -65,13 +65,13 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **aa33edfdace17b70600d964e0db4d44b_request** | [**Aa33edfdace17b70600d964e0db4d44bRequest**](Aa33edfdace17b70600d964e0db4d44bRequest.md)| Submit search query | 
+ **search_collections_request** | [**SearchCollectionsRequest**](SearchCollectionsRequest.md)| Submit search query | 
  **sort** | **str**| Field to sort by (default: &#39;score&#39;) | [optional] 
  **direction** | **str**| Sort direction (&#39;asc&#39; or &#39;desc&#39;, default: &#39;desc&#39;) | [optional] 
 
 ### Return type
 
-[**Aa33edfdace17b70600d964e0db4d44b200Response**](Aa33edfdace17b70600d964e0db4d44b200Response.md)
+[**SearchCollections200Response**](SearchCollections200Response.md)
 
 ### Authorization
 

@@ -18,8 +18,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.model8db417727e7fe7c2e99206b060a3b882200_response import Model8db417727e7fe7c2e99206b060a3b882200Response
-from gateway_api_sdk.models.model8db417727e7fe7c2e99206b060a3b882_request import Model8db417727e7fe7c2e99206b060a3b882Request
+from gateway_api_sdk.models.search_data_uses200_response import SearchDataUses200Response
+from gateway_api_sdk.models.search_data_uses_request import SearchDataUsesRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -40,9 +40,9 @@ class SearchDataUsesApi:
 
 
     @validate_call
-    def call_8db417727e7fe7c2e99206b060a3b882(
+    def search_data_uses(
         self,
-        model8db417727e7fe7c2e99206b060a3b882_request: Annotated[Model8db417727e7fe7c2e99206b060a3b882Request, Field(description="Submit search query")],
+        search_data_uses_request: Annotated[SearchDataUsesRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         download: Annotated[Optional[StrictBool], Field(description="Download a csv of the results (default: false)")] = None,
@@ -58,13 +58,13 @@ class SearchDataUsesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model8db417727e7fe7c2e99206b060a3b882200Response:
+    ) -> SearchDataUses200Response:
         """Search@data_uses
 
         Returns gateway data uses related to the provided query term(s)
 
-        :param model8db417727e7fe7c2e99206b060a3b882_request: Submit search query (required)
-        :type model8db417727e7fe7c2e99206b060a3b882_request: Model8db417727e7fe7c2e99206b060a3b882Request
+        :param search_data_uses_request: Submit search query (required)
+        :type search_data_uses_request: SearchDataUsesRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -93,8 +93,8 @@ class SearchDataUsesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_8db417727e7fe7c2e99206b060a3b882_serialize(
-            model8db417727e7fe7c2e99206b060a3b882_request=model8db417727e7fe7c2e99206b060a3b882_request,
+        _param = self._search_data_uses_serialize(
+            search_data_uses_request=search_data_uses_request,
             sort=sort,
             direction=direction,
             download=download,
@@ -105,7 +105,7 @@ class SearchDataUsesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model8db417727e7fe7c2e99206b060a3b882200Response",
+            '200': "SearchDataUses200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -119,9 +119,9 @@ class SearchDataUsesApi:
 
 
     @validate_call
-    def call_8db417727e7fe7c2e99206b060a3b882_with_http_info(
+    def search_data_uses_with_http_info(
         self,
-        model8db417727e7fe7c2e99206b060a3b882_request: Annotated[Model8db417727e7fe7c2e99206b060a3b882Request, Field(description="Submit search query")],
+        search_data_uses_request: Annotated[SearchDataUsesRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         download: Annotated[Optional[StrictBool], Field(description="Download a csv of the results (default: false)")] = None,
@@ -137,13 +137,13 @@ class SearchDataUsesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model8db417727e7fe7c2e99206b060a3b882200Response]:
+    ) -> ApiResponse[SearchDataUses200Response]:
         """Search@data_uses
 
         Returns gateway data uses related to the provided query term(s)
 
-        :param model8db417727e7fe7c2e99206b060a3b882_request: Submit search query (required)
-        :type model8db417727e7fe7c2e99206b060a3b882_request: Model8db417727e7fe7c2e99206b060a3b882Request
+        :param search_data_uses_request: Submit search query (required)
+        :type search_data_uses_request: SearchDataUsesRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -172,8 +172,8 @@ class SearchDataUsesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_8db417727e7fe7c2e99206b060a3b882_serialize(
-            model8db417727e7fe7c2e99206b060a3b882_request=model8db417727e7fe7c2e99206b060a3b882_request,
+        _param = self._search_data_uses_serialize(
+            search_data_uses_request=search_data_uses_request,
             sort=sort,
             direction=direction,
             download=download,
@@ -184,7 +184,7 @@ class SearchDataUsesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model8db417727e7fe7c2e99206b060a3b882200Response",
+            '200': "SearchDataUses200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -198,9 +198,9 @@ class SearchDataUsesApi:
 
 
     @validate_call
-    def call_8db417727e7fe7c2e99206b060a3b882_without_preload_content(
+    def search_data_uses_without_preload_content(
         self,
-        model8db417727e7fe7c2e99206b060a3b882_request: Annotated[Model8db417727e7fe7c2e99206b060a3b882Request, Field(description="Submit search query")],
+        search_data_uses_request: Annotated[SearchDataUsesRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         download: Annotated[Optional[StrictBool], Field(description="Download a csv of the results (default: false)")] = None,
@@ -221,8 +221,8 @@ class SearchDataUsesApi:
 
         Returns gateway data uses related to the provided query term(s)
 
-        :param model8db417727e7fe7c2e99206b060a3b882_request: Submit search query (required)
-        :type model8db417727e7fe7c2e99206b060a3b882_request: Model8db417727e7fe7c2e99206b060a3b882Request
+        :param search_data_uses_request: Submit search query (required)
+        :type search_data_uses_request: SearchDataUsesRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -251,8 +251,8 @@ class SearchDataUsesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_8db417727e7fe7c2e99206b060a3b882_serialize(
-            model8db417727e7fe7c2e99206b060a3b882_request=model8db417727e7fe7c2e99206b060a3b882_request,
+        _param = self._search_data_uses_serialize(
+            search_data_uses_request=search_data_uses_request,
             sort=sort,
             direction=direction,
             download=download,
@@ -263,7 +263,7 @@ class SearchDataUsesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model8db417727e7fe7c2e99206b060a3b882200Response",
+            '200': "SearchDataUses200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -272,9 +272,9 @@ class SearchDataUsesApi:
         return response_data.response
 
 
-    def _call_8db417727e7fe7c2e99206b060a3b882_serialize(
+    def _search_data_uses_serialize(
         self,
-        model8db417727e7fe7c2e99206b060a3b882_request,
+        search_data_uses_request,
         sort,
         direction,
         download,
@@ -315,8 +315,8 @@ class SearchDataUsesApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model8db417727e7fe7c2e99206b060a3b882_request is not None:
-            _body_params = model8db417727e7fe7c2e99206b060a3b882_request
+        if search_data_uses_request is not None:
+            _body_params = search_data_uses_request
 
 
         # set the HTTP header `Accept`

@@ -26,45 +26,45 @@ class TestNotificationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_a5ca86d5f19ecac396cb830333f307da(self) -> None:
-        """Test case for a5ca86d5f19ecac396cb830333f307da
-
-        Notification@edit
-        """
-        pass
-
-    def test_b4f86f6c4f52e080b246d560038cdc9b(self) -> None:
-        """Test case for b4f86f6c4f52e080b246d560038cdc9b
-
-        Notification@update
-        """
-        pass
-
-    def test_cac3bdde44f0be0512f7d05c0a6064e4(self) -> None:
-        """Test case for cac3bdde44f0be0512f7d05c0a6064e4
-
-        Notification@index
-        """
-        pass
-
-    def test_call_1fd84d2c66035574da4902f416cbd96a(self) -> None:
-        """Test case for call_1fd84d2c66035574da4902f416cbd96a
+    def test_create_notifications(self) -> None:
+        """Test case for create_notifications
 
         Notification@store
         """
         pass
 
-    def test_call_22581e4d73af25a9036c6610c7e8fc72(self) -> None:
-        """Test case for call_22581e4d73af25a9036c6610c7e8fc72
+    def test_delete_notifications(self) -> None:
+        """Test case for delete_notifications
+
+        Notification@destroy
+        """
+        pass
+
+    def test_edit_notifications(self) -> None:
+        """Test case for edit_notifications
+
+        Notification@edit
+        """
+        pass
+
+    def test_fetch_all_notifications(self) -> None:
+        """Test case for fetch_all_notifications
+
+        Notification@index
+        """
+        pass
+
+    def test_fetch_notifications(self) -> None:
+        """Test case for fetch_notifications
 
         Notification@show
         """
         pass
 
-    def test_call_3f8fe68ea04e79015d8aad5912cadbc1(self) -> None:
-        """Test case for call_3f8fe68ea04e79015d8aad5912cadbc1
+    def test_update_notifications(self) -> None:
+        """Test case for update_notifications
 
-        Notification@destroy
+        Notification@update
         """
         pass
 

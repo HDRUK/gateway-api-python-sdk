@@ -26,8 +26,8 @@ class TestSearchToolsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_a3e02b5a05b56708998c4bd96935d5f5(self) -> None:
-        """Test case for a3e02b5a05b56708998c4bd96935d5f5
+    def test_search_tools(self) -> None:
+        """Test case for search_tools
 
         Search@tools
         """

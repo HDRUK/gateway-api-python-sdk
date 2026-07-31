@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**call_9946399cbddb0dcadcbd5801e5ee1dd4**](SearchPublicationsApi.md#call_9946399cbddb0dcadcbd5801e5ee1dd4) | **POST** /api/v1/search/publications | Search@publications
-[**call_9a0abfa6186327d43c51259d5b524fde**](SearchPublicationsApi.md#call_9a0abfa6186327d43c51259d5b524fde) | **POST** /api/v1/search/doi | Search@publications
+[**search_publications**](SearchPublicationsApi.md#search_publications) | **POST** /api/v1/search/publications | Search@publications
+[**search_publications_by_doi**](SearchPublicationsApi.md#search_publications_by_doi) | **POST** /api/v1/search/doi | Search@publications
 
 
-# **call_9946399cbddb0dcadcbd5801e5ee1dd4**
-> Model9946399cbddb0dcadcbd5801e5ee1dd4200Response call_9946399cbddb0dcadcbd5801e5ee1dd4(model9946399cbddb0dcadcbd5801e5ee1dd4_request, sort=sort, direction=direction, source=source)
+# **search_publications**
+> SearchPublications200Response search_publications(search_publications_request, sort=sort, direction=direction, source=source)
 
 Search@publications
 
@@ -21,8 +21,8 @@ Returns gateway publications related to the provided query term(s)
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model9946399cbddb0dcadcbd5801e5ee1dd4200_response import Model9946399cbddb0dcadcbd5801e5ee1dd4200Response
-from gateway_api_sdk.models.model9946399cbddb0dcadcbd5801e5ee1dd4_request import Model9946399cbddb0dcadcbd5801e5ee1dd4Request
+from gateway_api_sdk.models.search_publications200_response import SearchPublications200Response
+from gateway_api_sdk.models.search_publications_request import SearchPublicationsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -46,18 +46,18 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.SearchPublicationsApi(api_client)
-    model9946399cbddb0dcadcbd5801e5ee1dd4_request = gateway_api_sdk.Model9946399cbddb0dcadcbd5801e5ee1dd4Request() # Model9946399cbddb0dcadcbd5801e5ee1dd4Request | Submit search query
+    search_publications_request = gateway_api_sdk.SearchPublicationsRequest() # SearchPublicationsRequest | Submit search query
     sort = 'created' # str | Field to sort by (default: 'score') (optional)
     direction = 'desc' # str | Sort direction ('asc' or 'desc', default: 'desc') (optional)
     source = 'GAT' # str | Which source to search ('GAT' or 'FED', default: 'GAT') (optional)
 
     try:
         # Search@publications
-        api_response = api_instance.call_9946399cbddb0dcadcbd5801e5ee1dd4(model9946399cbddb0dcadcbd5801e5ee1dd4_request, sort=sort, direction=direction, source=source)
-        print("The response of SearchPublicationsApi->call_9946399cbddb0dcadcbd5801e5ee1dd4:\n")
+        api_response = api_instance.search_publications(search_publications_request, sort=sort, direction=direction, source=source)
+        print("The response of SearchPublicationsApi->search_publications:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SearchPublicationsApi->call_9946399cbddb0dcadcbd5801e5ee1dd4: %s\n" % e)
+        print("Exception when calling SearchPublicationsApi->search_publications: %s\n" % e)
 ```
 
 
@@ -67,14 +67,14 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model9946399cbddb0dcadcbd5801e5ee1dd4_request** | [**Model9946399cbddb0dcadcbd5801e5ee1dd4Request**](Model9946399cbddb0dcadcbd5801e5ee1dd4Request.md)| Submit search query | 
+ **search_publications_request** | [**SearchPublicationsRequest**](SearchPublicationsRequest.md)| Submit search query | 
  **sort** | **str**| Field to sort by (default: &#39;score&#39;) | [optional] 
  **direction** | **str**| Sort direction (&#39;asc&#39; or &#39;desc&#39;, default: &#39;desc&#39;) | [optional] 
  **source** | **str**| Which source to search (&#39;GAT&#39; or &#39;FED&#39;, default: &#39;GAT&#39;) | [optional] 
 
 ### Return type
 
-[**Model9946399cbddb0dcadcbd5801e5ee1dd4200Response**](Model9946399cbddb0dcadcbd5801e5ee1dd4200Response.md)
+[**SearchPublications200Response**](SearchPublications200Response.md)
 
 ### Authorization
 
@@ -93,8 +93,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **call_9a0abfa6186327d43c51259d5b524fde**
-> Model9a0abfa6186327d43c51259d5b524fde200Response call_9a0abfa6186327d43c51259d5b524fde(model9a0abfa6186327d43c51259d5b524fde_request)
+# **search_publications_by_doi**
+> SearchPublicationsByDoi200Response search_publications_by_doi(search_publications_by_doi_request)
 
 Search@publications
 
@@ -106,8 +106,8 @@ Returns publications from EuropePMC matching a give DOI
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model9a0abfa6186327d43c51259d5b524fde200_response import Model9a0abfa6186327d43c51259d5b524fde200Response
-from gateway_api_sdk.models.model9a0abfa6186327d43c51259d5b524fde_request import Model9a0abfa6186327d43c51259d5b524fdeRequest
+from gateway_api_sdk.models.search_publications_by_doi200_response import SearchPublicationsByDoi200Response
+from gateway_api_sdk.models.search_publications_by_doi_request import SearchPublicationsByDoiRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -131,15 +131,15 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.SearchPublicationsApi(api_client)
-    model9a0abfa6186327d43c51259d5b524fde_request = gateway_api_sdk.Model9a0abfa6186327d43c51259d5b524fdeRequest() # Model9a0abfa6186327d43c51259d5b524fdeRequest | Submit search query
+    search_publications_by_doi_request = gateway_api_sdk.SearchPublicationsByDoiRequest() # SearchPublicationsByDoiRequest | Submit search query
 
     try:
         # Search@publications
-        api_response = api_instance.call_9a0abfa6186327d43c51259d5b524fde(model9a0abfa6186327d43c51259d5b524fde_request)
-        print("The response of SearchPublicationsApi->call_9a0abfa6186327d43c51259d5b524fde:\n")
+        api_response = api_instance.search_publications_by_doi(search_publications_by_doi_request)
+        print("The response of SearchPublicationsApi->search_publications_by_doi:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SearchPublicationsApi->call_9a0abfa6186327d43c51259d5b524fde: %s\n" % e)
+        print("Exception when calling SearchPublicationsApi->search_publications_by_doi: %s\n" % e)
 ```
 
 
@@ -149,11 +149,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model9a0abfa6186327d43c51259d5b524fde_request** | [**Model9a0abfa6186327d43c51259d5b524fdeRequest**](Model9a0abfa6186327d43c51259d5b524fdeRequest.md)| Submit search query | 
+ **search_publications_by_doi_request** | [**SearchPublicationsByDoiRequest**](SearchPublicationsByDoiRequest.md)| Submit search query | 
 
 ### Return type
 
-[**Model9a0abfa6186327d43c51259d5b524fde200Response**](Model9a0abfa6186327d43c51259d5b524fde200Response.md)
+[**SearchPublicationsByDoi200Response**](SearchPublicationsByDoi200Response.md)
 
 ### Authorization
 

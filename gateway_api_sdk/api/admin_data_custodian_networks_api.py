@@ -38,7 +38,7 @@ class AdminDataCustodianNetworksApi:
 
 
     @validate_call
-    def call_805e0e12862cf992698405bf5795b042(
+    def fetch_admin_data_custodian_networks(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -82,7 +82,7 @@ class AdminDataCustodianNetworksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_805e0e12862cf992698405bf5795b042_serialize(
+        _param = self._fetch_admin_data_custodian_networks_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -105,7 +105,7 @@ class AdminDataCustodianNetworksApi:
 
 
     @validate_call
-    def call_805e0e12862cf992698405bf5795b042_with_http_info(
+    def fetch_admin_data_custodian_networks_with_http_info(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -149,7 +149,7 @@ class AdminDataCustodianNetworksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_805e0e12862cf992698405bf5795b042_serialize(
+        _param = self._fetch_admin_data_custodian_networks_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -172,7 +172,7 @@ class AdminDataCustodianNetworksApi:
 
 
     @validate_call
-    def call_805e0e12862cf992698405bf5795b042_without_preload_content(
+    def fetch_admin_data_custodian_networks_without_preload_content(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
         _request_timeout: Union[
@@ -216,7 +216,7 @@ class AdminDataCustodianNetworksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_805e0e12862cf992698405bf5795b042_serialize(
+        _param = self._fetch_admin_data_custodian_networks_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -234,7 +234,7 @@ class AdminDataCustodianNetworksApi:
         return response_data.response
 
 
-    def _call_805e0e12862cf992698405bf5795b042_serialize(
+    def _fetch_admin_data_custodian_networks_serialize(
         self,
         per_page,
         _request_auth,

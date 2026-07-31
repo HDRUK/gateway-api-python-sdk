@@ -26,8 +26,8 @@ class TestAdminDataCustodianNetworksApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_805e0e12862cf992698405bf5795b042(self) -> None:
-        """Test case for call_805e0e12862cf992698405bf5795b042
+    def test_fetch_admin_data_custodian_networks(self) -> None:
+        """Test case for fetch_admin_data_custodian_networks
 
         DataCustodianNetworks@adminIndex
         """

@@ -26,43 +26,43 @@ class TestSavedSearchApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_39500344ecf1a14150bbe26c4a138c56(self) -> None:
-        """Test case for call_39500344ecf1a14150bbe26c4a138c56
+    def test_create_saved_searches(self) -> None:
+        """Test case for create_saved_searches
 
         SavedSearch@store
         """
         pass
 
-    def test_call_3b59d921ea47286a669054ef67350b03(self) -> None:
-        """Test case for call_3b59d921ea47286a669054ef67350b03
-
-        SavedSearch@update
-        """
-        pass
-
-    def test_call_4f2a3c56631a5fccb45a9e7972df02b0(self) -> None:
-        """Test case for call_4f2a3c56631a5fccb45a9e7972df02b0
-
-        SavedSearch@index
-        """
-        pass
-
-    def test_call_8d6878e4937dd67c5e2480c6f4e9149f(self) -> None:
-        """Test case for call_8d6878e4937dd67c5e2480c6f4e9149f
-
-        SavedSearch@show
-        """
-        pass
-
-    def test_cdcdceead49fe1554534af83c50c8af5(self) -> None:
-        """Test case for cdcdceead49fe1554534af83c50c8af5
+    def test_delete_saved_searches(self) -> None:
+        """Test case for delete_saved_searches
 
         SavedSearch@destroy
         """
         pass
 
-    def test_fa314398c7a73002fee4ffc7e62e9fb6(self) -> None:
-        """Test case for fa314398c7a73002fee4ffc7e62e9fb6
+    def test_edit_saved_searches(self) -> None:
+        """Test case for edit_saved_searches
+
+        SavedSearch@update
+        """
+        pass
+
+    def test_fetch_all_saved_searches(self) -> None:
+        """Test case for fetch_all_saved_searches
+
+        SavedSearch@index
+        """
+        pass
+
+    def test_fetch_saved_searches(self) -> None:
+        """Test case for fetch_saved_searches
+
+        SavedSearch@show
+        """
+        pass
+
+    def test_update_saved_searches(self) -> None:
+        """Test case for update_saved_searches
 
         SavedSearch@update
         """

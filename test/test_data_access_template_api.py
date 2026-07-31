@@ -26,52 +26,52 @@ class TestDataAccessTemplateApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_b1fa0f3b5f03176ce6b96d1d4ee27aa8(self) -> None:
-        """Test case for b1fa0f3b5f03176ce6b96d1d4ee27aa8
+    def test_create_dar_template(self) -> None:
+        """Test case for create_dar_template
 
-        DataAccessTemplate@downloadFile
+        DataAccessTemplate@store
         """
         pass
 
-    def test_c0e9ad253ec08e6e03a40ed8759e744d(self) -> None:
-        """Test case for c0e9ad253ec08e6e03a40ed8759e744d
+    def test_delete_dar_template(self) -> None:
+        """Test case for delete_dar_template
 
         DataAccessTemplate@destroy
         """
         pass
 
-    def test_call_234386e06c6b29d5aaca2ed8f89cb9aa(self) -> None:
-        """Test case for call_234386e06c6b29d5aaca2ed8f89cb9aa
+    def test_download_dar_template_file(self) -> None:
+        """Test case for download_dar_template_file
 
-        DataAccessTemplate@index
+        DataAccessTemplate@downloadFile
         """
         pass
 
-    def test_call_3f2b4dcc3b5e548e62f79a32aa8f0052(self) -> None:
-        """Test case for call_3f2b4dcc3b5e548e62f79a32aa8f0052
+    def test_fetch_dar_template(self) -> None:
+        """Test case for fetch_dar_template
 
         DataAccessTemplate@show
         """
         pass
 
-    def test_call_6196987e50c600396a439939cea635a3(self) -> None:
-        """Test case for call_6196987e50c600396a439939cea635a3
+    def test_fetch_dar_templates(self) -> None:
+        """Test case for fetch_dar_templates
+
+        DataAccessTemplate@index
+        """
+        pass
+
+    def test_patch_dar_template(self) -> None:
+        """Test case for patch_dar_template
 
         DataAccessTemplate@update
         """
         pass
 
-    def test_call_6dae0c2af6ca442f90a65e7c65a13252(self) -> None:
-        """Test case for call_6dae0c2af6ca442f90a65e7c65a13252
+    def test_update_dar_template(self) -> None:
+        """Test case for update_dar_template
 
         DataAccessTemplate@update
-        """
-        pass
-
-    def test_call_70d4b0fcc281e6491f510f58028762c9(self) -> None:
-        """Test case for call_70d4b0fcc281e6491f510f58028762c9
-
-        DataAccessTemplate@store
         """
         pass
 

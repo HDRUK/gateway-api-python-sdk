@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**call_471df4f14ed1f13bf3a66f1a8b70e261**](TeamDataAccessTemplateApi.md#call_471df4f14ed1f13bf3a66f1a8b70e261) | **DELETE** /api/v1/teams/{teamId}/dar/templates/{id}/files/{fileId} | TeamDataAccessTemplateController@destroyFile
-[**call_883e72f80ed3577c8e6eca9f9437e554**](TeamDataAccessTemplateApi.md#call_883e72f80ed3577c8e6eca9f9437e554) | **GET** /api/v1/teams/{teamId}/dar/templates | TeamDataAccessTemplateController@index
+[**delete_team_dar_template_file**](TeamDataAccessTemplateApi.md#delete_team_dar_template_file) | **DELETE** /api/v1/teams/{teamId}/dar/templates/{id}/files/{fileId} | TeamDataAccessTemplateController@destroyFile
+[**fetch_team_dar_templates**](TeamDataAccessTemplateApi.md#fetch_team_dar_templates) | **GET** /api/v1/teams/{teamId}/dar/templates | TeamDataAccessTemplateController@index
 [**team_dar_template_count_unique_fields**](TeamDataAccessTemplateApi.md#team_dar_template_count_unique_fields) | **GET** /api/v1/teams/{teamId}/dar/templates/count/{field} | TeamDataAccessTemplateController@count
 
 
-# **call_471df4f14ed1f13bf3a66f1a8b70e261**
-> C29b5b3424f7317b69b4bda048ccfafb200Response call_471df4f14ed1f13bf3a66f1a8b70e261(team_id, id, file_id)
+# **delete_team_dar_template_file**
+> DeleteAliases200Response delete_team_dar_template_file(team_id, id, file_id)
 
 TeamDataAccessTemplateController@destroyFile
 
@@ -22,7 +22,7 @@ Delete a file associated with a DAR template
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -52,11 +52,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # TeamDataAccessTemplateController@destroyFile
-        api_response = api_instance.call_471df4f14ed1f13bf3a66f1a8b70e261(team_id, id, file_id)
-        print("The response of TeamDataAccessTemplateApi->call_471df4f14ed1f13bf3a66f1a8b70e261:\n")
+        api_response = api_instance.delete_team_dar_template_file(team_id, id, file_id)
+        print("The response of TeamDataAccessTemplateApi->delete_team_dar_template_file:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TeamDataAccessTemplateApi->call_471df4f14ed1f13bf3a66f1a8b70e261: %s\n" % e)
+        print("Exception when calling TeamDataAccessTemplateApi->delete_team_dar_template_file: %s\n" % e)
 ```
 
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -93,8 +93,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **call_883e72f80ed3577c8e6eca9f9437e554**
-> Model234386e06c6b29d5aaca2ed8f89cb9aa200Response call_883e72f80ed3577c8e6eca9f9437e554(team_id, published=published)
+# **fetch_team_dar_templates**
+> FetchDarTemplates200Response fetch_team_dar_templates(team_id, published=published)
 
 TeamDataAccessTemplateController@index
 
@@ -106,7 +106,7 @@ List of dar templates belonging to a team
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model234386e06c6b29d5aaca2ed8f89cb9aa200_response import Model234386e06c6b29d5aaca2ed8f89cb9aa200Response
+from gateway_api_sdk.models.fetch_dar_templates200_response import FetchDarTemplates200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -135,11 +135,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # TeamDataAccessTemplateController@index
-        api_response = api_instance.call_883e72f80ed3577c8e6eca9f9437e554(team_id, published=published)
-        print("The response of TeamDataAccessTemplateApi->call_883e72f80ed3577c8e6eca9f9437e554:\n")
+        api_response = api_instance.fetch_team_dar_templates(team_id, published=published)
+        print("The response of TeamDataAccessTemplateApi->fetch_team_dar_templates:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TeamDataAccessTemplateApi->call_883e72f80ed3577c8e6eca9f9437e554: %s\n" % e)
+        print("Exception when calling TeamDataAccessTemplateApi->fetch_team_dar_templates: %s\n" % e)
 ```
 
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Model234386e06c6b29d5aaca2ed8f89cb9aa200Response**](Model234386e06c6b29d5aaca2ed8f89cb9aa200Response.md)
+[**FetchDarTemplates200Response**](FetchDarTemplates200Response.md)
 
 ### Authorization
 

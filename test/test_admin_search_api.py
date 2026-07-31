@@ -26,24 +26,24 @@ class TestAdminSearchApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_4ff0fc5e7c66284608ce55dc6cb7d846(self) -> None:
-        """Test case for call_4ff0fc5e7c66284608ce55dc6cb7d846
+    def test_create_admin_search_reindex(self) -> None:
+        """Test case for create_admin_search_reindex
 
-        Activate or deactivate a search-related Pennant feature flag
+        Queue a drop+recreate+import of a search entity's Typesense collection
         """
         pass
 
-    def test_call_8918bd9dfb8e055a335f3c0695428e73(self) -> None:
-        """Test case for call_8918bd9dfb8e055a335f3c0695428e73
+    def test_fetch_admin_search_status(self) -> None:
+        """Test case for fetch_admin_search_status
 
         Get Typesense collection status for every onboarded search entity
         """
         pass
 
-    def test_call_92a06ea019f5560b5c9e76e02fe38e31(self) -> None:
-        """Test case for call_92a06ea019f5560b5c9e76e02fe38e31
+    def test_update_admin_search_feature(self) -> None:
+        """Test case for update_admin_search_feature
 
-        Queue a drop+recreate+import of a search entity's Typesense collection
+        Activate or deactivate a search-related Pennant feature flag
         """
         pass
 

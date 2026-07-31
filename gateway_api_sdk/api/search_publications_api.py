@@ -18,10 +18,10 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.model9946399cbddb0dcadcbd5801e5ee1dd4200_response import Model9946399cbddb0dcadcbd5801e5ee1dd4200Response
-from gateway_api_sdk.models.model9946399cbddb0dcadcbd5801e5ee1dd4_request import Model9946399cbddb0dcadcbd5801e5ee1dd4Request
-from gateway_api_sdk.models.model9a0abfa6186327d43c51259d5b524fde200_response import Model9a0abfa6186327d43c51259d5b524fde200Response
-from gateway_api_sdk.models.model9a0abfa6186327d43c51259d5b524fde_request import Model9a0abfa6186327d43c51259d5b524fdeRequest
+from gateway_api_sdk.models.search_publications200_response import SearchPublications200Response
+from gateway_api_sdk.models.search_publications_by_doi200_response import SearchPublicationsByDoi200Response
+from gateway_api_sdk.models.search_publications_by_doi_request import SearchPublicationsByDoiRequest
+from gateway_api_sdk.models.search_publications_request import SearchPublicationsRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -42,9 +42,9 @@ class SearchPublicationsApi:
 
 
     @validate_call
-    def call_9946399cbddb0dcadcbd5801e5ee1dd4(
+    def search_publications(
         self,
-        model9946399cbddb0dcadcbd5801e5ee1dd4_request: Annotated[Model9946399cbddb0dcadcbd5801e5ee1dd4Request, Field(description="Submit search query")],
+        search_publications_request: Annotated[SearchPublicationsRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         source: Annotated[Optional[StrictStr], Field(description="Which source to search ('GAT' or 'FED', default: 'GAT')")] = None,
@@ -60,13 +60,13 @@ class SearchPublicationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model9946399cbddb0dcadcbd5801e5ee1dd4200Response:
+    ) -> SearchPublications200Response:
         """Search@publications
 
         Returns gateway publications related to the provided query term(s)
 
-        :param model9946399cbddb0dcadcbd5801e5ee1dd4_request: Submit search query (required)
-        :type model9946399cbddb0dcadcbd5801e5ee1dd4_request: Model9946399cbddb0dcadcbd5801e5ee1dd4Request
+        :param search_publications_request: Submit search query (required)
+        :type search_publications_request: SearchPublicationsRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -95,8 +95,8 @@ class SearchPublicationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_9946399cbddb0dcadcbd5801e5ee1dd4_serialize(
-            model9946399cbddb0dcadcbd5801e5ee1dd4_request=model9946399cbddb0dcadcbd5801e5ee1dd4_request,
+        _param = self._search_publications_serialize(
+            search_publications_request=search_publications_request,
             sort=sort,
             direction=direction,
             source=source,
@@ -107,7 +107,7 @@ class SearchPublicationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model9946399cbddb0dcadcbd5801e5ee1dd4200Response",
+            '200': "SearchPublications200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -121,9 +121,9 @@ class SearchPublicationsApi:
 
 
     @validate_call
-    def call_9946399cbddb0dcadcbd5801e5ee1dd4_with_http_info(
+    def search_publications_with_http_info(
         self,
-        model9946399cbddb0dcadcbd5801e5ee1dd4_request: Annotated[Model9946399cbddb0dcadcbd5801e5ee1dd4Request, Field(description="Submit search query")],
+        search_publications_request: Annotated[SearchPublicationsRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         source: Annotated[Optional[StrictStr], Field(description="Which source to search ('GAT' or 'FED', default: 'GAT')")] = None,
@@ -139,13 +139,13 @@ class SearchPublicationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model9946399cbddb0dcadcbd5801e5ee1dd4200Response]:
+    ) -> ApiResponse[SearchPublications200Response]:
         """Search@publications
 
         Returns gateway publications related to the provided query term(s)
 
-        :param model9946399cbddb0dcadcbd5801e5ee1dd4_request: Submit search query (required)
-        :type model9946399cbddb0dcadcbd5801e5ee1dd4_request: Model9946399cbddb0dcadcbd5801e5ee1dd4Request
+        :param search_publications_request: Submit search query (required)
+        :type search_publications_request: SearchPublicationsRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -174,8 +174,8 @@ class SearchPublicationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_9946399cbddb0dcadcbd5801e5ee1dd4_serialize(
-            model9946399cbddb0dcadcbd5801e5ee1dd4_request=model9946399cbddb0dcadcbd5801e5ee1dd4_request,
+        _param = self._search_publications_serialize(
+            search_publications_request=search_publications_request,
             sort=sort,
             direction=direction,
             source=source,
@@ -186,7 +186,7 @@ class SearchPublicationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model9946399cbddb0dcadcbd5801e5ee1dd4200Response",
+            '200': "SearchPublications200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -200,9 +200,9 @@ class SearchPublicationsApi:
 
 
     @validate_call
-    def call_9946399cbddb0dcadcbd5801e5ee1dd4_without_preload_content(
+    def search_publications_without_preload_content(
         self,
-        model9946399cbddb0dcadcbd5801e5ee1dd4_request: Annotated[Model9946399cbddb0dcadcbd5801e5ee1dd4Request, Field(description="Submit search query")],
+        search_publications_request: Annotated[SearchPublicationsRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         source: Annotated[Optional[StrictStr], Field(description="Which source to search ('GAT' or 'FED', default: 'GAT')")] = None,
@@ -223,8 +223,8 @@ class SearchPublicationsApi:
 
         Returns gateway publications related to the provided query term(s)
 
-        :param model9946399cbddb0dcadcbd5801e5ee1dd4_request: Submit search query (required)
-        :type model9946399cbddb0dcadcbd5801e5ee1dd4_request: Model9946399cbddb0dcadcbd5801e5ee1dd4Request
+        :param search_publications_request: Submit search query (required)
+        :type search_publications_request: SearchPublicationsRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -253,8 +253,8 @@ class SearchPublicationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_9946399cbddb0dcadcbd5801e5ee1dd4_serialize(
-            model9946399cbddb0dcadcbd5801e5ee1dd4_request=model9946399cbddb0dcadcbd5801e5ee1dd4_request,
+        _param = self._search_publications_serialize(
+            search_publications_request=search_publications_request,
             sort=sort,
             direction=direction,
             source=source,
@@ -265,7 +265,7 @@ class SearchPublicationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model9946399cbddb0dcadcbd5801e5ee1dd4200Response",
+            '200': "SearchPublications200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -274,9 +274,9 @@ class SearchPublicationsApi:
         return response_data.response
 
 
-    def _call_9946399cbddb0dcadcbd5801e5ee1dd4_serialize(
+    def _search_publications_serialize(
         self,
-        model9946399cbddb0dcadcbd5801e5ee1dd4_request,
+        search_publications_request,
         sort,
         direction,
         source,
@@ -317,8 +317,8 @@ class SearchPublicationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model9946399cbddb0dcadcbd5801e5ee1dd4_request is not None:
-            _body_params = model9946399cbddb0dcadcbd5801e5ee1dd4_request
+        if search_publications_request is not None:
+            _body_params = search_publications_request
 
 
         # set the HTTP header `Accept`
@@ -367,9 +367,9 @@ class SearchPublicationsApi:
 
 
     @validate_call
-    def call_9a0abfa6186327d43c51259d5b524fde(
+    def search_publications_by_doi(
         self,
-        model9a0abfa6186327d43c51259d5b524fde_request: Annotated[Model9a0abfa6186327d43c51259d5b524fdeRequest, Field(description="Submit search query")],
+        search_publications_by_doi_request: Annotated[SearchPublicationsByDoiRequest, Field(description="Submit search query")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -382,13 +382,13 @@ class SearchPublicationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model9a0abfa6186327d43c51259d5b524fde200Response:
+    ) -> SearchPublicationsByDoi200Response:
         """Search@publications
 
         Returns publications from EuropePMC matching a give DOI
 
-        :param model9a0abfa6186327d43c51259d5b524fde_request: Submit search query (required)
-        :type model9a0abfa6186327d43c51259d5b524fde_request: Model9a0abfa6186327d43c51259d5b524fdeRequest
+        :param search_publications_by_doi_request: Submit search query (required)
+        :type search_publications_by_doi_request: SearchPublicationsByDoiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -411,8 +411,8 @@ class SearchPublicationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_9a0abfa6186327d43c51259d5b524fde_serialize(
-            model9a0abfa6186327d43c51259d5b524fde_request=model9a0abfa6186327d43c51259d5b524fde_request,
+        _param = self._search_publications_by_doi_serialize(
+            search_publications_by_doi_request=search_publications_by_doi_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -420,7 +420,7 @@ class SearchPublicationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model9a0abfa6186327d43c51259d5b524fde200Response",
+            '200': "SearchPublicationsByDoi200Response",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -435,9 +435,9 @@ class SearchPublicationsApi:
 
 
     @validate_call
-    def call_9a0abfa6186327d43c51259d5b524fde_with_http_info(
+    def search_publications_by_doi_with_http_info(
         self,
-        model9a0abfa6186327d43c51259d5b524fde_request: Annotated[Model9a0abfa6186327d43c51259d5b524fdeRequest, Field(description="Submit search query")],
+        search_publications_by_doi_request: Annotated[SearchPublicationsByDoiRequest, Field(description="Submit search query")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -450,13 +450,13 @@ class SearchPublicationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model9a0abfa6186327d43c51259d5b524fde200Response]:
+    ) -> ApiResponse[SearchPublicationsByDoi200Response]:
         """Search@publications
 
         Returns publications from EuropePMC matching a give DOI
 
-        :param model9a0abfa6186327d43c51259d5b524fde_request: Submit search query (required)
-        :type model9a0abfa6186327d43c51259d5b524fde_request: Model9a0abfa6186327d43c51259d5b524fdeRequest
+        :param search_publications_by_doi_request: Submit search query (required)
+        :type search_publications_by_doi_request: SearchPublicationsByDoiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -479,8 +479,8 @@ class SearchPublicationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_9a0abfa6186327d43c51259d5b524fde_serialize(
-            model9a0abfa6186327d43c51259d5b524fde_request=model9a0abfa6186327d43c51259d5b524fde_request,
+        _param = self._search_publications_by_doi_serialize(
+            search_publications_by_doi_request=search_publications_by_doi_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -488,7 +488,7 @@ class SearchPublicationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model9a0abfa6186327d43c51259d5b524fde200Response",
+            '200': "SearchPublicationsByDoi200Response",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -503,9 +503,9 @@ class SearchPublicationsApi:
 
 
     @validate_call
-    def call_9a0abfa6186327d43c51259d5b524fde_without_preload_content(
+    def search_publications_by_doi_without_preload_content(
         self,
-        model9a0abfa6186327d43c51259d5b524fde_request: Annotated[Model9a0abfa6186327d43c51259d5b524fdeRequest, Field(description="Submit search query")],
+        search_publications_by_doi_request: Annotated[SearchPublicationsByDoiRequest, Field(description="Submit search query")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -523,8 +523,8 @@ class SearchPublicationsApi:
 
         Returns publications from EuropePMC matching a give DOI
 
-        :param model9a0abfa6186327d43c51259d5b524fde_request: Submit search query (required)
-        :type model9a0abfa6186327d43c51259d5b524fde_request: Model9a0abfa6186327d43c51259d5b524fdeRequest
+        :param search_publications_by_doi_request: Submit search query (required)
+        :type search_publications_by_doi_request: SearchPublicationsByDoiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -547,8 +547,8 @@ class SearchPublicationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_9a0abfa6186327d43c51259d5b524fde_serialize(
-            model9a0abfa6186327d43c51259d5b524fde_request=model9a0abfa6186327d43c51259d5b524fde_request,
+        _param = self._search_publications_by_doi_serialize(
+            search_publications_by_doi_request=search_publications_by_doi_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -556,7 +556,7 @@ class SearchPublicationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model9a0abfa6186327d43c51259d5b524fde200Response",
+            '200': "SearchPublicationsByDoi200Response",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -566,9 +566,9 @@ class SearchPublicationsApi:
         return response_data.response
 
 
-    def _call_9a0abfa6186327d43c51259d5b524fde_serialize(
+    def _search_publications_by_doi_serialize(
         self,
-        model9a0abfa6186327d43c51259d5b524fde_request,
+        search_publications_by_doi_request,
         _request_auth,
         _content_type,
         _headers,
@@ -594,8 +594,8 @@ class SearchPublicationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model9a0abfa6186327d43c51259d5b524fde_request is not None:
-            _body_params = model9a0abfa6186327d43c51259d5b524fde_request
+        if search_publications_by_doi_request is not None:
+            _body_params = search_publications_by_doi_request
 
 
         # set the HTTP header `Accept`

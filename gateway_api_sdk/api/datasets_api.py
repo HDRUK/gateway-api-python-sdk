@@ -18,19 +18,19 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_datasets_linkage_extraction200_response import CreateDatasetsLinkageExtraction200Response
+from gateway_api_sdk.models.create_datasets_linkage_extraction_request import CreateDatasetsLinkageExtractionRequest
 from gateway_api_sdk.models.create_datasets_request import CreateDatasetsRequest
+from gateway_api_sdk.models.create_datasets_term_extraction200_response import CreateDatasetsTermExtraction200Response
+from gateway_api_sdk.models.create_datasets_term_extraction_request import CreateDatasetsTermExtractionRequest
 from gateway_api_sdk.models.create_datasets_v2_request import CreateDatasetsV2Request
 from gateway_api_sdk.models.create_team_datasets_v2_request import CreateTeamDatasetsV2Request
 from gateway_api_sdk.models.datasets_test_request import DatasetsTestRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.models.fetch_all_datasets200_response import FetchAllDatasets200Response
 from gateway_api_sdk.models.fetch_datasets200_response import FetchDatasets200Response
-from gateway_api_sdk.models.model1c45c3c6908e92d680ce50910d6d4061200_response import Model1c45c3c6908e92d680ce50910d6d4061200Response
-from gateway_api_sdk.models.model1c45c3c6908e92d680ce50910d6d4061_request import Model1c45c3c6908e92d680ce50910d6d4061Request
-from gateway_api_sdk.models.model7f39b24417648f048a9457326619439c200_response import Model7f39b24417648f048a9457326619439c200Response
-from gateway_api_sdk.models.model7f39b24417648f048a9457326619439c_request import Model7f39b24417648f048a9457326619439cRequest
 from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request
 from gateway_api_sdk.models.update_datasets_request import UpdateDatasetsRequest
 
@@ -50,603 +50,6 @@ class DatasetsApi:
         if api_client is None:
             api_client = ApiClient.get_default()
         self.api_client = api_client
-
-
-    @validate_call
-    def call_1c45c3c6908e92d680ce50910d6d4061(
-        self,
-        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
-        role: Annotated[StrictStr, Field(description="Role required to access this endpoint, e.g., 'hdruk.superadmin'")],
-        model1c45c3c6908e92d680ce50910d6d4061_request: Model1c45c3c6908e92d680ce50910d6d4061Request,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model1c45c3c6908e92d680ce50910d6d4061200Response:
-        """Trigger Term Extraction for Datasets
-
-        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
-
-        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
-        :type authorization: str
-        :param role: Role required to access this endpoint, e.g., 'hdruk.superadmin' (required)
-        :type role: str
-        :param model1c45c3c6908e92d680ce50910d6d4061_request: (required)
-        :type model1c45c3c6908e92d680ce50910d6d4061_request: Model1c45c3c6908e92d680ce50910d6d4061Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_1c45c3c6908e92d680ce50910d6d4061_serialize(
-            authorization=authorization,
-            role=role,
-            model1c45c3c6908e92d680ce50910d6d4061_request=model1c45c3c6908e92d680ce50910d6d4061_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model1c45c3c6908e92d680ce50910d6d4061200Response",
-            '500': "Model1c45c3c6908e92d680ce50910d6d4061500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_1c45c3c6908e92d680ce50910d6d4061_with_http_info(
-        self,
-        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
-        role: Annotated[StrictStr, Field(description="Role required to access this endpoint, e.g., 'hdruk.superadmin'")],
-        model1c45c3c6908e92d680ce50910d6d4061_request: Model1c45c3c6908e92d680ce50910d6d4061Request,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model1c45c3c6908e92d680ce50910d6d4061200Response]:
-        """Trigger Term Extraction for Datasets
-
-        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
-
-        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
-        :type authorization: str
-        :param role: Role required to access this endpoint, e.g., 'hdruk.superadmin' (required)
-        :type role: str
-        :param model1c45c3c6908e92d680ce50910d6d4061_request: (required)
-        :type model1c45c3c6908e92d680ce50910d6d4061_request: Model1c45c3c6908e92d680ce50910d6d4061Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_1c45c3c6908e92d680ce50910d6d4061_serialize(
-            authorization=authorization,
-            role=role,
-            model1c45c3c6908e92d680ce50910d6d4061_request=model1c45c3c6908e92d680ce50910d6d4061_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model1c45c3c6908e92d680ce50910d6d4061200Response",
-            '500': "Model1c45c3c6908e92d680ce50910d6d4061500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_1c45c3c6908e92d680ce50910d6d4061_without_preload_content(
-        self,
-        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
-        role: Annotated[StrictStr, Field(description="Role required to access this endpoint, e.g., 'hdruk.superadmin'")],
-        model1c45c3c6908e92d680ce50910d6d4061_request: Model1c45c3c6908e92d680ce50910d6d4061Request,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Trigger Term Extraction for Datasets
-
-        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
-
-        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
-        :type authorization: str
-        :param role: Role required to access this endpoint, e.g., 'hdruk.superadmin' (required)
-        :type role: str
-        :param model1c45c3c6908e92d680ce50910d6d4061_request: (required)
-        :type model1c45c3c6908e92d680ce50910d6d4061_request: Model1c45c3c6908e92d680ce50910d6d4061Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_1c45c3c6908e92d680ce50910d6d4061_serialize(
-            authorization=authorization,
-            role=role,
-            model1c45c3c6908e92d680ce50910d6d4061_request=model1c45c3c6908e92d680ce50910d6d4061_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model1c45c3c6908e92d680ce50910d6d4061200Response",
-            '500': "Model1c45c3c6908e92d680ce50910d6d4061500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_1c45c3c6908e92d680ce50910d6d4061_serialize(
-        self,
-        authorization,
-        role,
-        model1c45c3c6908e92d680ce50910d6d4061_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        if authorization is not None:
-            _header_params['Authorization'] = authorization
-        if role is not None:
-            _header_params['role'] = role
-        # process the form parameters
-        # process the body parameter
-        if model1c45c3c6908e92d680ce50910d6d4061_request is not None:
-            _body_params = model1c45c3c6908e92d680ce50910d6d4061_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/datasets/admin_ctrl/trigger/term_extraction',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_7f39b24417648f048a9457326619439c(
-        self,
-        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
-        model7f39b24417648f048a9457326619439c_request: Model7f39b24417648f048a9457326619439cRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model7f39b24417648f048a9457326619439c200Response:
-        """Trigger Term Extraction for Datasets
-
-        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
-
-        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
-        :type authorization: str
-        :param model7f39b24417648f048a9457326619439c_request: (required)
-        :type model7f39b24417648f048a9457326619439c_request: Model7f39b24417648f048a9457326619439cRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_7f39b24417648f048a9457326619439c_serialize(
-            authorization=authorization,
-            model7f39b24417648f048a9457326619439c_request=model7f39b24417648f048a9457326619439c_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model7f39b24417648f048a9457326619439c200Response",
-            '500': "Model1c45c3c6908e92d680ce50910d6d4061500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_7f39b24417648f048a9457326619439c_with_http_info(
-        self,
-        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
-        model7f39b24417648f048a9457326619439c_request: Model7f39b24417648f048a9457326619439cRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model7f39b24417648f048a9457326619439c200Response]:
-        """Trigger Term Extraction for Datasets
-
-        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
-
-        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
-        :type authorization: str
-        :param model7f39b24417648f048a9457326619439c_request: (required)
-        :type model7f39b24417648f048a9457326619439c_request: Model7f39b24417648f048a9457326619439cRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_7f39b24417648f048a9457326619439c_serialize(
-            authorization=authorization,
-            model7f39b24417648f048a9457326619439c_request=model7f39b24417648f048a9457326619439c_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model7f39b24417648f048a9457326619439c200Response",
-            '500': "Model1c45c3c6908e92d680ce50910d6d4061500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_7f39b24417648f048a9457326619439c_without_preload_content(
-        self,
-        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
-        model7f39b24417648f048a9457326619439c_request: Model7f39b24417648f048a9457326619439cRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Trigger Term Extraction for Datasets
-
-        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
-
-        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
-        :type authorization: str
-        :param model7f39b24417648f048a9457326619439c_request: (required)
-        :type model7f39b24417648f048a9457326619439c_request: Model7f39b24417648f048a9457326619439cRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_7f39b24417648f048a9457326619439c_serialize(
-            authorization=authorization,
-            model7f39b24417648f048a9457326619439c_request=model7f39b24417648f048a9457326619439c_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model7f39b24417648f048a9457326619439c200Response",
-            '500': "Model1c45c3c6908e92d680ce50910d6d4061500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_7f39b24417648f048a9457326619439c_serialize(
-        self,
-        authorization,
-        model7f39b24417648f048a9457326619439c_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        if authorization is not None:
-            _header_params['Authorization'] = authorization
-        # process the form parameters
-        # process the body parameter
-        if model7f39b24417648f048a9457326619439c_request is not None:
-            _body_params = model7f39b24417648f048a9457326619439c_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/datasets/admin_ctrl/trigger/linkage_extraction',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
 
 
     @validate_call
@@ -1222,7 +625,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """(Deprecated) DatasetController@store
 
         Create a new dataset
@@ -1261,9 +664,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1292,7 +695,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """(Deprecated) DatasetController@store
 
         Create a new dataset
@@ -1331,9 +734,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1401,9 +804,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1507,7 +910,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """(Deprecated) IntegrationDatasetController@store
 
         Create a new dataset
@@ -1552,9 +955,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1585,7 +988,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """(Deprecated) IntegrationDatasetController@store
 
         Create a new dataset
@@ -1630,9 +1033,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1708,9 +1111,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1807,6 +1210,603 @@ class DatasetsApi:
 
 
     @validate_call
+    def create_datasets_linkage_extraction(
+        self,
+        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
+        create_datasets_linkage_extraction_request: CreateDatasetsLinkageExtractionRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> CreateDatasetsLinkageExtraction200Response:
+        """Trigger Term Extraction for Datasets
+
+        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
+
+        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
+        :type authorization: str
+        :param create_datasets_linkage_extraction_request: (required)
+        :type create_datasets_linkage_extraction_request: CreateDatasetsLinkageExtractionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_datasets_linkage_extraction_serialize(
+            authorization=authorization,
+            create_datasets_linkage_extraction_request=create_datasets_linkage_extraction_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateDatasetsLinkageExtraction200Response",
+            '500': "CreateDatasetsTermExtraction500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def create_datasets_linkage_extraction_with_http_info(
+        self,
+        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
+        create_datasets_linkage_extraction_request: CreateDatasetsLinkageExtractionRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CreateDatasetsLinkageExtraction200Response]:
+        """Trigger Term Extraction for Datasets
+
+        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
+
+        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
+        :type authorization: str
+        :param create_datasets_linkage_extraction_request: (required)
+        :type create_datasets_linkage_extraction_request: CreateDatasetsLinkageExtractionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_datasets_linkage_extraction_serialize(
+            authorization=authorization,
+            create_datasets_linkage_extraction_request=create_datasets_linkage_extraction_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateDatasetsLinkageExtraction200Response",
+            '500': "CreateDatasetsTermExtraction500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def create_datasets_linkage_extraction_without_preload_content(
+        self,
+        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
+        create_datasets_linkage_extraction_request: CreateDatasetsLinkageExtractionRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Trigger Term Extraction for Datasets
+
+        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
+
+        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
+        :type authorization: str
+        :param create_datasets_linkage_extraction_request: (required)
+        :type create_datasets_linkage_extraction_request: CreateDatasetsLinkageExtractionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_datasets_linkage_extraction_serialize(
+            authorization=authorization,
+            create_datasets_linkage_extraction_request=create_datasets_linkage_extraction_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateDatasetsLinkageExtraction200Response",
+            '500': "CreateDatasetsTermExtraction500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_datasets_linkage_extraction_serialize(
+        self,
+        authorization,
+        create_datasets_linkage_extraction_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        if authorization is not None:
+            _header_params['Authorization'] = authorization
+        # process the form parameters
+        # process the body parameter
+        if create_datasets_linkage_extraction_request is not None:
+            _body_params = create_datasets_linkage_extraction_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v1/datasets/admin_ctrl/trigger/linkage_extraction',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def create_datasets_term_extraction(
+        self,
+        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
+        role: Annotated[StrictStr, Field(description="Role required to access this endpoint, e.g., 'hdruk.superadmin'")],
+        create_datasets_term_extraction_request: CreateDatasetsTermExtractionRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> CreateDatasetsTermExtraction200Response:
+        """Trigger Term Extraction for Datasets
+
+        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
+
+        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
+        :type authorization: str
+        :param role: Role required to access this endpoint, e.g., 'hdruk.superadmin' (required)
+        :type role: str
+        :param create_datasets_term_extraction_request: (required)
+        :type create_datasets_term_extraction_request: CreateDatasetsTermExtractionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_datasets_term_extraction_serialize(
+            authorization=authorization,
+            role=role,
+            create_datasets_term_extraction_request=create_datasets_term_extraction_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateDatasetsTermExtraction200Response",
+            '500': "CreateDatasetsTermExtraction500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def create_datasets_term_extraction_with_http_info(
+        self,
+        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
+        role: Annotated[StrictStr, Field(description="Role required to access this endpoint, e.g., 'hdruk.superadmin'")],
+        create_datasets_term_extraction_request: CreateDatasetsTermExtractionRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CreateDatasetsTermExtraction200Response]:
+        """Trigger Term Extraction for Datasets
+
+        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
+
+        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
+        :type authorization: str
+        :param role: Role required to access this endpoint, e.g., 'hdruk.superadmin' (required)
+        :type role: str
+        :param create_datasets_term_extraction_request: (required)
+        :type create_datasets_term_extraction_request: CreateDatasetsTermExtractionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_datasets_term_extraction_serialize(
+            authorization=authorization,
+            role=role,
+            create_datasets_term_extraction_request=create_datasets_term_extraction_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateDatasetsTermExtraction200Response",
+            '500': "CreateDatasetsTermExtraction500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def create_datasets_term_extraction_without_preload_content(
+        self,
+        authorization: Annotated[StrictStr, Field(description="JWT token for authorization in the format 'Bearer {token}'")],
+        role: Annotated[StrictStr, Field(description="Role required to access this endpoint, e.g., 'hdruk.superadmin'")],
+        create_datasets_term_extraction_request: CreateDatasetsTermExtractionRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Trigger Term Extraction for Datasets
+
+        Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
+
+        :param authorization: JWT token for authorization in the format 'Bearer {token}' (required)
+        :type authorization: str
+        :param role: Role required to access this endpoint, e.g., 'hdruk.superadmin' (required)
+        :type role: str
+        :param create_datasets_term_extraction_request: (required)
+        :type create_datasets_term_extraction_request: CreateDatasetsTermExtractionRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_datasets_term_extraction_serialize(
+            authorization=authorization,
+            role=role,
+            create_datasets_term_extraction_request=create_datasets_term_extraction_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateDatasetsTermExtraction200Response",
+            '500': "CreateDatasetsTermExtraction500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_datasets_term_extraction_serialize(
+        self,
+        authorization,
+        role,
+        create_datasets_term_extraction_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        if authorization is not None:
+            _header_params['Authorization'] = authorization
+        if role is not None:
+            _header_params['role'] = role
+        # process the form parameters
+        # process the body parameter
+        if create_datasets_term_extraction_request is not None:
+            _body_params = create_datasets_term_extraction_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v1/datasets/admin_ctrl/trigger/term_extraction',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def create_datasets_v2(
         self,
         create_datasets_v2_request: Annotated[CreateDatasetsV2Request, Field(description="Pass user credentials")],
@@ -1822,7 +1822,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """DatasetController@store
 
         Create a new dataset
@@ -1860,9 +1860,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1891,7 +1891,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """DatasetController@store
 
         Create a new dataset
@@ -1929,9 +1929,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1998,9 +1998,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2103,7 +2103,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """TeamDatasetController@store
 
         Create a new dataset for a team
@@ -2144,9 +2144,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2176,7 +2176,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """TeamDatasetController@store
 
         Create a new dataset for a team
@@ -2217,9 +2217,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2290,9 +2290,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2397,7 +2397,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """(Deprecated) DatasetController@destroy
 
         Delete a dataset
@@ -2436,9 +2436,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2467,7 +2467,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """(Deprecated) DatasetController@destroy
 
         Delete a dataset
@@ -2506,9 +2506,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2576,9 +2576,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2667,7 +2667,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """(Deprecated) IntegrationDatasetController@destroy
 
         Delete a dataset
@@ -2706,9 +2706,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2737,7 +2737,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """(Deprecated) IntegrationDatasetController@destroy
 
         Delete a dataset
@@ -2776,9 +2776,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2846,9 +2846,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2937,7 +2937,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """Delete a dataset
 
         Delete a dataset
@@ -2975,9 +2975,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3006,7 +3006,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """Delete a dataset
 
         Delete a dataset
@@ -3044,9 +3044,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3113,9 +3113,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3205,7 +3205,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """TeamDatasetController@destroy
 
         Delete a team's dataset
@@ -3246,9 +3246,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3278,7 +3278,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """TeamDatasetController@destroy
 
         Delete a team's dataset
@@ -3319,9 +3319,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3392,9 +3392,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5911,7 +5911,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5993,7 +5993,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6075,7 +6075,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6228,7 +6228,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6306,7 +6306,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6384,7 +6384,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6535,7 +6535,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6616,7 +6616,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6697,7 +6697,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7167,7 +7167,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7252,7 +7252,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7337,7 +7337,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7445,7 +7445,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """(Deprecated) DatasetController@edit
 
         Patch dataset by id
@@ -7487,8 +7487,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7518,7 +7518,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """(Deprecated) DatasetController@edit
 
         Patch dataset by id
@@ -7560,8 +7560,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7633,8 +7633,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7729,7 +7729,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """(Deprecated) IntegrationDatasetController@edit
 
         Patch dataset by id
@@ -7771,8 +7771,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7802,7 +7802,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """(Deprecated) IntegrationDatasetController@edit
 
         Patch dataset by id
@@ -7844,8 +7844,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7917,8 +7917,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8013,7 +8013,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """DatasetController@edit
 
         Patch dataset by id
@@ -8054,8 +8054,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8085,7 +8085,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """DatasetController@edit
 
         Patch dataset by id
@@ -8126,8 +8126,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8198,8 +8198,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8306,7 +8306,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """TeamDatasetController@edit
 
         Edit a dataset owned by a team
@@ -8350,8 +8350,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8382,7 +8382,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """TeamDatasetController@edit
 
         Edit a dataset owned by a team
@@ -8426,8 +8426,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8502,8 +8502,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8612,7 +8612,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """(Deprecated) DatasetController@update
 
         Update a dataset with a new dataset version
@@ -8654,9 +8654,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8686,7 +8686,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """(Deprecated) DatasetController@update
 
         Update a dataset with a new dataset version
@@ -8728,9 +8728,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8802,9 +8802,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8962,7 +8962,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9044,7 +9044,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9126,7 +9126,7 @@ class DatasetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchDatasets200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9242,7 +9242,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """DatasetController@update
 
         Update a dataset with a new dataset version
@@ -9283,9 +9283,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9315,7 +9315,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """DatasetController@update
 
         Update a dataset with a new dataset version
@@ -9356,9 +9356,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9429,9 +9429,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9538,7 +9538,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
+    ) -> CreateCategories200Response:
         """TeamDatasetController@update
 
         Update a team dataset with a new dataset version
@@ -9582,9 +9582,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9615,7 +9615,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
+    ) -> ApiResponse[CreateCategories200Response]:
         """TeamDatasetController@update
 
         Update a team dataset with a new dataset version
@@ -9659,9 +9659,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9736,9 +9736,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

@@ -18,8 +18,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.a3e02b5a05b56708998c4bd96935d5f5200_response import A3e02b5a05b56708998c4bd96935d5f5200Response
-from gateway_api_sdk.models.a3e02b5a05b56708998c4bd96935d5f5_request import A3e02b5a05b56708998c4bd96935d5f5Request
+from gateway_api_sdk.models.search_tools200_response import SearchTools200Response
+from gateway_api_sdk.models.search_tools_request import SearchToolsRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -40,9 +40,9 @@ class SearchToolsApi:
 
 
     @validate_call
-    def a3e02b5a05b56708998c4bd96935d5f5(
+    def search_tools(
         self,
-        a3e02b5a05b56708998c4bd96935d5f5_request: Annotated[A3e02b5a05b56708998c4bd96935d5f5Request, Field(description="Submit search query")],
+        search_tools_request: Annotated[SearchToolsRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         _request_timeout: Union[
@@ -57,13 +57,13 @@ class SearchToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> A3e02b5a05b56708998c4bd96935d5f5200Response:
+    ) -> SearchTools200Response:
         """Search@tools
 
         Returns gateway tools related to the provided query term(s)
 
-        :param a3e02b5a05b56708998c4bd96935d5f5_request: Submit search query (required)
-        :type a3e02b5a05b56708998c4bd96935d5f5_request: A3e02b5a05b56708998c4bd96935d5f5Request
+        :param search_tools_request: Submit search query (required)
+        :type search_tools_request: SearchToolsRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -90,8 +90,8 @@ class SearchToolsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a3e02b5a05b56708998c4bd96935d5f5_serialize(
-            a3e02b5a05b56708998c4bd96935d5f5_request=a3e02b5a05b56708998c4bd96935d5f5_request,
+        _param = self._search_tools_serialize(
+            search_tools_request=search_tools_request,
             sort=sort,
             direction=direction,
             _request_auth=_request_auth,
@@ -101,7 +101,7 @@ class SearchToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "A3e02b5a05b56708998c4bd96935d5f5200Response",
+            '200': "SearchTools200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -115,9 +115,9 @@ class SearchToolsApi:
 
 
     @validate_call
-    def a3e02b5a05b56708998c4bd96935d5f5_with_http_info(
+    def search_tools_with_http_info(
         self,
-        a3e02b5a05b56708998c4bd96935d5f5_request: Annotated[A3e02b5a05b56708998c4bd96935d5f5Request, Field(description="Submit search query")],
+        search_tools_request: Annotated[SearchToolsRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         _request_timeout: Union[
@@ -132,13 +132,13 @@ class SearchToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[A3e02b5a05b56708998c4bd96935d5f5200Response]:
+    ) -> ApiResponse[SearchTools200Response]:
         """Search@tools
 
         Returns gateway tools related to the provided query term(s)
 
-        :param a3e02b5a05b56708998c4bd96935d5f5_request: Submit search query (required)
-        :type a3e02b5a05b56708998c4bd96935d5f5_request: A3e02b5a05b56708998c4bd96935d5f5Request
+        :param search_tools_request: Submit search query (required)
+        :type search_tools_request: SearchToolsRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -165,8 +165,8 @@ class SearchToolsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a3e02b5a05b56708998c4bd96935d5f5_serialize(
-            a3e02b5a05b56708998c4bd96935d5f5_request=a3e02b5a05b56708998c4bd96935d5f5_request,
+        _param = self._search_tools_serialize(
+            search_tools_request=search_tools_request,
             sort=sort,
             direction=direction,
             _request_auth=_request_auth,
@@ -176,7 +176,7 @@ class SearchToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "A3e02b5a05b56708998c4bd96935d5f5200Response",
+            '200': "SearchTools200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -190,9 +190,9 @@ class SearchToolsApi:
 
 
     @validate_call
-    def a3e02b5a05b56708998c4bd96935d5f5_without_preload_content(
+    def search_tools_without_preload_content(
         self,
-        a3e02b5a05b56708998c4bd96935d5f5_request: Annotated[A3e02b5a05b56708998c4bd96935d5f5Request, Field(description="Submit search query")],
+        search_tools_request: Annotated[SearchToolsRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         _request_timeout: Union[
@@ -212,8 +212,8 @@ class SearchToolsApi:
 
         Returns gateway tools related to the provided query term(s)
 
-        :param a3e02b5a05b56708998c4bd96935d5f5_request: Submit search query (required)
-        :type a3e02b5a05b56708998c4bd96935d5f5_request: A3e02b5a05b56708998c4bd96935d5f5Request
+        :param search_tools_request: Submit search query (required)
+        :type search_tools_request: SearchToolsRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -240,8 +240,8 @@ class SearchToolsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._a3e02b5a05b56708998c4bd96935d5f5_serialize(
-            a3e02b5a05b56708998c4bd96935d5f5_request=a3e02b5a05b56708998c4bd96935d5f5_request,
+        _param = self._search_tools_serialize(
+            search_tools_request=search_tools_request,
             sort=sort,
             direction=direction,
             _request_auth=_request_auth,
@@ -251,7 +251,7 @@ class SearchToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "A3e02b5a05b56708998c4bd96935d5f5200Response",
+            '200': "SearchTools200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -260,9 +260,9 @@ class SearchToolsApi:
         return response_data.response
 
 
-    def _a3e02b5a05b56708998c4bd96935d5f5_serialize(
+    def _search_tools_serialize(
         self,
-        a3e02b5a05b56708998c4bd96935d5f5_request,
+        search_tools_request,
         sort,
         direction,
         _request_auth,
@@ -298,8 +298,8 @@ class SearchToolsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if a3e02b5a05b56708998c4bd96935d5f5_request is not None:
-            _body_params = a3e02b5a05b56708998c4bd96935d5f5_request
+        if search_tools_request is not None:
+            _body_params = search_tools_request
 
 
         # set the HTTP header `Accept`

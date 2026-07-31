@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**call_58e41162a49b5b1bf92231b359ea70cb**](UserOrganisationApi.md#call_58e41162a49b5b1bf92231b359ea70cb) | **GET** /api/v1/users/organisations | UserOrganisation@index
+[**fetch_user_organisations**](UserOrganisationApi.md#fetch_user_organisations) | **GET** /api/v1/users/organisations | UserOrganisation@index
 
 
-# **call_58e41162a49b5b1bf92231b359ea70cb**
-> Model58e41162a49b5b1bf92231b359ea70cb200Response call_58e41162a49b5b1bf92231b359ea70cb()
+# **fetch_user_organisations**
+> FetchUserOrganisations200Response fetch_user_organisations()
 
 UserOrganisation@index
 
@@ -20,7 +20,7 @@ Return a distinct list of all organisations which users belong to
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model58e41162a49b5b1bf92231b359ea70cb200_response import Model58e41162a49b5b1bf92231b359ea70cb200Response
+from gateway_api_sdk.models.fetch_user_organisations200_response import FetchUserOrganisations200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -47,11 +47,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # UserOrganisation@index
-        api_response = api_instance.call_58e41162a49b5b1bf92231b359ea70cb()
-        print("The response of UserOrganisationApi->call_58e41162a49b5b1bf92231b359ea70cb:\n")
+        api_response = api_instance.fetch_user_organisations()
+        print("The response of UserOrganisationApi->fetch_user_organisations:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UserOrganisationApi->call_58e41162a49b5b1bf92231b359ea70cb: %s\n" % e)
+        print("Exception when calling UserOrganisationApi->fetch_user_organisations: %s\n" % e)
 ```
 
 
@@ -62,7 +62,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Model58e41162a49b5b1bf92231b359ea70cb200Response**](Model58e41162a49b5b1bf92231b359ea70cb200Response.md)
+[**FetchUserOrganisations200Response**](FetchUserOrganisations200Response.md)
 
 ### Authorization
 

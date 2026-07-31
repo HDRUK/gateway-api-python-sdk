@@ -26,45 +26,45 @@ class TestProgrammingPackageApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_ad25f9129aefd55435b425747d5a706c(self) -> None:
-        """Test case for ad25f9129aefd55435b425747d5a706c
+    def test_create_programming_packages(self) -> None:
+        """Test case for create_programming_packages
 
         ProgrammingPackage@store
         """
         pass
 
-    def test_call_1aeebba947bfb42f364a2d5dd2ad8ef9(self) -> None:
-        """Test case for call_1aeebba947bfb42f364a2d5dd2ad8ef9
+    def test_delete_programming_packages(self) -> None:
+        """Test case for delete_programming_packages
+
+        ProgrammingPackage@destroy
+        """
+        pass
+
+    def test_edit_programming_packages(self) -> None:
+        """Test case for edit_programming_packages
 
         ProgrammingPackage@update
         """
         pass
 
-    def test_call_47ebee1d2e096dcb033d29f4ff244ad4(self) -> None:
-        """Test case for call_47ebee1d2e096dcb033d29f4ff244ad4
-
-        ProgrammingPackage@show
-        """
-        pass
-
-    def test_call_6ac98caeb87a37c9286f592834b9c803(self) -> None:
-        """Test case for call_6ac98caeb87a37c9286f592834b9c803
+    def test_fetch_all_programming_packages(self) -> None:
+        """Test case for fetch_all_programming_packages
 
         ProgrammingPackage@index
         """
         pass
 
-    def test_call_879046026ce3997dea0d9bf768f2f8e6(self) -> None:
-        """Test case for call_879046026ce3997dea0d9bf768f2f8e6
+    def test_fetch_programming_packages(self) -> None:
+        """Test case for fetch_programming_packages
 
-        ProgrammingPackage@update
+        ProgrammingPackage@show
         """
         pass
 
-    def test_fdbe7e1aad9b02084b06c6d647766efd(self) -> None:
-        """Test case for fdbe7e1aad9b02084b06c6d647766efd
+    def test_update_programming_packages(self) -> None:
+        """Test case for update_programming_packages
 
-        ProgrammingPackage@destroy
+        ProgrammingPackage@update
         """
         pass
 

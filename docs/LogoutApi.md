@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **logout**
-> C29b5b3424f7317b69b4bda048ccfafb200Response logout()
+> DeleteAliases200Response logout()
 
 LogoutController@logout
 
@@ -19,7 +19,7 @@ logout
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -52,7 +52,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 

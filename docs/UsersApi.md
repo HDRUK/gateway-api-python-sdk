@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **create_users**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response create_users(create_users_request)
+> CreateCategories200Response create_users(create_users_request)
 
 UserController@store
 
@@ -27,8 +27,8 @@ Create a new user
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
 from gateway_api_sdk.models.create_users_request import CreateUsersRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 

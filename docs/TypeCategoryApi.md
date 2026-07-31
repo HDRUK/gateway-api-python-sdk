@@ -4,20 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**call_016393e03d3b197d2172abf0d7ce08f5**](TypeCategoryApi.md#call_016393e03d3b197d2172abf0d7ce08f5) | **PUT** /api/v1/type_categories/{id} | TypeCategory@update
-[**call_4864cc161acae07c9aaf81414fa6bebd**](TypeCategoryApi.md#call_4864cc161acae07c9aaf81414fa6bebd) | **DELETE** /api/v1/type_categories/{id} | TypeCategory@destroy
-[**call_83ae406abb0fb38fa792b4cfcbbbebbf**](TypeCategoryApi.md#call_83ae406abb0fb38fa792b4cfcbbbebbf) | **POST** /api/v1/type_categories | TypeCategory@store
-[**cd1f252c1f5296d0e6007eb543ef9099**](TypeCategoryApi.md#cd1f252c1f5296d0e6007eb543ef9099) | **GET** /api/v1/type_categories/{id} | TypeCategory@show
-[**f5f0b860854ee5a33ee3d4b5f8a6d2fc**](TypeCategoryApi.md#f5f0b860854ee5a33ee3d4b5f8a6d2fc) | **GET** /api/v1/type_categories | TypeCategory@index
-[**faae0a9813b380e92fba8a26820717ee**](TypeCategoryApi.md#faae0a9813b380e92fba8a26820717ee) | **PATCH** /api/v1/type_categories/{id} | TypeCategory@update
+[**create_type_categories**](TypeCategoryApi.md#create_type_categories) | **POST** /api/v1/type_categories | TypeCategory@store
+[**delete_type_categories**](TypeCategoryApi.md#delete_type_categories) | **DELETE** /api/v1/type_categories/{id} | TypeCategory@destroy
+[**edit_type_categories**](TypeCategoryApi.md#edit_type_categories) | **PATCH** /api/v1/type_categories/{id} | TypeCategory@update
+[**fetch_all_type_categories**](TypeCategoryApi.md#fetch_all_type_categories) | **GET** /api/v1/type_categories | TypeCategory@index
+[**fetch_type_categories**](TypeCategoryApi.md#fetch_type_categories) | **GET** /api/v1/type_categories/{id} | TypeCategory@show
+[**update_type_categories**](TypeCategoryApi.md#update_type_categories) | **PUT** /api/v1/type_categories/{id} | TypeCategory@update
 
 
-# **call_016393e03d3b197d2172abf0d7ce08f5**
-> Model016393e03d3b197d2172abf0d7ce08f5200Response call_016393e03d3b197d2172abf0d7ce08f5(id, model016393e03d3b197d2172abf0d7ce08f5_request)
+# **create_type_categories**
+> CreateCategories200Response create_type_categories(create_type_categories_request)
 
-TypeCategory@update
+TypeCategory@store
 
-Update a system type category
+Creates a new system type category
 
 ### Example
 
@@ -25,8 +25,8 @@ Update a system type category
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model016393e03d3b197d2172abf0d7ce08f5200_response import Model016393e03d3b197d2172abf0d7ce08f5200Response
-from gateway_api_sdk.models.model016393e03d3b197d2172abf0d7ce08f5_request import Model016393e03d3b197d2172abf0d7ce08f5Request
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_type_categories_request import CreateTypeCategoriesRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -50,16 +50,15 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.TypeCategoryApi(api_client)
-    id = 1 # int | type category id
-    model016393e03d3b197d2172abf0d7ce08f5_request = gateway_api_sdk.Model016393e03d3b197d2172abf0d7ce08f5Request() # Model016393e03d3b197d2172abf0d7ce08f5Request | TypeCategory definition
+    create_type_categories_request = gateway_api_sdk.CreateTypeCategoriesRequest() # CreateTypeCategoriesRequest | Programming language definition
 
     try:
-        # TypeCategory@update
-        api_response = api_instance.call_016393e03d3b197d2172abf0d7ce08f5(id, model016393e03d3b197d2172abf0d7ce08f5_request)
-        print("The response of TypeCategoryApi->call_016393e03d3b197d2172abf0d7ce08f5:\n")
+        # TypeCategory@store
+        api_response = api_instance.create_type_categories(create_type_categories_request)
+        print("The response of TypeCategoryApi->create_type_categories:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TypeCategoryApi->call_016393e03d3b197d2172abf0d7ce08f5: %s\n" % e)
+        print("Exception when calling TypeCategoryApi->create_type_categories: %s\n" % e)
 ```
 
 
@@ -69,12 +68,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| type category id | 
- **model016393e03d3b197d2172abf0d7ce08f5_request** | [**Model016393e03d3b197d2172abf0d7ce08f5Request**](Model016393e03d3b197d2172abf0d7ce08f5Request.md)| TypeCategory definition | 
+ **create_type_categories_request** | [**CreateTypeCategoriesRequest**](CreateTypeCategoriesRequest.md)| Programming language definition | 
 
 ### Return type
 
-[**Model016393e03d3b197d2172abf0d7ce08f5200Response**](Model016393e03d3b197d2172abf0d7ce08f5200Response.md)
+[**CreateCategories200Response**](CreateCategories200Response.md)
 
 ### Authorization
 
@@ -89,14 +87,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Not found response |  -  |
 **200** | Success |  -  |
 **500** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **call_4864cc161acae07c9aaf81414fa6bebd**
-> C29b5b3424f7317b69b4bda048ccfafb200Response call_4864cc161acae07c9aaf81414fa6bebd(id)
+# **delete_type_categories**
+> DeleteAliases200Response delete_type_categories(id)
 
 TypeCategory@destroy
 
@@ -108,7 +105,7 @@ Delete a system type category
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -136,11 +133,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # TypeCategory@destroy
-        api_response = api_instance.call_4864cc161acae07c9aaf81414fa6bebd(id)
-        print("The response of TypeCategoryApi->call_4864cc161acae07c9aaf81414fa6bebd:\n")
+        api_response = api_instance.delete_type_categories(id)
+        print("The response of TypeCategoryApi->delete_type_categories:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TypeCategoryApi->call_4864cc161acae07c9aaf81414fa6bebd: %s\n" % e)
+        print("Exception when calling TypeCategoryApi->delete_type_categories: %s\n" % e)
 ```
 
 
@@ -154,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -175,12 +172,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **call_83ae406abb0fb38fa792b4cfcbbbebbf**
-> Dd76b8d73b7ea8b4951f03d7c0904c92200Response call_83ae406abb0fb38fa792b4cfcbbbebbf(model83ae406abb0fb38fa792b4cfcbbbebbf_request)
+# **edit_type_categories**
+> UpdateTypeCategories200Response edit_type_categories(id, edit_categories_request)
 
-TypeCategory@store
+TypeCategory@update
 
-Creates a new system type category
+Edit a system type category
 
 ### Example
 
@@ -188,8 +185,8 @@ Creates a new system type category
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.model83ae406abb0fb38fa792b4cfcbbbebbf_request import Model83ae406abb0fb38fa792b4cfcbbbebbfRequest
+from gateway_api_sdk.models.edit_categories_request import EditCategoriesRequest
+from gateway_api_sdk.models.update_type_categories200_response import UpdateTypeCategories200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -213,15 +210,16 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.TypeCategoryApi(api_client)
-    model83ae406abb0fb38fa792b4cfcbbbebbf_request = gateway_api_sdk.Model83ae406abb0fb38fa792b4cfcbbbebbfRequest() # Model83ae406abb0fb38fa792b4cfcbbbebbfRequest | Programming language definition
+    id = 1 # int | type category id
+    edit_categories_request = gateway_api_sdk.EditCategoriesRequest() # EditCategoriesRequest | TypeCategory definition
 
     try:
-        # TypeCategory@store
-        api_response = api_instance.call_83ae406abb0fb38fa792b4cfcbbbebbf(model83ae406abb0fb38fa792b4cfcbbbebbf_request)
-        print("The response of TypeCategoryApi->call_83ae406abb0fb38fa792b4cfcbbbebbf:\n")
+        # TypeCategory@update
+        api_response = api_instance.edit_type_categories(id, edit_categories_request)
+        print("The response of TypeCategoryApi->edit_type_categories:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TypeCategoryApi->call_83ae406abb0fb38fa792b4cfcbbbebbf: %s\n" % e)
+        print("Exception when calling TypeCategoryApi->edit_type_categories: %s\n" % e)
 ```
 
 
@@ -231,11 +229,12 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model83ae406abb0fb38fa792b4cfcbbbebbf_request** | [**Model83ae406abb0fb38fa792b4cfcbbbebbfRequest**](Model83ae406abb0fb38fa792b4cfcbbbebbfRequest.md)| Programming language definition | 
+ **id** | **int**| type category id | 
+ **edit_categories_request** | [**EditCategoriesRequest**](EditCategoriesRequest.md)| TypeCategory definition | 
 
 ### Return type
 
-[**Dd76b8d73b7ea8b4951f03d7c0904c92200Response**](Dd76b8d73b7ea8b4951f03d7c0904c92200Response.md)
+[**UpdateTypeCategories200Response**](UpdateTypeCategories200Response.md)
 
 ### Authorization
 
@@ -250,13 +249,88 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Not found response |  -  |
 **200** | Success |  -  |
 **500** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **cd1f252c1f5296d0e6007eb543ef9099**
-> Cd1f252c1f5296d0e6007eb543ef9099200Response cd1f252c1f5296d0e6007eb543ef9099(id)
+# **fetch_all_type_categories**
+> FetchAllTypeCategories200Response fetch_all_type_categories()
+
+TypeCategory@index
+
+Returns a list of type categories enabled on the system
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import gateway_api_sdk
+from gateway_api_sdk.models.fetch_all_type_categories200_response import FetchAllTypeCategories200Response
+from gateway_api_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gateway_api_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = gateway_api_sdk.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with gateway_api_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gateway_api_sdk.TypeCategoryApi(api_client)
+
+    try:
+        # TypeCategory@index
+        api_response = api_instance.fetch_all_type_categories()
+        print("The response of TypeCategoryApi->fetch_all_type_categories:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TypeCategoryApi->fetch_all_type_categories: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**FetchAllTypeCategories200Response**](FetchAllTypeCategories200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **fetch_type_categories**
+> FetchTypeCategories200Response fetch_type_categories(id)
 
 TypeCategory@show
 
@@ -268,7 +342,7 @@ Return a single system type category
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.cd1f252c1f5296d0e6007eb543ef9099200_response import Cd1f252c1f5296d0e6007eb543ef9099200Response
+from gateway_api_sdk.models.fetch_type_categories200_response import FetchTypeCategories200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -296,11 +370,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # TypeCategory@show
-        api_response = api_instance.cd1f252c1f5296d0e6007eb543ef9099(id)
-        print("The response of TypeCategoryApi->cd1f252c1f5296d0e6007eb543ef9099:\n")
+        api_response = api_instance.fetch_type_categories(id)
+        print("The response of TypeCategoryApi->fetch_type_categories:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TypeCategoryApi->cd1f252c1f5296d0e6007eb543ef9099: %s\n" % e)
+        print("Exception when calling TypeCategoryApi->fetch_type_categories: %s\n" % e)
 ```
 
 
@@ -314,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Cd1f252c1f5296d0e6007eb543ef9099200Response**](Cd1f252c1f5296d0e6007eb543ef9099200Response.md)
+[**FetchTypeCategories200Response**](FetchTypeCategories200Response.md)
 
 ### Authorization
 
@@ -334,86 +408,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **f5f0b860854ee5a33ee3d4b5f8a6d2fc**
-> F5f0b860854ee5a33ee3d4b5f8a6d2fc200Response f5f0b860854ee5a33ee3d4b5f8a6d2fc()
-
-TypeCategory@index
-
-Returns a list of type categories enabled on the system
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.f5f0b860854ee5a33ee3d4b5f8a6d2fc200_response import F5f0b860854ee5a33ee3d4b5f8a6d2fc200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.TypeCategoryApi(api_client)
-
-    try:
-        # TypeCategory@index
-        api_response = api_instance.f5f0b860854ee5a33ee3d4b5f8a6d2fc()
-        print("The response of TypeCategoryApi->f5f0b860854ee5a33ee3d4b5f8a6d2fc:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling TypeCategoryApi->f5f0b860854ee5a33ee3d4b5f8a6d2fc: %s\n" % e)
-```
-
-
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**F5f0b860854ee5a33ee3d4b5f8a6d2fc200Response**](F5f0b860854ee5a33ee3d4b5f8a6d2fc200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **faae0a9813b380e92fba8a26820717ee**
-> Model016393e03d3b197d2172abf0d7ce08f5200Response faae0a9813b380e92fba8a26820717ee(id, a5f6e0a9550d3c58c50dda55412cd051_request)
+# **update_type_categories**
+> UpdateTypeCategories200Response update_type_categories(id, update_type_categories_request)
 
 TypeCategory@update
 
-Edit a system type category
+Update a system type category
 
 ### Example
 
@@ -421,8 +421,8 @@ Edit a system type category
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.a5f6e0a9550d3c58c50dda55412cd051_request import A5f6e0a9550d3c58c50dda55412cd051Request
-from gateway_api_sdk.models.model016393e03d3b197d2172abf0d7ce08f5200_response import Model016393e03d3b197d2172abf0d7ce08f5200Response
+from gateway_api_sdk.models.update_type_categories200_response import UpdateTypeCategories200Response
+from gateway_api_sdk.models.update_type_categories_request import UpdateTypeCategoriesRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -447,15 +447,15 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.TypeCategoryApi(api_client)
     id = 1 # int | type category id
-    a5f6e0a9550d3c58c50dda55412cd051_request = gateway_api_sdk.A5f6e0a9550d3c58c50dda55412cd051Request() # A5f6e0a9550d3c58c50dda55412cd051Request | TypeCategory definition
+    update_type_categories_request = gateway_api_sdk.UpdateTypeCategoriesRequest() # UpdateTypeCategoriesRequest | TypeCategory definition
 
     try:
         # TypeCategory@update
-        api_response = api_instance.faae0a9813b380e92fba8a26820717ee(id, a5f6e0a9550d3c58c50dda55412cd051_request)
-        print("The response of TypeCategoryApi->faae0a9813b380e92fba8a26820717ee:\n")
+        api_response = api_instance.update_type_categories(id, update_type_categories_request)
+        print("The response of TypeCategoryApi->update_type_categories:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TypeCategoryApi->faae0a9813b380e92fba8a26820717ee: %s\n" % e)
+        print("Exception when calling TypeCategoryApi->update_type_categories: %s\n" % e)
 ```
 
 
@@ -466,11 +466,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| type category id | 
- **a5f6e0a9550d3c58c50dda55412cd051_request** | [**A5f6e0a9550d3c58c50dda55412cd051Request**](A5f6e0a9550d3c58c50dda55412cd051Request.md)| TypeCategory definition | 
+ **update_type_categories_request** | [**UpdateTypeCategoriesRequest**](UpdateTypeCategoriesRequest.md)| TypeCategory definition | 
 
 ### Return type
 
-[**Model016393e03d3b197d2172abf0d7ce08f5200Response**](Model016393e03d3b197d2172abf0d7ce08f5200Response.md)
+[**UpdateTypeCategories200Response**](UpdateTypeCategories200Response.md)
 
 ### Authorization
 

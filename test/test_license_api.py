@@ -26,45 +26,45 @@ class TestLicenseApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_b34ab4eadc1eaed469678151e6e71b9f(self) -> None:
-        """Test case for b34ab4eadc1eaed469678151e6e71b9f
-
-        License@index
-        """
-        pass
-
-    def test_call_2721b23c1df3b4e71706e4ab04f9b0a8(self) -> None:
-        """Test case for call_2721b23c1df3b4e71706e4ab04f9b0a8
+    def test_create_licenses(self) -> None:
+        """Test case for create_licenses
 
         License@store
         """
         pass
 
-    def test_call_50c6be78401c528ffdf4ed00414e7678(self) -> None:
-        """Test case for call_50c6be78401c528ffdf4ed00414e7678
-
-        License@show
-        """
-        pass
-
-    def test_call_98a20646cb4164cddd79725baf3dcf61(self) -> None:
-        """Test case for call_98a20646cb4164cddd79725baf3dcf61
-
-        License@update
-        """
-        pass
-
-    def test_call_991d716a8c83b7e3c4747583eeffc0ee(self) -> None:
-        """Test case for call_991d716a8c83b7e3c4747583eeffc0ee
+    def test_delete_licenses(self) -> None:
+        """Test case for delete_licenses
 
         License@destroy
         """
         pass
 
-    def test_fc8a99b7173f11228400fac2754185fa(self) -> None:
-        """Test case for fc8a99b7173f11228400fac2754185fa
+    def test_edit_licenses(self) -> None:
+        """Test case for edit_licenses
 
         License@edit
+        """
+        pass
+
+    def test_fetch_all_licenses(self) -> None:
+        """Test case for fetch_all_licenses
+
+        License@index
+        """
+        pass
+
+    def test_fetch_licenses(self) -> None:
+        """Test case for fetch_licenses
+
+        License@show
+        """
+        pass
+
+    def test_update_licenses(self) -> None:
+        """Test case for update_licenses
+
+        License@update
         """
         pass
 

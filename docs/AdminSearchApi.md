@@ -4,22 +4,22 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**call_4ff0fc5e7c66284608ce55dc6cb7d846**](AdminSearchApi.md#call_4ff0fc5e7c66284608ce55dc6cb7d846) | **POST** /api/v1/admin/search/feature | Activate or deactivate a search-related Pennant feature flag
-[**call_8918bd9dfb8e055a335f3c0695428e73**](AdminSearchApi.md#call_8918bd9dfb8e055a335f3c0695428e73) | **GET** /api/v1/admin/search/status | Get Typesense collection status for every onboarded search entity
-[**call_92a06ea019f5560b5c9e76e02fe38e31**](AdminSearchApi.md#call_92a06ea019f5560b5c9e76e02fe38e31) | **POST** /api/v1/admin/search/reindex | Queue a drop+recreate+import of a search entity&#39;s Typesense collection
+[**create_admin_search_reindex**](AdminSearchApi.md#create_admin_search_reindex) | **POST** /api/v1/admin/search/reindex | Queue a drop+recreate+import of a search entity&#39;s Typesense collection
+[**fetch_admin_search_status**](AdminSearchApi.md#fetch_admin_search_status) | **GET** /api/v1/admin/search/status | Get Typesense collection status for every onboarded search entity
+[**update_admin_search_feature**](AdminSearchApi.md#update_admin_search_feature) | **POST** /api/v1/admin/search/feature | Activate or deactivate a search-related Pennant feature flag
 
 
-# **call_4ff0fc5e7c66284608ce55dc6cb7d846**
-> call_4ff0fc5e7c66284608ce55dc6cb7d846(model4ff0fc5e7c66284608ce55dc6cb7d846_request)
+# **create_admin_search_reindex**
+> create_admin_search_reindex(create_admin_search_reindex_request)
 
-Activate or deactivate a search-related Pennant feature flag
+Queue a drop+recreate+import of a search entity's Typesense collection
 
 ### Example
 
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model4ff0fc5e7c66284608ce55dc6cb7d846_request import Model4ff0fc5e7c66284608ce55dc6cb7d846Request
+from gateway_api_sdk.models.create_admin_search_reindex_request import CreateAdminSearchReindexRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -34,13 +34,13 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.AdminSearchApi(api_client)
-    model4ff0fc5e7c66284608ce55dc6cb7d846_request = gateway_api_sdk.Model4ff0fc5e7c66284608ce55dc6cb7d846Request() # Model4ff0fc5e7c66284608ce55dc6cb7d846Request | 
+    create_admin_search_reindex_request = gateway_api_sdk.CreateAdminSearchReindexRequest() # CreateAdminSearchReindexRequest | 
 
     try:
-        # Activate or deactivate a search-related Pennant feature flag
-        api_instance.call_4ff0fc5e7c66284608ce55dc6cb7d846(model4ff0fc5e7c66284608ce55dc6cb7d846_request)
+        # Queue a drop+recreate+import of a search entity's Typesense collection
+        api_instance.create_admin_search_reindex(create_admin_search_reindex_request)
     except Exception as e:
-        print("Exception when calling AdminSearchApi->call_4ff0fc5e7c66284608ce55dc6cb7d846: %s\n" % e)
+        print("Exception when calling AdminSearchApi->create_admin_search_reindex: %s\n" % e)
 ```
 
 
@@ -50,7 +50,7 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model4ff0fc5e7c66284608ce55dc6cb7d846_request** | [**Model4ff0fc5e7c66284608ce55dc6cb7d846Request**](Model4ff0fc5e7c66284608ce55dc6cb7d846Request.md)|  | 
+ **create_admin_search_reindex_request** | [**CreateAdminSearchReindexRequest**](CreateAdminSearchReindexRequest.md)|  | 
 
 ### Return type
 
@@ -69,13 +69,13 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
-**422** | Unknown feature |  -  |
+**202** | Reindex queued |  -  |
+**422** | Unknown entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **call_8918bd9dfb8e055a335f3c0695428e73**
-> call_8918bd9dfb8e055a335f3c0695428e73()
+# **fetch_admin_search_status**
+> fetch_admin_search_status()
 
 Get Typesense collection status for every onboarded search entity
 
@@ -101,9 +101,9 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Get Typesense collection status for every onboarded search entity
-        api_instance.call_8918bd9dfb8e055a335f3c0695428e73()
+        api_instance.fetch_admin_search_status()
     except Exception as e:
-        print("Exception when calling AdminSearchApi->call_8918bd9dfb8e055a335f3c0695428e73: %s\n" % e)
+        print("Exception when calling AdminSearchApi->fetch_admin_search_status: %s\n" % e)
 ```
 
 
@@ -133,17 +133,17 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **call_92a06ea019f5560b5c9e76e02fe38e31**
-> call_92a06ea019f5560b5c9e76e02fe38e31(model92a06ea019f5560b5c9e76e02fe38e31_request)
+# **update_admin_search_feature**
+> update_admin_search_feature(update_admin_search_feature_request)
 
-Queue a drop+recreate+import of a search entity's Typesense collection
+Activate or deactivate a search-related Pennant feature flag
 
 ### Example
 
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.model92a06ea019f5560b5c9e76e02fe38e31_request import Model92a06ea019f5560b5c9e76e02fe38e31Request
+from gateway_api_sdk.models.update_admin_search_feature_request import UpdateAdminSearchFeatureRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -158,13 +158,13 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.AdminSearchApi(api_client)
-    model92a06ea019f5560b5c9e76e02fe38e31_request = gateway_api_sdk.Model92a06ea019f5560b5c9e76e02fe38e31Request() # Model92a06ea019f5560b5c9e76e02fe38e31Request | 
+    update_admin_search_feature_request = gateway_api_sdk.UpdateAdminSearchFeatureRequest() # UpdateAdminSearchFeatureRequest | 
 
     try:
-        # Queue a drop+recreate+import of a search entity's Typesense collection
-        api_instance.call_92a06ea019f5560b5c9e76e02fe38e31(model92a06ea019f5560b5c9e76e02fe38e31_request)
+        # Activate or deactivate a search-related Pennant feature flag
+        api_instance.update_admin_search_feature(update_admin_search_feature_request)
     except Exception as e:
-        print("Exception when calling AdminSearchApi->call_92a06ea019f5560b5c9e76e02fe38e31: %s\n" % e)
+        print("Exception when calling AdminSearchApi->update_admin_search_feature: %s\n" % e)
 ```
 
 
@@ -174,7 +174,7 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model92a06ea019f5560b5c9e76e02fe38e31_request** | [**Model92a06ea019f5560b5c9e76e02fe38e31Request**](Model92a06ea019f5560b5c9e76e02fe38e31Request.md)|  | 
+ **update_admin_search_feature_request** | [**UpdateAdminSearchFeatureRequest**](UpdateAdminSearchFeatureRequest.md)|  | 
 
 ### Return type
 
@@ -193,8 +193,8 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Reindex queued |  -  |
-**422** | Unknown entity |  -  |
+**200** | Success |  -  |
+**422** | Unknown feature |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

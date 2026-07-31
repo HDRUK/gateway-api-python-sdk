@@ -26,8 +26,8 @@ class TestSearchDatasetsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_b60e5c6bd58001740003449e91216454(self) -> None:
-        """Test case for b60e5c6bd58001740003449e91216454
+    def test_search_datasets(self) -> None:
+        """Test case for search_datasets
 
         Search@datasets
         """

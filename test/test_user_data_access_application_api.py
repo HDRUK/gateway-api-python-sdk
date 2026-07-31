@@ -26,52 +26,52 @@ class TestUserDataAccessApplicationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_02454c833604944c4ab43341c54819b5(self) -> None:
-        """Test case for call_02454c833604944c4ab43341c54819b5
+    def test_count_all_user_dar_applications(self) -> None:
+        """Test case for count_all_user_dar_applications
 
         UserDataAccessApplicationController@allCounts
         """
         pass
 
-    def test_call_34fca475ca3526cfda7bd59f33676ca9(self) -> None:
-        """Test case for call_34fca475ca3526cfda7bd59f33676ca9
-
-        UserDataAccessApplicationController@show
-        """
-        pass
-
-    def test_call_3ed5d58afc4b6c7bb2d955fa4c0f1671(self) -> None:
-        """Test case for call_3ed5d58afc4b6c7bb2d955fa4c0f1671
-
-        UserDataAccessApplicationController@index
-        """
-        pass
-
-    def test_call_7090c41ba0c1412e6f1e62c5d9db14ba(self) -> None:
-        """Test case for call_7090c41ba0c1412e6f1e62c5d9db14ba
-
-        UserDataAccessApplicationController@showAnswers
-        """
-        pass
-
-    def test_call_7710dee56f16ff46e25d95111beb5ce0(self) -> None:
-        """Test case for call_7710dee56f16ff46e25d95111beb5ce0
-
-        UserDataAccessApplicationController@showHeader
-        """
-        pass
-
-    def test_call_7753eafda891afa178f7cbff9e66ff10(self) -> None:
-        """Test case for call_7753eafda891afa178f7cbff9e66ff10
+    def test_count_user_dar_applications_by_field(self) -> None:
+        """Test case for count_user_dar_applications_by_field
 
         UserDataAccessApplicationController@count
         """
         pass
 
-    def test_d05df7a52fe05d677aa184236d61de56(self) -> None:
-        """Test case for d05df7a52fe05d677aa184236d61de56
+    def test_create_user_dar_application_answers(self) -> None:
+        """Test case for create_user_dar_application_answers
 
         UserDataAccessApplication@storeAnswers
+        """
+        pass
+
+    def test_fetch_user_dar_application_answers(self) -> None:
+        """Test case for fetch_user_dar_application_answers
+
+        UserDataAccessApplicationController@showAnswers
+        """
+        pass
+
+    def test_fetch_user_dar_application_details(self) -> None:
+        """Test case for fetch_user_dar_application_details
+
+        UserDataAccessApplicationController@show
+        """
+        pass
+
+    def test_fetch_user_dar_application_header(self) -> None:
+        """Test case for fetch_user_dar_application_header
+
+        UserDataAccessApplicationController@showHeader
+        """
+        pass
+
+    def test_fetch_user_dar_applications(self) -> None:
+        """Test case for fetch_user_dar_applications
+
+        UserDataAccessApplicationController@index
         """
         pass
 

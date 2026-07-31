@@ -15,7 +15,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from gateway_api_sdk.models.model58e41162a49b5b1bf92231b359ea70cb200_response import Model58e41162a49b5b1bf92231b359ea70cb200Response
+from gateway_api_sdk.models.fetch_user_organisations200_response import FetchUserOrganisations200Response
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -36,7 +36,7 @@ class UserOrganisationApi:
 
 
     @validate_call
-    def call_58e41162a49b5b1bf92231b359ea70cb(
+    def fetch_user_organisations(
         self,
         _request_timeout: Union[
             None,
@@ -50,7 +50,7 @@ class UserOrganisationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model58e41162a49b5b1bf92231b359ea70cb200Response:
+    ) -> FetchUserOrganisations200Response:
         """UserOrganisation@index
 
         Return a distinct list of all organisations which users belong to
@@ -77,7 +77,7 @@ class UserOrganisationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_58e41162a49b5b1bf92231b359ea70cb_serialize(
+        _param = self._fetch_user_organisations_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -85,7 +85,7 @@ class UserOrganisationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model58e41162a49b5b1bf92231b359ea70cb200Response",
+            '200': "FetchUserOrganisations200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -99,7 +99,7 @@ class UserOrganisationApi:
 
 
     @validate_call
-    def call_58e41162a49b5b1bf92231b359ea70cb_with_http_info(
+    def fetch_user_organisations_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -113,7 +113,7 @@ class UserOrganisationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model58e41162a49b5b1bf92231b359ea70cb200Response]:
+    ) -> ApiResponse[FetchUserOrganisations200Response]:
         """UserOrganisation@index
 
         Return a distinct list of all organisations which users belong to
@@ -140,7 +140,7 @@ class UserOrganisationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_58e41162a49b5b1bf92231b359ea70cb_serialize(
+        _param = self._fetch_user_organisations_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -148,7 +148,7 @@ class UserOrganisationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model58e41162a49b5b1bf92231b359ea70cb200Response",
+            '200': "FetchUserOrganisations200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -162,7 +162,7 @@ class UserOrganisationApi:
 
 
     @validate_call
-    def call_58e41162a49b5b1bf92231b359ea70cb_without_preload_content(
+    def fetch_user_organisations_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -203,7 +203,7 @@ class UserOrganisationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_58e41162a49b5b1bf92231b359ea70cb_serialize(
+        _param = self._fetch_user_organisations_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -211,7 +211,7 @@ class UserOrganisationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model58e41162a49b5b1bf92231b359ea70cb200Response",
+            '200': "FetchUserOrganisations200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -220,7 +220,7 @@ class UserOrganisationApi:
         return response_data.response
 
 
-    def _call_58e41162a49b5b1bf92231b359ea70cb_serialize(
+    def _fetch_user_organisations_serialize(
         self,
         _request_auth,
         _content_type,

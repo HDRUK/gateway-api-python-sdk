@@ -26,15 +26,15 @@ class TestSearchPublicationsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_9946399cbddb0dcadcbd5801e5ee1dd4(self) -> None:
-        """Test case for call_9946399cbddb0dcadcbd5801e5ee1dd4
+    def test_search_publications(self) -> None:
+        """Test case for search_publications
 
         Search@publications
         """
         pass
 
-    def test_call_9a0abfa6186327d43c51259d5b524fde(self) -> None:
-        """Test case for call_9a0abfa6186327d43c51259d5b524fde
+    def test_search_publications_by_doi(self) -> None:
+        """Test case for search_publications_by_doi
 
         Search@publications
         """

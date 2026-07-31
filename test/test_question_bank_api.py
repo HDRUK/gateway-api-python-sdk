@@ -26,94 +26,94 @@ class TestQuestionBankApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_a3f9ce42420fdef136cfc7b0de8e2683(self) -> None:
-        """Test case for a3f9ce42420fdef136cfc7b0de8e2683
-
-        QuestionBank@showVersion
-        """
-        pass
-
-    def test_call_04e09f4aada3406dbc08715865880f4f(self) -> None:
-        """Test case for call_04e09f4aada3406dbc08715865880f4f
-
-        TeamQuestionBank@indexBySection
-        """
-        pass
-
-    def test_call_17336ba551813e00975d3c2da09211c0(self) -> None:
-        """Test case for call_17336ba551813e00975d3c2da09211c0
-
-        QuestionBank@show
-        """
-        pass
-
-    def test_call_35856fcdf6980ae4da3303ec5a8d90b7(self) -> None:
-        """Test case for call_35856fcdf6980ae4da3303ec5a8d90b7
-
-        QuestionBank@index
-        """
-        pass
-
-    def test_call_35b36a3a067579d62500b09623dbffb6(self) -> None:
-        """Test case for call_35b36a3a067579d62500b09623dbffb6
-
-        QuestionBank@destroyFile
-        """
-        pass
-
-    def test_call_38b0b31c2029a219013fa640588a4a69(self) -> None:
-        """Test case for call_38b0b31c2029a219013fa640588a4a69
+    def test_create_question_bank_question(self) -> None:
+        """Test case for create_question_bank_question
 
         QuestionBank@store
         """
         pass
 
-    def test_call_64d6f1d6c88cbcfccd3e511b29c394d6(self) -> None:
-        """Test case for call_64d6f1d6c88cbcfccd3e511b29c394d6
-
-        QuestionBank@update
-        """
-        pass
-
-    def test_d38b27b30f91d05932ca855e021c8ffd(self) -> None:
-        """Test case for d38b27b30f91d05932ca855e021c8ffd
-
-        QuestionBank@update
-        """
-        pass
-
-    def test_da82f7ce4870bd37af28a192877b22a7(self) -> None:
-        """Test case for da82f7ce4870bd37af28a192877b22a7
-
-        QuestionBank@updateStatus
-        """
-        pass
-
-    def test_dbaa6922ceaa314314605cba51dbb9df(self) -> None:
-        """Test case for dbaa6922ceaa314314605cba51dbb9df
-
-        QuestionBank@indexArchived
-        """
-        pass
-
-    def test_e7408526aeb9ed9cc633d4a9f25cfa14(self) -> None:
-        """Test case for e7408526aeb9ed9cc633d4a9f25cfa14
+    def test_delete_question_bank_question(self) -> None:
+        """Test case for delete_question_bank_question
 
         QuestionBank@destroy
         """
         pass
 
-    def test_ea6f671b0436fa57891fe098994556a1(self) -> None:
-        """Test case for ea6f671b0436fa57891fe098994556a1
+    def test_download_question_bank_question_file(self) -> None:
+        """Test case for download_question_bank_question_file
+
+        QuestionBank@destroyFile
+        """
+        pass
+
+    def test_edit_question_bank_question(self) -> None:
+        """Test case for edit_question_bank_question
+
+        QuestionBank@update
+        """
+        pass
+
+    def test_fetch_archived_question_bank_questions(self) -> None:
+        """Test case for fetch_archived_question_bank_questions
+
+        QuestionBank@indexArchived
+        """
+        pass
+
+    def test_fetch_custom_question_bank_questions(self) -> None:
+        """Test case for fetch_custom_question_bank_questions
+
+        QuestionBank@indexCustom
+        """
+        pass
+
+    def test_fetch_question_bank_question(self) -> None:
+        """Test case for fetch_question_bank_question
+
+        QuestionBank@show
+        """
+        pass
+
+    def test_fetch_question_bank_question_version(self) -> None:
+        """Test case for fetch_question_bank_question_version
+
+        QuestionBank@showVersion
+        """
+        pass
+
+    def test_fetch_question_bank_questions(self) -> None:
+        """Test case for fetch_question_bank_questions
+
+        QuestionBank@index
+        """
+        pass
+
+    def test_fetch_standard_question_bank_questions(self) -> None:
+        """Test case for fetch_standard_question_bank_questions
 
         QuestionBank@indexStandard
         """
         pass
 
-    def test_fa7079be66c6e1f5a236ecac24b63e2b(self) -> None:
-        """Test case for fa7079be66c6e1f5a236ecac24b63e2b
+    def test_fetch_team_question_bank_questions_by_section(self) -> None:
+        """Test case for fetch_team_question_bank_questions_by_section
 
-        QuestionBank@indexCustom
+        TeamQuestionBank@indexBySection
+        """
+        pass
+
+    def test_update_question_bank_question(self) -> None:
+        """Test case for update_question_bank_question
+
+        QuestionBank@update
+        """
+        pass
+
+    def test_update_question_bank_question_status(self) -> None:
+        """Test case for update_question_bank_question_status
+
+        QuestionBank@updateStatus
         """
         pass
 

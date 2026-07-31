@@ -26,20 +26,6 @@ class TestWidgetsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_a439b274e045e4ae8ab3006c33290aff(self) -> None:
-        """Test case for a439b274e045e4ae8ab3006c33290aff
-
-        WidgetController@getWidgetData
-        """
-        pass
-
-    def test_c9939b681f1c7deb438e5d7a25ea9509(self) -> None:
-        """Test case for c9939b681f1c7deb438e5d7a25ea9509
-
-        Update an existing widget
-        """
-        pass
-
     def test_create_widget(self) -> None:
         """Test case for create_widget
 
@@ -68,6 +54,13 @@ class TestWidgetsApi(unittest.TestCase):
         """
         pass
 
+    def test_fetch_widget_data_sources(self) -> None:
+        """Test case for fetch_widget_data_sources
+
+        WidgetController@getWidgetData
+        """
+        pass
+
     def test_retrieve_widget_data(self) -> None:
         """Test case for retrieve_widget_data
 
@@ -79,6 +72,13 @@ class TestWidgetsApi(unittest.TestCase):
         """Test case for track_widget_event
 
         Record a widget analytics event
+        """
+        pass
+
+    def test_update_widget(self) -> None:
+        """Test case for update_widget
+
+        Update an existing widget
         """
         pass
 

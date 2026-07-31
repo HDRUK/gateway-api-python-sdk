@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create_user_has_roles**
-> C29b5b3424f7317b69b4bda048ccfafb200Response create_user_has_roles(user_id, create_user_has_roles_request)
+> DeleteAliases200Response create_user_has_roles(user_id, create_user_has_roles_request)
 
 UserRoleController@store
 
@@ -22,8 +22,8 @@ Create user has roles
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
 from gateway_api_sdk.models.create_user_has_roles_request import CreateUserHasRolesRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_has_roles**
-> C29b5b3424f7317b69b4bda048ccfafb200Response update_user_has_roles(user_id, update_user_has_roles_request)
+> DeleteAliases200Response update_user_has_roles(user_id, update_user_has_roles_request)
 
 UserRoleController@edit
 
@@ -186,7 +186,7 @@ Update user has roles
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
 from gateway_api_sdk.models.update_user_has_roles_request import UpdateUserHasRolesRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**C29b5b3424f7317b69b4bda048ccfafb200Response**](C29b5b3424f7317b69b4bda048ccfafb200Response.md)
+[**DeleteAliases200Response**](DeleteAliases200Response.md)
 
 ### Authorization
 

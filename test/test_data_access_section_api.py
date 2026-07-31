@@ -26,45 +26,45 @@ class TestDataAccessSectionApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_0df3660c2b63970f84f9beec8a6c334e(self) -> None:
-        """Test case for call_0df3660c2b63970f84f9beec8a6c334e
-
-        DataAccessSection@destroy
-        """
-        pass
-
-    def test_call_22b4daa2ab6ab3638657b9f6eee22316(self) -> None:
-        """Test case for call_22b4daa2ab6ab3638657b9f6eee22316
-
-        DataAccessSection@update
-        """
-        pass
-
-    def test_call_24bb1d73f780293f012cbc187f5448f3(self) -> None:
-        """Test case for call_24bb1d73f780293f012cbc187f5448f3
+    def test_create_dar_section(self) -> None:
+        """Test case for create_dar_section
 
         DataAccessSection@store
         """
         pass
 
-    def test_call_2935b32e38ac989b35eab8e0b7552cd3(self) -> None:
-        """Test case for call_2935b32e38ac989b35eab8e0b7552cd3
+    def test_delete_dar_section(self) -> None:
+        """Test case for delete_dar_section
 
-        DataAccessSection@update
+        DataAccessSection@destroy
         """
         pass
 
-    def test_call_94f1c18e47daa32c1346be4a0d0449e4(self) -> None:
-        """Test case for call_94f1c18e47daa32c1346be4a0d0449e4
+    def test_fetch_dar_section(self) -> None:
+        """Test case for fetch_dar_section
+
+        DataAccessSection@show
+        """
+        pass
+
+    def test_fetch_dar_sections(self) -> None:
+        """Test case for fetch_dar_sections
 
         DataAccessSection@index
         """
         pass
 
-    def test_fc0e1e343f76b10d80b2332ca24fbfe0(self) -> None:
-        """Test case for fc0e1e343f76b10d80b2332ca24fbfe0
+    def test_patch_dar_section(self) -> None:
+        """Test case for patch_dar_section
 
-        DataAccessSection@show
+        DataAccessSection@update
+        """
+        pass
+
+    def test_update_dar_section(self) -> None:
+        """Test case for update_dar_section
+
+        DataAccessSection@update
         """
         pass
 

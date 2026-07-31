@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**b60e5c6bd58001740003449e91216454**](SearchDatasetsApi.md#b60e5c6bd58001740003449e91216454) | **POST** /api/v1/search/datasets | Search@datasets
+[**search_datasets**](SearchDatasetsApi.md#search_datasets) | **POST** /api/v1/search/datasets | Search@datasets
 
 
-# **b60e5c6bd58001740003449e91216454**
-> B60e5c6bd58001740003449e91216454200Response b60e5c6bd58001740003449e91216454(b60e5c6bd58001740003449e91216454_request)
+# **search_datasets**
+> SearchDatasets200Response search_datasets(search_datasets_request)
 
 Search@datasets
 
@@ -20,8 +20,8 @@ Returns gateway datasets related to the provided query term(s)
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.b60e5c6bd58001740003449e91216454200_response import B60e5c6bd58001740003449e91216454200Response
-from gateway_api_sdk.models.b60e5c6bd58001740003449e91216454_request import B60e5c6bd58001740003449e91216454Request
+from gateway_api_sdk.models.search_datasets200_response import SearchDatasets200Response
+from gateway_api_sdk.models.search_datasets_request import SearchDatasetsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -45,15 +45,15 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.SearchDatasetsApi(api_client)
-    b60e5c6bd58001740003449e91216454_request = gateway_api_sdk.B60e5c6bd58001740003449e91216454Request() # B60e5c6bd58001740003449e91216454Request | Submit search query
+    search_datasets_request = gateway_api_sdk.SearchDatasetsRequest() # SearchDatasetsRequest | Submit search query
 
     try:
         # Search@datasets
-        api_response = api_instance.b60e5c6bd58001740003449e91216454(b60e5c6bd58001740003449e91216454_request)
-        print("The response of SearchDatasetsApi->b60e5c6bd58001740003449e91216454:\n")
+        api_response = api_instance.search_datasets(search_datasets_request)
+        print("The response of SearchDatasetsApi->search_datasets:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SearchDatasetsApi->b60e5c6bd58001740003449e91216454: %s\n" % e)
+        print("Exception when calling SearchDatasetsApi->search_datasets: %s\n" % e)
 ```
 
 
@@ -63,11 +63,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **b60e5c6bd58001740003449e91216454_request** | [**B60e5c6bd58001740003449e91216454Request**](B60e5c6bd58001740003449e91216454Request.md)| Submit search query | 
+ **search_datasets_request** | [**SearchDatasetsRequest**](SearchDatasetsRequest.md)| Submit search query | 
 
 ### Return type
 
-[**B60e5c6bd58001740003449e91216454200Response**](B60e5c6bd58001740003449e91216454200Response.md)
+[**SearchDatasets200Response**](SearchDatasets200Response.md)
 
 ### Authorization
 

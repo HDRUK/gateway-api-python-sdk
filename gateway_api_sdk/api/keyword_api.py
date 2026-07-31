@@ -18,14 +18,14 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.a5f6e0a9550d3c58c50dda55412cd051_request import A5f6e0a9550d3c58c50dda55412cd051Request
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.d59dbdaa4244200f6b9060e166e337d9200_response import D59dbdaa4244200f6b9060e166e337d9200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92_request import Dd76b8d73b7ea8b4951f03d7c0904c92Request
-from gateway_api_sdk.models.f2450127ddd5aa4ad77c822ba256e01a200_response import F2450127ddd5aa4ad77c822ba256e01a200Response
-from gateway_api_sdk.models.faadd5f355273c0ee61ef48436d03ded200_response import Faadd5f355273c0ee61ef48436d03ded200Response
-from gateway_api_sdk.models.model988e8695bc991d7f8e40131db5ba7a76_request import Model988e8695bc991d7f8e40131db5ba7a76Request
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_categories_request import CreateCategoriesRequest
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.edit_categories_request import EditCategoriesRequest
+from gateway_api_sdk.models.fetch_all_keywords200_response import FetchAllKeywords200Response
+from gateway_api_sdk.models.fetch_keywords200_response import FetchKeywords200Response
+from gateway_api_sdk.models.update_categories_request import UpdateCategoriesRequest
+from gateway_api_sdk.models.update_keywords200_response import UpdateKeywords200Response
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -46,9 +46,9 @@ class KeywordApi:
 
 
     @validate_call
-    def c144e4dec467e0666f1a6eb1b905a080(
+    def create_keywords(
         self,
-        id: Annotated[StrictInt, Field(description="keyword id")],
+        create_categories_request: Annotated[CreateCategoriesRequest, Field(description="Keyword definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -61,13 +61,13 @@ class KeywordApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
-        """KeywordController@destroy
+    ) -> CreateCategories200Response:
+        """KeywordController@store
 
-        Delete a keyword by id
+        Creates a new keyword
 
-        :param id: keyword id (required)
-        :type id: int
+        :param create_categories_request: Keyword definition (required)
+        :type create_categories_request: CreateCategoriesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -90,8 +90,8 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._c144e4dec467e0666f1a6eb1b905a080_serialize(
-            id=id,
+        _param = self._create_keywords_serialize(
+            create_categories_request=create_categories_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -99,9 +99,9 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
+            '409': "CreateKeywords409Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -115,7 +115,218 @@ class KeywordApi:
 
 
     @validate_call
-    def c144e4dec467e0666f1a6eb1b905a080_with_http_info(
+    def create_keywords_with_http_info(
+        self,
+        create_categories_request: Annotated[CreateCategoriesRequest, Field(description="Keyword definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CreateCategories200Response]:
+        """KeywordController@store
+
+        Creates a new keyword
+
+        :param create_categories_request: Keyword definition (required)
+        :type create_categories_request: CreateCategoriesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_keywords_serialize(
+            create_categories_request=create_categories_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
+            '409': "CreateKeywords409Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def create_keywords_without_preload_content(
+        self,
+        create_categories_request: Annotated[CreateCategoriesRequest, Field(description="Keyword definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """KeywordController@store
+
+        Creates a new keyword
+
+        :param create_categories_request: Keyword definition (required)
+        :type create_categories_request: CreateCategoriesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_keywords_serialize(
+            create_categories_request=create_categories_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateCategories200Response",
+            '500': "CreateAliases500Response",
+            '409': "CreateKeywords409Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_keywords_serialize(
+        self,
+        create_categories_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if create_categories_request is not None:
+            _body_params = create_categories_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v1/keywords',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def delete_keywords(
         self,
         id: Annotated[StrictInt, Field(description="keyword id")],
         _request_timeout: Union[
@@ -130,7 +341,7 @@ class KeywordApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> DeleteAliases200Response:
         """KeywordController@destroy
 
         Delete a keyword by id
@@ -159,7 +370,7 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._c144e4dec467e0666f1a6eb1b905a080_serialize(
+        _param = self._delete_keywords_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -168,9 +379,78 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_keywords_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="keyword id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[DeleteAliases200Response]:
+        """KeywordController@destroy
+
+        Delete a keyword by id
+
+        :param id: keyword id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_keywords_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -184,7 +464,7 @@ class KeywordApi:
 
 
     @validate_call
-    def c144e4dec467e0666f1a6eb1b905a080_without_preload_content(
+    def delete_keywords_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="keyword id")],
         _request_timeout: Union[
@@ -228,7 +508,7 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._c144e4dec467e0666f1a6eb1b905a080_serialize(
+        _param = self._delete_keywords_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -237,9 +517,9 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -248,7 +528,7 @@ class KeywordApi:
         return response_data.response
 
 
-    def _c144e4dec467e0666f1a6eb1b905a080_serialize(
+    def _delete_keywords_serialize(
         self,
         id,
         _request_auth,
@@ -313,10 +593,10 @@ class KeywordApi:
 
 
     @validate_call
-    def call_5e7d6f311632134045864947649b04d4(
+    def edit_keywords(
         self,
         id: Annotated[StrictInt, Field(description="keyword id")],
-        a5f6e0a9550d3c58c50dda55412cd051_request: Annotated[A5f6e0a9550d3c58c50dda55412cd051Request, Field(description="Category definition")],
+        edit_categories_request: Annotated[EditCategoriesRequest, Field(description="Category definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -329,15 +609,15 @@ class KeywordApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> F2450127ddd5aa4ad77c822ba256e01a200Response:
+    ) -> UpdateKeywords200Response:
         """KeywordController@update
 
         Edit a keyword by id
 
         :param id: keyword id (required)
         :type id: int
-        :param a5f6e0a9550d3c58c50dda55412cd051_request: Category definition (required)
-        :type a5f6e0a9550d3c58c50dda55412cd051_request: A5f6e0a9550d3c58c50dda55412cd051Request
+        :param edit_categories_request: Category definition (required)
+        :type edit_categories_request: EditCategoriesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -360,9 +640,9 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_5e7d6f311632134045864947649b04d4_serialize(
+        _param = self._edit_keywords_serialize(
             id=id,
-            a5f6e0a9550d3c58c50dda55412cd051_request=a5f6e0a9550d3c58c50dda55412cd051_request,
+            edit_categories_request=edit_categories_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -370,9 +650,9 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "F2450127ddd5aa4ad77c822ba256e01a200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateKeywords200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -386,10 +666,10 @@ class KeywordApi:
 
 
     @validate_call
-    def call_5e7d6f311632134045864947649b04d4_with_http_info(
+    def edit_keywords_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="keyword id")],
-        a5f6e0a9550d3c58c50dda55412cd051_request: Annotated[A5f6e0a9550d3c58c50dda55412cd051Request, Field(description="Category definition")],
+        edit_categories_request: Annotated[EditCategoriesRequest, Field(description="Category definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -402,15 +682,15 @@ class KeywordApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[F2450127ddd5aa4ad77c822ba256e01a200Response]:
+    ) -> ApiResponse[UpdateKeywords200Response]:
         """KeywordController@update
 
         Edit a keyword by id
 
         :param id: keyword id (required)
         :type id: int
-        :param a5f6e0a9550d3c58c50dda55412cd051_request: Category definition (required)
-        :type a5f6e0a9550d3c58c50dda55412cd051_request: A5f6e0a9550d3c58c50dda55412cd051Request
+        :param edit_categories_request: Category definition (required)
+        :type edit_categories_request: EditCategoriesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -433,9 +713,9 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_5e7d6f311632134045864947649b04d4_serialize(
+        _param = self._edit_keywords_serialize(
             id=id,
-            a5f6e0a9550d3c58c50dda55412cd051_request=a5f6e0a9550d3c58c50dda55412cd051_request,
+            edit_categories_request=edit_categories_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -443,9 +723,9 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "F2450127ddd5aa4ad77c822ba256e01a200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateKeywords200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -459,10 +739,10 @@ class KeywordApi:
 
 
     @validate_call
-    def call_5e7d6f311632134045864947649b04d4_without_preload_content(
+    def edit_keywords_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="keyword id")],
-        a5f6e0a9550d3c58c50dda55412cd051_request: Annotated[A5f6e0a9550d3c58c50dda55412cd051Request, Field(description="Category definition")],
+        edit_categories_request: Annotated[EditCategoriesRequest, Field(description="Category definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -482,8 +762,8 @@ class KeywordApi:
 
         :param id: keyword id (required)
         :type id: int
-        :param a5f6e0a9550d3c58c50dda55412cd051_request: Category definition (required)
-        :type a5f6e0a9550d3c58c50dda55412cd051_request: A5f6e0a9550d3c58c50dda55412cd051Request
+        :param edit_categories_request: Category definition (required)
+        :type edit_categories_request: EditCategoriesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -506,9 +786,9 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_5e7d6f311632134045864947649b04d4_serialize(
+        _param = self._edit_keywords_serialize(
             id=id,
-            a5f6e0a9550d3c58c50dda55412cd051_request=a5f6e0a9550d3c58c50dda55412cd051_request,
+            edit_categories_request=edit_categories_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -516,9 +796,9 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "F2450127ddd5aa4ad77c822ba256e01a200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "UpdateKeywords200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -527,10 +807,10 @@ class KeywordApi:
         return response_data.response
 
 
-    def _call_5e7d6f311632134045864947649b04d4_serialize(
+    def _edit_keywords_serialize(
         self,
         id,
-        a5f6e0a9550d3c58c50dda55412cd051_request,
+        edit_categories_request,
         _request_auth,
         _content_type,
         _headers,
@@ -558,8 +838,8 @@ class KeywordApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if a5f6e0a9550d3c58c50dda55412cd051_request is not None:
-            _body_params = a5f6e0a9550d3c58c50dda55412cd051_request
+        if edit_categories_request is not None:
+            _body_params = edit_categories_request
 
 
         # set the HTTP header `Accept`
@@ -608,7 +888,7 @@ class KeywordApi:
 
 
     @validate_call
-    def d59dbdaa4244200f6b9060e166e337d9(
+    def fetch_all_keywords(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="Alternative output schema version.")] = None,
         _request_timeout: Union[
@@ -623,7 +903,7 @@ class KeywordApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> D59dbdaa4244200f6b9060e166e337d9200Response:
+    ) -> FetchAllKeywords200Response:
         """KeywordController@index
 
         Returns a list of keywords
@@ -652,7 +932,7 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._d59dbdaa4244200f6b9060e166e337d9_serialize(
+        _param = self._fetch_all_keywords_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -661,7 +941,7 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "D59dbdaa4244200f6b9060e166e337d9200Response",
+            '200': "FetchAllKeywords200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -675,7 +955,7 @@ class KeywordApi:
 
 
     @validate_call
-    def d59dbdaa4244200f6b9060e166e337d9_with_http_info(
+    def fetch_all_keywords_with_http_info(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="Alternative output schema version.")] = None,
         _request_timeout: Union[
@@ -690,7 +970,7 @@ class KeywordApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[D59dbdaa4244200f6b9060e166e337d9200Response]:
+    ) -> ApiResponse[FetchAllKeywords200Response]:
         """KeywordController@index
 
         Returns a list of keywords
@@ -719,7 +999,7 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._d59dbdaa4244200f6b9060e166e337d9_serialize(
+        _param = self._fetch_all_keywords_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -728,7 +1008,7 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "D59dbdaa4244200f6b9060e166e337d9200Response",
+            '200': "FetchAllKeywords200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -742,7 +1022,7 @@ class KeywordApi:
 
 
     @validate_call
-    def d59dbdaa4244200f6b9060e166e337d9_without_preload_content(
+    def fetch_all_keywords_without_preload_content(
         self,
         per_page: Annotated[Optional[StrictInt], Field(description="Alternative output schema version.")] = None,
         _request_timeout: Union[
@@ -786,7 +1066,7 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._d59dbdaa4244200f6b9060e166e337d9_serialize(
+        _param = self._fetch_all_keywords_serialize(
             per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -795,7 +1075,7 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "D59dbdaa4244200f6b9060e166e337d9200Response",
+            '200': "FetchAllKeywords200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -804,7 +1084,7 @@ class KeywordApi:
         return response_data.response
 
 
-    def _d59dbdaa4244200f6b9060e166e337d9_serialize(
+    def _fetch_all_keywords_serialize(
         self,
         per_page,
         _request_auth,
@@ -871,582 +1151,7 @@ class KeywordApi:
 
 
     @validate_call
-    def ec00b8619507d4ac62cec63eb9684501(
-        self,
-        dd76b8d73b7ea8b4951f03d7c0904c92_request: Annotated[Dd76b8d73b7ea8b4951f03d7c0904c92Request, Field(description="Keyword definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
-        """KeywordController@store
-
-        Creates a new keyword
-
-        :param dd76b8d73b7ea8b4951f03d7c0904c92_request: Keyword definition (required)
-        :type dd76b8d73b7ea8b4951f03d7c0904c92_request: Dd76b8d73b7ea8b4951f03d7c0904c92Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._ec00b8619507d4ac62cec63eb9684501_serialize(
-            dd76b8d73b7ea8b4951f03d7c0904c92_request=dd76b8d73b7ea8b4951f03d7c0904c92_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-            '409': "Ec00b8619507d4ac62cec63eb9684501409Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def ec00b8619507d4ac62cec63eb9684501_with_http_info(
-        self,
-        dd76b8d73b7ea8b4951f03d7c0904c92_request: Annotated[Dd76b8d73b7ea8b4951f03d7c0904c92Request, Field(description="Keyword definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
-        """KeywordController@store
-
-        Creates a new keyword
-
-        :param dd76b8d73b7ea8b4951f03d7c0904c92_request: Keyword definition (required)
-        :type dd76b8d73b7ea8b4951f03d7c0904c92_request: Dd76b8d73b7ea8b4951f03d7c0904c92Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._ec00b8619507d4ac62cec63eb9684501_serialize(
-            dd76b8d73b7ea8b4951f03d7c0904c92_request=dd76b8d73b7ea8b4951f03d7c0904c92_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-            '409': "Ec00b8619507d4ac62cec63eb9684501409Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def ec00b8619507d4ac62cec63eb9684501_without_preload_content(
-        self,
-        dd76b8d73b7ea8b4951f03d7c0904c92_request: Annotated[Dd76b8d73b7ea8b4951f03d7c0904c92Request, Field(description="Keyword definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """KeywordController@store
-
-        Creates a new keyword
-
-        :param dd76b8d73b7ea8b4951f03d7c0904c92_request: Keyword definition (required)
-        :type dd76b8d73b7ea8b4951f03d7c0904c92_request: Dd76b8d73b7ea8b4951f03d7c0904c92Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._ec00b8619507d4ac62cec63eb9684501_serialize(
-            dd76b8d73b7ea8b4951f03d7c0904c92_request=dd76b8d73b7ea8b4951f03d7c0904c92_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-            '409': "Ec00b8619507d4ac62cec63eb9684501409Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _ec00b8619507d4ac62cec63eb9684501_serialize(
-        self,
-        dd76b8d73b7ea8b4951f03d7c0904c92_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if dd76b8d73b7ea8b4951f03d7c0904c92_request is not None:
-            _body_params = dd76b8d73b7ea8b4951f03d7c0904c92_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/keywords',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def f2450127ddd5aa4ad77c822ba256e01a(
-        self,
-        id: Annotated[StrictInt, Field(description="keyword id")],
-        model988e8695bc991d7f8e40131db5ba7a76_request: Annotated[Model988e8695bc991d7f8e40131db5ba7a76Request, Field(description="Keyword definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> F2450127ddd5aa4ad77c822ba256e01a200Response:
-        """KeywordController@update
-
-        Update a keyword by id
-
-        :param id: keyword id (required)
-        :type id: int
-        :param model988e8695bc991d7f8e40131db5ba7a76_request: Keyword definition (required)
-        :type model988e8695bc991d7f8e40131db5ba7a76_request: Model988e8695bc991d7f8e40131db5ba7a76Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._f2450127ddd5aa4ad77c822ba256e01a_serialize(
-            id=id,
-            model988e8695bc991d7f8e40131db5ba7a76_request=model988e8695bc991d7f8e40131db5ba7a76_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "F2450127ddd5aa4ad77c822ba256e01a200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def f2450127ddd5aa4ad77c822ba256e01a_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="keyword id")],
-        model988e8695bc991d7f8e40131db5ba7a76_request: Annotated[Model988e8695bc991d7f8e40131db5ba7a76Request, Field(description="Keyword definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[F2450127ddd5aa4ad77c822ba256e01a200Response]:
-        """KeywordController@update
-
-        Update a keyword by id
-
-        :param id: keyword id (required)
-        :type id: int
-        :param model988e8695bc991d7f8e40131db5ba7a76_request: Keyword definition (required)
-        :type model988e8695bc991d7f8e40131db5ba7a76_request: Model988e8695bc991d7f8e40131db5ba7a76Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._f2450127ddd5aa4ad77c822ba256e01a_serialize(
-            id=id,
-            model988e8695bc991d7f8e40131db5ba7a76_request=model988e8695bc991d7f8e40131db5ba7a76_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "F2450127ddd5aa4ad77c822ba256e01a200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def f2450127ddd5aa4ad77c822ba256e01a_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="keyword id")],
-        model988e8695bc991d7f8e40131db5ba7a76_request: Annotated[Model988e8695bc991d7f8e40131db5ba7a76Request, Field(description="Keyword definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """KeywordController@update
-
-        Update a keyword by id
-
-        :param id: keyword id (required)
-        :type id: int
-        :param model988e8695bc991d7f8e40131db5ba7a76_request: Keyword definition (required)
-        :type model988e8695bc991d7f8e40131db5ba7a76_request: Model988e8695bc991d7f8e40131db5ba7a76Request
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._f2450127ddd5aa4ad77c822ba256e01a_serialize(
-            id=id,
-            model988e8695bc991d7f8e40131db5ba7a76_request=model988e8695bc991d7f8e40131db5ba7a76_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "F2450127ddd5aa4ad77c822ba256e01a200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _f2450127ddd5aa4ad77c822ba256e01a_serialize(
-        self,
-        id,
-        model988e8695bc991d7f8e40131db5ba7a76_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if model988e8695bc991d7f8e40131db5ba7a76_request is not None:
-            _body_params = model988e8695bc991d7f8e40131db5ba7a76_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v1/keywords/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def faadd5f355273c0ee61ef48436d03ded(
+    def fetch_keywords(
         self,
         id: Annotated[StrictInt, Field(description="keyword id")],
         _request_timeout: Union[
@@ -1461,7 +1166,7 @@ class KeywordApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Faadd5f355273c0ee61ef48436d03ded200Response:
+    ) -> FetchKeywords200Response:
         """KeywordController@show
 
         Return a single keyword
@@ -1490,7 +1195,7 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._faadd5f355273c0ee61ef48436d03ded_serialize(
+        _param = self._fetch_keywords_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1499,8 +1204,8 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Faadd5f355273c0ee61ef48436d03ded200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchKeywords200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1514,7 +1219,7 @@ class KeywordApi:
 
 
     @validate_call
-    def faadd5f355273c0ee61ef48436d03ded_with_http_info(
+    def fetch_keywords_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="keyword id")],
         _request_timeout: Union[
@@ -1529,7 +1234,7 @@ class KeywordApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Faadd5f355273c0ee61ef48436d03ded200Response]:
+    ) -> ApiResponse[FetchKeywords200Response]:
         """KeywordController@show
 
         Return a single keyword
@@ -1558,7 +1263,7 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._faadd5f355273c0ee61ef48436d03ded_serialize(
+        _param = self._fetch_keywords_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1567,8 +1272,8 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Faadd5f355273c0ee61ef48436d03ded200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchKeywords200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1582,7 +1287,7 @@ class KeywordApi:
 
 
     @validate_call
-    def faadd5f355273c0ee61ef48436d03ded_without_preload_content(
+    def fetch_keywords_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="keyword id")],
         _request_timeout: Union[
@@ -1626,7 +1331,7 @@ class KeywordApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._faadd5f355273c0ee61ef48436d03ded_serialize(
+        _param = self._fetch_keywords_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1635,8 +1340,8 @@ class KeywordApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Faadd5f355273c0ee61ef48436d03ded200Response",
-            '404': "AliasControllerShow404Response",
+            '200': "FetchKeywords200Response",
+            '404': "FetchAliases404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1645,7 +1350,7 @@ class KeywordApi:
         return response_data.response
 
 
-    def _faadd5f355273c0ee61ef48436d03ded_serialize(
+    def _fetch_keywords_serialize(
         self,
         id,
         _request_auth,
@@ -1693,6 +1398,301 @@ class KeywordApi:
 
         return self.api_client.param_serialize(
             method='GET',
+            resource_path='/api/v1/keywords/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_keywords(
+        self,
+        id: Annotated[StrictInt, Field(description="keyword id")],
+        update_categories_request: Annotated[UpdateCategoriesRequest, Field(description="Keyword definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateKeywords200Response:
+        """KeywordController@update
+
+        Update a keyword by id
+
+        :param id: keyword id (required)
+        :type id: int
+        :param update_categories_request: Keyword definition (required)
+        :type update_categories_request: UpdateCategoriesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_keywords_serialize(
+            id=id,
+            update_categories_request=update_categories_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateKeywords200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_keywords_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="keyword id")],
+        update_categories_request: Annotated[UpdateCategoriesRequest, Field(description="Keyword definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateKeywords200Response]:
+        """KeywordController@update
+
+        Update a keyword by id
+
+        :param id: keyword id (required)
+        :type id: int
+        :param update_categories_request: Keyword definition (required)
+        :type update_categories_request: UpdateCategoriesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_keywords_serialize(
+            id=id,
+            update_categories_request=update_categories_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateKeywords200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_keywords_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="keyword id")],
+        update_categories_request: Annotated[UpdateCategoriesRequest, Field(description="Keyword definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """KeywordController@update
+
+        Update a keyword by id
+
+        :param id: keyword id (required)
+        :type id: int
+        :param update_categories_request: Keyword definition (required)
+        :type update_categories_request: UpdateCategoriesRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_keywords_serialize(
+            id=id,
+            update_categories_request=update_categories_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '404': "FetchAliases404Response",
+            '200': "UpdateKeywords200Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_keywords_serialize(
+        self,
+        id,
+        update_categories_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if update_categories_request is not None:
+            _body_params = update_categories_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
             resource_path='/api/v1/keywords/{id}',
             path_params=_path_params,
             query_params=_query_params,

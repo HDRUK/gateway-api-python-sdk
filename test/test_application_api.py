@@ -26,38 +26,24 @@ class TestApplicationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_c724575805bbca0f084a3001d71abd53(self) -> None:
-        """Test case for c724575805bbca0f084a3001d71abd53
+    def test_create_applications(self) -> None:
+        """Test case for create_applications
 
-        ApplicationController@generateClientIdById
+        ApplicationController@store
         """
         pass
 
-    def test_call_3c8adeb001330f5198ca1072be78e299(self) -> None:
-        """Test case for call_3c8adeb001330f5198ca1072be78e299
-
-        ApplicationController@update
-        """
-        pass
-
-    def test_call_45ae3b415211ef0712a8ea070e66449f(self) -> None:
-        """Test case for call_45ae3b415211ef0712a8ea070e66449f
-
-        ApplicationController@edit
-        """
-        pass
-
-    def test_ddca747ae792e5b6837b97c6ad510fd3(self) -> None:
-        """Test case for ddca747ae792e5b6837b97c6ad510fd3
+    def test_delete_applications(self) -> None:
+        """Test case for delete_applications
 
         ApplicationController@delete
         """
         pass
 
-    def test_e210052adcf6fdcfc472998b430081aa(self) -> None:
-        """Test case for e210052adcf6fdcfc472998b430081aa
+    def test_edit_applications(self) -> None:
+        """Test case for edit_applications
 
-        ApplicationController@store
+        ApplicationController@edit
         """
         pass
 
@@ -79,6 +65,20 @@ class TestApplicationApi(unittest.TestCase):
         """Test case for fetch_applications
 
         ApplicationController@show
+        """
+        pass
+
+    def test_patch_applications_client_id(self) -> None:
+        """Test case for patch_applications_client_id
+
+        ApplicationController@generateClientIdById
+        """
+        pass
+
+    def test_update_applications(self) -> None:
+        """Test case for update_applications
+
+        ApplicationController@update
         """
         pass
 

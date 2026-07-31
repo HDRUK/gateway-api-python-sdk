@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**a3e02b5a05b56708998c4bd96935d5f5**](SearchToolsApi.md#a3e02b5a05b56708998c4bd96935d5f5) | **POST** /api/v1/search/tools | Search@tools
+[**search_tools**](SearchToolsApi.md#search_tools) | **POST** /api/v1/search/tools | Search@tools
 
 
-# **a3e02b5a05b56708998c4bd96935d5f5**
-> A3e02b5a05b56708998c4bd96935d5f5200Response a3e02b5a05b56708998c4bd96935d5f5(a3e02b5a05b56708998c4bd96935d5f5_request, sort=sort, direction=direction)
+# **search_tools**
+> SearchTools200Response search_tools(search_tools_request, sort=sort, direction=direction)
 
 Search@tools
 
@@ -20,8 +20,8 @@ Returns gateway tools related to the provided query term(s)
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.a3e02b5a05b56708998c4bd96935d5f5200_response import A3e02b5a05b56708998c4bd96935d5f5200Response
-from gateway_api_sdk.models.a3e02b5a05b56708998c4bd96935d5f5_request import A3e02b5a05b56708998c4bd96935d5f5Request
+from gateway_api_sdk.models.search_tools200_response import SearchTools200Response
+from gateway_api_sdk.models.search_tools_request import SearchToolsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -45,17 +45,17 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.SearchToolsApi(api_client)
-    a3e02b5a05b56708998c4bd96935d5f5_request = gateway_api_sdk.A3e02b5a05b56708998c4bd96935d5f5Request() # A3e02b5a05b56708998c4bd96935d5f5Request | Submit search query
+    search_tools_request = gateway_api_sdk.SearchToolsRequest() # SearchToolsRequest | Submit search query
     sort = 'created' # str | Field to sort by (default: 'score') (optional)
     direction = 'desc' # str | Sort direction ('asc' or 'desc', default: 'desc') (optional)
 
     try:
         # Search@tools
-        api_response = api_instance.a3e02b5a05b56708998c4bd96935d5f5(a3e02b5a05b56708998c4bd96935d5f5_request, sort=sort, direction=direction)
-        print("The response of SearchToolsApi->a3e02b5a05b56708998c4bd96935d5f5:\n")
+        api_response = api_instance.search_tools(search_tools_request, sort=sort, direction=direction)
+        print("The response of SearchToolsApi->search_tools:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SearchToolsApi->a3e02b5a05b56708998c4bd96935d5f5: %s\n" % e)
+        print("Exception when calling SearchToolsApi->search_tools: %s\n" % e)
 ```
 
 
@@ -65,13 +65,13 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **a3e02b5a05b56708998c4bd96935d5f5_request** | [**A3e02b5a05b56708998c4bd96935d5f5Request**](A3e02b5a05b56708998c4bd96935d5f5Request.md)| Submit search query | 
+ **search_tools_request** | [**SearchToolsRequest**](SearchToolsRequest.md)| Submit search query | 
  **sort** | **str**| Field to sort by (default: &#39;score&#39;) | [optional] 
  **direction** | **str**| Sort direction (&#39;asc&#39; or &#39;desc&#39;, default: &#39;desc&#39;) | [optional] 
 
 ### Return type
 
-[**A3e02b5a05b56708998c4bd96935d5f5200Response**](A3e02b5a05b56708998c4bd96935d5f5200Response.md)
+[**SearchTools200Response**](SearchTools200Response.md)
 
 ### Authorization
 

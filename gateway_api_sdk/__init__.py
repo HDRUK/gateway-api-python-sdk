@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.0-test2"
+__version__ = "0.0.0-test3"
 
 # Define package exports
 __all__ = [
@@ -86,67 +86,36 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
-    "A18eed83ffe8ac895df3e1efa5ffb421Request",
-    "A3e02b5a05b56708998c4bd96935d5f5200Response",
-    "A3e02b5a05b56708998c4bd96935d5f5200ResponseDataInner",
-    "A3e02b5a05b56708998c4bd96935d5f5200ResponseDataInnerHighlightInner",
-    "A3e02b5a05b56708998c4bd96935d5f5200ResponseDataInnerSourceInner",
-    "A3e02b5a05b56708998c4bd96935d5f5Request",
-    "A3f9ce42420fdef136cfc7b0de8e2683200Response",
-    "A3f9ce42420fdef136cfc7b0de8e2683200ResponseData",
-    "A439b274e045e4ae8ab3006c33290aff200Response",
-    "A439b274e045e4ae8ab3006c33290aff400Response",
-    "A5ca86d5f19ecac396cb830333f307daRequest",
-    "A5f6e0a9550d3c58c50dda55412cd051Request",
-    "A961db529080eb3a29e4b7cc13dabaaaRequest",
-    "Aa33edfdace17b70600d964e0db4d44b200Response",
-    "Aa33edfdace17b70600d964e0db4d44b200ResponseDataInner",
-    "Aa33edfdace17b70600d964e0db4d44b200ResponseDataInnerSourceInner",
-    "Aa33edfdace17b70600d964e0db4d44bRequest",
-    "Ac75502b12db43904eeea0400eb245d8200Response",
-    "Ada26698c9cdc86c01aaf53b0677a48d200Response",
-    "Ada26698c9cdc86c01aaf53b0677a48d200ResponseDataInner",
-    "Ada26698c9cdc86c01aaf53b0677a48d200ResponseDataInnerSourceInner",
-    "Ada26698c9cdc86c01aaf53b0677a48dRequest",
     "Alias",
-    "AliasControllerIndex200Response",
-    "AliasControllerShow200Response",
-    "AliasControllerShow404Response",
     "Authentication200Response",
     "AuthenticationRequest",
-    "B34ab4eadc1eaed469678151e6e71b9f200Response",
-    "B42015102cb75735f63c91ed0c89aadc200Response",
-    "B42015102cb75735f63c91ed0c89aadc200ResponseData",
-    "B4f86f6c4f52e080b246d560038cdc9b200Response",
-    "B50ca1696491e4e1ff3cc267fa7e71ee200Response",
-    "B60e5c6bd58001740003449e91216454200Response",
-    "B60e5c6bd58001740003449e91216454200ResponseDataInner",
-    "B60e5c6bd58001740003449e91216454200ResponseDataInnerHighlightInner",
-    "B60e5c6bd58001740003449e91216454200ResponseDataInnerSourceInner",
-    "B60e5c6bd58001740003449e91216454Request",
-    "B801ec1af9f360216286166894719a1e200Response",
-    "Bcfd40c79f3f5e7e33e2efd241a9b1a5Request",
-    "Bcfd40c79f3f5e7e33e2efd241a9b1a5RequestAnswersInner",
-    "Bcfd40c79f3f5e7e33e2efd241a9b1a5RequestAnswersInnerAnswer",
-    "C29b5b3424f7317b69b4bda048ccfafb200Response",
-    "C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response",
-    "C5bb5300d6a46cc5b1b6a3bb1c3fa869Request",
-    "C663ccf8b1926d7678370d095b9b358fRequest",
-    "C7827b344f35440af530383c74573c6f200Response",
-    "C9939b681f1c7deb438e5d7a25ea9509200Response",
-    "C9939b681f1c7deb438e5d7a25ea9509Request",
-    "Cac3bdde44f0be0512f7d05c0a6064e4200Response",
     "Category",
-    "Cd1f252c1f5296d0e6007eb543ef9099200Response",
-    "Cd41e1bd1b9f9918da2bb53a240b8bfe200Response",
-    "Cd41e1bd1b9f9918da2bb53a240b8bfe200ResponseDataInner",
-    "Cd41e1bd1b9f9918da2bb53a240b8bfeRequest",
-    "Ced8add57941554cde6a5fc53f6555e5200Response",
-    "Ced8add57941554cde6a5fc53f6555e5200ResponseData",
     "Collection",
     "CountUniqueFieldsCollections200Response",
+    "CreateAdminSearchReindexRequest",
+    "CreateAliases200Response",
+    "CreateAliases200ResponseData",
+    "CreateAliases500Response",
+    "CreateAliasesRequest",
+    "CreateApplications200Response",
+    "CreateApplications200ResponseDataInner",
+    "CreateApplicationsRequest",
+    "CreateCategories200Response",
+    "CreateCategoriesRequest",
     "CreateCollectionsRequest",
+    "CreateCsat422Response",
+    "CreateCsatRequest",
+    "CreateDarApplicationsRequest",
+    "CreateDarSectionRequest",
+    "CreateDarTemplateRequest",
+    "CreateDarTemplateRequestQuestionsInner",
+    "CreateDataProviderCollRequest",
+    "CreateDatasetsLinkageExtraction200Response",
+    "CreateDatasetsLinkageExtractionRequest",
     "CreateDatasetsRequest",
+    "CreateDatasetsTermExtraction200Response",
+    "CreateDatasetsTermExtraction500Response",
+    "CreateDatasetsTermExtractionRequest",
     "CreateDatasetsV2Request",
     "CreateDurIntegrationsRequest",
     "CreateDurRequest",
@@ -154,14 +123,27 @@ __all__ = [
     "CreateDurRequestPublicationsInner",
     "CreateDurRequestTeamInner",
     "CreateDurRequestUsersInner",
+    "CreateEnquiryThreadsRequest",
     "CreateFederationTeamRequest",
+    "CreateFiles200Response",
+    "CreateKeywords409Response",
+    "CreateLibrariesRequest",
+    "CreateLicensesRequest",
+    "CreateNotificationsRequest",
     "CreatePublicationsRequest",
     "CreatePublicationsRequestDatasetsInner",
     "CreatePublicationsRequestToolsInner",
+    "CreateQuestionBankQuestionRequest",
+    "CreateQuestionBankQuestionRequestOptionsInner",
+    "CreateQuestionBankQuestionRequestOptionsInnerChildrenInner",
+    "CreateQuestionBankQuestionRequestOptionsInnerChildrenInnerOptionsInner",
     "CreateReviewsRequest",
+    "CreateSavedSearchesRequest",
+    "CreateSavedSearchesRequestFiltersInner",
     "CreateTeamCollections401Response",
     "CreateTeamCollectionsRequest",
     "CreateTeamCollectionsRequestDatasetsInner",
+    "CreateTeamDarApplicationReviewRequest",
     "CreateTeamDatasetsV2Request",
     "CreateToolsIntegrations400Response",
     "CreateToolsIntegrationsRequest",
@@ -169,77 +151,71 @@ __all__ = [
     "CreateToolsIntegrationsRequestPublicationsInner",
     "CreateToolsRequest",
     "CreateToolsRequestCollectionsInner",
+    "CreateTypeCategoriesRequest",
+    "CreateUserDarApplicationAnswersRequest",
     "CreateUserHasRolesRequest",
     "CreateUsersRequest",
     "CreateWidget201Response",
     "CreateWidget400Response",
     "CreateWidgetRequest",
-    "D05df7a52fe05d677aa184236d61de56Request",
-    "D0fe0e1c60dd979135440e3e0b440b75200Response",
-    "D0fe0e1c60dd979135440e3e0b440b75200ResponseDataInner",
-    "D183a285f65bdc0e6341ed79b3a63670Request",
-    "D38b27b30f91d05932ca855e021c8ffdRequest",
-    "D59dbdaa4244200f6b9060e166e337d9200Response",
-    "D736d637e675097aaf709dfd755864c7200Response",
-    "D736d637e675097aaf709dfd755864c7200ResponseData",
-    "D736d637e675097aaf709dfd755864c7200ResponseDataDataset",
-    "D736d637e675097aaf709dfd755864c7200ResponseDataDatasetTeam",
-    "Da82f7ce4870bd37af28a192877b22a7200Response",
     "DataAccessApplication",
     "DataAccessApplicationReview",
     "DataCustodianNetwork",
     "Dataset",
     "DatasetVersion",
     "DatasetsTestRequest",
-    "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-    "Dd76b8d73b7ea8b4951f03d7c0904c92Request",
-    "Ddc2f5ebf51037175006c6017e20d358200Response",
-    "De86e9675c626354e1d2c5d385712d90Request",
+    "DeleteAliases200Response",
     "DeleteFederation200Response",
     "DeleteFederation404Response",
     "Dur",
-    "E210052adcf6fdcfc472998b430081aa200Response",
-    "E210052adcf6fdcfc472998b430081aa200ResponseDataInner",
-    "E210052adcf6fdcfc472998b430081aaRequest",
-    "E225c2b7eb5daf7fb16e00f4f07ff030200Response",
-    "E72aa4b4f0a80caa9fe872bdff983455200Response",
-    "E72aa4b4f0a80caa9fe872bdff983455200ResponseDataInner",
-    "E93f53867884432d9a6b592066431af3Request",
-    "Ea6f671b0436fa57891fe098994556a1200Response",
-    "Ec00b8619507d4ac62cec63eb9684501409Response",
-    "Ed769d8210100bbcd0e3a11660d25dc0200Response",
-    "Ed769d8210100bbcd0e3a11660d25dc0200ResponseData",
+    "EditAliasesRequest",
+    "EditApplicationsRequest",
+    "EditCategoriesRequest",
+    "EditCollectionsV2Request",
+    "EditCsat200Response",
+    "EditCsatRequest",
+    "EditDarIntegrationRequest",
+    "EditDataProviderCollRequest",
+    "EditNotificationsRequest",
+    "EditQuestionBankQuestionRequest",
+    "EditSavedSearchesRequest",
+    "EditTeamCollectionsRequest",
     "ExportDatasetMetadata400Response",
     "ExportMockDataset404Response",
-    "F2450127ddd5aa4ad77c822ba256e01a200Response",
-    "F5e83ee26e8a390328a3bf23e750b153Request",
-    "F5f0b860854ee5a33ee3d4b5f8a6d2fc200Response",
-    "F65686cb0c089366a7c7f67bf528c957200Response",
-    "Fa314398c7a73002fee4ffc7e62e9fb6Request",
-    "Fa7079be66c6e1f5a236ecac24b63e2b200Response",
-    "Faadd5f355273c0ee61ef48436d03ded200Response",
-    "Fc0e1e343f76b10d80b2332ca24fbfe0200Response",
-    "Fceeda218a8998a137b9d7692e7947b6200Response",
-    "Fe59a4a568b5a79e886e86951f29518aRequest",
+    "FetchAliases200Response",
+    "FetchAliases404Response",
+    "FetchAllAliases200Response",
     "FetchAllApplications200Response",
     "FetchAllApplications200ResponseDataInner",
+    "FetchAllCategories200Response",
     "FetchAllCollections200Response",
+    "FetchAllDarIntegrations200Response",
+    "FetchAllDarIntegrations200ResponseDataInner",
     "FetchAllDatasets200Response",
     "FetchAllDur200Response",
     "FetchAllDurIntegrations200Response",
     "FetchAllDurIntegrations200ResponseDataInner",
     "FetchAllDurV2200Response",
+    "FetchAllEnquiryThreads200Response",
+    "FetchAllEnquiryThreads200ResponseData",
+    "FetchAllKeywords200Response",
+    "FetchAllLicenses200Response",
+    "FetchAllNotifications200Response",
+    "FetchAllProgrammingLanguages200Response",
+    "FetchAllProgrammingPackages200Response",
     "FetchAllProjectGrants200Response",
     "FetchAllPublications200Response",
     "FetchAllReviews200Response",
     "FetchAllReviews200ResponseDataInner",
     "FetchAllReviews200ResponseDataInnerTool",
     "FetchAllReviews200ResponseDataInnerUser",
+    "FetchAllSavedSearches200Response",
     "FetchAllSitemap200Response",
     "FetchAllSitemap200ResponseDataInner",
     "FetchAllTools200Response",
     "FetchAllTools500Response",
     "FetchAllToolsIntegrations200Response",
+    "FetchAllTypeCategories200Response",
     "FetchAllUsers200Response",
     "FetchAllWidgets200Response",
     "FetchAllWorkgroups200Response",
@@ -247,7 +223,29 @@ __all__ = [
     "FetchApplications200ResponseDataInner",
     "FetchCollections200Response",
     "FetchCollectionsViewsV3200Response",
+    "FetchCustomQuestionBankQuestions200Response",
+    "FetchDarSection200Response",
+    "FetchDarSections200Response",
+    "FetchDarSections200ResponseDataInner",
+    "FetchDarTemplate200Response",
+    "FetchDarTemplates200Response",
+    "FetchDarTemplates200ResponseDataInner",
     "FetchDashboardDownloadCsvV3500Response",
+    "FetchDataCustodianNetwork200Response",
+    "FetchDataCustodianNetworkCustodiansSummary200Response",
+    "FetchDataCustodianNetworkCustodiansSummary200ResponseData",
+    "FetchDataCustodianNetworkDatasetsSummary200Response",
+    "FetchDataCustodianNetworkDatasetsSummary200ResponseData",
+    "FetchDataCustodianNetworkEntitiesSummary200Response",
+    "FetchDataCustodianNetworkEntitiesSummary200ResponseData",
+    "FetchDataCustodianNetworkInfo200Response",
+    "FetchDataCustodianNetworkInfo200ResponseData",
+    "FetchDataCustodianNetworks200Response",
+    "FetchDataProviderColl200Response",
+    "FetchDataProviderCollSummary200Response",
+    "FetchDataProviderCollSummary200ResponseData",
+    "FetchDataProviderColls200Response",
+    "FetchDataProviderColls200ResponseDataInner",
     "FetchDatasetViews360V3200Response",
     "FetchDatasetViews360V3200ResponseData",
     "FetchDatasetViewsTopV3200Response",
@@ -258,11 +256,51 @@ __all__ = [
     "FetchDurByIdIntegrations200ResponseDataInner",
     "FetchEntitiesCountV3200Response",
     "FetchEntitiesCountV3200ResponseData",
+    "FetchFiles200Response",
+    "FetchFiles200ResponseDataInner",
+    "FetchFilesProcessedContent200Response",
+    "FetchFilesProcessedContent200ResponseDataInner",
     "FetchKeyMetricsV2200Response",
+    "FetchKeywords200Response",
+    "FetchLibraries200Response",
+    "FetchLibraries200ResponseData",
+    "FetchLibraries200ResponseDataDataset",
+    "FetchLibraries200ResponseDataDatasetTeam",
+    "FetchLicenses200Response",
+    "FetchNotifications200Response",
+    "FetchProgrammingLanguages200Response",
+    "FetchProgrammingPackages200Response",
     "FetchPublications200Response",
+    "FetchQuestionBankQuestion200Response",
+    "FetchQuestionBankQuestion200ResponseData",
+    "FetchQuestionBankQuestionVersion200Response",
+    "FetchQuestionBankQuestionVersion200ResponseData",
+    "FetchQuestionBankQuestions200Response",
+    "FetchStandardQuestionBankQuestions200Response",
+    "FetchTeamDarApplication200Response",
+    "FetchTeamDarApplicationAnswers200Response",
+    "FetchTeamDarApplicationAnswers200ResponseData",
+    "FetchTeamDarApplicationFiles200Response",
+    "FetchTeamDarApplicationFiles200ResponseData",
+    "FetchTeamDarApplicationHeader200Response",
+    "FetchTeamDarApplicationHeader200ResponseData",
+    "FetchTeamDarApplicationHeader200ResponseDataDatasetsInner",
+    "FetchTeamDarApplicationHeader200ResponseDataDatasetsInnerCustodianInner",
+    "FetchTeamDarApplicationHeader200ResponseDataPrimaryApplicantInner",
+    "FetchTeamDarApplicationHeader200ResponseDataTeamsInner",
+    "FetchTeamDarApplicationReviews200Response",
+    "FetchTeamDarApplicationStatusHistory200Response",
+    "FetchTeamDarApplicationStatusHistory200ResponseData",
+    "FetchTeamDarApplications200Response",
+    "FetchTeamQuestionBankQuestionsBySection200Response",
+    "FetchTeamQuestionBankQuestionsBySection200ResponseDataInner",
     "FetchToolsIntegrations200Response",
+    "FetchTypeCategories200Response",
+    "FetchUserOrganisations200Response",
     "FetchUsers200Response",
     "FetchWidget200Response",
+    "FetchWidgetDataSources200Response",
+    "FetchWidgetDataSources400Response",
     "GetCancerTypeFilter200Response",
     "GetCancerTypeFilter404Response",
     "GetCancerTypeFilters200Response",
@@ -280,129 +318,13 @@ __all__ = [
     "ListLibraries200ResponseDataInner",
     "ListLibraries200ResponseLinksInner",
     "LoginRequest",
-    "Model016393e03d3b197d2172abf0d7ce08f5200Response",
-    "Model016393e03d3b197d2172abf0d7ce08f5Request",
-    "Model02ada355a680c816624e98ae028dc8b6Request",
-    "Model04e09f4aada3406dbc08715865880f4f200Response",
-    "Model04e09f4aada3406dbc08715865880f4f200ResponseDataInner",
-    "Model077bba41c87bc61e6c290b3fea2a5848200Response",
-    "Model077bba41c87bc61e6c290b3fea2a5848200ResponseData",
-    "Model079b2d545c7f4705016912f5de1bf444200Response",
-    "Model079b2d545c7f4705016912f5de1bf444200ResponseData",
-    "Model079b2d545c7f4705016912f5de1bf444500Response",
-    "Model079b2d545c7f4705016912f5de1bf444Request",
-    "Model08f75648c437bdf2ba9f66d0c1371d0c200Response",
-    "Model09c033f0336380c3d8bb6801e96378bc200Response",
-    "Model09c033f0336380c3d8bb6801e96378bcRequest",
-    "Model0dabe0dfdf4eebd0c76560fd691c6472200Response",
-    "Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseData",
-    "Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataDatasetsInner",
-    "Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataDatasetsInnerCustodianInner",
-    "Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataPrimaryApplicantInner",
-    "Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataTeamsInner",
-    "Model0ff8ad69b213abf8d671b3695d0b69b5200Response",
-    "Model17336ba551813e00975d3c2da09211c0200Response",
-    "Model17336ba551813e00975d3c2da09211c0200ResponseData",
-    "Model1aeebba947bfb42f364a2d5dd2ad8ef9200Response",
-    "Model1c45c3c6908e92d680ce50910d6d4061200Response",
-    "Model1c45c3c6908e92d680ce50910d6d4061500Response",
-    "Model1c45c3c6908e92d680ce50910d6d4061Request",
-    "Model1fd84d2c66035574da4902f416cbd96aRequest",
-    "Model21a780f609f0b91c198ab5de91dc27c6200Response",
-    "Model21a780f609f0b91c198ab5de91dc27c6200ResponseDataInner",
-    "Model22581e4d73af25a9036c6610c7e8fc72200Response",
-    "Model234386e06c6b29d5aaca2ed8f89cb9aa200Response",
-    "Model234386e06c6b29d5aaca2ed8f89cb9aa200ResponseDataInner",
-    "Model24bb1d73f780293f012cbc187f5448f3Request",
-    "Model2692176ac531294e07a905f5735d15acRequest",
-    "Model2721b23c1df3b4e71706e4ab04f9b0a8Request",
-    "Model2935b32e38ac989b35eab8e0b7552cd3Request",
-    "Model2c16b33b0f6636db91657b64f4a7bbda200Response",
-    "Model2e155418e5f0de41829414447919439e200Response",
-    "Model2e155418e5f0de41829414447919439eRequest",
-    "Model35856fcdf6980ae4da3303ec5a8d90b7200Response",
-    "Model3604171bd1ea2588906fe1cf65353366422Response",
-    "Model3604171bd1ea2588906fe1cf65353366Request",
-    "Model38b0b31c2029a219013fa640588a4a69Request",
-    "Model38b0b31c2029a219013fa640588a4a69RequestOptionsInner",
-    "Model38b0b31c2029a219013fa640588a4a69RequestOptionsInnerChildrenInner",
-    "Model38b0b31c2029a219013fa640588a4a69RequestOptionsInnerChildrenInnerOptionsInner",
-    "Model39500344ecf1a14150bbe26c4a138c56Request",
-    "Model39500344ecf1a14150bbe26c4a138c56RequestFiltersInner",
-    "Model3b22aa4bb101550915e675702f8f3174Request",
-    "Model3b59d921ea47286a669054ef67350b03200Response",
-    "Model3b59d921ea47286a669054ef67350b03Request",
-    "Model3b69b09a466561df872e104a19a2ad65200Response",
-    "Model3b69b09a466561df872e104a19a2ad65200ResponseData",
-    "Model3c79eaaecaae1de1b86c443337841895200Response",
-    "Model3c79eaaecaae1de1b86c443337841895200ResponseData",
-    "Model3c8adeb001330f5198ca1072be78e299200Response",
-    "Model3c8adeb001330f5198ca1072be78e299200ResponseData",
-    "Model3c8adeb001330f5198ca1072be78e299Request",
-    "Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response",
-    "Model4321ab5e45636e3e917c94fd21edac28200Response",
-    "Model4321ab5e45636e3e917c94fd21edac28200ResponseData",
-    "Model45ae3b415211ef0712a8ea070e66449fRequest",
-    "Model473ee45c3962ae2a02abbac5015dce6a200Response",
-    "Model473ee45c3962ae2a02abbac5015dce6a200ResponseData",
-    "Model47ebee1d2e096dcb033d29f4ff244ad4200Response",
-    "Model4e4d590ec8943163168e4fc34bd166a1200Response",
-    "Model4f2a3c56631a5fccb45a9e7972df02b0200Response",
-    "Model4ff0fc5e7c66284608ce55dc6cb7d846Request",
-    "Model50c6be78401c528ffdf4ed00414e7678200Response",
-    "Model5766dcceb641169f89fecb537e8f79e4200Response",
-    "Model58e41162a49b5b1bf92231b359ea70cb200Response",
-    "Model6196987e50c600396a439939cea635a3200Response",
-    "Model6196987e50c600396a439939cea635a3200ResponseData",
-    "Model6196987e50c600396a439939cea635a3Request",
-    "Model64b4b952592ebe8e0b00204e76bd991c200Response",
-    "Model64b4b952592ebe8e0b00204e76bd991c200ResponseData",
-    "Model64d6f1d6c88cbcfccd3e511b29c394d6200Response",
-    "Model64d6f1d6c88cbcfccd3e511b29c394d6Request",
-    "Model657e412d92e286b217a1892e7f84395c200Response",
-    "Model6ac98caeb87a37c9286f592834b9c803200Response",
-    "Model6dae0c2af6ca442f90a65e7c65a13252Request",
-    "Model70d4b0fcc281e6491f510f58028762c9Request",
-    "Model70d4b0fcc281e6491f510f58028762c9RequestQuestionsInner",
-    "Model71e5fbca2b5aa8a0160d621feb662ecb200Response",
-    "Model74f3b5729b08a4be0d17e4b1c7fa2aa9200Response",
-    "Model74f3b5729b08a4be0d17e4b1c7fa2aa9200ResponseData",
-    "Model75c378b5764d9d73e14fe2d65c654910Request",
-    "Model7ab50add4fe0a4b7cff7eab0f4b8df18200Response",
-    "Model7ab50add4fe0a4b7cff7eab0f4b8df18200ResponseDataInner",
-    "Model7f39b24417648f048a9457326619439c200Response",
-    "Model7f39b24417648f048a9457326619439cRequest",
-    "Model81b552b8803870790579d840279ce8a3Request",
-    "Model83ae406abb0fb38fa792b4cfcbbbebbfRequest",
-    "Model8abb5928cecc676521f3e3d8eea0c49cRequest",
-    "Model8db417727e7fe7c2e99206b060a3b882200Response",
-    "Model8db417727e7fe7c2e99206b060a3b882200ResponseDataInner",
-    "Model8db417727e7fe7c2e99206b060a3b882200ResponseDataInnerHighlightInner",
-    "Model8db417727e7fe7c2e99206b060a3b882200ResponseDataInnerSourceInner",
-    "Model8db417727e7fe7c2e99206b060a3b882Request",
-    "Model928c1c4e39f13593bdec88641ee83120200Response",
-    "Model928c1c4e39f13593bdec88641ee83120200ResponseData",
-    "Model92a06ea019f5560b5c9e76e02fe38e31Request",
-    "Model94f1c18e47daa32c1346be4a0d0449e4200Response",
-    "Model94f1c18e47daa32c1346be4a0d0449e4200ResponseDataInner",
-    "Model988e8695bc991d7f8e40131db5ba7a76200Response",
-    "Model988e8695bc991d7f8e40131db5ba7a76Request",
-    "Model98a20646cb4164cddd79725baf3dcf61200Response",
-    "Model9946399cbddb0dcadcbd5801e5ee1dd4200Response",
-    "Model9946399cbddb0dcadcbd5801e5ee1dd4200ResponseDataInner",
-    "Model9946399cbddb0dcadcbd5801e5ee1dd4200ResponseDataInnerHighlightInner",
-    "Model9946399cbddb0dcadcbd5801e5ee1dd4200ResponseDataInnerSourceInner",
-    "Model9946399cbddb0dcadcbd5801e5ee1dd4Request",
-    "Model9a0abfa6186327d43c51259d5b524fde200Response",
-    "Model9a0abfa6186327d43c51259d5b524fdeRequest",
-    "Model9b95892cc29cee3ccd11e3f92223224c200Response",
-    "Model9b95892cc29cee3ccd11e3f92223224c200ResponseDataInner",
-    "Model9b95892cc29cee3ccd11e3f92223224c200ResponseDataInnerSourceInner",
-    "Model9b95892cc29cee3ccd11e3f92223224cRequest",
-    "Model9ce0c491d34067e8cf15eb9e9b5ec147200Response",
-    "Model9ce0c491d34067e8cf15eb9e9b5ec147200ResponseData",
     "Notification",
+    "PatchDarSectionRequest",
+    "PatchDarTemplate200Response",
+    "PatchDarTemplate200ResponseData",
+    "PatchDarTemplateRequest",
     "PatchDatasetsV2Request",
+    "PatchUserDarApplicationRequest",
     "ProgrammingLanguage",
     "ProgrammingPackage",
     "Publication",
@@ -415,19 +337,97 @@ __all__ = [
     "RetrieveWidgetData200Response",
     "RetrieveWidgetData403Response",
     "SavedSearch",
+    "SearchCollections200Response",
+    "SearchCollections200ResponseDataInner",
+    "SearchCollections200ResponseDataInnerSourceInner",
+    "SearchCollectionsRequest",
+    "SearchDataCustodianNetworks200Response",
+    "SearchDataCustodianNetworks200ResponseDataInner",
+    "SearchDataCustodianNetworks200ResponseDataInnerSourceInner",
+    "SearchDataCustodianNetworksRequest",
+    "SearchDataCustodians200Response",
+    "SearchDataCustodians200ResponseDataInner",
+    "SearchDataCustodians200ResponseDataInnerSourceInner",
+    "SearchDataCustodiansRequest",
+    "SearchDataUses200Response",
+    "SearchDataUses200ResponseDataInner",
+    "SearchDataUses200ResponseDataInnerHighlightInner",
+    "SearchDataUses200ResponseDataInnerSourceInner",
+    "SearchDataUsesRequest",
+    "SearchDatasets200Response",
+    "SearchDatasets200ResponseDataInner",
+    "SearchDatasets200ResponseDataInnerHighlightInner",
+    "SearchDatasets200ResponseDataInnerSourceInner",
+    "SearchDatasetsRequest",
+    "SearchPublications200Response",
+    "SearchPublications200ResponseDataInner",
+    "SearchPublications200ResponseDataInnerHighlightInner",
+    "SearchPublications200ResponseDataInnerSourceInner",
+    "SearchPublicationsByDoi200Response",
+    "SearchPublicationsByDoiRequest",
+    "SearchPublicationsRequest",
+    "SearchSimilarDatasets200Response",
+    "SearchSimilarDatasets200ResponseDataInner",
+    "SearchSimilarDatasetsRequest",
+    "SearchTools200Response",
+    "SearchTools200ResponseDataInner",
+    "SearchTools200ResponseDataInnerHighlightInner",
+    "SearchTools200ResponseDataInnerSourceInner",
+    "SearchToolsRequest",
     "Team",
     "TestFederation200Response",
     "Tool",
     "TrackWidgetEventRequest",
     "TypeCategory",
+    "UpdateAdminSearchFeatureRequest",
+    "UpdateAliases200Response",
+    "UpdateApplications200Response",
+    "UpdateApplications200ResponseData",
+    "UpdateApplicationsRequest",
+    "UpdateCategories200Response",
+    "UpdateCategoriesRequest",
+    "UpdateCollectionsV2Request",
+    "UpdateDarIntegration200Response",
+    "UpdateDarIntegrationRequest",
+    "UpdateDarTemplateRequest",
+    "UpdateDataCustodianNetwork200Response",
+    "UpdateDataProviderColl200Response",
+    "UpdateDataProviderCollRequest",
     "UpdateDatasetsRequest",
+    "UpdateDur200Response",
+    "UpdateDurIntegrations200Response",
+    "UpdateDurIntegrations200ResponseData",
     "UpdateFederationTeamRequest",
+    "UpdateKeywords200Response",
+    "UpdateLibraries200Response",
+    "UpdateLibraries200ResponseData",
+    "UpdateLicenses200Response",
+    "UpdateNotifications200Response",
+    "UpdateProgrammingLanguages200Response",
+    "UpdateProgrammingPackages200Response",
     "UpdatePublicationsRequest",
+    "UpdateQuestionBankQuestion200Response",
+    "UpdateQuestionBankQuestionRequest",
+    "UpdateQuestionBankQuestionStatus200Response",
+    "UpdateReviews200Response",
+    "UpdateReviews200ResponseData",
+    "UpdateSavedSearches200Response",
+    "UpdateSavedSearchesRequest",
+    "UpdateTeamCollectionsRequest",
+    "UpdateTeamDarApplicationQuestionReview200Response",
+    "UpdateTeamDarApplicationRequest",
     "UpdateToolsIntegrationsRequest",
     "UpdateToolsRequest",
+    "UpdateTypeCategories200Response",
+    "UpdateTypeCategoriesRequest",
+    "UpdateUserDarApplicationRequest",
+    "UpdateUserDarApplicationRequestAnswersInner",
+    "UpdateUserDarApplicationRequestAnswersInnerAnswer",
     "UpdateUserHasRolesRequest",
     "UpdateUserHasRolesRequestRoles",
     "UpdateUsersRequest",
+    "UpdateWidget200Response",
+    "UpdateWidgetRequest",
     "UploadDurRequest",
     "User",
     "VerifySecondaryEmail200Response",
@@ -510,67 +510,36 @@ from gateway_api_sdk.exceptions import ApiAttributeError as ApiAttributeError
 from gateway_api_sdk.exceptions import ApiException as ApiException
 
 # import models into sdk package
-from gateway_api_sdk.models.a18eed83ffe8ac895df3e1efa5ffb421_request import A18eed83ffe8ac895df3e1efa5ffb421Request as A18eed83ffe8ac895df3e1efa5ffb421Request
-from gateway_api_sdk.models.a3e02b5a05b56708998c4bd96935d5f5200_response import A3e02b5a05b56708998c4bd96935d5f5200Response as A3e02b5a05b56708998c4bd96935d5f5200Response
-from gateway_api_sdk.models.a3e02b5a05b56708998c4bd96935d5f5200_response_data_inner import A3e02b5a05b56708998c4bd96935d5f5200ResponseDataInner as A3e02b5a05b56708998c4bd96935d5f5200ResponseDataInner
-from gateway_api_sdk.models.a3e02b5a05b56708998c4bd96935d5f5200_response_data_inner_highlight_inner import A3e02b5a05b56708998c4bd96935d5f5200ResponseDataInnerHighlightInner as A3e02b5a05b56708998c4bd96935d5f5200ResponseDataInnerHighlightInner
-from gateway_api_sdk.models.a3e02b5a05b56708998c4bd96935d5f5200_response_data_inner_source_inner import A3e02b5a05b56708998c4bd96935d5f5200ResponseDataInnerSourceInner as A3e02b5a05b56708998c4bd96935d5f5200ResponseDataInnerSourceInner
-from gateway_api_sdk.models.a3e02b5a05b56708998c4bd96935d5f5_request import A3e02b5a05b56708998c4bd96935d5f5Request as A3e02b5a05b56708998c4bd96935d5f5Request
-from gateway_api_sdk.models.a3f9ce42420fdef136cfc7b0de8e2683200_response import A3f9ce42420fdef136cfc7b0de8e2683200Response as A3f9ce42420fdef136cfc7b0de8e2683200Response
-from gateway_api_sdk.models.a3f9ce42420fdef136cfc7b0de8e2683200_response_data import A3f9ce42420fdef136cfc7b0de8e2683200ResponseData as A3f9ce42420fdef136cfc7b0de8e2683200ResponseData
-from gateway_api_sdk.models.a439b274e045e4ae8ab3006c33290aff200_response import A439b274e045e4ae8ab3006c33290aff200Response as A439b274e045e4ae8ab3006c33290aff200Response
-from gateway_api_sdk.models.a439b274e045e4ae8ab3006c33290aff400_response import A439b274e045e4ae8ab3006c33290aff400Response as A439b274e045e4ae8ab3006c33290aff400Response
-from gateway_api_sdk.models.a5ca86d5f19ecac396cb830333f307da_request import A5ca86d5f19ecac396cb830333f307daRequest as A5ca86d5f19ecac396cb830333f307daRequest
-from gateway_api_sdk.models.a5f6e0a9550d3c58c50dda55412cd051_request import A5f6e0a9550d3c58c50dda55412cd051Request as A5f6e0a9550d3c58c50dda55412cd051Request
-from gateway_api_sdk.models.a961db529080eb3a29e4b7cc13dabaaa_request import A961db529080eb3a29e4b7cc13dabaaaRequest as A961db529080eb3a29e4b7cc13dabaaaRequest
-from gateway_api_sdk.models.aa33edfdace17b70600d964e0db4d44b200_response import Aa33edfdace17b70600d964e0db4d44b200Response as Aa33edfdace17b70600d964e0db4d44b200Response
-from gateway_api_sdk.models.aa33edfdace17b70600d964e0db4d44b200_response_data_inner import Aa33edfdace17b70600d964e0db4d44b200ResponseDataInner as Aa33edfdace17b70600d964e0db4d44b200ResponseDataInner
-from gateway_api_sdk.models.aa33edfdace17b70600d964e0db4d44b200_response_data_inner_source_inner import Aa33edfdace17b70600d964e0db4d44b200ResponseDataInnerSourceInner as Aa33edfdace17b70600d964e0db4d44b200ResponseDataInnerSourceInner
-from gateway_api_sdk.models.aa33edfdace17b70600d964e0db4d44b_request import Aa33edfdace17b70600d964e0db4d44bRequest as Aa33edfdace17b70600d964e0db4d44bRequest
-from gateway_api_sdk.models.ac75502b12db43904eeea0400eb245d8200_response import Ac75502b12db43904eeea0400eb245d8200Response as Ac75502b12db43904eeea0400eb245d8200Response
-from gateway_api_sdk.models.ada26698c9cdc86c01aaf53b0677a48d200_response import Ada26698c9cdc86c01aaf53b0677a48d200Response as Ada26698c9cdc86c01aaf53b0677a48d200Response
-from gateway_api_sdk.models.ada26698c9cdc86c01aaf53b0677a48d200_response_data_inner import Ada26698c9cdc86c01aaf53b0677a48d200ResponseDataInner as Ada26698c9cdc86c01aaf53b0677a48d200ResponseDataInner
-from gateway_api_sdk.models.ada26698c9cdc86c01aaf53b0677a48d200_response_data_inner_source_inner import Ada26698c9cdc86c01aaf53b0677a48d200ResponseDataInnerSourceInner as Ada26698c9cdc86c01aaf53b0677a48d200ResponseDataInnerSourceInner
-from gateway_api_sdk.models.ada26698c9cdc86c01aaf53b0677a48d_request import Ada26698c9cdc86c01aaf53b0677a48dRequest as Ada26698c9cdc86c01aaf53b0677a48dRequest
 from gateway_api_sdk.models.alias import Alias as Alias
-from gateway_api_sdk.models.alias_controller_index200_response import AliasControllerIndex200Response as AliasControllerIndex200Response
-from gateway_api_sdk.models.alias_controller_show200_response import AliasControllerShow200Response as AliasControllerShow200Response
-from gateway_api_sdk.models.alias_controller_show404_response import AliasControllerShow404Response as AliasControllerShow404Response
 from gateway_api_sdk.models.authentication200_response import Authentication200Response as Authentication200Response
 from gateway_api_sdk.models.authentication_request import AuthenticationRequest as AuthenticationRequest
-from gateway_api_sdk.models.b34ab4eadc1eaed469678151e6e71b9f200_response import B34ab4eadc1eaed469678151e6e71b9f200Response as B34ab4eadc1eaed469678151e6e71b9f200Response
-from gateway_api_sdk.models.b42015102cb75735f63c91ed0c89aadc200_response import B42015102cb75735f63c91ed0c89aadc200Response as B42015102cb75735f63c91ed0c89aadc200Response
-from gateway_api_sdk.models.b42015102cb75735f63c91ed0c89aadc200_response_data import B42015102cb75735f63c91ed0c89aadc200ResponseData as B42015102cb75735f63c91ed0c89aadc200ResponseData
-from gateway_api_sdk.models.b4f86f6c4f52e080b246d560038cdc9b200_response import B4f86f6c4f52e080b246d560038cdc9b200Response as B4f86f6c4f52e080b246d560038cdc9b200Response
-from gateway_api_sdk.models.b50ca1696491e4e1ff3cc267fa7e71ee200_response import B50ca1696491e4e1ff3cc267fa7e71ee200Response as B50ca1696491e4e1ff3cc267fa7e71ee200Response
-from gateway_api_sdk.models.b60e5c6bd58001740003449e91216454200_response import B60e5c6bd58001740003449e91216454200Response as B60e5c6bd58001740003449e91216454200Response
-from gateway_api_sdk.models.b60e5c6bd58001740003449e91216454200_response_data_inner import B60e5c6bd58001740003449e91216454200ResponseDataInner as B60e5c6bd58001740003449e91216454200ResponseDataInner
-from gateway_api_sdk.models.b60e5c6bd58001740003449e91216454200_response_data_inner_highlight_inner import B60e5c6bd58001740003449e91216454200ResponseDataInnerHighlightInner as B60e5c6bd58001740003449e91216454200ResponseDataInnerHighlightInner
-from gateway_api_sdk.models.b60e5c6bd58001740003449e91216454200_response_data_inner_source_inner import B60e5c6bd58001740003449e91216454200ResponseDataInnerSourceInner as B60e5c6bd58001740003449e91216454200ResponseDataInnerSourceInner
-from gateway_api_sdk.models.b60e5c6bd58001740003449e91216454_request import B60e5c6bd58001740003449e91216454Request as B60e5c6bd58001740003449e91216454Request
-from gateway_api_sdk.models.b801ec1af9f360216286166894719a1e200_response import B801ec1af9f360216286166894719a1e200Response as B801ec1af9f360216286166894719a1e200Response
-from gateway_api_sdk.models.bcfd40c79f3f5e7e33e2efd241a9b1a5_request import Bcfd40c79f3f5e7e33e2efd241a9b1a5Request as Bcfd40c79f3f5e7e33e2efd241a9b1a5Request
-from gateway_api_sdk.models.bcfd40c79f3f5e7e33e2efd241a9b1a5_request_answers_inner import Bcfd40c79f3f5e7e33e2efd241a9b1a5RequestAnswersInner as Bcfd40c79f3f5e7e33e2efd241a9b1a5RequestAnswersInner
-from gateway_api_sdk.models.bcfd40c79f3f5e7e33e2efd241a9b1a5_request_answers_inner_answer import Bcfd40c79f3f5e7e33e2efd241a9b1a5RequestAnswersInnerAnswer as Bcfd40c79f3f5e7e33e2efd241a9b1a5RequestAnswersInnerAnswer
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response as C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.c5bb5300d6a46cc5b1b6a3bb1c3fa869200_response import C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response as C5bb5300d6a46cc5b1b6a3bb1c3fa869200Response
-from gateway_api_sdk.models.c5bb5300d6a46cc5b1b6a3bb1c3fa869_request import C5bb5300d6a46cc5b1b6a3bb1c3fa869Request as C5bb5300d6a46cc5b1b6a3bb1c3fa869Request
-from gateway_api_sdk.models.c663ccf8b1926d7678370d095b9b358f_request import C663ccf8b1926d7678370d095b9b358fRequest as C663ccf8b1926d7678370d095b9b358fRequest
-from gateway_api_sdk.models.c7827b344f35440af530383c74573c6f200_response import C7827b344f35440af530383c74573c6f200Response as C7827b344f35440af530383c74573c6f200Response
-from gateway_api_sdk.models.c9939b681f1c7deb438e5d7a25ea9509200_response import C9939b681f1c7deb438e5d7a25ea9509200Response as C9939b681f1c7deb438e5d7a25ea9509200Response
-from gateway_api_sdk.models.c9939b681f1c7deb438e5d7a25ea9509_request import C9939b681f1c7deb438e5d7a25ea9509Request as C9939b681f1c7deb438e5d7a25ea9509Request
-from gateway_api_sdk.models.cac3bdde44f0be0512f7d05c0a6064e4200_response import Cac3bdde44f0be0512f7d05c0a6064e4200Response as Cac3bdde44f0be0512f7d05c0a6064e4200Response
 from gateway_api_sdk.models.category import Category as Category
-from gateway_api_sdk.models.cd1f252c1f5296d0e6007eb543ef9099200_response import Cd1f252c1f5296d0e6007eb543ef9099200Response as Cd1f252c1f5296d0e6007eb543ef9099200Response
-from gateway_api_sdk.models.cd41e1bd1b9f9918da2bb53a240b8bfe200_response import Cd41e1bd1b9f9918da2bb53a240b8bfe200Response as Cd41e1bd1b9f9918da2bb53a240b8bfe200Response
-from gateway_api_sdk.models.cd41e1bd1b9f9918da2bb53a240b8bfe200_response_data_inner import Cd41e1bd1b9f9918da2bb53a240b8bfe200ResponseDataInner as Cd41e1bd1b9f9918da2bb53a240b8bfe200ResponseDataInner
-from gateway_api_sdk.models.cd41e1bd1b9f9918da2bb53a240b8bfe_request import Cd41e1bd1b9f9918da2bb53a240b8bfeRequest as Cd41e1bd1b9f9918da2bb53a240b8bfeRequest
-from gateway_api_sdk.models.ced8add57941554cde6a5fc53f6555e5200_response import Ced8add57941554cde6a5fc53f6555e5200Response as Ced8add57941554cde6a5fc53f6555e5200Response
-from gateway_api_sdk.models.ced8add57941554cde6a5fc53f6555e5200_response_data import Ced8add57941554cde6a5fc53f6555e5200ResponseData as Ced8add57941554cde6a5fc53f6555e5200ResponseData
 from gateway_api_sdk.models.collection import Collection as Collection
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response as CountUniqueFieldsCollections200Response
+from gateway_api_sdk.models.create_admin_search_reindex_request import CreateAdminSearchReindexRequest as CreateAdminSearchReindexRequest
+from gateway_api_sdk.models.create_aliases200_response import CreateAliases200Response as CreateAliases200Response
+from gateway_api_sdk.models.create_aliases200_response_data import CreateAliases200ResponseData as CreateAliases200ResponseData
+from gateway_api_sdk.models.create_aliases500_response import CreateAliases500Response as CreateAliases500Response
+from gateway_api_sdk.models.create_aliases_request import CreateAliasesRequest as CreateAliasesRequest
+from gateway_api_sdk.models.create_applications200_response import CreateApplications200Response as CreateApplications200Response
+from gateway_api_sdk.models.create_applications200_response_data_inner import CreateApplications200ResponseDataInner as CreateApplications200ResponseDataInner
+from gateway_api_sdk.models.create_applications_request import CreateApplicationsRequest as CreateApplicationsRequest
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response as CreateCategories200Response
+from gateway_api_sdk.models.create_categories_request import CreateCategoriesRequest as CreateCategoriesRequest
 from gateway_api_sdk.models.create_collections_request import CreateCollectionsRequest as CreateCollectionsRequest
+from gateway_api_sdk.models.create_csat422_response import CreateCsat422Response as CreateCsat422Response
+from gateway_api_sdk.models.create_csat_request import CreateCsatRequest as CreateCsatRequest
+from gateway_api_sdk.models.create_dar_applications_request import CreateDarApplicationsRequest as CreateDarApplicationsRequest
+from gateway_api_sdk.models.create_dar_section_request import CreateDarSectionRequest as CreateDarSectionRequest
+from gateway_api_sdk.models.create_dar_template_request import CreateDarTemplateRequest as CreateDarTemplateRequest
+from gateway_api_sdk.models.create_dar_template_request_questions_inner import CreateDarTemplateRequestQuestionsInner as CreateDarTemplateRequestQuestionsInner
+from gateway_api_sdk.models.create_data_provider_coll_request import CreateDataProviderCollRequest as CreateDataProviderCollRequest
+from gateway_api_sdk.models.create_datasets_linkage_extraction200_response import CreateDatasetsLinkageExtraction200Response as CreateDatasetsLinkageExtraction200Response
+from gateway_api_sdk.models.create_datasets_linkage_extraction_request import CreateDatasetsLinkageExtractionRequest as CreateDatasetsLinkageExtractionRequest
 from gateway_api_sdk.models.create_datasets_request import CreateDatasetsRequest as CreateDatasetsRequest
+from gateway_api_sdk.models.create_datasets_term_extraction200_response import CreateDatasetsTermExtraction200Response as CreateDatasetsTermExtraction200Response
+from gateway_api_sdk.models.create_datasets_term_extraction500_response import CreateDatasetsTermExtraction500Response as CreateDatasetsTermExtraction500Response
+from gateway_api_sdk.models.create_datasets_term_extraction_request import CreateDatasetsTermExtractionRequest as CreateDatasetsTermExtractionRequest
 from gateway_api_sdk.models.create_datasets_v2_request import CreateDatasetsV2Request as CreateDatasetsV2Request
 from gateway_api_sdk.models.create_dur_integrations_request import CreateDurIntegrationsRequest as CreateDurIntegrationsRequest
 from gateway_api_sdk.models.create_dur_request import CreateDurRequest as CreateDurRequest
@@ -578,14 +547,27 @@ from gateway_api_sdk.models.create_dur_request_datasets_inner import CreateDurRe
 from gateway_api_sdk.models.create_dur_request_publications_inner import CreateDurRequestPublicationsInner as CreateDurRequestPublicationsInner
 from gateway_api_sdk.models.create_dur_request_team_inner import CreateDurRequestTeamInner as CreateDurRequestTeamInner
 from gateway_api_sdk.models.create_dur_request_users_inner import CreateDurRequestUsersInner as CreateDurRequestUsersInner
+from gateway_api_sdk.models.create_enquiry_threads_request import CreateEnquiryThreadsRequest as CreateEnquiryThreadsRequest
 from gateway_api_sdk.models.create_federation_team_request import CreateFederationTeamRequest as CreateFederationTeamRequest
+from gateway_api_sdk.models.create_files200_response import CreateFiles200Response as CreateFiles200Response
+from gateway_api_sdk.models.create_keywords409_response import CreateKeywords409Response as CreateKeywords409Response
+from gateway_api_sdk.models.create_libraries_request import CreateLibrariesRequest as CreateLibrariesRequest
+from gateway_api_sdk.models.create_licenses_request import CreateLicensesRequest as CreateLicensesRequest
+from gateway_api_sdk.models.create_notifications_request import CreateNotificationsRequest as CreateNotificationsRequest
 from gateway_api_sdk.models.create_publications_request import CreatePublicationsRequest as CreatePublicationsRequest
 from gateway_api_sdk.models.create_publications_request_datasets_inner import CreatePublicationsRequestDatasetsInner as CreatePublicationsRequestDatasetsInner
 from gateway_api_sdk.models.create_publications_request_tools_inner import CreatePublicationsRequestToolsInner as CreatePublicationsRequestToolsInner
+from gateway_api_sdk.models.create_question_bank_question_request import CreateQuestionBankQuestionRequest as CreateQuestionBankQuestionRequest
+from gateway_api_sdk.models.create_question_bank_question_request_options_inner import CreateQuestionBankQuestionRequestOptionsInner as CreateQuestionBankQuestionRequestOptionsInner
+from gateway_api_sdk.models.create_question_bank_question_request_options_inner_children_inner import CreateQuestionBankQuestionRequestOptionsInnerChildrenInner as CreateQuestionBankQuestionRequestOptionsInnerChildrenInner
+from gateway_api_sdk.models.create_question_bank_question_request_options_inner_children_inner_options_inner import CreateQuestionBankQuestionRequestOptionsInnerChildrenInnerOptionsInner as CreateQuestionBankQuestionRequestOptionsInnerChildrenInnerOptionsInner
 from gateway_api_sdk.models.create_reviews_request import CreateReviewsRequest as CreateReviewsRequest
+from gateway_api_sdk.models.create_saved_searches_request import CreateSavedSearchesRequest as CreateSavedSearchesRequest
+from gateway_api_sdk.models.create_saved_searches_request_filters_inner import CreateSavedSearchesRequestFiltersInner as CreateSavedSearchesRequestFiltersInner
 from gateway_api_sdk.models.create_team_collections401_response import CreateTeamCollections401Response as CreateTeamCollections401Response
 from gateway_api_sdk.models.create_team_collections_request import CreateTeamCollectionsRequest as CreateTeamCollectionsRequest
 from gateway_api_sdk.models.create_team_collections_request_datasets_inner import CreateTeamCollectionsRequestDatasetsInner as CreateTeamCollectionsRequestDatasetsInner
+from gateway_api_sdk.models.create_team_dar_application_review_request import CreateTeamDarApplicationReviewRequest as CreateTeamDarApplicationReviewRequest
 from gateway_api_sdk.models.create_team_datasets_v2_request import CreateTeamDatasetsV2Request as CreateTeamDatasetsV2Request
 from gateway_api_sdk.models.create_tools_integrations400_response import CreateToolsIntegrations400Response as CreateToolsIntegrations400Response
 from gateway_api_sdk.models.create_tools_integrations_request import CreateToolsIntegrationsRequest as CreateToolsIntegrationsRequest
@@ -593,77 +575,71 @@ from gateway_api_sdk.models.create_tools_integrations_request_dataset_inner impo
 from gateway_api_sdk.models.create_tools_integrations_request_publications_inner import CreateToolsIntegrationsRequestPublicationsInner as CreateToolsIntegrationsRequestPublicationsInner
 from gateway_api_sdk.models.create_tools_request import CreateToolsRequest as CreateToolsRequest
 from gateway_api_sdk.models.create_tools_request_collections_inner import CreateToolsRequestCollectionsInner as CreateToolsRequestCollectionsInner
+from gateway_api_sdk.models.create_type_categories_request import CreateTypeCategoriesRequest as CreateTypeCategoriesRequest
+from gateway_api_sdk.models.create_user_dar_application_answers_request import CreateUserDarApplicationAnswersRequest as CreateUserDarApplicationAnswersRequest
 from gateway_api_sdk.models.create_user_has_roles_request import CreateUserHasRolesRequest as CreateUserHasRolesRequest
 from gateway_api_sdk.models.create_users_request import CreateUsersRequest as CreateUsersRequest
 from gateway_api_sdk.models.create_widget201_response import CreateWidget201Response as CreateWidget201Response
 from gateway_api_sdk.models.create_widget400_response import CreateWidget400Response as CreateWidget400Response
 from gateway_api_sdk.models.create_widget_request import CreateWidgetRequest as CreateWidgetRequest
-from gateway_api_sdk.models.d05df7a52fe05d677aa184236d61de56_request import D05df7a52fe05d677aa184236d61de56Request as D05df7a52fe05d677aa184236d61de56Request
-from gateway_api_sdk.models.d0fe0e1c60dd979135440e3e0b440b75200_response import D0fe0e1c60dd979135440e3e0b440b75200Response as D0fe0e1c60dd979135440e3e0b440b75200Response
-from gateway_api_sdk.models.d0fe0e1c60dd979135440e3e0b440b75200_response_data_inner import D0fe0e1c60dd979135440e3e0b440b75200ResponseDataInner as D0fe0e1c60dd979135440e3e0b440b75200ResponseDataInner
-from gateway_api_sdk.models.d183a285f65bdc0e6341ed79b3a63670_request import D183a285f65bdc0e6341ed79b3a63670Request as D183a285f65bdc0e6341ed79b3a63670Request
-from gateway_api_sdk.models.d38b27b30f91d05932ca855e021c8ffd_request import D38b27b30f91d05932ca855e021c8ffdRequest as D38b27b30f91d05932ca855e021c8ffdRequest
-from gateway_api_sdk.models.d59dbdaa4244200f6b9060e166e337d9200_response import D59dbdaa4244200f6b9060e166e337d9200Response as D59dbdaa4244200f6b9060e166e337d9200Response
-from gateway_api_sdk.models.d736d637e675097aaf709dfd755864c7200_response import D736d637e675097aaf709dfd755864c7200Response as D736d637e675097aaf709dfd755864c7200Response
-from gateway_api_sdk.models.d736d637e675097aaf709dfd755864c7200_response_data import D736d637e675097aaf709dfd755864c7200ResponseData as D736d637e675097aaf709dfd755864c7200ResponseData
-from gateway_api_sdk.models.d736d637e675097aaf709dfd755864c7200_response_data_dataset import D736d637e675097aaf709dfd755864c7200ResponseDataDataset as D736d637e675097aaf709dfd755864c7200ResponseDataDataset
-from gateway_api_sdk.models.d736d637e675097aaf709dfd755864c7200_response_data_dataset_team import D736d637e675097aaf709dfd755864c7200ResponseDataDatasetTeam as D736d637e675097aaf709dfd755864c7200ResponseDataDatasetTeam
-from gateway_api_sdk.models.da82f7ce4870bd37af28a192877b22a7200_response import Da82f7ce4870bd37af28a192877b22a7200Response as Da82f7ce4870bd37af28a192877b22a7200Response
 from gateway_api_sdk.models.data_access_application import DataAccessApplication as DataAccessApplication
 from gateway_api_sdk.models.data_access_application_review import DataAccessApplicationReview as DataAccessApplicationReview
 from gateway_api_sdk.models.data_custodian_network import DataCustodianNetwork as DataCustodianNetwork
 from gateway_api_sdk.models.dataset import Dataset as Dataset
 from gateway_api_sdk.models.dataset_version import DatasetVersion as DatasetVersion
 from gateway_api_sdk.models.datasets_test_request import DatasetsTestRequest as DatasetsTestRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response as Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92_request import Dd76b8d73b7ea8b4951f03d7c0904c92Request as Dd76b8d73b7ea8b4951f03d7c0904c92Request
-from gateway_api_sdk.models.ddc2f5ebf51037175006c6017e20d358200_response import Ddc2f5ebf51037175006c6017e20d358200Response as Ddc2f5ebf51037175006c6017e20d358200Response
-from gateway_api_sdk.models.de86e9675c626354e1d2c5d385712d90_request import De86e9675c626354e1d2c5d385712d90Request as De86e9675c626354e1d2c5d385712d90Request
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response as DeleteAliases200Response
 from gateway_api_sdk.models.delete_federation200_response import DeleteFederation200Response as DeleteFederation200Response
 from gateway_api_sdk.models.delete_federation404_response import DeleteFederation404Response as DeleteFederation404Response
 from gateway_api_sdk.models.dur import Dur as Dur
-from gateway_api_sdk.models.e210052adcf6fdcfc472998b430081aa200_response import E210052adcf6fdcfc472998b430081aa200Response as E210052adcf6fdcfc472998b430081aa200Response
-from gateway_api_sdk.models.e210052adcf6fdcfc472998b430081aa200_response_data_inner import E210052adcf6fdcfc472998b430081aa200ResponseDataInner as E210052adcf6fdcfc472998b430081aa200ResponseDataInner
-from gateway_api_sdk.models.e210052adcf6fdcfc472998b430081aa_request import E210052adcf6fdcfc472998b430081aaRequest as E210052adcf6fdcfc472998b430081aaRequest
-from gateway_api_sdk.models.e225c2b7eb5daf7fb16e00f4f07ff030200_response import E225c2b7eb5daf7fb16e00f4f07ff030200Response as E225c2b7eb5daf7fb16e00f4f07ff030200Response
-from gateway_api_sdk.models.e72aa4b4f0a80caa9fe872bdff983455200_response import E72aa4b4f0a80caa9fe872bdff983455200Response as E72aa4b4f0a80caa9fe872bdff983455200Response
-from gateway_api_sdk.models.e72aa4b4f0a80caa9fe872bdff983455200_response_data_inner import E72aa4b4f0a80caa9fe872bdff983455200ResponseDataInner as E72aa4b4f0a80caa9fe872bdff983455200ResponseDataInner
-from gateway_api_sdk.models.e93f53867884432d9a6b592066431af3_request import E93f53867884432d9a6b592066431af3Request as E93f53867884432d9a6b592066431af3Request
-from gateway_api_sdk.models.ea6f671b0436fa57891fe098994556a1200_response import Ea6f671b0436fa57891fe098994556a1200Response as Ea6f671b0436fa57891fe098994556a1200Response
-from gateway_api_sdk.models.ec00b8619507d4ac62cec63eb9684501409_response import Ec00b8619507d4ac62cec63eb9684501409Response as Ec00b8619507d4ac62cec63eb9684501409Response
-from gateway_api_sdk.models.ed769d8210100bbcd0e3a11660d25dc0200_response import Ed769d8210100bbcd0e3a11660d25dc0200Response as Ed769d8210100bbcd0e3a11660d25dc0200Response
-from gateway_api_sdk.models.ed769d8210100bbcd0e3a11660d25dc0200_response_data import Ed769d8210100bbcd0e3a11660d25dc0200ResponseData as Ed769d8210100bbcd0e3a11660d25dc0200ResponseData
+from gateway_api_sdk.models.edit_aliases_request import EditAliasesRequest as EditAliasesRequest
+from gateway_api_sdk.models.edit_applications_request import EditApplicationsRequest as EditApplicationsRequest
+from gateway_api_sdk.models.edit_categories_request import EditCategoriesRequest as EditCategoriesRequest
+from gateway_api_sdk.models.edit_collections_v2_request import EditCollectionsV2Request as EditCollectionsV2Request
+from gateway_api_sdk.models.edit_csat200_response import EditCsat200Response as EditCsat200Response
+from gateway_api_sdk.models.edit_csat_request import EditCsatRequest as EditCsatRequest
+from gateway_api_sdk.models.edit_dar_integration_request import EditDarIntegrationRequest as EditDarIntegrationRequest
+from gateway_api_sdk.models.edit_data_provider_coll_request import EditDataProviderCollRequest as EditDataProviderCollRequest
+from gateway_api_sdk.models.edit_notifications_request import EditNotificationsRequest as EditNotificationsRequest
+from gateway_api_sdk.models.edit_question_bank_question_request import EditQuestionBankQuestionRequest as EditQuestionBankQuestionRequest
+from gateway_api_sdk.models.edit_saved_searches_request import EditSavedSearchesRequest as EditSavedSearchesRequest
+from gateway_api_sdk.models.edit_team_collections_request import EditTeamCollectionsRequest as EditTeamCollectionsRequest
 from gateway_api_sdk.models.export_dataset_metadata400_response import ExportDatasetMetadata400Response as ExportDatasetMetadata400Response
 from gateway_api_sdk.models.export_mock_dataset404_response import ExportMockDataset404Response as ExportMockDataset404Response
-from gateway_api_sdk.models.f2450127ddd5aa4ad77c822ba256e01a200_response import F2450127ddd5aa4ad77c822ba256e01a200Response as F2450127ddd5aa4ad77c822ba256e01a200Response
-from gateway_api_sdk.models.f5e83ee26e8a390328a3bf23e750b153_request import F5e83ee26e8a390328a3bf23e750b153Request as F5e83ee26e8a390328a3bf23e750b153Request
-from gateway_api_sdk.models.f5f0b860854ee5a33ee3d4b5f8a6d2fc200_response import F5f0b860854ee5a33ee3d4b5f8a6d2fc200Response as F5f0b860854ee5a33ee3d4b5f8a6d2fc200Response
-from gateway_api_sdk.models.f65686cb0c089366a7c7f67bf528c957200_response import F65686cb0c089366a7c7f67bf528c957200Response as F65686cb0c089366a7c7f67bf528c957200Response
-from gateway_api_sdk.models.fa314398c7a73002fee4ffc7e62e9fb6_request import Fa314398c7a73002fee4ffc7e62e9fb6Request as Fa314398c7a73002fee4ffc7e62e9fb6Request
-from gateway_api_sdk.models.fa7079be66c6e1f5a236ecac24b63e2b200_response import Fa7079be66c6e1f5a236ecac24b63e2b200Response as Fa7079be66c6e1f5a236ecac24b63e2b200Response
-from gateway_api_sdk.models.faadd5f355273c0ee61ef48436d03ded200_response import Faadd5f355273c0ee61ef48436d03ded200Response as Faadd5f355273c0ee61ef48436d03ded200Response
-from gateway_api_sdk.models.fc0e1e343f76b10d80b2332ca24fbfe0200_response import Fc0e1e343f76b10d80b2332ca24fbfe0200Response as Fc0e1e343f76b10d80b2332ca24fbfe0200Response
-from gateway_api_sdk.models.fceeda218a8998a137b9d7692e7947b6200_response import Fceeda218a8998a137b9d7692e7947b6200Response as Fceeda218a8998a137b9d7692e7947b6200Response
-from gateway_api_sdk.models.fe59a4a568b5a79e886e86951f29518a_request import Fe59a4a568b5a79e886e86951f29518aRequest as Fe59a4a568b5a79e886e86951f29518aRequest
+from gateway_api_sdk.models.fetch_aliases200_response import FetchAliases200Response as FetchAliases200Response
+from gateway_api_sdk.models.fetch_aliases404_response import FetchAliases404Response as FetchAliases404Response
+from gateway_api_sdk.models.fetch_all_aliases200_response import FetchAllAliases200Response as FetchAllAliases200Response
 from gateway_api_sdk.models.fetch_all_applications200_response import FetchAllApplications200Response as FetchAllApplications200Response
 from gateway_api_sdk.models.fetch_all_applications200_response_data_inner import FetchAllApplications200ResponseDataInner as FetchAllApplications200ResponseDataInner
+from gateway_api_sdk.models.fetch_all_categories200_response import FetchAllCategories200Response as FetchAllCategories200Response
 from gateway_api_sdk.models.fetch_all_collections200_response import FetchAllCollections200Response as FetchAllCollections200Response
+from gateway_api_sdk.models.fetch_all_dar_integrations200_response import FetchAllDarIntegrations200Response as FetchAllDarIntegrations200Response
+from gateway_api_sdk.models.fetch_all_dar_integrations200_response_data_inner import FetchAllDarIntegrations200ResponseDataInner as FetchAllDarIntegrations200ResponseDataInner
 from gateway_api_sdk.models.fetch_all_datasets200_response import FetchAllDatasets200Response as FetchAllDatasets200Response
 from gateway_api_sdk.models.fetch_all_dur200_response import FetchAllDur200Response as FetchAllDur200Response
 from gateway_api_sdk.models.fetch_all_dur_integrations200_response import FetchAllDurIntegrations200Response as FetchAllDurIntegrations200Response
 from gateway_api_sdk.models.fetch_all_dur_integrations200_response_data_inner import FetchAllDurIntegrations200ResponseDataInner as FetchAllDurIntegrations200ResponseDataInner
 from gateway_api_sdk.models.fetch_all_dur_v2200_response import FetchAllDurV2200Response as FetchAllDurV2200Response
+from gateway_api_sdk.models.fetch_all_enquiry_threads200_response import FetchAllEnquiryThreads200Response as FetchAllEnquiryThreads200Response
+from gateway_api_sdk.models.fetch_all_enquiry_threads200_response_data import FetchAllEnquiryThreads200ResponseData as FetchAllEnquiryThreads200ResponseData
+from gateway_api_sdk.models.fetch_all_keywords200_response import FetchAllKeywords200Response as FetchAllKeywords200Response
+from gateway_api_sdk.models.fetch_all_licenses200_response import FetchAllLicenses200Response as FetchAllLicenses200Response
+from gateway_api_sdk.models.fetch_all_notifications200_response import FetchAllNotifications200Response as FetchAllNotifications200Response
+from gateway_api_sdk.models.fetch_all_programming_languages200_response import FetchAllProgrammingLanguages200Response as FetchAllProgrammingLanguages200Response
+from gateway_api_sdk.models.fetch_all_programming_packages200_response import FetchAllProgrammingPackages200Response as FetchAllProgrammingPackages200Response
 from gateway_api_sdk.models.fetch_all_project_grants200_response import FetchAllProjectGrants200Response as FetchAllProjectGrants200Response
 from gateway_api_sdk.models.fetch_all_publications200_response import FetchAllPublications200Response as FetchAllPublications200Response
 from gateway_api_sdk.models.fetch_all_reviews200_response import FetchAllReviews200Response as FetchAllReviews200Response
 from gateway_api_sdk.models.fetch_all_reviews200_response_data_inner import FetchAllReviews200ResponseDataInner as FetchAllReviews200ResponseDataInner
 from gateway_api_sdk.models.fetch_all_reviews200_response_data_inner_tool import FetchAllReviews200ResponseDataInnerTool as FetchAllReviews200ResponseDataInnerTool
 from gateway_api_sdk.models.fetch_all_reviews200_response_data_inner_user import FetchAllReviews200ResponseDataInnerUser as FetchAllReviews200ResponseDataInnerUser
+from gateway_api_sdk.models.fetch_all_saved_searches200_response import FetchAllSavedSearches200Response as FetchAllSavedSearches200Response
 from gateway_api_sdk.models.fetch_all_sitemap200_response import FetchAllSitemap200Response as FetchAllSitemap200Response
 from gateway_api_sdk.models.fetch_all_sitemap200_response_data_inner import FetchAllSitemap200ResponseDataInner as FetchAllSitemap200ResponseDataInner
 from gateway_api_sdk.models.fetch_all_tools200_response import FetchAllTools200Response as FetchAllTools200Response
 from gateway_api_sdk.models.fetch_all_tools500_response import FetchAllTools500Response as FetchAllTools500Response
 from gateway_api_sdk.models.fetch_all_tools_integrations200_response import FetchAllToolsIntegrations200Response as FetchAllToolsIntegrations200Response
+from gateway_api_sdk.models.fetch_all_type_categories200_response import FetchAllTypeCategories200Response as FetchAllTypeCategories200Response
 from gateway_api_sdk.models.fetch_all_users200_response import FetchAllUsers200Response as FetchAllUsers200Response
 from gateway_api_sdk.models.fetch_all_widgets200_response import FetchAllWidgets200Response as FetchAllWidgets200Response
 from gateway_api_sdk.models.fetch_all_workgroups200_response import FetchAllWorkgroups200Response as FetchAllWorkgroups200Response
@@ -671,7 +647,29 @@ from gateway_api_sdk.models.fetch_applications200_response import FetchApplicati
 from gateway_api_sdk.models.fetch_applications200_response_data_inner import FetchApplications200ResponseDataInner as FetchApplications200ResponseDataInner
 from gateway_api_sdk.models.fetch_collections200_response import FetchCollections200Response as FetchCollections200Response
 from gateway_api_sdk.models.fetch_collections_views_v3200_response import FetchCollectionsViewsV3200Response as FetchCollectionsViewsV3200Response
+from gateway_api_sdk.models.fetch_custom_question_bank_questions200_response import FetchCustomQuestionBankQuestions200Response as FetchCustomQuestionBankQuestions200Response
+from gateway_api_sdk.models.fetch_dar_section200_response import FetchDarSection200Response as FetchDarSection200Response
+from gateway_api_sdk.models.fetch_dar_sections200_response import FetchDarSections200Response as FetchDarSections200Response
+from gateway_api_sdk.models.fetch_dar_sections200_response_data_inner import FetchDarSections200ResponseDataInner as FetchDarSections200ResponseDataInner
+from gateway_api_sdk.models.fetch_dar_template200_response import FetchDarTemplate200Response as FetchDarTemplate200Response
+from gateway_api_sdk.models.fetch_dar_templates200_response import FetchDarTemplates200Response as FetchDarTemplates200Response
+from gateway_api_sdk.models.fetch_dar_templates200_response_data_inner import FetchDarTemplates200ResponseDataInner as FetchDarTemplates200ResponseDataInner
 from gateway_api_sdk.models.fetch_dashboard_download_csv_v3500_response import FetchDashboardDownloadCsvV3500Response as FetchDashboardDownloadCsvV3500Response
+from gateway_api_sdk.models.fetch_data_custodian_network200_response import FetchDataCustodianNetwork200Response as FetchDataCustodianNetwork200Response
+from gateway_api_sdk.models.fetch_data_custodian_network_custodians_summary200_response import FetchDataCustodianNetworkCustodiansSummary200Response as FetchDataCustodianNetworkCustodiansSummary200Response
+from gateway_api_sdk.models.fetch_data_custodian_network_custodians_summary200_response_data import FetchDataCustodianNetworkCustodiansSummary200ResponseData as FetchDataCustodianNetworkCustodiansSummary200ResponseData
+from gateway_api_sdk.models.fetch_data_custodian_network_datasets_summary200_response import FetchDataCustodianNetworkDatasetsSummary200Response as FetchDataCustodianNetworkDatasetsSummary200Response
+from gateway_api_sdk.models.fetch_data_custodian_network_datasets_summary200_response_data import FetchDataCustodianNetworkDatasetsSummary200ResponseData as FetchDataCustodianNetworkDatasetsSummary200ResponseData
+from gateway_api_sdk.models.fetch_data_custodian_network_entities_summary200_response import FetchDataCustodianNetworkEntitiesSummary200Response as FetchDataCustodianNetworkEntitiesSummary200Response
+from gateway_api_sdk.models.fetch_data_custodian_network_entities_summary200_response_data import FetchDataCustodianNetworkEntitiesSummary200ResponseData as FetchDataCustodianNetworkEntitiesSummary200ResponseData
+from gateway_api_sdk.models.fetch_data_custodian_network_info200_response import FetchDataCustodianNetworkInfo200Response as FetchDataCustodianNetworkInfo200Response
+from gateway_api_sdk.models.fetch_data_custodian_network_info200_response_data import FetchDataCustodianNetworkInfo200ResponseData as FetchDataCustodianNetworkInfo200ResponseData
+from gateway_api_sdk.models.fetch_data_custodian_networks200_response import FetchDataCustodianNetworks200Response as FetchDataCustodianNetworks200Response
+from gateway_api_sdk.models.fetch_data_provider_coll200_response import FetchDataProviderColl200Response as FetchDataProviderColl200Response
+from gateway_api_sdk.models.fetch_data_provider_coll_summary200_response import FetchDataProviderCollSummary200Response as FetchDataProviderCollSummary200Response
+from gateway_api_sdk.models.fetch_data_provider_coll_summary200_response_data import FetchDataProviderCollSummary200ResponseData as FetchDataProviderCollSummary200ResponseData
+from gateway_api_sdk.models.fetch_data_provider_colls200_response import FetchDataProviderColls200Response as FetchDataProviderColls200Response
+from gateway_api_sdk.models.fetch_data_provider_colls200_response_data_inner import FetchDataProviderColls200ResponseDataInner as FetchDataProviderColls200ResponseDataInner
 from gateway_api_sdk.models.fetch_dataset_views360_v3200_response import FetchDatasetViews360V3200Response as FetchDatasetViews360V3200Response
 from gateway_api_sdk.models.fetch_dataset_views360_v3200_response_data import FetchDatasetViews360V3200ResponseData as FetchDatasetViews360V3200ResponseData
 from gateway_api_sdk.models.fetch_dataset_views_top_v3200_response import FetchDatasetViewsTopV3200Response as FetchDatasetViewsTopV3200Response
@@ -682,11 +680,51 @@ from gateway_api_sdk.models.fetch_dur_by_id_integrations200_response import Fetc
 from gateway_api_sdk.models.fetch_dur_by_id_integrations200_response_data_inner import FetchDurByIdIntegrations200ResponseDataInner as FetchDurByIdIntegrations200ResponseDataInner
 from gateway_api_sdk.models.fetch_entities_count_v3200_response import FetchEntitiesCountV3200Response as FetchEntitiesCountV3200Response
 from gateway_api_sdk.models.fetch_entities_count_v3200_response_data import FetchEntitiesCountV3200ResponseData as FetchEntitiesCountV3200ResponseData
+from gateway_api_sdk.models.fetch_files200_response import FetchFiles200Response as FetchFiles200Response
+from gateway_api_sdk.models.fetch_files200_response_data_inner import FetchFiles200ResponseDataInner as FetchFiles200ResponseDataInner
+from gateway_api_sdk.models.fetch_files_processed_content200_response import FetchFilesProcessedContent200Response as FetchFilesProcessedContent200Response
+from gateway_api_sdk.models.fetch_files_processed_content200_response_data_inner import FetchFilesProcessedContent200ResponseDataInner as FetchFilesProcessedContent200ResponseDataInner
 from gateway_api_sdk.models.fetch_key_metrics_v2200_response import FetchKeyMetricsV2200Response as FetchKeyMetricsV2200Response
+from gateway_api_sdk.models.fetch_keywords200_response import FetchKeywords200Response as FetchKeywords200Response
+from gateway_api_sdk.models.fetch_libraries200_response import FetchLibraries200Response as FetchLibraries200Response
+from gateway_api_sdk.models.fetch_libraries200_response_data import FetchLibraries200ResponseData as FetchLibraries200ResponseData
+from gateway_api_sdk.models.fetch_libraries200_response_data_dataset import FetchLibraries200ResponseDataDataset as FetchLibraries200ResponseDataDataset
+from gateway_api_sdk.models.fetch_libraries200_response_data_dataset_team import FetchLibraries200ResponseDataDatasetTeam as FetchLibraries200ResponseDataDatasetTeam
+from gateway_api_sdk.models.fetch_licenses200_response import FetchLicenses200Response as FetchLicenses200Response
+from gateway_api_sdk.models.fetch_notifications200_response import FetchNotifications200Response as FetchNotifications200Response
+from gateway_api_sdk.models.fetch_programming_languages200_response import FetchProgrammingLanguages200Response as FetchProgrammingLanguages200Response
+from gateway_api_sdk.models.fetch_programming_packages200_response import FetchProgrammingPackages200Response as FetchProgrammingPackages200Response
 from gateway_api_sdk.models.fetch_publications200_response import FetchPublications200Response as FetchPublications200Response
+from gateway_api_sdk.models.fetch_question_bank_question200_response import FetchQuestionBankQuestion200Response as FetchQuestionBankQuestion200Response
+from gateway_api_sdk.models.fetch_question_bank_question200_response_data import FetchQuestionBankQuestion200ResponseData as FetchQuestionBankQuestion200ResponseData
+from gateway_api_sdk.models.fetch_question_bank_question_version200_response import FetchQuestionBankQuestionVersion200Response as FetchQuestionBankQuestionVersion200Response
+from gateway_api_sdk.models.fetch_question_bank_question_version200_response_data import FetchQuestionBankQuestionVersion200ResponseData as FetchQuestionBankQuestionVersion200ResponseData
+from gateway_api_sdk.models.fetch_question_bank_questions200_response import FetchQuestionBankQuestions200Response as FetchQuestionBankQuestions200Response
+from gateway_api_sdk.models.fetch_standard_question_bank_questions200_response import FetchStandardQuestionBankQuestions200Response as FetchStandardQuestionBankQuestions200Response
+from gateway_api_sdk.models.fetch_team_dar_application200_response import FetchTeamDarApplication200Response as FetchTeamDarApplication200Response
+from gateway_api_sdk.models.fetch_team_dar_application_answers200_response import FetchTeamDarApplicationAnswers200Response as FetchTeamDarApplicationAnswers200Response
+from gateway_api_sdk.models.fetch_team_dar_application_answers200_response_data import FetchTeamDarApplicationAnswers200ResponseData as FetchTeamDarApplicationAnswers200ResponseData
+from gateway_api_sdk.models.fetch_team_dar_application_files200_response import FetchTeamDarApplicationFiles200Response as FetchTeamDarApplicationFiles200Response
+from gateway_api_sdk.models.fetch_team_dar_application_files200_response_data import FetchTeamDarApplicationFiles200ResponseData as FetchTeamDarApplicationFiles200ResponseData
+from gateway_api_sdk.models.fetch_team_dar_application_header200_response import FetchTeamDarApplicationHeader200Response as FetchTeamDarApplicationHeader200Response
+from gateway_api_sdk.models.fetch_team_dar_application_header200_response_data import FetchTeamDarApplicationHeader200ResponseData as FetchTeamDarApplicationHeader200ResponseData
+from gateway_api_sdk.models.fetch_team_dar_application_header200_response_data_datasets_inner import FetchTeamDarApplicationHeader200ResponseDataDatasetsInner as FetchTeamDarApplicationHeader200ResponseDataDatasetsInner
+from gateway_api_sdk.models.fetch_team_dar_application_header200_response_data_datasets_inner_custodian_inner import FetchTeamDarApplicationHeader200ResponseDataDatasetsInnerCustodianInner as FetchTeamDarApplicationHeader200ResponseDataDatasetsInnerCustodianInner
+from gateway_api_sdk.models.fetch_team_dar_application_header200_response_data_primary_applicant_inner import FetchTeamDarApplicationHeader200ResponseDataPrimaryApplicantInner as FetchTeamDarApplicationHeader200ResponseDataPrimaryApplicantInner
+from gateway_api_sdk.models.fetch_team_dar_application_header200_response_data_teams_inner import FetchTeamDarApplicationHeader200ResponseDataTeamsInner as FetchTeamDarApplicationHeader200ResponseDataTeamsInner
+from gateway_api_sdk.models.fetch_team_dar_application_reviews200_response import FetchTeamDarApplicationReviews200Response as FetchTeamDarApplicationReviews200Response
+from gateway_api_sdk.models.fetch_team_dar_application_status_history200_response import FetchTeamDarApplicationStatusHistory200Response as FetchTeamDarApplicationStatusHistory200Response
+from gateway_api_sdk.models.fetch_team_dar_application_status_history200_response_data import FetchTeamDarApplicationStatusHistory200ResponseData as FetchTeamDarApplicationStatusHistory200ResponseData
+from gateway_api_sdk.models.fetch_team_dar_applications200_response import FetchTeamDarApplications200Response as FetchTeamDarApplications200Response
+from gateway_api_sdk.models.fetch_team_question_bank_questions_by_section200_response import FetchTeamQuestionBankQuestionsBySection200Response as FetchTeamQuestionBankQuestionsBySection200Response
+from gateway_api_sdk.models.fetch_team_question_bank_questions_by_section200_response_data_inner import FetchTeamQuestionBankQuestionsBySection200ResponseDataInner as FetchTeamQuestionBankQuestionsBySection200ResponseDataInner
 from gateway_api_sdk.models.fetch_tools_integrations200_response import FetchToolsIntegrations200Response as FetchToolsIntegrations200Response
+from gateway_api_sdk.models.fetch_type_categories200_response import FetchTypeCategories200Response as FetchTypeCategories200Response
+from gateway_api_sdk.models.fetch_user_organisations200_response import FetchUserOrganisations200Response as FetchUserOrganisations200Response
 from gateway_api_sdk.models.fetch_users200_response import FetchUsers200Response as FetchUsers200Response
 from gateway_api_sdk.models.fetch_widget200_response import FetchWidget200Response as FetchWidget200Response
+from gateway_api_sdk.models.fetch_widget_data_sources200_response import FetchWidgetDataSources200Response as FetchWidgetDataSources200Response
+from gateway_api_sdk.models.fetch_widget_data_sources400_response import FetchWidgetDataSources400Response as FetchWidgetDataSources400Response
 from gateway_api_sdk.models.get_cancer_type_filter200_response import GetCancerTypeFilter200Response as GetCancerTypeFilter200Response
 from gateway_api_sdk.models.get_cancer_type_filter404_response import GetCancerTypeFilter404Response as GetCancerTypeFilter404Response
 from gateway_api_sdk.models.get_cancer_type_filters200_response import GetCancerTypeFilters200Response as GetCancerTypeFilters200Response
@@ -704,129 +742,13 @@ from gateway_api_sdk.models.list_libraries200_response import ListLibraries200Re
 from gateway_api_sdk.models.list_libraries200_response_data_inner import ListLibraries200ResponseDataInner as ListLibraries200ResponseDataInner
 from gateway_api_sdk.models.list_libraries200_response_links_inner import ListLibraries200ResponseLinksInner as ListLibraries200ResponseLinksInner
 from gateway_api_sdk.models.login_request import LoginRequest as LoginRequest
-from gateway_api_sdk.models.model016393e03d3b197d2172abf0d7ce08f5200_response import Model016393e03d3b197d2172abf0d7ce08f5200Response as Model016393e03d3b197d2172abf0d7ce08f5200Response
-from gateway_api_sdk.models.model016393e03d3b197d2172abf0d7ce08f5_request import Model016393e03d3b197d2172abf0d7ce08f5Request as Model016393e03d3b197d2172abf0d7ce08f5Request
-from gateway_api_sdk.models.model02ada355a680c816624e98ae028dc8b6_request import Model02ada355a680c816624e98ae028dc8b6Request as Model02ada355a680c816624e98ae028dc8b6Request
-from gateway_api_sdk.models.model04e09f4aada3406dbc08715865880f4f200_response import Model04e09f4aada3406dbc08715865880f4f200Response as Model04e09f4aada3406dbc08715865880f4f200Response
-from gateway_api_sdk.models.model04e09f4aada3406dbc08715865880f4f200_response_data_inner import Model04e09f4aada3406dbc08715865880f4f200ResponseDataInner as Model04e09f4aada3406dbc08715865880f4f200ResponseDataInner
-from gateway_api_sdk.models.model077bba41c87bc61e6c290b3fea2a5848200_response import Model077bba41c87bc61e6c290b3fea2a5848200Response as Model077bba41c87bc61e6c290b3fea2a5848200Response
-from gateway_api_sdk.models.model077bba41c87bc61e6c290b3fea2a5848200_response_data import Model077bba41c87bc61e6c290b3fea2a5848200ResponseData as Model077bba41c87bc61e6c290b3fea2a5848200ResponseData
-from gateway_api_sdk.models.model079b2d545c7f4705016912f5de1bf444200_response import Model079b2d545c7f4705016912f5de1bf444200Response as Model079b2d545c7f4705016912f5de1bf444200Response
-from gateway_api_sdk.models.model079b2d545c7f4705016912f5de1bf444200_response_data import Model079b2d545c7f4705016912f5de1bf444200ResponseData as Model079b2d545c7f4705016912f5de1bf444200ResponseData
-from gateway_api_sdk.models.model079b2d545c7f4705016912f5de1bf444500_response import Model079b2d545c7f4705016912f5de1bf444500Response as Model079b2d545c7f4705016912f5de1bf444500Response
-from gateway_api_sdk.models.model079b2d545c7f4705016912f5de1bf444_request import Model079b2d545c7f4705016912f5de1bf444Request as Model079b2d545c7f4705016912f5de1bf444Request
-from gateway_api_sdk.models.model08f75648c437bdf2ba9f66d0c1371d0c200_response import Model08f75648c437bdf2ba9f66d0c1371d0c200Response as Model08f75648c437bdf2ba9f66d0c1371d0c200Response
-from gateway_api_sdk.models.model09c033f0336380c3d8bb6801e96378bc200_response import Model09c033f0336380c3d8bb6801e96378bc200Response as Model09c033f0336380c3d8bb6801e96378bc200Response
-from gateway_api_sdk.models.model09c033f0336380c3d8bb6801e96378bc_request import Model09c033f0336380c3d8bb6801e96378bcRequest as Model09c033f0336380c3d8bb6801e96378bcRequest
-from gateway_api_sdk.models.model0dabe0dfdf4eebd0c76560fd691c6472200_response import Model0dabe0dfdf4eebd0c76560fd691c6472200Response as Model0dabe0dfdf4eebd0c76560fd691c6472200Response
-from gateway_api_sdk.models.model0dabe0dfdf4eebd0c76560fd691c6472200_response_data import Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseData as Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseData
-from gateway_api_sdk.models.model0dabe0dfdf4eebd0c76560fd691c6472200_response_data_datasets_inner import Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataDatasetsInner as Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataDatasetsInner
-from gateway_api_sdk.models.model0dabe0dfdf4eebd0c76560fd691c6472200_response_data_datasets_inner_custodian_inner import Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataDatasetsInnerCustodianInner as Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataDatasetsInnerCustodianInner
-from gateway_api_sdk.models.model0dabe0dfdf4eebd0c76560fd691c6472200_response_data_primary_applicant_inner import Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataPrimaryApplicantInner as Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataPrimaryApplicantInner
-from gateway_api_sdk.models.model0dabe0dfdf4eebd0c76560fd691c6472200_response_data_teams_inner import Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataTeamsInner as Model0dabe0dfdf4eebd0c76560fd691c6472200ResponseDataTeamsInner
-from gateway_api_sdk.models.model0ff8ad69b213abf8d671b3695d0b69b5200_response import Model0ff8ad69b213abf8d671b3695d0b69b5200Response as Model0ff8ad69b213abf8d671b3695d0b69b5200Response
-from gateway_api_sdk.models.model17336ba551813e00975d3c2da09211c0200_response import Model17336ba551813e00975d3c2da09211c0200Response as Model17336ba551813e00975d3c2da09211c0200Response
-from gateway_api_sdk.models.model17336ba551813e00975d3c2da09211c0200_response_data import Model17336ba551813e00975d3c2da09211c0200ResponseData as Model17336ba551813e00975d3c2da09211c0200ResponseData
-from gateway_api_sdk.models.model1aeebba947bfb42f364a2d5dd2ad8ef9200_response import Model1aeebba947bfb42f364a2d5dd2ad8ef9200Response as Model1aeebba947bfb42f364a2d5dd2ad8ef9200Response
-from gateway_api_sdk.models.model1c45c3c6908e92d680ce50910d6d4061200_response import Model1c45c3c6908e92d680ce50910d6d4061200Response as Model1c45c3c6908e92d680ce50910d6d4061200Response
-from gateway_api_sdk.models.model1c45c3c6908e92d680ce50910d6d4061500_response import Model1c45c3c6908e92d680ce50910d6d4061500Response as Model1c45c3c6908e92d680ce50910d6d4061500Response
-from gateway_api_sdk.models.model1c45c3c6908e92d680ce50910d6d4061_request import Model1c45c3c6908e92d680ce50910d6d4061Request as Model1c45c3c6908e92d680ce50910d6d4061Request
-from gateway_api_sdk.models.model1fd84d2c66035574da4902f416cbd96a_request import Model1fd84d2c66035574da4902f416cbd96aRequest as Model1fd84d2c66035574da4902f416cbd96aRequest
-from gateway_api_sdk.models.model21a780f609f0b91c198ab5de91dc27c6200_response import Model21a780f609f0b91c198ab5de91dc27c6200Response as Model21a780f609f0b91c198ab5de91dc27c6200Response
-from gateway_api_sdk.models.model21a780f609f0b91c198ab5de91dc27c6200_response_data_inner import Model21a780f609f0b91c198ab5de91dc27c6200ResponseDataInner as Model21a780f609f0b91c198ab5de91dc27c6200ResponseDataInner
-from gateway_api_sdk.models.model22581e4d73af25a9036c6610c7e8fc72200_response import Model22581e4d73af25a9036c6610c7e8fc72200Response as Model22581e4d73af25a9036c6610c7e8fc72200Response
-from gateway_api_sdk.models.model234386e06c6b29d5aaca2ed8f89cb9aa200_response import Model234386e06c6b29d5aaca2ed8f89cb9aa200Response as Model234386e06c6b29d5aaca2ed8f89cb9aa200Response
-from gateway_api_sdk.models.model234386e06c6b29d5aaca2ed8f89cb9aa200_response_data_inner import Model234386e06c6b29d5aaca2ed8f89cb9aa200ResponseDataInner as Model234386e06c6b29d5aaca2ed8f89cb9aa200ResponseDataInner
-from gateway_api_sdk.models.model24bb1d73f780293f012cbc187f5448f3_request import Model24bb1d73f780293f012cbc187f5448f3Request as Model24bb1d73f780293f012cbc187f5448f3Request
-from gateway_api_sdk.models.model2692176ac531294e07a905f5735d15ac_request import Model2692176ac531294e07a905f5735d15acRequest as Model2692176ac531294e07a905f5735d15acRequest
-from gateway_api_sdk.models.model2721b23c1df3b4e71706e4ab04f9b0a8_request import Model2721b23c1df3b4e71706e4ab04f9b0a8Request as Model2721b23c1df3b4e71706e4ab04f9b0a8Request
-from gateway_api_sdk.models.model2935b32e38ac989b35eab8e0b7552cd3_request import Model2935b32e38ac989b35eab8e0b7552cd3Request as Model2935b32e38ac989b35eab8e0b7552cd3Request
-from gateway_api_sdk.models.model2c16b33b0f6636db91657b64f4a7bbda200_response import Model2c16b33b0f6636db91657b64f4a7bbda200Response as Model2c16b33b0f6636db91657b64f4a7bbda200Response
-from gateway_api_sdk.models.model2e155418e5f0de41829414447919439e200_response import Model2e155418e5f0de41829414447919439e200Response as Model2e155418e5f0de41829414447919439e200Response
-from gateway_api_sdk.models.model2e155418e5f0de41829414447919439e_request import Model2e155418e5f0de41829414447919439eRequest as Model2e155418e5f0de41829414447919439eRequest
-from gateway_api_sdk.models.model35856fcdf6980ae4da3303ec5a8d90b7200_response import Model35856fcdf6980ae4da3303ec5a8d90b7200Response as Model35856fcdf6980ae4da3303ec5a8d90b7200Response
-from gateway_api_sdk.models.model3604171bd1ea2588906fe1cf65353366422_response import Model3604171bd1ea2588906fe1cf65353366422Response as Model3604171bd1ea2588906fe1cf65353366422Response
-from gateway_api_sdk.models.model3604171bd1ea2588906fe1cf65353366_request import Model3604171bd1ea2588906fe1cf65353366Request as Model3604171bd1ea2588906fe1cf65353366Request
-from gateway_api_sdk.models.model38b0b31c2029a219013fa640588a4a69_request import Model38b0b31c2029a219013fa640588a4a69Request as Model38b0b31c2029a219013fa640588a4a69Request
-from gateway_api_sdk.models.model38b0b31c2029a219013fa640588a4a69_request_options_inner import Model38b0b31c2029a219013fa640588a4a69RequestOptionsInner as Model38b0b31c2029a219013fa640588a4a69RequestOptionsInner
-from gateway_api_sdk.models.model38b0b31c2029a219013fa640588a4a69_request_options_inner_children_inner import Model38b0b31c2029a219013fa640588a4a69RequestOptionsInnerChildrenInner as Model38b0b31c2029a219013fa640588a4a69RequestOptionsInnerChildrenInner
-from gateway_api_sdk.models.model38b0b31c2029a219013fa640588a4a69_request_options_inner_children_inner_options_inner import Model38b0b31c2029a219013fa640588a4a69RequestOptionsInnerChildrenInnerOptionsInner as Model38b0b31c2029a219013fa640588a4a69RequestOptionsInnerChildrenInnerOptionsInner
-from gateway_api_sdk.models.model39500344ecf1a14150bbe26c4a138c56_request import Model39500344ecf1a14150bbe26c4a138c56Request as Model39500344ecf1a14150bbe26c4a138c56Request
-from gateway_api_sdk.models.model39500344ecf1a14150bbe26c4a138c56_request_filters_inner import Model39500344ecf1a14150bbe26c4a138c56RequestFiltersInner as Model39500344ecf1a14150bbe26c4a138c56RequestFiltersInner
-from gateway_api_sdk.models.model3b22aa4bb101550915e675702f8f3174_request import Model3b22aa4bb101550915e675702f8f3174Request as Model3b22aa4bb101550915e675702f8f3174Request
-from gateway_api_sdk.models.model3b59d921ea47286a669054ef67350b03200_response import Model3b59d921ea47286a669054ef67350b03200Response as Model3b59d921ea47286a669054ef67350b03200Response
-from gateway_api_sdk.models.model3b59d921ea47286a669054ef67350b03_request import Model3b59d921ea47286a669054ef67350b03Request as Model3b59d921ea47286a669054ef67350b03Request
-from gateway_api_sdk.models.model3b69b09a466561df872e104a19a2ad65200_response import Model3b69b09a466561df872e104a19a2ad65200Response as Model3b69b09a466561df872e104a19a2ad65200Response
-from gateway_api_sdk.models.model3b69b09a466561df872e104a19a2ad65200_response_data import Model3b69b09a466561df872e104a19a2ad65200ResponseData as Model3b69b09a466561df872e104a19a2ad65200ResponseData
-from gateway_api_sdk.models.model3c79eaaecaae1de1b86c443337841895200_response import Model3c79eaaecaae1de1b86c443337841895200Response as Model3c79eaaecaae1de1b86c443337841895200Response
-from gateway_api_sdk.models.model3c79eaaecaae1de1b86c443337841895200_response_data import Model3c79eaaecaae1de1b86c443337841895200ResponseData as Model3c79eaaecaae1de1b86c443337841895200ResponseData
-from gateway_api_sdk.models.model3c8adeb001330f5198ca1072be78e299200_response import Model3c8adeb001330f5198ca1072be78e299200Response as Model3c8adeb001330f5198ca1072be78e299200Response
-from gateway_api_sdk.models.model3c8adeb001330f5198ca1072be78e299200_response_data import Model3c8adeb001330f5198ca1072be78e299200ResponseData as Model3c8adeb001330f5198ca1072be78e299200ResponseData
-from gateway_api_sdk.models.model3c8adeb001330f5198ca1072be78e299_request import Model3c8adeb001330f5198ca1072be78e299Request as Model3c8adeb001330f5198ca1072be78e299Request
-from gateway_api_sdk.models.model3f2b4dcc3b5e548e62f79a32aa8f0052200_response import Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response as Model3f2b4dcc3b5e548e62f79a32aa8f0052200Response
-from gateway_api_sdk.models.model4321ab5e45636e3e917c94fd21edac28200_response import Model4321ab5e45636e3e917c94fd21edac28200Response as Model4321ab5e45636e3e917c94fd21edac28200Response
-from gateway_api_sdk.models.model4321ab5e45636e3e917c94fd21edac28200_response_data import Model4321ab5e45636e3e917c94fd21edac28200ResponseData as Model4321ab5e45636e3e917c94fd21edac28200ResponseData
-from gateway_api_sdk.models.model45ae3b415211ef0712a8ea070e66449f_request import Model45ae3b415211ef0712a8ea070e66449fRequest as Model45ae3b415211ef0712a8ea070e66449fRequest
-from gateway_api_sdk.models.model473ee45c3962ae2a02abbac5015dce6a200_response import Model473ee45c3962ae2a02abbac5015dce6a200Response as Model473ee45c3962ae2a02abbac5015dce6a200Response
-from gateway_api_sdk.models.model473ee45c3962ae2a02abbac5015dce6a200_response_data import Model473ee45c3962ae2a02abbac5015dce6a200ResponseData as Model473ee45c3962ae2a02abbac5015dce6a200ResponseData
-from gateway_api_sdk.models.model47ebee1d2e096dcb033d29f4ff244ad4200_response import Model47ebee1d2e096dcb033d29f4ff244ad4200Response as Model47ebee1d2e096dcb033d29f4ff244ad4200Response
-from gateway_api_sdk.models.model4e4d590ec8943163168e4fc34bd166a1200_response import Model4e4d590ec8943163168e4fc34bd166a1200Response as Model4e4d590ec8943163168e4fc34bd166a1200Response
-from gateway_api_sdk.models.model4f2a3c56631a5fccb45a9e7972df02b0200_response import Model4f2a3c56631a5fccb45a9e7972df02b0200Response as Model4f2a3c56631a5fccb45a9e7972df02b0200Response
-from gateway_api_sdk.models.model4ff0fc5e7c66284608ce55dc6cb7d846_request import Model4ff0fc5e7c66284608ce55dc6cb7d846Request as Model4ff0fc5e7c66284608ce55dc6cb7d846Request
-from gateway_api_sdk.models.model50c6be78401c528ffdf4ed00414e7678200_response import Model50c6be78401c528ffdf4ed00414e7678200Response as Model50c6be78401c528ffdf4ed00414e7678200Response
-from gateway_api_sdk.models.model5766dcceb641169f89fecb537e8f79e4200_response import Model5766dcceb641169f89fecb537e8f79e4200Response as Model5766dcceb641169f89fecb537e8f79e4200Response
-from gateway_api_sdk.models.model58e41162a49b5b1bf92231b359ea70cb200_response import Model58e41162a49b5b1bf92231b359ea70cb200Response as Model58e41162a49b5b1bf92231b359ea70cb200Response
-from gateway_api_sdk.models.model6196987e50c600396a439939cea635a3200_response import Model6196987e50c600396a439939cea635a3200Response as Model6196987e50c600396a439939cea635a3200Response
-from gateway_api_sdk.models.model6196987e50c600396a439939cea635a3200_response_data import Model6196987e50c600396a439939cea635a3200ResponseData as Model6196987e50c600396a439939cea635a3200ResponseData
-from gateway_api_sdk.models.model6196987e50c600396a439939cea635a3_request import Model6196987e50c600396a439939cea635a3Request as Model6196987e50c600396a439939cea635a3Request
-from gateway_api_sdk.models.model64b4b952592ebe8e0b00204e76bd991c200_response import Model64b4b952592ebe8e0b00204e76bd991c200Response as Model64b4b952592ebe8e0b00204e76bd991c200Response
-from gateway_api_sdk.models.model64b4b952592ebe8e0b00204e76bd991c200_response_data import Model64b4b952592ebe8e0b00204e76bd991c200ResponseData as Model64b4b952592ebe8e0b00204e76bd991c200ResponseData
-from gateway_api_sdk.models.model64d6f1d6c88cbcfccd3e511b29c394d6200_response import Model64d6f1d6c88cbcfccd3e511b29c394d6200Response as Model64d6f1d6c88cbcfccd3e511b29c394d6200Response
-from gateway_api_sdk.models.model64d6f1d6c88cbcfccd3e511b29c394d6_request import Model64d6f1d6c88cbcfccd3e511b29c394d6Request as Model64d6f1d6c88cbcfccd3e511b29c394d6Request
-from gateway_api_sdk.models.model657e412d92e286b217a1892e7f84395c200_response import Model657e412d92e286b217a1892e7f84395c200Response as Model657e412d92e286b217a1892e7f84395c200Response
-from gateway_api_sdk.models.model6ac98caeb87a37c9286f592834b9c803200_response import Model6ac98caeb87a37c9286f592834b9c803200Response as Model6ac98caeb87a37c9286f592834b9c803200Response
-from gateway_api_sdk.models.model6dae0c2af6ca442f90a65e7c65a13252_request import Model6dae0c2af6ca442f90a65e7c65a13252Request as Model6dae0c2af6ca442f90a65e7c65a13252Request
-from gateway_api_sdk.models.model70d4b0fcc281e6491f510f58028762c9_request import Model70d4b0fcc281e6491f510f58028762c9Request as Model70d4b0fcc281e6491f510f58028762c9Request
-from gateway_api_sdk.models.model70d4b0fcc281e6491f510f58028762c9_request_questions_inner import Model70d4b0fcc281e6491f510f58028762c9RequestQuestionsInner as Model70d4b0fcc281e6491f510f58028762c9RequestQuestionsInner
-from gateway_api_sdk.models.model71e5fbca2b5aa8a0160d621feb662ecb200_response import Model71e5fbca2b5aa8a0160d621feb662ecb200Response as Model71e5fbca2b5aa8a0160d621feb662ecb200Response
-from gateway_api_sdk.models.model74f3b5729b08a4be0d17e4b1c7fa2aa9200_response import Model74f3b5729b08a4be0d17e4b1c7fa2aa9200Response as Model74f3b5729b08a4be0d17e4b1c7fa2aa9200Response
-from gateway_api_sdk.models.model74f3b5729b08a4be0d17e4b1c7fa2aa9200_response_data import Model74f3b5729b08a4be0d17e4b1c7fa2aa9200ResponseData as Model74f3b5729b08a4be0d17e4b1c7fa2aa9200ResponseData
-from gateway_api_sdk.models.model75c378b5764d9d73e14fe2d65c654910_request import Model75c378b5764d9d73e14fe2d65c654910Request as Model75c378b5764d9d73e14fe2d65c654910Request
-from gateway_api_sdk.models.model7ab50add4fe0a4b7cff7eab0f4b8df18200_response import Model7ab50add4fe0a4b7cff7eab0f4b8df18200Response as Model7ab50add4fe0a4b7cff7eab0f4b8df18200Response
-from gateway_api_sdk.models.model7ab50add4fe0a4b7cff7eab0f4b8df18200_response_data_inner import Model7ab50add4fe0a4b7cff7eab0f4b8df18200ResponseDataInner as Model7ab50add4fe0a4b7cff7eab0f4b8df18200ResponseDataInner
-from gateway_api_sdk.models.model7f39b24417648f048a9457326619439c200_response import Model7f39b24417648f048a9457326619439c200Response as Model7f39b24417648f048a9457326619439c200Response
-from gateway_api_sdk.models.model7f39b24417648f048a9457326619439c_request import Model7f39b24417648f048a9457326619439cRequest as Model7f39b24417648f048a9457326619439cRequest
-from gateway_api_sdk.models.model81b552b8803870790579d840279ce8a3_request import Model81b552b8803870790579d840279ce8a3Request as Model81b552b8803870790579d840279ce8a3Request
-from gateway_api_sdk.models.model83ae406abb0fb38fa792b4cfcbbbebbf_request import Model83ae406abb0fb38fa792b4cfcbbbebbfRequest as Model83ae406abb0fb38fa792b4cfcbbbebbfRequest
-from gateway_api_sdk.models.model8abb5928cecc676521f3e3d8eea0c49c_request import Model8abb5928cecc676521f3e3d8eea0c49cRequest as Model8abb5928cecc676521f3e3d8eea0c49cRequest
-from gateway_api_sdk.models.model8db417727e7fe7c2e99206b060a3b882200_response import Model8db417727e7fe7c2e99206b060a3b882200Response as Model8db417727e7fe7c2e99206b060a3b882200Response
-from gateway_api_sdk.models.model8db417727e7fe7c2e99206b060a3b882200_response_data_inner import Model8db417727e7fe7c2e99206b060a3b882200ResponseDataInner as Model8db417727e7fe7c2e99206b060a3b882200ResponseDataInner
-from gateway_api_sdk.models.model8db417727e7fe7c2e99206b060a3b882200_response_data_inner_highlight_inner import Model8db417727e7fe7c2e99206b060a3b882200ResponseDataInnerHighlightInner as Model8db417727e7fe7c2e99206b060a3b882200ResponseDataInnerHighlightInner
-from gateway_api_sdk.models.model8db417727e7fe7c2e99206b060a3b882200_response_data_inner_source_inner import Model8db417727e7fe7c2e99206b060a3b882200ResponseDataInnerSourceInner as Model8db417727e7fe7c2e99206b060a3b882200ResponseDataInnerSourceInner
-from gateway_api_sdk.models.model8db417727e7fe7c2e99206b060a3b882_request import Model8db417727e7fe7c2e99206b060a3b882Request as Model8db417727e7fe7c2e99206b060a3b882Request
-from gateway_api_sdk.models.model928c1c4e39f13593bdec88641ee83120200_response import Model928c1c4e39f13593bdec88641ee83120200Response as Model928c1c4e39f13593bdec88641ee83120200Response
-from gateway_api_sdk.models.model928c1c4e39f13593bdec88641ee83120200_response_data import Model928c1c4e39f13593bdec88641ee83120200ResponseData as Model928c1c4e39f13593bdec88641ee83120200ResponseData
-from gateway_api_sdk.models.model92a06ea019f5560b5c9e76e02fe38e31_request import Model92a06ea019f5560b5c9e76e02fe38e31Request as Model92a06ea019f5560b5c9e76e02fe38e31Request
-from gateway_api_sdk.models.model94f1c18e47daa32c1346be4a0d0449e4200_response import Model94f1c18e47daa32c1346be4a0d0449e4200Response as Model94f1c18e47daa32c1346be4a0d0449e4200Response
-from gateway_api_sdk.models.model94f1c18e47daa32c1346be4a0d0449e4200_response_data_inner import Model94f1c18e47daa32c1346be4a0d0449e4200ResponseDataInner as Model94f1c18e47daa32c1346be4a0d0449e4200ResponseDataInner
-from gateway_api_sdk.models.model988e8695bc991d7f8e40131db5ba7a76200_response import Model988e8695bc991d7f8e40131db5ba7a76200Response as Model988e8695bc991d7f8e40131db5ba7a76200Response
-from gateway_api_sdk.models.model988e8695bc991d7f8e40131db5ba7a76_request import Model988e8695bc991d7f8e40131db5ba7a76Request as Model988e8695bc991d7f8e40131db5ba7a76Request
-from gateway_api_sdk.models.model98a20646cb4164cddd79725baf3dcf61200_response import Model98a20646cb4164cddd79725baf3dcf61200Response as Model98a20646cb4164cddd79725baf3dcf61200Response
-from gateway_api_sdk.models.model9946399cbddb0dcadcbd5801e5ee1dd4200_response import Model9946399cbddb0dcadcbd5801e5ee1dd4200Response as Model9946399cbddb0dcadcbd5801e5ee1dd4200Response
-from gateway_api_sdk.models.model9946399cbddb0dcadcbd5801e5ee1dd4200_response_data_inner import Model9946399cbddb0dcadcbd5801e5ee1dd4200ResponseDataInner as Model9946399cbddb0dcadcbd5801e5ee1dd4200ResponseDataInner
-from gateway_api_sdk.models.model9946399cbddb0dcadcbd5801e5ee1dd4200_response_data_inner_highlight_inner import Model9946399cbddb0dcadcbd5801e5ee1dd4200ResponseDataInnerHighlightInner as Model9946399cbddb0dcadcbd5801e5ee1dd4200ResponseDataInnerHighlightInner
-from gateway_api_sdk.models.model9946399cbddb0dcadcbd5801e5ee1dd4200_response_data_inner_source_inner import Model9946399cbddb0dcadcbd5801e5ee1dd4200ResponseDataInnerSourceInner as Model9946399cbddb0dcadcbd5801e5ee1dd4200ResponseDataInnerSourceInner
-from gateway_api_sdk.models.model9946399cbddb0dcadcbd5801e5ee1dd4_request import Model9946399cbddb0dcadcbd5801e5ee1dd4Request as Model9946399cbddb0dcadcbd5801e5ee1dd4Request
-from gateway_api_sdk.models.model9a0abfa6186327d43c51259d5b524fde200_response import Model9a0abfa6186327d43c51259d5b524fde200Response as Model9a0abfa6186327d43c51259d5b524fde200Response
-from gateway_api_sdk.models.model9a0abfa6186327d43c51259d5b524fde_request import Model9a0abfa6186327d43c51259d5b524fdeRequest as Model9a0abfa6186327d43c51259d5b524fdeRequest
-from gateway_api_sdk.models.model9b95892cc29cee3ccd11e3f92223224c200_response import Model9b95892cc29cee3ccd11e3f92223224c200Response as Model9b95892cc29cee3ccd11e3f92223224c200Response
-from gateway_api_sdk.models.model9b95892cc29cee3ccd11e3f92223224c200_response_data_inner import Model9b95892cc29cee3ccd11e3f92223224c200ResponseDataInner as Model9b95892cc29cee3ccd11e3f92223224c200ResponseDataInner
-from gateway_api_sdk.models.model9b95892cc29cee3ccd11e3f92223224c200_response_data_inner_source_inner import Model9b95892cc29cee3ccd11e3f92223224c200ResponseDataInnerSourceInner as Model9b95892cc29cee3ccd11e3f92223224c200ResponseDataInnerSourceInner
-from gateway_api_sdk.models.model9b95892cc29cee3ccd11e3f92223224c_request import Model9b95892cc29cee3ccd11e3f92223224cRequest as Model9b95892cc29cee3ccd11e3f92223224cRequest
-from gateway_api_sdk.models.model9ce0c491d34067e8cf15eb9e9b5ec147200_response import Model9ce0c491d34067e8cf15eb9e9b5ec147200Response as Model9ce0c491d34067e8cf15eb9e9b5ec147200Response
-from gateway_api_sdk.models.model9ce0c491d34067e8cf15eb9e9b5ec147200_response_data import Model9ce0c491d34067e8cf15eb9e9b5ec147200ResponseData as Model9ce0c491d34067e8cf15eb9e9b5ec147200ResponseData
 from gateway_api_sdk.models.notification import Notification as Notification
+from gateway_api_sdk.models.patch_dar_section_request import PatchDarSectionRequest as PatchDarSectionRequest
+from gateway_api_sdk.models.patch_dar_template200_response import PatchDarTemplate200Response as PatchDarTemplate200Response
+from gateway_api_sdk.models.patch_dar_template200_response_data import PatchDarTemplate200ResponseData as PatchDarTemplate200ResponseData
+from gateway_api_sdk.models.patch_dar_template_request import PatchDarTemplateRequest as PatchDarTemplateRequest
 from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request as PatchDatasetsV2Request
+from gateway_api_sdk.models.patch_user_dar_application_request import PatchUserDarApplicationRequest as PatchUserDarApplicationRequest
 from gateway_api_sdk.models.programming_language import ProgrammingLanguage as ProgrammingLanguage
 from gateway_api_sdk.models.programming_package import ProgrammingPackage as ProgrammingPackage
 from gateway_api_sdk.models.publication import Publication as Publication
@@ -839,19 +761,97 @@ from gateway_api_sdk.models.resend_secondary_verification_email404_response impo
 from gateway_api_sdk.models.retrieve_widget_data200_response import RetrieveWidgetData200Response as RetrieveWidgetData200Response
 from gateway_api_sdk.models.retrieve_widget_data403_response import RetrieveWidgetData403Response as RetrieveWidgetData403Response
 from gateway_api_sdk.models.saved_search import SavedSearch as SavedSearch
+from gateway_api_sdk.models.search_collections200_response import SearchCollections200Response as SearchCollections200Response
+from gateway_api_sdk.models.search_collections200_response_data_inner import SearchCollections200ResponseDataInner as SearchCollections200ResponseDataInner
+from gateway_api_sdk.models.search_collections200_response_data_inner_source_inner import SearchCollections200ResponseDataInnerSourceInner as SearchCollections200ResponseDataInnerSourceInner
+from gateway_api_sdk.models.search_collections_request import SearchCollectionsRequest as SearchCollectionsRequest
+from gateway_api_sdk.models.search_data_custodian_networks200_response import SearchDataCustodianNetworks200Response as SearchDataCustodianNetworks200Response
+from gateway_api_sdk.models.search_data_custodian_networks200_response_data_inner import SearchDataCustodianNetworks200ResponseDataInner as SearchDataCustodianNetworks200ResponseDataInner
+from gateway_api_sdk.models.search_data_custodian_networks200_response_data_inner_source_inner import SearchDataCustodianNetworks200ResponseDataInnerSourceInner as SearchDataCustodianNetworks200ResponseDataInnerSourceInner
+from gateway_api_sdk.models.search_data_custodian_networks_request import SearchDataCustodianNetworksRequest as SearchDataCustodianNetworksRequest
+from gateway_api_sdk.models.search_data_custodians200_response import SearchDataCustodians200Response as SearchDataCustodians200Response
+from gateway_api_sdk.models.search_data_custodians200_response_data_inner import SearchDataCustodians200ResponseDataInner as SearchDataCustodians200ResponseDataInner
+from gateway_api_sdk.models.search_data_custodians200_response_data_inner_source_inner import SearchDataCustodians200ResponseDataInnerSourceInner as SearchDataCustodians200ResponseDataInnerSourceInner
+from gateway_api_sdk.models.search_data_custodians_request import SearchDataCustodiansRequest as SearchDataCustodiansRequest
+from gateway_api_sdk.models.search_data_uses200_response import SearchDataUses200Response as SearchDataUses200Response
+from gateway_api_sdk.models.search_data_uses200_response_data_inner import SearchDataUses200ResponseDataInner as SearchDataUses200ResponseDataInner
+from gateway_api_sdk.models.search_data_uses200_response_data_inner_highlight_inner import SearchDataUses200ResponseDataInnerHighlightInner as SearchDataUses200ResponseDataInnerHighlightInner
+from gateway_api_sdk.models.search_data_uses200_response_data_inner_source_inner import SearchDataUses200ResponseDataInnerSourceInner as SearchDataUses200ResponseDataInnerSourceInner
+from gateway_api_sdk.models.search_data_uses_request import SearchDataUsesRequest as SearchDataUsesRequest
+from gateway_api_sdk.models.search_datasets200_response import SearchDatasets200Response as SearchDatasets200Response
+from gateway_api_sdk.models.search_datasets200_response_data_inner import SearchDatasets200ResponseDataInner as SearchDatasets200ResponseDataInner
+from gateway_api_sdk.models.search_datasets200_response_data_inner_highlight_inner import SearchDatasets200ResponseDataInnerHighlightInner as SearchDatasets200ResponseDataInnerHighlightInner
+from gateway_api_sdk.models.search_datasets200_response_data_inner_source_inner import SearchDatasets200ResponseDataInnerSourceInner as SearchDatasets200ResponseDataInnerSourceInner
+from gateway_api_sdk.models.search_datasets_request import SearchDatasetsRequest as SearchDatasetsRequest
+from gateway_api_sdk.models.search_publications200_response import SearchPublications200Response as SearchPublications200Response
+from gateway_api_sdk.models.search_publications200_response_data_inner import SearchPublications200ResponseDataInner as SearchPublications200ResponseDataInner
+from gateway_api_sdk.models.search_publications200_response_data_inner_highlight_inner import SearchPublications200ResponseDataInnerHighlightInner as SearchPublications200ResponseDataInnerHighlightInner
+from gateway_api_sdk.models.search_publications200_response_data_inner_source_inner import SearchPublications200ResponseDataInnerSourceInner as SearchPublications200ResponseDataInnerSourceInner
+from gateway_api_sdk.models.search_publications_by_doi200_response import SearchPublicationsByDoi200Response as SearchPublicationsByDoi200Response
+from gateway_api_sdk.models.search_publications_by_doi_request import SearchPublicationsByDoiRequest as SearchPublicationsByDoiRequest
+from gateway_api_sdk.models.search_publications_request import SearchPublicationsRequest as SearchPublicationsRequest
+from gateway_api_sdk.models.search_similar_datasets200_response import SearchSimilarDatasets200Response as SearchSimilarDatasets200Response
+from gateway_api_sdk.models.search_similar_datasets200_response_data_inner import SearchSimilarDatasets200ResponseDataInner as SearchSimilarDatasets200ResponseDataInner
+from gateway_api_sdk.models.search_similar_datasets_request import SearchSimilarDatasetsRequest as SearchSimilarDatasetsRequest
+from gateway_api_sdk.models.search_tools200_response import SearchTools200Response as SearchTools200Response
+from gateway_api_sdk.models.search_tools200_response_data_inner import SearchTools200ResponseDataInner as SearchTools200ResponseDataInner
+from gateway_api_sdk.models.search_tools200_response_data_inner_highlight_inner import SearchTools200ResponseDataInnerHighlightInner as SearchTools200ResponseDataInnerHighlightInner
+from gateway_api_sdk.models.search_tools200_response_data_inner_source_inner import SearchTools200ResponseDataInnerSourceInner as SearchTools200ResponseDataInnerSourceInner
+from gateway_api_sdk.models.search_tools_request import SearchToolsRequest as SearchToolsRequest
 from gateway_api_sdk.models.team import Team as Team
 from gateway_api_sdk.models.test_federation200_response import TestFederation200Response as TestFederation200Response
 from gateway_api_sdk.models.tool import Tool as Tool
 from gateway_api_sdk.models.track_widget_event_request import TrackWidgetEventRequest as TrackWidgetEventRequest
 from gateway_api_sdk.models.type_category import TypeCategory as TypeCategory
+from gateway_api_sdk.models.update_admin_search_feature_request import UpdateAdminSearchFeatureRequest as UpdateAdminSearchFeatureRequest
+from gateway_api_sdk.models.update_aliases200_response import UpdateAliases200Response as UpdateAliases200Response
+from gateway_api_sdk.models.update_applications200_response import UpdateApplications200Response as UpdateApplications200Response
+from gateway_api_sdk.models.update_applications200_response_data import UpdateApplications200ResponseData as UpdateApplications200ResponseData
+from gateway_api_sdk.models.update_applications_request import UpdateApplicationsRequest as UpdateApplicationsRequest
+from gateway_api_sdk.models.update_categories200_response import UpdateCategories200Response as UpdateCategories200Response
+from gateway_api_sdk.models.update_categories_request import UpdateCategoriesRequest as UpdateCategoriesRequest
+from gateway_api_sdk.models.update_collections_v2_request import UpdateCollectionsV2Request as UpdateCollectionsV2Request
+from gateway_api_sdk.models.update_dar_integration200_response import UpdateDarIntegration200Response as UpdateDarIntegration200Response
+from gateway_api_sdk.models.update_dar_integration_request import UpdateDarIntegrationRequest as UpdateDarIntegrationRequest
+from gateway_api_sdk.models.update_dar_template_request import UpdateDarTemplateRequest as UpdateDarTemplateRequest
+from gateway_api_sdk.models.update_data_custodian_network200_response import UpdateDataCustodianNetwork200Response as UpdateDataCustodianNetwork200Response
+from gateway_api_sdk.models.update_data_provider_coll200_response import UpdateDataProviderColl200Response as UpdateDataProviderColl200Response
+from gateway_api_sdk.models.update_data_provider_coll_request import UpdateDataProviderCollRequest as UpdateDataProviderCollRequest
 from gateway_api_sdk.models.update_datasets_request import UpdateDatasetsRequest as UpdateDatasetsRequest
+from gateway_api_sdk.models.update_dur200_response import UpdateDur200Response as UpdateDur200Response
+from gateway_api_sdk.models.update_dur_integrations200_response import UpdateDurIntegrations200Response as UpdateDurIntegrations200Response
+from gateway_api_sdk.models.update_dur_integrations200_response_data import UpdateDurIntegrations200ResponseData as UpdateDurIntegrations200ResponseData
 from gateway_api_sdk.models.update_federation_team_request import UpdateFederationTeamRequest as UpdateFederationTeamRequest
+from gateway_api_sdk.models.update_keywords200_response import UpdateKeywords200Response as UpdateKeywords200Response
+from gateway_api_sdk.models.update_libraries200_response import UpdateLibraries200Response as UpdateLibraries200Response
+from gateway_api_sdk.models.update_libraries200_response_data import UpdateLibraries200ResponseData as UpdateLibraries200ResponseData
+from gateway_api_sdk.models.update_licenses200_response import UpdateLicenses200Response as UpdateLicenses200Response
+from gateway_api_sdk.models.update_notifications200_response import UpdateNotifications200Response as UpdateNotifications200Response
+from gateway_api_sdk.models.update_programming_languages200_response import UpdateProgrammingLanguages200Response as UpdateProgrammingLanguages200Response
+from gateway_api_sdk.models.update_programming_packages200_response import UpdateProgrammingPackages200Response as UpdateProgrammingPackages200Response
 from gateway_api_sdk.models.update_publications_request import UpdatePublicationsRequest as UpdatePublicationsRequest
+from gateway_api_sdk.models.update_question_bank_question200_response import UpdateQuestionBankQuestion200Response as UpdateQuestionBankQuestion200Response
+from gateway_api_sdk.models.update_question_bank_question_request import UpdateQuestionBankQuestionRequest as UpdateQuestionBankQuestionRequest
+from gateway_api_sdk.models.update_question_bank_question_status200_response import UpdateQuestionBankQuestionStatus200Response as UpdateQuestionBankQuestionStatus200Response
+from gateway_api_sdk.models.update_reviews200_response import UpdateReviews200Response as UpdateReviews200Response
+from gateway_api_sdk.models.update_reviews200_response_data import UpdateReviews200ResponseData as UpdateReviews200ResponseData
+from gateway_api_sdk.models.update_saved_searches200_response import UpdateSavedSearches200Response as UpdateSavedSearches200Response
+from gateway_api_sdk.models.update_saved_searches_request import UpdateSavedSearchesRequest as UpdateSavedSearchesRequest
+from gateway_api_sdk.models.update_team_collections_request import UpdateTeamCollectionsRequest as UpdateTeamCollectionsRequest
+from gateway_api_sdk.models.update_team_dar_application_question_review200_response import UpdateTeamDarApplicationQuestionReview200Response as UpdateTeamDarApplicationQuestionReview200Response
+from gateway_api_sdk.models.update_team_dar_application_request import UpdateTeamDarApplicationRequest as UpdateTeamDarApplicationRequest
 from gateway_api_sdk.models.update_tools_integrations_request import UpdateToolsIntegrationsRequest as UpdateToolsIntegrationsRequest
 from gateway_api_sdk.models.update_tools_request import UpdateToolsRequest as UpdateToolsRequest
+from gateway_api_sdk.models.update_type_categories200_response import UpdateTypeCategories200Response as UpdateTypeCategories200Response
+from gateway_api_sdk.models.update_type_categories_request import UpdateTypeCategoriesRequest as UpdateTypeCategoriesRequest
+from gateway_api_sdk.models.update_user_dar_application_request import UpdateUserDarApplicationRequest as UpdateUserDarApplicationRequest
+from gateway_api_sdk.models.update_user_dar_application_request_answers_inner import UpdateUserDarApplicationRequestAnswersInner as UpdateUserDarApplicationRequestAnswersInner
+from gateway_api_sdk.models.update_user_dar_application_request_answers_inner_answer import UpdateUserDarApplicationRequestAnswersInnerAnswer as UpdateUserDarApplicationRequestAnswersInnerAnswer
 from gateway_api_sdk.models.update_user_has_roles_request import UpdateUserHasRolesRequest as UpdateUserHasRolesRequest
 from gateway_api_sdk.models.update_user_has_roles_request_roles import UpdateUserHasRolesRequestRoles as UpdateUserHasRolesRequestRoles
 from gateway_api_sdk.models.update_users_request import UpdateUsersRequest as UpdateUsersRequest
+from gateway_api_sdk.models.update_widget200_response import UpdateWidget200Response as UpdateWidget200Response
+from gateway_api_sdk.models.update_widget_request import UpdateWidgetRequest as UpdateWidgetRequest
 from gateway_api_sdk.models.upload_dur_request import UploadDurRequest as UploadDurRequest
 from gateway_api_sdk.models.user import User as User
 from gateway_api_sdk.models.verify_secondary_email200_response import VerifySecondaryEmail200Response as VerifySecondaryEmail200Response

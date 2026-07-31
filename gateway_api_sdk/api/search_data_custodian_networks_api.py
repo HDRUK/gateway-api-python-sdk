@@ -18,8 +18,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.model9b95892cc29cee3ccd11e3f92223224c200_response import Model9b95892cc29cee3ccd11e3f92223224c200Response
-from gateway_api_sdk.models.model9b95892cc29cee3ccd11e3f92223224c_request import Model9b95892cc29cee3ccd11e3f92223224cRequest
+from gateway_api_sdk.models.search_data_custodian_networks200_response import SearchDataCustodianNetworks200Response
+from gateway_api_sdk.models.search_data_custodian_networks_request import SearchDataCustodianNetworksRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -40,9 +40,9 @@ class SearchDataCustodianNetworksApi:
 
 
     @validate_call
-    def call_9b95892cc29cee3ccd11e3f92223224c(
+    def search_data_custodian_networks(
         self,
-        model9b95892cc29cee3ccd11e3f92223224c_request: Annotated[Model9b95892cc29cee3ccd11e3f92223224cRequest, Field(description="Submit search query")],
+        search_data_custodian_networks_request: Annotated[SearchDataCustodianNetworksRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         _request_timeout: Union[
@@ -57,13 +57,13 @@ class SearchDataCustodianNetworksApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model9b95892cc29cee3ccd11e3f92223224c200Response:
+    ) -> SearchDataCustodianNetworks200Response:
         """Search@data_custodian_networks
 
         Returns gateway data custodian networks related to the provided query term(s)
 
-        :param model9b95892cc29cee3ccd11e3f92223224c_request: Submit search query (required)
-        :type model9b95892cc29cee3ccd11e3f92223224c_request: Model9b95892cc29cee3ccd11e3f92223224cRequest
+        :param search_data_custodian_networks_request: Submit search query (required)
+        :type search_data_custodian_networks_request: SearchDataCustodianNetworksRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -90,8 +90,8 @@ class SearchDataCustodianNetworksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_9b95892cc29cee3ccd11e3f92223224c_serialize(
-            model9b95892cc29cee3ccd11e3f92223224c_request=model9b95892cc29cee3ccd11e3f92223224c_request,
+        _param = self._search_data_custodian_networks_serialize(
+            search_data_custodian_networks_request=search_data_custodian_networks_request,
             sort=sort,
             direction=direction,
             _request_auth=_request_auth,
@@ -101,7 +101,7 @@ class SearchDataCustodianNetworksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model9b95892cc29cee3ccd11e3f92223224c200Response",
+            '200': "SearchDataCustodianNetworks200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -115,9 +115,9 @@ class SearchDataCustodianNetworksApi:
 
 
     @validate_call
-    def call_9b95892cc29cee3ccd11e3f92223224c_with_http_info(
+    def search_data_custodian_networks_with_http_info(
         self,
-        model9b95892cc29cee3ccd11e3f92223224c_request: Annotated[Model9b95892cc29cee3ccd11e3f92223224cRequest, Field(description="Submit search query")],
+        search_data_custodian_networks_request: Annotated[SearchDataCustodianNetworksRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         _request_timeout: Union[
@@ -132,13 +132,13 @@ class SearchDataCustodianNetworksApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model9b95892cc29cee3ccd11e3f92223224c200Response]:
+    ) -> ApiResponse[SearchDataCustodianNetworks200Response]:
         """Search@data_custodian_networks
 
         Returns gateway data custodian networks related to the provided query term(s)
 
-        :param model9b95892cc29cee3ccd11e3f92223224c_request: Submit search query (required)
-        :type model9b95892cc29cee3ccd11e3f92223224c_request: Model9b95892cc29cee3ccd11e3f92223224cRequest
+        :param search_data_custodian_networks_request: Submit search query (required)
+        :type search_data_custodian_networks_request: SearchDataCustodianNetworksRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -165,8 +165,8 @@ class SearchDataCustodianNetworksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_9b95892cc29cee3ccd11e3f92223224c_serialize(
-            model9b95892cc29cee3ccd11e3f92223224c_request=model9b95892cc29cee3ccd11e3f92223224c_request,
+        _param = self._search_data_custodian_networks_serialize(
+            search_data_custodian_networks_request=search_data_custodian_networks_request,
             sort=sort,
             direction=direction,
             _request_auth=_request_auth,
@@ -176,7 +176,7 @@ class SearchDataCustodianNetworksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model9b95892cc29cee3ccd11e3f92223224c200Response",
+            '200': "SearchDataCustodianNetworks200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -190,9 +190,9 @@ class SearchDataCustodianNetworksApi:
 
 
     @validate_call
-    def call_9b95892cc29cee3ccd11e3f92223224c_without_preload_content(
+    def search_data_custodian_networks_without_preload_content(
         self,
-        model9b95892cc29cee3ccd11e3f92223224c_request: Annotated[Model9b95892cc29cee3ccd11e3f92223224cRequest, Field(description="Submit search query")],
+        search_data_custodian_networks_request: Annotated[SearchDataCustodianNetworksRequest, Field(description="Submit search query")],
         sort: Annotated[Optional[StrictStr], Field(description="Field to sort by (default: 'score')")] = None,
         direction: Annotated[Optional[StrictStr], Field(description="Sort direction ('asc' or 'desc', default: 'desc')")] = None,
         _request_timeout: Union[
@@ -212,8 +212,8 @@ class SearchDataCustodianNetworksApi:
 
         Returns gateway data custodian networks related to the provided query term(s)
 
-        :param model9b95892cc29cee3ccd11e3f92223224c_request: Submit search query (required)
-        :type model9b95892cc29cee3ccd11e3f92223224c_request: Model9b95892cc29cee3ccd11e3f92223224cRequest
+        :param search_data_custodian_networks_request: Submit search query (required)
+        :type search_data_custodian_networks_request: SearchDataCustodianNetworksRequest
         :param sort: Field to sort by (default: 'score')
         :type sort: str
         :param direction: Sort direction ('asc' or 'desc', default: 'desc')
@@ -240,8 +240,8 @@ class SearchDataCustodianNetworksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_9b95892cc29cee3ccd11e3f92223224c_serialize(
-            model9b95892cc29cee3ccd11e3f92223224c_request=model9b95892cc29cee3ccd11e3f92223224c_request,
+        _param = self._search_data_custodian_networks_serialize(
+            search_data_custodian_networks_request=search_data_custodian_networks_request,
             sort=sort,
             direction=direction,
             _request_auth=_request_auth,
@@ -251,7 +251,7 @@ class SearchDataCustodianNetworksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model9b95892cc29cee3ccd11e3f92223224c200Response",
+            '200': "SearchDataCustodianNetworks200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -260,9 +260,9 @@ class SearchDataCustodianNetworksApi:
         return response_data.response
 
 
-    def _call_9b95892cc29cee3ccd11e3f92223224c_serialize(
+    def _search_data_custodian_networks_serialize(
         self,
-        model9b95892cc29cee3ccd11e3f92223224c_request,
+        search_data_custodian_networks_request,
         sort,
         direction,
         _request_auth,
@@ -298,8 +298,8 @@ class SearchDataCustodianNetworksApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if model9b95892cc29cee3ccd11e3f92223224c_request is not None:
-            _body_params = model9b95892cc29cee3ccd11e3f92223224c_request
+        if search_data_custodian_networks_request is not None:
+            _body_params = search_data_custodian_networks_request
 
 
         # set the HTTP header `Accept`

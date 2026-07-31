@@ -26,71 +26,71 @@ class TestDataCustodianNetworksApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_abbd5469b6946b3822b4d156b522b03b(self) -> None:
-        """Test case for abbd5469b6946b3822b4d156b522b03b
+    def test_create_data_custodian_network(self) -> None:
+        """Test case for create_data_custodian_network
 
         DataCustodianNetworks@store
         """
         pass
 
-    def test_b42015102cb75735f63c91ed0c89aadc(self) -> None:
-        """Test case for b42015102cb75735f63c91ed0c89aadc
-
-        DataCustodianNetworks@showSummary
-        """
-        pass
-
-    def test_c7827b344f35440af530383c74573c6f(self) -> None:
-        """Test case for c7827b344f35440af530383c74573c6f
-
-        DataCustodianNetworks@show
-        """
-        pass
-
-    def test_call_0a51cc2388e3015851122c32c548b07e(self) -> None:
-        """Test case for call_0a51cc2388e3015851122c32c548b07e
-
-        DataCustodianNetworks@edit
-        """
-        pass
-
-    def test_call_3b69b09a466561df872e104a19a2ad65(self) -> None:
-        """Test case for call_3b69b09a466561df872e104a19a2ad65
-
-        DataCustodianNetworks@showDatasetsSummary
-        """
-        pass
-
-    def test_call_5e9eca031c07d46c2fa4007e916bc5e1(self) -> None:
-        """Test case for call_5e9eca031c07d46c2fa4007e916bc5e1
+    def test_delete_data_custodian_network(self) -> None:
+        """Test case for delete_data_custodian_network
 
         DataCustodianNetworks@destroy
         """
         pass
 
-    def test_call_71e5fbca2b5aa8a0160d621feb662ecb(self) -> None:
-        """Test case for call_71e5fbca2b5aa8a0160d621feb662ecb
+    def test_edit_data_custodian_network(self) -> None:
+        """Test case for edit_data_custodian_network
 
-        DataCustodianNetworks@index
+        DataCustodianNetworks@edit
         """
         pass
 
-    def test_call_9ce0c491d34067e8cf15eb9e9b5ec147(self) -> None:
-        """Test case for call_9ce0c491d34067e8cf15eb9e9b5ec147
+    def test_fetch_data_custodian_network(self) -> None:
+        """Test case for fetch_data_custodian_network
 
-        DataCustodianNetworks@showInfoSummary
+        DataCustodianNetworks@show
         """
         pass
 
-    def test_ced8add57941554cde6a5fc53f6555e5(self) -> None:
-        """Test case for ced8add57941554cde6a5fc53f6555e5
+    def test_fetch_data_custodian_network_custodians_summary(self) -> None:
+        """Test case for fetch_data_custodian_network_custodians_summary
 
         DataCustodianNetworks@showCustodiansSummary
         """
         pass
 
-    def test_ddc2f5ebf51037175006c6017e20d358(self) -> None:
-        """Test case for ddc2f5ebf51037175006c6017e20d358
+    def test_fetch_data_custodian_network_datasets_summary(self) -> None:
+        """Test case for fetch_data_custodian_network_datasets_summary
+
+        DataCustodianNetworks@showDatasetsSummary
+        """
+        pass
+
+    def test_fetch_data_custodian_network_entities_summary(self) -> None:
+        """Test case for fetch_data_custodian_network_entities_summary
+
+        DataCustodianNetworks@showSummary
+        """
+        pass
+
+    def test_fetch_data_custodian_network_info(self) -> None:
+        """Test case for fetch_data_custodian_network_info
+
+        DataCustodianNetworks@showInfoSummary
+        """
+        pass
+
+    def test_fetch_data_custodian_networks(self) -> None:
+        """Test case for fetch_data_custodian_networks
+
+        DataCustodianNetworks@index
+        """
+        pass
+
+    def test_update_data_custodian_network(self) -> None:
+        """Test case for update_data_custodian_network
 
         DataCustodianNetworks@update
         """

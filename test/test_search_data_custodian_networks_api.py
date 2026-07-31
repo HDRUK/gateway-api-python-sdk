@@ -26,8 +26,8 @@ class TestSearchDataCustodianNetworksApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_9b95892cc29cee3ccd11e3f92223224c(self) -> None:
-        """Test case for call_9b95892cc29cee3ccd11e3f92223224c
+    def test_search_data_custodian_networks(self) -> None:
+        """Test case for search_data_custodian_networks
 
         Search@data_custodian_networks
         """

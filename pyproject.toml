@@ -1,6 +1,6 @@
 [project]
 name = "gateway_api_sdk"
-version = "0.0.0-test2"
+version = "0.0.0-test3"
 description = "HDRUK Gateway API"
 authors = [
   {name = "OpenAPI Generator Community",email = "team@openapitools.org"},

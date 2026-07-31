@@ -26,8 +26,8 @@ class TestSearchSimilarDatasetsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_cd41e1bd1b9f9918da2bb53a240b8bfe(self) -> None:
-        """Test case for cd41e1bd1b9f9918da2bb53a240b8bfe
+    def test_search_similar_datasets(self) -> None:
+        """Test case for search_similar_datasets
 
         Search@similarDatasets
         """

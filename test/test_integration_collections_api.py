@@ -26,20 +26,6 @@ class TestIntegrationCollectionsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_call_03c4b87e83a5e290cee5b9bfd43f9b0d(self) -> None:
-        """Test case for call_03c4b87e83a5e290cee5b9bfd43f9b0d
-
-        Update a collection
-        """
-        pass
-
-    def test_call_9909f9e058a98d63144b44938dbb0939(self) -> None:
-        """Test case for call_9909f9e058a98d63144b44938dbb0939
-
-        Delete a collection
-        """
-        pass
-
     def test_create_collections_integrations(self) -> None:
         """Test case for create_collections_integrations
 
@@ -47,8 +33,15 @@ class TestIntegrationCollectionsApi(unittest.TestCase):
         """
         pass
 
-    def test_e935d442a0adfe7fa4fffabbfd45512c(self) -> None:
-        """Test case for e935d442a0adfe7fa4fffabbfd45512c
+    def test_delete_collections_integrations(self) -> None:
+        """Test case for delete_collections_integrations
+
+        Delete a collection
+        """
+        pass
+
+    def test_edit_collections_integrations(self) -> None:
+        """Test case for edit_collections_integrations
 
         Edit a collection
         """
@@ -65,6 +58,13 @@ class TestIntegrationCollectionsApi(unittest.TestCase):
         """Test case for fetch_collections_integrations
 
         IntegrationCollectionController@show
+        """
+        pass
+
+    def test_update_collections_integrations(self) -> None:
+        """Test case for update_collections_integrations
+
+        Update a collection
         """
         pass
 

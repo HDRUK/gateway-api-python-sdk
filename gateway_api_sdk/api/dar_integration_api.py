@@ -17,13 +17,13 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
 from typing_extensions import Annotated
-from gateway_api_sdk.models.c29b5b3424f7317b69b4bda048ccfafb200_response import C29b5b3424f7317b69b4bda048ccfafb200Response
-from gateway_api_sdk.models.c663ccf8b1926d7678370d095b9b358f_request import C663ccf8b1926d7678370d095b9b358fRequest
-from gateway_api_sdk.models.dd76b8d73b7ea8b4951f03d7c0904c92200_response import Dd76b8d73b7ea8b4951f03d7c0904c92200Response
-from gateway_api_sdk.models.model09c033f0336380c3d8bb6801e96378bc200_response import Model09c033f0336380c3d8bb6801e96378bc200Response
-from gateway_api_sdk.models.model09c033f0336380c3d8bb6801e96378bc_request import Model09c033f0336380c3d8bb6801e96378bcRequest
-from gateway_api_sdk.models.model7ab50add4fe0a4b7cff7eab0f4b8df18200_response import Model7ab50add4fe0a4b7cff7eab0f4b8df18200Response
-from gateway_api_sdk.models.model7ab50add4fe0a4b7cff7eab0f4b8df18200_response_data_inner import Model7ab50add4fe0a4b7cff7eab0f4b8df18200ResponseDataInner
+from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.edit_dar_integration_request import EditDarIntegrationRequest
+from gateway_api_sdk.models.fetch_all_dar_integrations200_response import FetchAllDarIntegrations200Response
+from gateway_api_sdk.models.fetch_all_dar_integrations200_response_data_inner import FetchAllDarIntegrations200ResponseDataInner
+from gateway_api_sdk.models.update_dar_integration200_response import UpdateDarIntegration200Response
+from gateway_api_sdk.models.update_dar_integration_request import UpdateDarIntegrationRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -44,10 +44,10 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def c663ccf8b1926d7678370d095b9b358f(
+    def create_dar_integration(
         self,
         id: Annotated[StrictInt, Field(description="dar integration id")],
-        c663ccf8b1926d7678370d095b9b358f_request: Annotated[C663ccf8b1926d7678370d095b9b358fRequest, Field(description="DarIntegration definition")],
+        update_dar_integration_request: Annotated[UpdateDarIntegrationRequest, Field(description="DarIntegration definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -60,15 +60,15 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model09c033f0336380c3d8bb6801e96378bc200Response:
-        """DarIntegration@edit
+    ) -> CreateCategories200Response:
+        """DarIntegration@store
 
-        Edit a DAR integration enabled on the system
+        Creates a new DAR integration enabled on the system
 
         :param id: dar integration id (required)
         :type id: int
-        :param c663ccf8b1926d7678370d095b9b358f_request: DarIntegration definition (required)
-        :type c663ccf8b1926d7678370d095b9b358f_request: C663ccf8b1926d7678370d095b9b358fRequest
+        :param update_dar_integration_request: DarIntegration definition (required)
+        :type update_dar_integration_request: UpdateDarIntegrationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -91,9 +91,9 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._c663ccf8b1926d7678370d095b9b358f_serialize(
+        _param = self._create_dar_integration_serialize(
             id=id,
-            c663ccf8b1926d7678370d095b9b358f_request=c663ccf8b1926d7678370d095b9b358f_request,
+            update_dar_integration_request=update_dar_integration_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -101,9 +101,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model09c033f0336380c3d8bb6801e96378bc200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -117,10 +117,10 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def c663ccf8b1926d7678370d095b9b358f_with_http_info(
+    def create_dar_integration_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="dar integration id")],
-        c663ccf8b1926d7678370d095b9b358f_request: Annotated[C663ccf8b1926d7678370d095b9b358fRequest, Field(description="DarIntegration definition")],
+        update_dar_integration_request: Annotated[UpdateDarIntegrationRequest, Field(description="DarIntegration definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -133,15 +133,15 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model09c033f0336380c3d8bb6801e96378bc200Response]:
-        """DarIntegration@edit
+    ) -> ApiResponse[CreateCategories200Response]:
+        """DarIntegration@store
 
-        Edit a DAR integration enabled on the system
+        Creates a new DAR integration enabled on the system
 
         :param id: dar integration id (required)
         :type id: int
-        :param c663ccf8b1926d7678370d095b9b358f_request: DarIntegration definition (required)
-        :type c663ccf8b1926d7678370d095b9b358f_request: C663ccf8b1926d7678370d095b9b358fRequest
+        :param update_dar_integration_request: DarIntegration definition (required)
+        :type update_dar_integration_request: UpdateDarIntegrationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -164,9 +164,9 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._c663ccf8b1926d7678370d095b9b358f_serialize(
+        _param = self._create_dar_integration_serialize(
             id=id,
-            c663ccf8b1926d7678370d095b9b358f_request=c663ccf8b1926d7678370d095b9b358f_request,
+            update_dar_integration_request=update_dar_integration_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -174,9 +174,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model09c033f0336380c3d8bb6801e96378bc200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -190,10 +190,10 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def c663ccf8b1926d7678370d095b9b358f_without_preload_content(
+    def create_dar_integration_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="dar integration id")],
-        c663ccf8b1926d7678370d095b9b358f_request: Annotated[C663ccf8b1926d7678370d095b9b358fRequest, Field(description="DarIntegration definition")],
+        update_dar_integration_request: Annotated[UpdateDarIntegrationRequest, Field(description="DarIntegration definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -207,14 +207,14 @@ class DarIntegrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """DarIntegration@edit
+        """DarIntegration@store
 
-        Edit a DAR integration enabled on the system
+        Creates a new DAR integration enabled on the system
 
         :param id: dar integration id (required)
         :type id: int
-        :param c663ccf8b1926d7678370d095b9b358f_request: DarIntegration definition (required)
-        :type c663ccf8b1926d7678370d095b9b358f_request: C663ccf8b1926d7678370d095b9b358fRequest
+        :param update_dar_integration_request: DarIntegration definition (required)
+        :type update_dar_integration_request: UpdateDarIntegrationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -237,9 +237,9 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._c663ccf8b1926d7678370d095b9b358f_serialize(
+        _param = self._create_dar_integration_serialize(
             id=id,
-            c663ccf8b1926d7678370d095b9b358f_request=c663ccf8b1926d7678370d095b9b358f_request,
+            update_dar_integration_request=update_dar_integration_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -247,9 +247,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model09c033f0336380c3d8bb6801e96378bc200Response",
+            '201': "CreateCategories200Response",
             '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -258,10 +258,10 @@ class DarIntegrationApi:
         return response_data.response
 
 
-    def _c663ccf8b1926d7678370d095b9b358f_serialize(
+    def _create_dar_integration_serialize(
         self,
         id,
-        c663ccf8b1926d7678370d095b9b358f_request,
+        update_dar_integration_request,
         _request_auth,
         _content_type,
         _headers,
@@ -289,8 +289,8 @@ class DarIntegrationApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if c663ccf8b1926d7678370d095b9b358f_request is not None:
-            _body_params = c663ccf8b1926d7678370d095b9b358f_request
+        if update_dar_integration_request is not None:
+            _body_params = update_dar_integration_request
 
 
         # set the HTTP header `Accept`
@@ -321,7 +321,7 @@ class DarIntegrationApi:
         ]
 
         return self.api_client.param_serialize(
-            method='PATCH',
+            method='POST',
             resource_path='/api/v1/dar-integration/{id}',
             path_params=_path_params,
             query_params=_query_params,
@@ -339,302 +339,7 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def call_09c033f0336380c3d8bb6801e96378bc(
-        self,
-        id: Annotated[StrictInt, Field(description="dar integration id")],
-        model09c033f0336380c3d8bb6801e96378bc_request: Annotated[Model09c033f0336380c3d8bb6801e96378bcRequest, Field(description="DarIntegration definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model09c033f0336380c3d8bb6801e96378bc200Response:
-        """DarIntegration@update
-
-        Updates a DAR integration enabled on the system
-
-        :param id: dar integration id (required)
-        :type id: int
-        :param model09c033f0336380c3d8bb6801e96378bc_request: DarIntegration definition (required)
-        :type model09c033f0336380c3d8bb6801e96378bc_request: Model09c033f0336380c3d8bb6801e96378bcRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_09c033f0336380c3d8bb6801e96378bc_serialize(
-            id=id,
-            model09c033f0336380c3d8bb6801e96378bc_request=model09c033f0336380c3d8bb6801e96378bc_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model09c033f0336380c3d8bb6801e96378bc200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_09c033f0336380c3d8bb6801e96378bc_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="dar integration id")],
-        model09c033f0336380c3d8bb6801e96378bc_request: Annotated[Model09c033f0336380c3d8bb6801e96378bcRequest, Field(description="DarIntegration definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model09c033f0336380c3d8bb6801e96378bc200Response]:
-        """DarIntegration@update
-
-        Updates a DAR integration enabled on the system
-
-        :param id: dar integration id (required)
-        :type id: int
-        :param model09c033f0336380c3d8bb6801e96378bc_request: DarIntegration definition (required)
-        :type model09c033f0336380c3d8bb6801e96378bc_request: Model09c033f0336380c3d8bb6801e96378bcRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_09c033f0336380c3d8bb6801e96378bc_serialize(
-            id=id,
-            model09c033f0336380c3d8bb6801e96378bc_request=model09c033f0336380c3d8bb6801e96378bc_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model09c033f0336380c3d8bb6801e96378bc200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_09c033f0336380c3d8bb6801e96378bc_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="dar integration id")],
-        model09c033f0336380c3d8bb6801e96378bc_request: Annotated[Model09c033f0336380c3d8bb6801e96378bcRequest, Field(description="DarIntegration definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """DarIntegration@update
-
-        Updates a DAR integration enabled on the system
-
-        :param id: dar integration id (required)
-        :type id: int
-        :param model09c033f0336380c3d8bb6801e96378bc_request: DarIntegration definition (required)
-        :type model09c033f0336380c3d8bb6801e96378bc_request: Model09c033f0336380c3d8bb6801e96378bcRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_09c033f0336380c3d8bb6801e96378bc_serialize(
-            id=id,
-            model09c033f0336380c3d8bb6801e96378bc_request=model09c033f0336380c3d8bb6801e96378bc_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model09c033f0336380c3d8bb6801e96378bc200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_09c033f0336380c3d8bb6801e96378bc_serialize(
-        self,
-        id,
-        model09c033f0336380c3d8bb6801e96378bc_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if model09c033f0336380c3d8bb6801e96378bc_request is not None:
-            _body_params = model09c033f0336380c3d8bb6801e96378bc_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v1/dar-integration/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_17fa1074b71d9cefd3e65f2757117b57(
+    def delete_dar_integration(
         self,
         id: Annotated[StrictInt, Field(description="dar integration id")],
         _request_timeout: Union[
@@ -649,7 +354,7 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> C29b5b3424f7317b69b4bda048ccfafb200Response:
+    ) -> DeleteAliases200Response:
         """DarIntegration@destroy
 
         Delete a system Dar Integration
@@ -678,7 +383,7 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_17fa1074b71d9cefd3e65f2757117b57_serialize(
+        _param = self._delete_dar_integration_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -687,9 +392,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -703,7 +408,7 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def call_17fa1074b71d9cefd3e65f2757117b57_with_http_info(
+    def delete_dar_integration_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="dar integration id")],
         _request_timeout: Union[
@@ -718,7 +423,7 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[C29b5b3424f7317b69b4bda048ccfafb200Response]:
+    ) -> ApiResponse[DeleteAliases200Response]:
         """DarIntegration@destroy
 
         Delete a system Dar Integration
@@ -747,7 +452,7 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_17fa1074b71d9cefd3e65f2757117b57_serialize(
+        _param = self._delete_dar_integration_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -756,9 +461,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -772,7 +477,7 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def call_17fa1074b71d9cefd3e65f2757117b57_without_preload_content(
+    def delete_dar_integration_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="dar integration id")],
         _request_timeout: Union[
@@ -816,7 +521,7 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_17fa1074b71d9cefd3e65f2757117b57_serialize(
+        _param = self._delete_dar_integration_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -825,9 +530,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "AliasControllerShow404Response",
-            '200': "C29b5b3424f7317b69b4bda048ccfafb200Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
+            '404': "FetchAliases404Response",
+            '200': "DeleteAliases200Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -836,7 +541,7 @@ class DarIntegrationApi:
         return response_data.response
 
 
-    def _call_17fa1074b71d9cefd3e65f2757117b57_serialize(
+    def _delete_dar_integration_serialize(
         self,
         id,
         _request_auth,
@@ -901,9 +606,10 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def call_406144045c21a19659ee66f6d4a78235(
+    def edit_dar_integration(
         self,
         id: Annotated[StrictInt, Field(description="dar integration id")],
+        edit_dar_integration_request: Annotated[EditDarIntegrationRequest, Field(description="DarIntegration definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -916,13 +622,15 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model7ab50add4fe0a4b7cff7eab0f4b8df18200ResponseDataInner:
-        """DarIntegration@show
+    ) -> UpdateDarIntegration200Response:
+        """DarIntegration@edit
 
-        Returns a single DAR integration enabled on the system
+        Edit a DAR integration enabled on the system
 
         :param id: dar integration id (required)
         :type id: int
+        :param edit_dar_integration_request: DarIntegration definition (required)
+        :type edit_dar_integration_request: EditDarIntegrationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -945,8 +653,9 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_406144045c21a19659ee66f6d4a78235_serialize(
+        _param = self._edit_dar_integration_serialize(
             id=id,
+            edit_dar_integration_request=edit_dar_integration_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -954,9 +663,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model7ab50add4fe0a4b7cff7eab0f4b8df18200ResponseDataInner",
+            '200': "UpdateDarIntegration200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -970,9 +679,10 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def call_406144045c21a19659ee66f6d4a78235_with_http_info(
+    def edit_dar_integration_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="dar integration id")],
+        edit_dar_integration_request: Annotated[EditDarIntegrationRequest, Field(description="DarIntegration definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -985,13 +695,15 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model7ab50add4fe0a4b7cff7eab0f4b8df18200ResponseDataInner]:
-        """DarIntegration@show
+    ) -> ApiResponse[UpdateDarIntegration200Response]:
+        """DarIntegration@edit
 
-        Returns a single DAR integration enabled on the system
+        Edit a DAR integration enabled on the system
 
         :param id: dar integration id (required)
         :type id: int
+        :param edit_dar_integration_request: DarIntegration definition (required)
+        :type edit_dar_integration_request: EditDarIntegrationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1014,8 +726,9 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_406144045c21a19659ee66f6d4a78235_serialize(
+        _param = self._edit_dar_integration_serialize(
             id=id,
+            edit_dar_integration_request=edit_dar_integration_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1023,9 +736,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model7ab50add4fe0a4b7cff7eab0f4b8df18200ResponseDataInner",
+            '200': "UpdateDarIntegration200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1039,9 +752,10 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def call_406144045c21a19659ee66f6d4a78235_without_preload_content(
+    def edit_dar_integration_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="dar integration id")],
+        edit_dar_integration_request: Annotated[EditDarIntegrationRequest, Field(description="DarIntegration definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1055,12 +769,14 @@ class DarIntegrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """DarIntegration@show
+        """DarIntegration@edit
 
-        Returns a single DAR integration enabled on the system
+        Edit a DAR integration enabled on the system
 
         :param id: dar integration id (required)
         :type id: int
+        :param edit_dar_integration_request: DarIntegration definition (required)
+        :type edit_dar_integration_request: EditDarIntegrationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1083,8 +799,9 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_406144045c21a19659ee66f6d4a78235_serialize(
+        _param = self._edit_dar_integration_serialize(
             id=id,
+            edit_dar_integration_request=edit_dar_integration_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1092,9 +809,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model7ab50add4fe0a4b7cff7eab0f4b8df18200ResponseDataInner",
+            '200': "UpdateDarIntegration200Response",
             '401': "CreateTeamCollections401Response",
-            '404': "AliasControllerShow404Response",
+            '500': "CreateAliases500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1103,9 +820,10 @@ class DarIntegrationApi:
         return response_data.response
 
 
-    def _call_406144045c21a19659ee66f6d4a78235_serialize(
+    def _edit_dar_integration_serialize(
         self,
         id,
+        edit_dar_integration_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1133,288 +851,8 @@ class DarIntegrationApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/dar-integration/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def call_757fd0f4616caa763b0789d7ad7b3053(
-        self,
-        id: Annotated[StrictInt, Field(description="dar integration id")],
-        model09c033f0336380c3d8bb6801e96378bc_request: Annotated[Model09c033f0336380c3d8bb6801e96378bcRequest, Field(description="DarIntegration definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dd76b8d73b7ea8b4951f03d7c0904c92200Response:
-        """DarIntegration@store
-
-        Creates a new DAR integration enabled on the system
-
-        :param id: dar integration id (required)
-        :type id: int
-        :param model09c033f0336380c3d8bb6801e96378bc_request: DarIntegration definition (required)
-        :type model09c033f0336380c3d8bb6801e96378bc_request: Model09c033f0336380c3d8bb6801e96378bcRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_757fd0f4616caa763b0789d7ad7b3053_serialize(
-            id=id,
-            model09c033f0336380c3d8bb6801e96378bc_request=model09c033f0336380c3d8bb6801e96378bc_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def call_757fd0f4616caa763b0789d7ad7b3053_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="dar integration id")],
-        model09c033f0336380c3d8bb6801e96378bc_request: Annotated[Model09c033f0336380c3d8bb6801e96378bcRequest, Field(description="DarIntegration definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dd76b8d73b7ea8b4951f03d7c0904c92200Response]:
-        """DarIntegration@store
-
-        Creates a new DAR integration enabled on the system
-
-        :param id: dar integration id (required)
-        :type id: int
-        :param model09c033f0336380c3d8bb6801e96378bc_request: DarIntegration definition (required)
-        :type model09c033f0336380c3d8bb6801e96378bc_request: Model09c033f0336380c3d8bb6801e96378bcRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_757fd0f4616caa763b0789d7ad7b3053_serialize(
-            id=id,
-            model09c033f0336380c3d8bb6801e96378bc_request=model09c033f0336380c3d8bb6801e96378bc_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def call_757fd0f4616caa763b0789d7ad7b3053_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="dar integration id")],
-        model09c033f0336380c3d8bb6801e96378bc_request: Annotated[Model09c033f0336380c3d8bb6801e96378bcRequest, Field(description="DarIntegration definition")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """DarIntegration@store
-
-        Creates a new DAR integration enabled on the system
-
-        :param id: dar integration id (required)
-        :type id: int
-        :param model09c033f0336380c3d8bb6801e96378bc_request: DarIntegration definition (required)
-        :type model09c033f0336380c3d8bb6801e96378bc_request: Model09c033f0336380c3d8bb6801e96378bcRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._call_757fd0f4616caa763b0789d7ad7b3053_serialize(
-            id=id,
-            model09c033f0336380c3d8bb6801e96378bc_request=model09c033f0336380c3d8bb6801e96378bc_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dd76b8d73b7ea8b4951f03d7c0904c92200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "Model079b2d545c7f4705016912f5de1bf444500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _call_757fd0f4616caa763b0789d7ad7b3053_serialize(
-        self,
-        id,
-        model09c033f0336380c3d8bb6801e96378bc_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if model09c033f0336380c3d8bb6801e96378bc_request is not None:
-            _body_params = model09c033f0336380c3d8bb6801e96378bc_request
+        if edit_dar_integration_request is not None:
+            _body_params = edit_dar_integration_request
 
 
         # set the HTTP header `Accept`
@@ -1445,7 +883,7 @@ class DarIntegrationApi:
         ]
 
         return self.api_client.param_serialize(
-            method='POST',
+            method='PATCH',
             resource_path='/api/v1/dar-integration/{id}',
             path_params=_path_params,
             query_params=_query_params,
@@ -1463,7 +901,7 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def call_7ab50add4fe0a4b7cff7eab0f4b8df18(
+    def fetch_all_dar_integrations(
         self,
         _request_timeout: Union[
             None,
@@ -1477,7 +915,7 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Model7ab50add4fe0a4b7cff7eab0f4b8df18200Response:
+    ) -> FetchAllDarIntegrations200Response:
         """DarIntegration@index
 
         Returns a list of DAR integrations enabled on the system
@@ -1504,7 +942,7 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_7ab50add4fe0a4b7cff7eab0f4b8df18_serialize(
+        _param = self._fetch_all_dar_integrations_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1512,7 +950,7 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model7ab50add4fe0a4b7cff7eab0f4b8df18200Response",
+            '200': "FetchAllDarIntegrations200Response",
             '401': "CreateTeamCollections401Response",
         }
         response_data = self.api_client.call_api(
@@ -1527,7 +965,7 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def call_7ab50add4fe0a4b7cff7eab0f4b8df18_with_http_info(
+    def fetch_all_dar_integrations_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1541,7 +979,7 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Model7ab50add4fe0a4b7cff7eab0f4b8df18200Response]:
+    ) -> ApiResponse[FetchAllDarIntegrations200Response]:
         """DarIntegration@index
 
         Returns a list of DAR integrations enabled on the system
@@ -1568,7 +1006,7 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_7ab50add4fe0a4b7cff7eab0f4b8df18_serialize(
+        _param = self._fetch_all_dar_integrations_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1576,7 +1014,7 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model7ab50add4fe0a4b7cff7eab0f4b8df18200Response",
+            '200': "FetchAllDarIntegrations200Response",
             '401': "CreateTeamCollections401Response",
         }
         response_data = self.api_client.call_api(
@@ -1591,7 +1029,7 @@ class DarIntegrationApi:
 
 
     @validate_call
-    def call_7ab50add4fe0a4b7cff7eab0f4b8df18_without_preload_content(
+    def fetch_all_dar_integrations_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1632,7 +1070,7 @@ class DarIntegrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._call_7ab50add4fe0a4b7cff7eab0f4b8df18_serialize(
+        _param = self._fetch_all_dar_integrations_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1640,7 +1078,7 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Model7ab50add4fe0a4b7cff7eab0f4b8df18200Response",
+            '200': "FetchAllDarIntegrations200Response",
             '401': "CreateTeamCollections401Response",
         }
         response_data = self.api_client.call_api(
@@ -1650,7 +1088,7 @@ class DarIntegrationApi:
         return response_data.response
 
 
-    def _call_7ab50add4fe0a4b7cff7eab0f4b8df18_serialize(
+    def _fetch_all_dar_integrations_serialize(
         self,
         _request_auth,
         _content_type,
@@ -1696,6 +1134,568 @@ class DarIntegrationApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v1/dar-integration',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_dar_integration(
+        self,
+        id: Annotated[StrictInt, Field(description="dar integration id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FetchAllDarIntegrations200ResponseDataInner:
+        """DarIntegration@show
+
+        Returns a single DAR integration enabled on the system
+
+        :param id: dar integration id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_dar_integration_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchAllDarIntegrations200ResponseDataInner",
+            '401': "CreateTeamCollections401Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_dar_integration_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="dar integration id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FetchAllDarIntegrations200ResponseDataInner]:
+        """DarIntegration@show
+
+        Returns a single DAR integration enabled on the system
+
+        :param id: dar integration id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_dar_integration_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchAllDarIntegrations200ResponseDataInner",
+            '401': "CreateTeamCollections401Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_dar_integration_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="dar integration id")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """DarIntegration@show
+
+        Returns a single DAR integration enabled on the system
+
+        :param id: dar integration id (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_dar_integration_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FetchAllDarIntegrations200ResponseDataInner",
+            '401': "CreateTeamCollections401Response",
+            '404': "FetchAliases404Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_dar_integration_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v1/dar-integration/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_dar_integration(
+        self,
+        id: Annotated[StrictInt, Field(description="dar integration id")],
+        update_dar_integration_request: Annotated[UpdateDarIntegrationRequest, Field(description="DarIntegration definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateDarIntegration200Response:
+        """DarIntegration@update
+
+        Updates a DAR integration enabled on the system
+
+        :param id: dar integration id (required)
+        :type id: int
+        :param update_dar_integration_request: DarIntegration definition (required)
+        :type update_dar_integration_request: UpdateDarIntegrationRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_dar_integration_serialize(
+            id=id,
+            update_dar_integration_request=update_dar_integration_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateDarIntegration200Response",
+            '401': "CreateTeamCollections401Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_dar_integration_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="dar integration id")],
+        update_dar_integration_request: Annotated[UpdateDarIntegrationRequest, Field(description="DarIntegration definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateDarIntegration200Response]:
+        """DarIntegration@update
+
+        Updates a DAR integration enabled on the system
+
+        :param id: dar integration id (required)
+        :type id: int
+        :param update_dar_integration_request: DarIntegration definition (required)
+        :type update_dar_integration_request: UpdateDarIntegrationRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_dar_integration_serialize(
+            id=id,
+            update_dar_integration_request=update_dar_integration_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateDarIntegration200Response",
+            '401': "CreateTeamCollections401Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_dar_integration_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="dar integration id")],
+        update_dar_integration_request: Annotated[UpdateDarIntegrationRequest, Field(description="DarIntegration definition")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """DarIntegration@update
+
+        Updates a DAR integration enabled on the system
+
+        :param id: dar integration id (required)
+        :type id: int
+        :param update_dar_integration_request: DarIntegration definition (required)
+        :type update_dar_integration_request: UpdateDarIntegrationRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_dar_integration_serialize(
+            id=id,
+            update_dar_integration_request=update_dar_integration_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateDarIntegration200Response",
+            '401': "CreateTeamCollections401Response",
+            '500': "CreateAliases500Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_dar_integration_serialize(
+        self,
+        id,
+        update_dar_integration_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if update_dar_integration_request is not None:
+            _body_params = update_dar_integration_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/api/v1/dar-integration/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

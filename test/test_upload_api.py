@@ -26,31 +26,31 @@ class TestUploadApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_ba8ab1a2710efebacb7909736d7d2d52(self) -> None:
-        """Test case for ba8ab1a2710efebacb7909736d7d2d52
+    def test_create_files(self) -> None:
+        """Test case for create_files
+
+        Upload@upload
+        """
+        pass
+
+    def test_delete_files_processed(self) -> None:
+        """Test case for delete_files_processed
 
         Upload@destroy
         """
         pass
 
-    def test_call_21a780f609f0b91c198ab5de91dc27c6(self) -> None:
-        """Test case for call_21a780f609f0b91c198ab5de91dc27c6
-
-        Upload@content
-        """
-        pass
-
-    def test_e72aa4b4f0a80caa9fe872bdff983455(self) -> None:
-        """Test case for e72aa4b4f0a80caa9fe872bdff983455
+    def test_fetch_files(self) -> None:
+        """Test case for fetch_files
 
         Upload@show
         """
         pass
 
-    def test_fceeda218a8998a137b9d7692e7947b6(self) -> None:
-        """Test case for fceeda218a8998a137b9d7692e7947b6
+    def test_fetch_files_processed_content(self) -> None:
+        """Test case for fetch_files_processed_content
 
-        Upload@upload
+        Upload@content
         """
         pass
 
