@@ -1,6 +1,6 @@
 [project]
 name = "gateway_api_sdk"
-version = "0.0.0-test3"
+version = "0.0.0-test4"
 description = "HDRUK Gateway API"
 authors = [
   {name = "OpenAPI Generator Community",email = "team@openapitools.org"},
@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
+Repository = "https://github.com/HDRUK/gateway-api-python-sdk"
 
 [tool.poetry]
 requires-poetry = ">=2.0"
