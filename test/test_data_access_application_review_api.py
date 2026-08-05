@@ -40,20 +40,6 @@ class TestDataAccessApplicationReviewApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_team_dar_application_question_review(self) -> None:
-        """Test case for delete_team_dar_application_question_review
-
-        DataAccessApplicationReview@destroy
-        """
-        pass
-
-    def test_delete_team_dar_application_review(self) -> None:
-        """Test case for delete_team_dar_application_review
-
-        DataAccessApplicationReview@destroyGlobal
-        """
-        pass
-
     def test_delete_team_dar_application_review_file(self) -> None:
         """Test case for delete_team_dar_application_review_file
 

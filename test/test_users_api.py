@@ -26,27 +26,6 @@ class TestUsersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_users(self) -> None:
-        """Test case for create_users
-
-        UserController@store
-        """
-        pass
-
-    def test_delete_users(self) -> None:
-        """Test case for delete_users
-
-        UserController@destroy
-        """
-        pass
-
-    def test_edit_users(self) -> None:
-        """Test case for edit_users
-
-        UserController@edit
-        """
-        pass
-
     def test_verify_secondary_email(self) -> None:
         """Test case for verify_secondary_email
 

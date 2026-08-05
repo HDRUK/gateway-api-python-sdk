@@ -26,20 +26,6 @@ class TestDataAccessApplicationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_delete_dar_application_files(self) -> None:
-        """Test case for delete_dar_application_files
-
-        DataAccessApplication@destroyFile
-        """
-        pass
-
-    def test_delete_dar_applications(self) -> None:
-        """Test case for delete_dar_applications
-
-        DataAccessApplication@destroy
-        """
-        pass
-
     def test_delete_team_dar_application_file(self) -> None:
         """Test case for delete_team_dar_application_file
 

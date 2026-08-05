@@ -26,27 +26,6 @@ class TestDataCustodianNetworksApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_data_custodian_network(self) -> None:
-        """Test case for create_data_custodian_network
-
-        DataCustodianNetworks@store
-        """
-        pass
-
-    def test_delete_data_custodian_network(self) -> None:
-        """Test case for delete_data_custodian_network
-
-        DataCustodianNetworks@destroy
-        """
-        pass
-
-    def test_edit_data_custodian_network(self) -> None:
-        """Test case for edit_data_custodian_network
-
-        DataCustodianNetworks@edit
-        """
-        pass
-
     def test_fetch_data_custodian_network(self) -> None:
         """Test case for fetch_data_custodian_network
 
@@ -86,13 +65,6 @@ class TestDataCustodianNetworksApi(unittest.TestCase):
         """Test case for fetch_data_custodian_networks
 
         DataCustodianNetworks@index
-        """
-        pass
-
-    def test_update_data_custodian_network(self) -> None:
-        """Test case for update_data_custodian_network
-
-        DataCustodianNetworks@update
         """
         pass
 

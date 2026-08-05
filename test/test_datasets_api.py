@@ -47,20 +47,6 @@ class TestDatasetsApi(unittest.TestCase):
         """
         pass
 
-    def test_create_datasets_linkage_extraction(self) -> None:
-        """Test case for create_datasets_linkage_extraction
-
-        Trigger Term Extraction for Datasets
-        """
-        pass
-
-    def test_create_datasets_term_extraction(self) -> None:
-        """Test case for create_datasets_term_extraction
-
-        Trigger Term Extraction for Datasets
-        """
-        pass
-
     def test_create_datasets_v2(self) -> None:
         """Test case for create_datasets_v2
 

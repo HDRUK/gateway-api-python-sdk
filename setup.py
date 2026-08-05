@@ -19,7 +19,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "gateway-api-sdk"
-VERSION = "0.0.0-test5"
+VERSION = "0.0.0-test6"
 PYTHON_REQUIRES = ">= 3.10"
 REQUIRES = [
     "urllib3 >= 2.6.3, < 3.0.0",

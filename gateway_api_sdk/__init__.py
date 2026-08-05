@@ -14,12 +14,10 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.0-test5"
+__version__ = "0.0.0-test6"
 
 # Define package exports
 __all__ = [
-    "AdminDataCustodianNetworksApi",
-    "AdminSearchApi",
     "ApplicationApi",
     "AuthenticationApi",
     "CancerTypeFilterApi",
@@ -41,13 +39,9 @@ __all__ = [
     "IntegrationsDatasetsTestApi",
     "LicenseApi",
     "MetricsApi",
-    "NotificationApi",
-    "ProgrammingLanguageApi",
-    "ProgrammingPackageApi",
     "ProjectGrantApi",
     "PublicationApi",
     "QuestionBankApi",
-    "ReviewsApi",
     "SearchCollectionsApi",
     "SearchDataCustodianNetworksApi",
     "SearchDataCustodiansApi",
@@ -60,8 +54,6 @@ __all__ = [
     "TeamDataAccessTemplateApi",
     "TeamFederationsApi",
     "ToolsApi",
-    "TypeCategoryApi",
-    "UserRolesApi",
     "UsersApi",
     "WidgetsApi",
     "DatasetsTestApi",
@@ -80,7 +72,6 @@ __all__ = [
     "Category",
     "Collection",
     "CountUniqueFieldsCollections200Response",
-    "CreateAdminSearchReindexRequest",
     "CreateApplications200Response",
     "CreateApplications200ResponseDataInner",
     "CreateApplications500Response",
@@ -94,13 +85,7 @@ __all__ = [
     "CreateDarSectionRequest",
     "CreateDarTemplateRequest",
     "CreateDarTemplateRequestQuestionsInner",
-    "CreateDataProviderCollRequest",
-    "CreateDatasetsLinkageExtraction200Response",
-    "CreateDatasetsLinkageExtractionRequest",
     "CreateDatasetsRequest",
-    "CreateDatasetsTermExtraction200Response",
-    "CreateDatasetsTermExtraction500Response",
-    "CreateDatasetsTermExtractionRequest",
     "CreateDatasetsV2Request",
     "CreateDurIntegrationsRequest",
     "CreateDurRequest",
@@ -109,8 +94,6 @@ __all__ = [
     "CreateDurRequestTeamInner",
     "CreateDurRequestUsersInner",
     "CreateFederationTeamRequest",
-    "CreateLicensesRequest",
-    "CreateProgrammingLanguagesRequest",
     "CreatePublicationsRequest",
     "CreatePublicationsRequestDatasetsInner",
     "CreatePublicationsRequestToolsInner",
@@ -126,9 +109,6 @@ __all__ = [
     "CreateToolsIntegrationsRequestPublicationsInner",
     "CreateToolsRequest",
     "CreateToolsRequestCollectionsInner",
-    "CreateTypeCategoriesRequest",
-    "CreateUserHasRolesRequest",
-    "CreateUsersRequest",
     "CreateWidget201Response",
     "CreateWidget400Response",
     "CreateWidgetRequest",
@@ -147,11 +127,7 @@ __all__ = [
     "EditCsat200Response",
     "EditCsatRequest",
     "EditDarIntegrationRequest",
-    "EditDataProviderCollRequest",
-    "EditProgrammingLanguagesRequest",
     "EditQuestionBankQuestionRequest",
-    "EditUsers200Response",
-    "EditUsersRequest",
     "ExportDatasetMetadata400Response",
     "ExportMockDataset404Response",
     "FetchAllApplications200Response",
@@ -296,7 +272,6 @@ __all__ = [
     "Tool",
     "TrackWidgetEventRequest",
     "TypeCategory",
-    "UpdateAdminSearchFeatureRequest",
     "UpdateApplications200Response",
     "UpdateApplications200ResponseData",
     "UpdateApplications404Response",
@@ -307,33 +282,19 @@ __all__ = [
     "UpdateDarSection200Response",
     "UpdateDarSection200ResponseData",
     "UpdateDarTemplateRequest",
-    "UpdateDataCustodianNetwork200Response",
-    "UpdateDataProviderColl200Response",
-    "UpdateDataProviderCollRequest",
     "UpdateDatasetsRequest",
     "UpdateDur200Response",
     "UpdateDurIntegrations200Response",
     "UpdateDurIntegrations200ResponseData",
     "UpdateFederationTeamRequest",
-    "UpdateLicenses200Response",
-    "UpdateProgrammingLanguages200Response",
-    "UpdateProgrammingLanguagesRequest",
-    "UpdateProgrammingPackages200Response",
     "UpdatePublicationsRequest",
     "UpdateQuestionBankQuestion200Response",
     "UpdateQuestionBankQuestionRequest",
     "UpdateQuestionBankQuestionStatus200Response",
-    "UpdateReviews200Response",
-    "UpdateReviews200ResponseData",
-    "UpdateReviewsRequest",
     "UpdateTeamDarApplicationQuestionReview200Response",
     "UpdateTeamDarApplicationRequest",
     "UpdateToolsIntegrationsRequest",
     "UpdateToolsRequest",
-    "UpdateTypeCategories200Response",
-    "UpdateTypeCategoriesRequest",
-    "UpdateUserHasRolesRequest",
-    "UpdateUserHasRolesRequestRoles",
     "UpdateWidget200Response",
     "UpdateWidgetRequest",
     "UploadDurRequest",
@@ -346,8 +307,6 @@ __all__ = [
 ]
 
 # import apis into sdk package
-from gateway_api_sdk.api.admin_data_custodian_networks_api import AdminDataCustodianNetworksApi as AdminDataCustodianNetworksApi
-from gateway_api_sdk.api.admin_search_api import AdminSearchApi as AdminSearchApi
 from gateway_api_sdk.api.application_api import ApplicationApi as ApplicationApi
 from gateway_api_sdk.api.authentication_api import AuthenticationApi as AuthenticationApi
 from gateway_api_sdk.api.cancer_type_filter_api import CancerTypeFilterApi as CancerTypeFilterApi
@@ -369,13 +328,9 @@ from gateway_api_sdk.api.integration_data_use_registers_api import IntegrationDa
 from gateway_api_sdk.api.integrations_datasets_test_api import IntegrationsDatasetsTestApi as IntegrationsDatasetsTestApi
 from gateway_api_sdk.api.license_api import LicenseApi as LicenseApi
 from gateway_api_sdk.api.metrics_api import MetricsApi as MetricsApi
-from gateway_api_sdk.api.notification_api import NotificationApi as NotificationApi
-from gateway_api_sdk.api.programming_language_api import ProgrammingLanguageApi as ProgrammingLanguageApi
-from gateway_api_sdk.api.programming_package_api import ProgrammingPackageApi as ProgrammingPackageApi
 from gateway_api_sdk.api.project_grant_api import ProjectGrantApi as ProjectGrantApi
 from gateway_api_sdk.api.publication_api import PublicationApi as PublicationApi
 from gateway_api_sdk.api.question_bank_api import QuestionBankApi as QuestionBankApi
-from gateway_api_sdk.api.reviews_api import ReviewsApi as ReviewsApi
 from gateway_api_sdk.api.search_collections_api import SearchCollectionsApi as SearchCollectionsApi
 from gateway_api_sdk.api.search_data_custodian_networks_api import SearchDataCustodianNetworksApi as SearchDataCustodianNetworksApi
 from gateway_api_sdk.api.search_data_custodians_api import SearchDataCustodiansApi as SearchDataCustodiansApi
@@ -388,8 +343,6 @@ from gateway_api_sdk.api.team_data_access_application_api import TeamDataAccessA
 from gateway_api_sdk.api.team_data_access_template_api import TeamDataAccessTemplateApi as TeamDataAccessTemplateApi
 from gateway_api_sdk.api.team_federations_api import TeamFederationsApi as TeamFederationsApi
 from gateway_api_sdk.api.tools_api import ToolsApi as ToolsApi
-from gateway_api_sdk.api.type_category_api import TypeCategoryApi as TypeCategoryApi
-from gateway_api_sdk.api.user_roles_api import UserRolesApi as UserRolesApi
 from gateway_api_sdk.api.users_api import UsersApi as UsersApi
 from gateway_api_sdk.api.widgets_api import WidgetsApi as WidgetsApi
 from gateway_api_sdk.api.datasets_test_api import DatasetsTestApi as DatasetsTestApi
@@ -412,7 +365,6 @@ from gateway_api_sdk.models.authentication_request import AuthenticationRequest 
 from gateway_api_sdk.models.category import Category as Category
 from gateway_api_sdk.models.collection import Collection as Collection
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response as CountUniqueFieldsCollections200Response
-from gateway_api_sdk.models.create_admin_search_reindex_request import CreateAdminSearchReindexRequest as CreateAdminSearchReindexRequest
 from gateway_api_sdk.models.create_applications200_response import CreateApplications200Response as CreateApplications200Response
 from gateway_api_sdk.models.create_applications200_response_data_inner import CreateApplications200ResponseDataInner as CreateApplications200ResponseDataInner
 from gateway_api_sdk.models.create_applications500_response import CreateApplications500Response as CreateApplications500Response
@@ -426,13 +378,7 @@ from gateway_api_sdk.models.create_dar_integration201_response import CreateDarI
 from gateway_api_sdk.models.create_dar_section_request import CreateDarSectionRequest as CreateDarSectionRequest
 from gateway_api_sdk.models.create_dar_template_request import CreateDarTemplateRequest as CreateDarTemplateRequest
 from gateway_api_sdk.models.create_dar_template_request_questions_inner import CreateDarTemplateRequestQuestionsInner as CreateDarTemplateRequestQuestionsInner
-from gateway_api_sdk.models.create_data_provider_coll_request import CreateDataProviderCollRequest as CreateDataProviderCollRequest
-from gateway_api_sdk.models.create_datasets_linkage_extraction200_response import CreateDatasetsLinkageExtraction200Response as CreateDatasetsLinkageExtraction200Response
-from gateway_api_sdk.models.create_datasets_linkage_extraction_request import CreateDatasetsLinkageExtractionRequest as CreateDatasetsLinkageExtractionRequest
 from gateway_api_sdk.models.create_datasets_request import CreateDatasetsRequest as CreateDatasetsRequest
-from gateway_api_sdk.models.create_datasets_term_extraction200_response import CreateDatasetsTermExtraction200Response as CreateDatasetsTermExtraction200Response
-from gateway_api_sdk.models.create_datasets_term_extraction500_response import CreateDatasetsTermExtraction500Response as CreateDatasetsTermExtraction500Response
-from gateway_api_sdk.models.create_datasets_term_extraction_request import CreateDatasetsTermExtractionRequest as CreateDatasetsTermExtractionRequest
 from gateway_api_sdk.models.create_datasets_v2_request import CreateDatasetsV2Request as CreateDatasetsV2Request
 from gateway_api_sdk.models.create_dur_integrations_request import CreateDurIntegrationsRequest as CreateDurIntegrationsRequest
 from gateway_api_sdk.models.create_dur_request import CreateDurRequest as CreateDurRequest
@@ -441,8 +387,6 @@ from gateway_api_sdk.models.create_dur_request_publications_inner import CreateD
 from gateway_api_sdk.models.create_dur_request_team_inner import CreateDurRequestTeamInner as CreateDurRequestTeamInner
 from gateway_api_sdk.models.create_dur_request_users_inner import CreateDurRequestUsersInner as CreateDurRequestUsersInner
 from gateway_api_sdk.models.create_federation_team_request import CreateFederationTeamRequest as CreateFederationTeamRequest
-from gateway_api_sdk.models.create_licenses_request import CreateLicensesRequest as CreateLicensesRequest
-from gateway_api_sdk.models.create_programming_languages_request import CreateProgrammingLanguagesRequest as CreateProgrammingLanguagesRequest
 from gateway_api_sdk.models.create_publications_request import CreatePublicationsRequest as CreatePublicationsRequest
 from gateway_api_sdk.models.create_publications_request_datasets_inner import CreatePublicationsRequestDatasetsInner as CreatePublicationsRequestDatasetsInner
 from gateway_api_sdk.models.create_publications_request_tools_inner import CreatePublicationsRequestToolsInner as CreatePublicationsRequestToolsInner
@@ -458,9 +402,6 @@ from gateway_api_sdk.models.create_tools_integrations_request_dataset_inner impo
 from gateway_api_sdk.models.create_tools_integrations_request_publications_inner import CreateToolsIntegrationsRequestPublicationsInner as CreateToolsIntegrationsRequestPublicationsInner
 from gateway_api_sdk.models.create_tools_request import CreateToolsRequest as CreateToolsRequest
 from gateway_api_sdk.models.create_tools_request_collections_inner import CreateToolsRequestCollectionsInner as CreateToolsRequestCollectionsInner
-from gateway_api_sdk.models.create_type_categories_request import CreateTypeCategoriesRequest as CreateTypeCategoriesRequest
-from gateway_api_sdk.models.create_user_has_roles_request import CreateUserHasRolesRequest as CreateUserHasRolesRequest
-from gateway_api_sdk.models.create_users_request import CreateUsersRequest as CreateUsersRequest
 from gateway_api_sdk.models.create_widget201_response import CreateWidget201Response as CreateWidget201Response
 from gateway_api_sdk.models.create_widget400_response import CreateWidget400Response as CreateWidget400Response
 from gateway_api_sdk.models.create_widget_request import CreateWidgetRequest as CreateWidgetRequest
@@ -479,11 +420,7 @@ from gateway_api_sdk.models.edit_collections_v2_request import EditCollectionsV2
 from gateway_api_sdk.models.edit_csat200_response import EditCsat200Response as EditCsat200Response
 from gateway_api_sdk.models.edit_csat_request import EditCsatRequest as EditCsatRequest
 from gateway_api_sdk.models.edit_dar_integration_request import EditDarIntegrationRequest as EditDarIntegrationRequest
-from gateway_api_sdk.models.edit_data_provider_coll_request import EditDataProviderCollRequest as EditDataProviderCollRequest
-from gateway_api_sdk.models.edit_programming_languages_request import EditProgrammingLanguagesRequest as EditProgrammingLanguagesRequest
 from gateway_api_sdk.models.edit_question_bank_question_request import EditQuestionBankQuestionRequest as EditQuestionBankQuestionRequest
-from gateway_api_sdk.models.edit_users200_response import EditUsers200Response as EditUsers200Response
-from gateway_api_sdk.models.edit_users_request import EditUsersRequest as EditUsersRequest
 from gateway_api_sdk.models.export_dataset_metadata400_response import ExportDatasetMetadata400Response as ExportDatasetMetadata400Response
 from gateway_api_sdk.models.export_mock_dataset404_response import ExportMockDataset404Response as ExportMockDataset404Response
 from gateway_api_sdk.models.fetch_all_applications200_response import FetchAllApplications200Response as FetchAllApplications200Response
@@ -628,7 +565,6 @@ from gateway_api_sdk.models.test_federation200_response import TestFederation200
 from gateway_api_sdk.models.tool import Tool as Tool
 from gateway_api_sdk.models.track_widget_event_request import TrackWidgetEventRequest as TrackWidgetEventRequest
 from gateway_api_sdk.models.type_category import TypeCategory as TypeCategory
-from gateway_api_sdk.models.update_admin_search_feature_request import UpdateAdminSearchFeatureRequest as UpdateAdminSearchFeatureRequest
 from gateway_api_sdk.models.update_applications200_response import UpdateApplications200Response as UpdateApplications200Response
 from gateway_api_sdk.models.update_applications200_response_data import UpdateApplications200ResponseData as UpdateApplications200ResponseData
 from gateway_api_sdk.models.update_applications404_response import UpdateApplications404Response as UpdateApplications404Response
@@ -639,33 +575,19 @@ from gateway_api_sdk.models.update_dar_integration_request import UpdateDarInteg
 from gateway_api_sdk.models.update_dar_section200_response import UpdateDarSection200Response as UpdateDarSection200Response
 from gateway_api_sdk.models.update_dar_section200_response_data import UpdateDarSection200ResponseData as UpdateDarSection200ResponseData
 from gateway_api_sdk.models.update_dar_template_request import UpdateDarTemplateRequest as UpdateDarTemplateRequest
-from gateway_api_sdk.models.update_data_custodian_network200_response import UpdateDataCustodianNetwork200Response as UpdateDataCustodianNetwork200Response
-from gateway_api_sdk.models.update_data_provider_coll200_response import UpdateDataProviderColl200Response as UpdateDataProviderColl200Response
-from gateway_api_sdk.models.update_data_provider_coll_request import UpdateDataProviderCollRequest as UpdateDataProviderCollRequest
 from gateway_api_sdk.models.update_datasets_request import UpdateDatasetsRequest as UpdateDatasetsRequest
 from gateway_api_sdk.models.update_dur200_response import UpdateDur200Response as UpdateDur200Response
 from gateway_api_sdk.models.update_dur_integrations200_response import UpdateDurIntegrations200Response as UpdateDurIntegrations200Response
 from gateway_api_sdk.models.update_dur_integrations200_response_data import UpdateDurIntegrations200ResponseData as UpdateDurIntegrations200ResponseData
 from gateway_api_sdk.models.update_federation_team_request import UpdateFederationTeamRequest as UpdateFederationTeamRequest
-from gateway_api_sdk.models.update_licenses200_response import UpdateLicenses200Response as UpdateLicenses200Response
-from gateway_api_sdk.models.update_programming_languages200_response import UpdateProgrammingLanguages200Response as UpdateProgrammingLanguages200Response
-from gateway_api_sdk.models.update_programming_languages_request import UpdateProgrammingLanguagesRequest as UpdateProgrammingLanguagesRequest
-from gateway_api_sdk.models.update_programming_packages200_response import UpdateProgrammingPackages200Response as UpdateProgrammingPackages200Response
 from gateway_api_sdk.models.update_publications_request import UpdatePublicationsRequest as UpdatePublicationsRequest
 from gateway_api_sdk.models.update_question_bank_question200_response import UpdateQuestionBankQuestion200Response as UpdateQuestionBankQuestion200Response
 from gateway_api_sdk.models.update_question_bank_question_request import UpdateQuestionBankQuestionRequest as UpdateQuestionBankQuestionRequest
 from gateway_api_sdk.models.update_question_bank_question_status200_response import UpdateQuestionBankQuestionStatus200Response as UpdateQuestionBankQuestionStatus200Response
-from gateway_api_sdk.models.update_reviews200_response import UpdateReviews200Response as UpdateReviews200Response
-from gateway_api_sdk.models.update_reviews200_response_data import UpdateReviews200ResponseData as UpdateReviews200ResponseData
-from gateway_api_sdk.models.update_reviews_request import UpdateReviewsRequest as UpdateReviewsRequest
 from gateway_api_sdk.models.update_team_dar_application_question_review200_response import UpdateTeamDarApplicationQuestionReview200Response as UpdateTeamDarApplicationQuestionReview200Response
 from gateway_api_sdk.models.update_team_dar_application_request import UpdateTeamDarApplicationRequest as UpdateTeamDarApplicationRequest
 from gateway_api_sdk.models.update_tools_integrations_request import UpdateToolsIntegrationsRequest as UpdateToolsIntegrationsRequest
 from gateway_api_sdk.models.update_tools_request import UpdateToolsRequest as UpdateToolsRequest
-from gateway_api_sdk.models.update_type_categories200_response import UpdateTypeCategories200Response as UpdateTypeCategories200Response
-from gateway_api_sdk.models.update_type_categories_request import UpdateTypeCategoriesRequest as UpdateTypeCategoriesRequest
-from gateway_api_sdk.models.update_user_has_roles_request import UpdateUserHasRolesRequest as UpdateUserHasRolesRequest
-from gateway_api_sdk.models.update_user_has_roles_request_roles import UpdateUserHasRolesRequestRoles as UpdateUserHasRolesRequestRoles
 from gateway_api_sdk.models.update_widget200_response import UpdateWidget200Response as UpdateWidget200Response
 from gateway_api_sdk.models.update_widget_request import UpdateWidgetRequest as UpdateWidgetRequest
 from gateway_api_sdk.models.upload_dur_request import UploadDurRequest as UploadDurRequest

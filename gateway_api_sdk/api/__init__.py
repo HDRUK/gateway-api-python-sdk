@@ -1,8 +1,6 @@
 # flake8: noqa
 
 # import apis into api package
-from gateway_api_sdk.api.admin_data_custodian_networks_api import AdminDataCustodianNetworksApi
-from gateway_api_sdk.api.admin_search_api import AdminSearchApi
 from gateway_api_sdk.api.application_api import ApplicationApi
 from gateway_api_sdk.api.authentication_api import AuthenticationApi
 from gateway_api_sdk.api.cancer_type_filter_api import CancerTypeFilterApi
@@ -24,13 +22,9 @@ from gateway_api_sdk.api.integration_data_use_registers_api import IntegrationDa
 from gateway_api_sdk.api.integrations_datasets_test_api import IntegrationsDatasetsTestApi
 from gateway_api_sdk.api.license_api import LicenseApi
 from gateway_api_sdk.api.metrics_api import MetricsApi
-from gateway_api_sdk.api.notification_api import NotificationApi
-from gateway_api_sdk.api.programming_language_api import ProgrammingLanguageApi
-from gateway_api_sdk.api.programming_package_api import ProgrammingPackageApi
 from gateway_api_sdk.api.project_grant_api import ProjectGrantApi
 from gateway_api_sdk.api.publication_api import PublicationApi
 from gateway_api_sdk.api.question_bank_api import QuestionBankApi
-from gateway_api_sdk.api.reviews_api import ReviewsApi
 from gateway_api_sdk.api.search_collections_api import SearchCollectionsApi
 from gateway_api_sdk.api.search_data_custodian_networks_api import SearchDataCustodianNetworksApi
 from gateway_api_sdk.api.search_data_custodians_api import SearchDataCustodiansApi
@@ -43,8 +37,6 @@ from gateway_api_sdk.api.team_data_access_application_api import TeamDataAccessA
 from gateway_api_sdk.api.team_data_access_template_api import TeamDataAccessTemplateApi
 from gateway_api_sdk.api.team_federations_api import TeamFederationsApi
 from gateway_api_sdk.api.tools_api import ToolsApi
-from gateway_api_sdk.api.type_category_api import TypeCategoryApi
-from gateway_api_sdk.api.user_roles_api import UserRolesApi
 from gateway_api_sdk.api.users_api import UsersApi
 from gateway_api_sdk.api.widgets_api import WidgetsApi
 from gateway_api_sdk.api.datasets_test_api import DatasetsTestApi

@@ -26,27 +26,6 @@ class TestLicenseApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_licenses(self) -> None:
-        """Test case for create_licenses
-
-        License@store
-        """
-        pass
-
-    def test_delete_licenses(self) -> None:
-        """Test case for delete_licenses
-
-        License@destroy
-        """
-        pass
-
-    def test_edit_licenses(self) -> None:
-        """Test case for edit_licenses
-
-        License@edit
-        """
-        pass
-
     def test_fetch_all_licenses(self) -> None:
         """Test case for fetch_all_licenses
 
@@ -58,13 +37,6 @@ class TestLicenseApi(unittest.TestCase):
         """Test case for fetch_licenses
 
         License@show
-        """
-        pass
-
-    def test_update_licenses(self) -> None:
-        """Test case for update_licenses
-
-        License@update
         """
         pass
 
