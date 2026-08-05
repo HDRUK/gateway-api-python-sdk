@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing_extensions import Annotated
 from gateway_api_sdk.models.create_user_has_roles_request import CreateUserHasRolesRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.delete_federation200_response import DeleteFederation200Response
 from gateway_api_sdk.models.update_user_has_roles_request import UpdateUserHasRolesRequest
 
@@ -57,7 +57,7 @@ class UserRolesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """UserRoleController@store
 
         Create user has roles
@@ -98,9 +98,9 @@ class UserRolesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "DeleteAliases200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "DeleteApplications200Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -130,7 +130,7 @@ class UserRolesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """UserRoleController@store
 
         Create user has roles
@@ -171,9 +171,9 @@ class UserRolesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "DeleteAliases200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "DeleteApplications200Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -244,9 +244,9 @@ class UserRolesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "DeleteAliases200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "DeleteApplications200Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -391,8 +391,8 @@ class UserRolesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -461,8 +461,8 @@ class UserRolesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -531,8 +531,8 @@ class UserRolesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -622,7 +622,7 @@ class UserRolesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """UserRoleController@edit
 
         Update user has roles
@@ -663,9 +663,9 @@ class UserRolesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "DeleteAliases200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "DeleteApplications200Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -695,7 +695,7 @@ class UserRolesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """UserRoleController@edit
 
         Update user has roles
@@ -736,9 +736,9 @@ class UserRolesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "DeleteAliases200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "DeleteApplications200Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -809,9 +809,9 @@ class UserRolesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "DeleteAliases200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "DeleteApplications200Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

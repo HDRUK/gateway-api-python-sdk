@@ -75,20 +75,6 @@ class TestDataAccessApplicationReviewApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_user_dar_application_review_file(self) -> None:
-        """Test case for fetch_user_dar_application_review_file
-
-        DataAccessApplicationReview@downloadUserFile
-        """
-        pass
-
-    def test_fetch_user_dar_application_reviews(self) -> None:
-        """Test case for fetch_user_dar_application_reviews
-
-        DataAccessApplicationReview@index
-        """
-        pass
-
     def test_update_team_dar_application_question_review(self) -> None:
         """Test case for update_team_dar_application_question_review
 
@@ -100,20 +86,6 @@ class TestDataAccessApplicationReviewApi(unittest.TestCase):
         """Test case for update_team_dar_application_review
 
         DataAccessApplicationReview@updateGlobal
-        """
-        pass
-
-    def test_update_user_dar_application_question_review(self) -> None:
-        """Test case for update_user_dar_application_question_review
-
-        DataAccessApplicationReview@userUpdate
-        """
-        pass
-
-    def test_update_user_dar_application_review(self) -> None:
-        """Test case for update_user_dar_application_review
-
-        DataAccessApplicationReview@userUpdateGlobal
         """
         pass
 

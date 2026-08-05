@@ -26,13 +26,6 @@ class TestDataUseRegistersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_count_team_unique_fields_dur_v2(self) -> None:
-        """Test case for count_team_unique_fields_dur_v2
-
-        TeamDurController@count
-        """
-        pass
-
     def test_create_dur(self) -> None:
         """Test case for create_dur
 
@@ -110,13 +103,6 @@ class TestDataUseRegistersApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_all_team_dur_status(self) -> None:
-        """Test case for fetch_all_team_dur_status
-
-        TeamDurController@indexStatus
-        """
-        pass
-
     def test_fetch_dur_by_id(self) -> None:
         """Test case for fetch_dur_by_id
 
@@ -128,13 +114,6 @@ class TestDataUseRegistersApi(unittest.TestCase):
         """Test case for fetch_dur_by_id_v2
 
         DurController@showActive
-        """
-        pass
-
-    def test_fetch_dur_by_team_and_by_id_v2(self) -> None:
-        """Test case for fetch_dur_by_team_and_by_id_v2
-
-        TeamDurController@show
         """
         pass
 

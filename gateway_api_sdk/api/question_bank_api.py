@@ -18,9 +18,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_question_bank_question_request import CreateQuestionBankQuestionRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.edit_question_bank_question_request import EditQuestionBankQuestionRequest
 from gateway_api_sdk.models.fetch_custom_question_bank_questions200_response import FetchCustomQuestionBankQuestions200Response
 from gateway_api_sdk.models.fetch_question_bank_question200_response import FetchQuestionBankQuestion200Response
@@ -66,7 +66,7 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """QuestionBank@store
 
         Create a new system question bank question with FE-helpful input format
@@ -104,8 +104,8 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -134,7 +134,7 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """QuestionBank@store
 
         Create a new system question bank question with FE-helpful input format
@@ -172,8 +172,8 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -240,8 +240,8 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -343,7 +343,7 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """QuestionBank@destroy
 
         Delete a system question bank question
@@ -381,9 +381,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -412,7 +412,7 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """QuestionBank@destroy
 
         Delete a system question bank question
@@ -450,9 +450,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -519,9 +519,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -611,7 +611,7 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """QuestionBank@destroyFile
 
         Download a system question bank question
@@ -652,9 +652,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -684,7 +684,7 @@ class QuestionBankApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """QuestionBank@destroyFile
 
         Download a system question bank question
@@ -725,9 +725,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -798,9 +798,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -934,9 +934,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateQuestionBankQuestion200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1007,9 +1007,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateQuestionBankQuestion200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1080,9 +1080,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateQuestionBankQuestion200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2115,7 +2115,7 @@ class QuestionBankApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchQuestionBankQuestionVersion200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2183,7 +2183,7 @@ class QuestionBankApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchQuestionBankQuestionVersion200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2251,7 +2251,7 @@ class QuestionBankApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchQuestionBankQuestionVersion200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3303,9 +3303,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateQuestionBankQuestion200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3376,9 +3376,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateQuestionBankQuestion200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3449,9 +3449,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateQuestionBankQuestion200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3598,9 +3598,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateQuestionBankQuestionStatus200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3671,9 +3671,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateQuestionBankQuestionStatus200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3744,9 +3744,9 @@ class QuestionBankApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateQuestionBankQuestionStatus200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

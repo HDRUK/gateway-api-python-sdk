@@ -47,20 +47,6 @@ class TestTypeCategoryApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_all_type_categories(self) -> None:
-        """Test case for fetch_all_type_categories
-
-        TypeCategory@index
-        """
-        pass
-
-    def test_fetch_type_categories(self) -> None:
-        """Test case for fetch_type_categories
-
-        TypeCategory@show
-        """
-        pass
-
     def test_update_type_categories(self) -> None:
         """Test case for update_type_categories
 

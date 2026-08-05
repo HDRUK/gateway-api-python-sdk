@@ -15,13 +15,12 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import Any, Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_dur_request import CreateDurRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.fetch_all_dur200_response import FetchAllDur200Response
 from gateway_api_sdk.models.fetch_all_dur_v2200_response import FetchAllDurV2200Response
 from gateway_api_sdk.models.fetch_dur_by_id200_response import FetchDurById200Response
@@ -48,282 +47,6 @@ class DataUseRegistersApi:
 
 
     @validate_call
-    def count_team_unique_fields_dur_v2(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CountUniqueFieldsCollections200Response:
-        """TeamDurController@count
-
-        Get team counts for distinct entries of a field in the model
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_team_unique_fields_dur_v2_serialize(
-            team_id=team_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def count_team_unique_fields_dur_v2_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CountUniqueFieldsCollections200Response]:
-        """TeamDurController@count
-
-        Get team counts for distinct entries of a field in the model
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_team_unique_fields_dur_v2_serialize(
-            team_id=team_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def count_team_unique_fields_dur_v2_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """TeamDurController@count
-
-        Get team counts for distinct entries of a field in the model
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_team_unique_fields_dur_v2_serialize(
-            team_id=team_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _count_team_unique_fields_dur_v2_serialize(
-        self,
-        team_id,
-        var_field,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if var_field is not None:
-            _path_params['field'] = var_field
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/teams/{teamId}/dur/count/{field}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def create_dur(
         self,
         create_dur_request: Annotated[CreateDurRequest, Field(description="Pass user credentials")],
@@ -339,7 +62,7 @@ class DataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """(Deprecated) DurController@store
 
         Create a new dur
@@ -378,9 +101,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -409,7 +132,7 @@ class DataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """(Deprecated) DurController@store
 
         Create a new dur
@@ -448,9 +171,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -518,9 +241,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -623,7 +346,7 @@ class DataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """TeamDurController@store
 
         Create a new dur by team v2
@@ -664,9 +387,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -696,7 +419,7 @@ class DataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """TeamDurController@store
 
         Create a new dur by team v2
@@ -737,9 +460,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -810,9 +533,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -917,7 +640,7 @@ class DataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """(Deprecated) Delete a dur
 
         Delete a dur
@@ -956,9 +679,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -987,7 +710,7 @@ class DataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """(Deprecated) Delete a dur
 
         Delete a dur
@@ -1026,9 +749,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1096,9 +819,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1188,7 +911,7 @@ class DataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """TeamDurController@destroy
 
         Delete a dur by team and id v2
@@ -1229,9 +952,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1261,7 +984,7 @@ class DataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """TeamDurController@destroy
 
         Delete a dur by team and id v2
@@ -1302,9 +1025,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1375,9 +1098,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1516,9 +1239,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1594,9 +1317,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1672,9 +1395,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1830,9 +1553,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1907,9 +1630,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1984,9 +1707,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2129,7 +1852,7 @@ class DataUseRegistersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -2194,7 +1917,7 @@ class DataUseRegistersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -2259,7 +1982,7 @@ class DataUseRegistersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -2382,7 +2105,7 @@ class DataUseRegistersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -2447,7 +2170,7 @@ class DataUseRegistersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -2512,7 +2235,7 @@ class DataUseRegistersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -2639,7 +2362,7 @@ class DataUseRegistersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2707,7 +2430,7 @@ class DataUseRegistersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2775,7 +2498,7 @@ class DataUseRegistersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3464,352 +3187,6 @@ class DataUseRegistersApi:
 
 
     @validate_call
-    def fetch_all_team_dur_status(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        status: Annotated[StrictStr, Field(description="Status of the DUR (active, draft, or archived). Defaults to active if not provided.")],
-        sort: Annotated[Optional[ProjectTitleAscupdatedAtAsc], Field(description="Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc")] = None,
-        project_title: Annotated[Optional[StrictStr], Field(description="Filter dur by project title")] = None,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
-        with_related: Annotated[Optional[StrictBool], Field(description="Show related entities")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchAllDur200Response:
-        """TeamDurController@indexStatus
-
-        Returns a list of dur owned by this team with given status
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param status: Status of the DUR (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param sort: Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc
-        :type sort: ProjectTitleAscupdatedAtAsc
-        :param project_title: Filter dur by project title
-        :type project_title: str
-        :param per_page: per page
-        :type per_page: int
-        :param with_related: Show related entities
-        :type with_related: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_team_dur_status_serialize(
-            team_id=team_id,
-            status=status,
-            sort=sort,
-            project_title=project_title,
-            per_page=per_page,
-            with_related=with_related,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllDur200Response",
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fetch_all_team_dur_status_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        status: Annotated[StrictStr, Field(description="Status of the DUR (active, draft, or archived). Defaults to active if not provided.")],
-        sort: Annotated[Optional[ProjectTitleAscupdatedAtAsc], Field(description="Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc")] = None,
-        project_title: Annotated[Optional[StrictStr], Field(description="Filter dur by project title")] = None,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
-        with_related: Annotated[Optional[StrictBool], Field(description="Show related entities")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchAllDur200Response]:
-        """TeamDurController@indexStatus
-
-        Returns a list of dur owned by this team with given status
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param status: Status of the DUR (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param sort: Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc
-        :type sort: ProjectTitleAscupdatedAtAsc
-        :param project_title: Filter dur by project title
-        :type project_title: str
-        :param per_page: per page
-        :type per_page: int
-        :param with_related: Show related entities
-        :type with_related: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_team_dur_status_serialize(
-            team_id=team_id,
-            status=status,
-            sort=sort,
-            project_title=project_title,
-            per_page=per_page,
-            with_related=with_related,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllDur200Response",
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fetch_all_team_dur_status_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        status: Annotated[StrictStr, Field(description="Status of the DUR (active, draft, or archived). Defaults to active if not provided.")],
-        sort: Annotated[Optional[ProjectTitleAscupdatedAtAsc], Field(description="Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc")] = None,
-        project_title: Annotated[Optional[StrictStr], Field(description="Filter dur by project title")] = None,
-        per_page: Annotated[Optional[StrictInt], Field(description="per page")] = None,
-        with_related: Annotated[Optional[StrictBool], Field(description="Show related entities")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """TeamDurController@indexStatus
-
-        Returns a list of dur owned by this team with given status
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param status: Status of the DUR (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param sort: Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc
-        :type sort: ProjectTitleAscupdatedAtAsc
-        :param project_title: Filter dur by project title
-        :type project_title: str
-        :param per_page: per page
-        :type per_page: int
-        :param with_related: Show related entities
-        :type with_related: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_team_dur_status_serialize(
-            team_id=team_id,
-            status=status,
-            sort=sort,
-            project_title=project_title,
-            per_page=per_page,
-            with_related=with_related,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllDur200Response",
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fetch_all_team_dur_status_serialize(
-        self,
-        team_id,
-        status,
-        sort,
-        project_title,
-        per_page,
-        with_related,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if status is not None:
-            _path_params['status'] = status
-        # process the query parameters
-        if sort is not None:
-            
-            _query_params.append(('sort', sort))
-            
-        if project_title is not None:
-            
-            _query_params.append(('project_title', project_title))
-            
-        if per_page is not None:
-            
-            _query_params.append(('per_page', per_page))
-            
-        if with_related is not None:
-            
-            _query_params.append(('with_related', with_related))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/teams/{teamId}/dur/status/{status}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def fetch_dur_by_id(
         self,
         id: Annotated[StrictInt, Field(description="data use register id")],
@@ -4335,282 +3712,6 @@ class DataUseRegistersApi:
 
 
     @validate_call
-    def fetch_dur_by_team_and_by_id_v2(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        id: Annotated[StrictInt, Field(description="data use register id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateDur200Response:
-        """TeamDurController@show
-
-        Get dur by team id and by id
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param id: data use register id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_dur_by_team_and_by_id_v2_serialize(
-            team_id=team_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateDur200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fetch_dur_by_team_and_by_id_v2_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        id: Annotated[StrictInt, Field(description="data use register id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateDur200Response]:
-        """TeamDurController@show
-
-        Get dur by team id and by id
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param id: data use register id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_dur_by_team_and_by_id_v2_serialize(
-            team_id=team_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateDur200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fetch_dur_by_team_and_by_id_v2_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        id: Annotated[StrictInt, Field(description="data use register id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """TeamDurController@show
-
-        Get dur by team id and by id
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param id: data use register id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_dur_by_team_and_by_id_v2_serialize(
-            team_id=team_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateDur200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fetch_dur_by_team_and_by_id_v2_serialize(
-        self,
-        team_id,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/teams/{teamId}/dur/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def update_dur(
         self,
         id: Annotated[StrictInt, Field(description="dur id")],
@@ -4669,9 +3770,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4743,9 +3844,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4817,9 +3918,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4970,9 +4071,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5047,9 +4148,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5124,9 +4225,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDur200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5234,7 +4335,7 @@ class DataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """DurController@upload
 
         Create a new dur with upload data
@@ -5272,9 +4373,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5303,7 +4404,7 @@ class DataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """DurController@upload
 
         Create a new dur with upload data
@@ -5341,9 +4442,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5410,9 +4511,9 @@ class DataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

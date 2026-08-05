@@ -4,7 +4,6 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**count_team_unique_fields_datasets_v2**](DatasetsApi.md#count_team_unique_fields_datasets_v2) | **GET** /api/v2/teams/{teamId}/datasets/count/{field} | TeamDatasetController@count
 [**count_unique_fields**](DatasetsApi.md#count_unique_fields) | **GET** /api/v1/datasets/count/{field} | DatasetController@count
 [**create_datasets**](DatasetsApi.md#create_datasets) | **POST** /api/v1/datasets | DatasetController@store
 [**create_datasets_integrations**](DatasetsApi.md#create_datasets_integrations) | **POST** /api/v1/integrations/datasets | IntegrationDatasetController@store
@@ -27,8 +26,6 @@ Method | HTTP request | Description
 [**fetch_datasets**](DatasetsApi.md#fetch_datasets) | **GET** /api/v1/datasets/{id} | DatasetController@show
 [**fetch_datasets_integrations**](DatasetsApi.md#fetch_datasets_integrations) | **GET** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@show
 [**fetch_datasets_v2**](DatasetsApi.md#fetch_datasets_v2) | **GET** /api/v2/datasets/{id} | DatasetController@showActive
-[**fetch_team_datasets_status**](DatasetsApi.md#fetch_team_datasets_status) | **GET** /api/v2/teams/{teamId}/datasets/status/{status} | TeamDatasetController@indexStatus
-[**fetch_team_datasets_v2**](DatasetsApi.md#fetch_team_datasets_v2) | **GET** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@show
 [**patch_datasets**](DatasetsApi.md#patch_datasets) | **PATCH** /api/v1/datasets/{id} | DatasetController@edit
 [**patch_datasets_integrations**](DatasetsApi.md#patch_datasets_integrations) | **PATCH** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@edit
 [**patch_datasets_v2**](DatasetsApi.md#patch_datasets_v2) | **PATCH** /api/v2/datasets/{id} | DatasetController@edit
@@ -38,86 +35,6 @@ Method | HTTP request | Description
 [**update_datasets_v2**](DatasetsApi.md#update_datasets_v2) | **PUT** /api/v2/datasets/{id} | DatasetController@update
 [**update_team_datasets_v2**](DatasetsApi.md#update_team_datasets_v2) | **PUT** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@update
 
-
-# **count_team_unique_fields_datasets_v2**
-> CountUniqueFieldsCollections200Response count_team_unique_fields_datasets_v2(team_id, var_field)
-
-TeamDatasetController@count
-
-Get team counts for distinct entries of a field in the model
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    team_id = 1 # int | team id
-    var_field = 'status' # str | name of the field to perform a count on
-
-    try:
-        # TeamDatasetController@count
-        api_response = api_instance.count_team_unique_fields_datasets_v2(team_id, var_field)
-        print("The response of DatasetsApi->count_team_unique_fields_datasets_v2:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->count_team_unique_fields_datasets_v2: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **team_id** | **int**| team id | 
- **var_field** | **str**| name of the field to perform a count on | 
-
-### Return type
-
-[**CountUniqueFieldsCollections200Response**](CountUniqueFieldsCollections200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **count_unique_fields**
 > CountUniqueFieldsCollections200Response count_unique_fields(var_field, team_id)
@@ -200,7 +117,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_datasets**
-> CreateCategories200Response create_datasets(create_datasets_request)
+> CreateDarIntegration201Response create_datasets(create_datasets_request)
 
 DatasetController@store
 
@@ -212,7 +129,7 @@ Create a new dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_datasets_request import CreateDatasetsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -259,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -281,7 +198,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_datasets_integrations**
-> CreateCategories200Response create_datasets_integrations(datasets_test_request, input_schema=input_schema, input_version=input_version)
+> CreateDarIntegration201Response create_datasets_integrations(datasets_test_request, input_schema=input_schema, input_version=input_version)
 
 IntegrationDatasetController@store
 
@@ -293,7 +210,7 @@ Create a new dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.datasets_test_request import DatasetsTestRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -344,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -512,7 +429,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_datasets_v2**
-> CreateCategories200Response create_datasets_v2(create_datasets_v2_request)
+> CreateDarIntegration201Response create_datasets_v2(create_datasets_v2_request)
 
 DatasetController@store
 
@@ -524,7 +441,7 @@ Create a new dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_datasets_v2_request import CreateDatasetsV2Request
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -571,7 +488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -593,7 +510,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_team_datasets_v2**
-> CreateCategories200Response create_team_datasets_v2(team_id, create_team_datasets_v2_request)
+> CreateDarIntegration201Response create_team_datasets_v2(team_id, create_team_datasets_v2_request)
 
 TeamDatasetController@store
 
@@ -605,7 +522,7 @@ Create a new dataset for a team
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_team_datasets_v2_request import CreateTeamDatasetsV2Request
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -654,7 +571,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -676,7 +593,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_datasets**
-> DeleteAliases200Response delete_datasets(id)
+> DeleteApplications200Response delete_datasets(id)
 
 DatasetController@destroy
 
@@ -688,7 +605,7 @@ Delete a dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -734,7 +651,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -756,7 +673,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_datasets_integrations**
-> DeleteAliases200Response delete_datasets_integrations(id)
+> DeleteApplications200Response delete_datasets_integrations(id)
 
 IntegrationDatasetController@destroy
 
@@ -768,7 +685,7 @@ Delete a dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -814,7 +731,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -836,7 +753,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_datasets_v2**
-> DeleteAliases200Response delete_datasets_v2(id)
+> DeleteApplications200Response delete_datasets_v2(id)
 
 Delete a dataset
 
@@ -848,7 +765,7 @@ Delete a dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -894,7 +811,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -916,7 +833,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_team_datasets_v2**
-> DeleteAliases200Response delete_team_datasets_v2(team_id, id)
+> DeleteApplications200Response delete_team_datasets_v2(team_id, id)
 
 TeamDatasetController@destroy
 
@@ -928,7 +845,7 @@ Delete a team's dataset
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -976,7 +893,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -1907,180 +1824,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **fetch_team_datasets_status**
-> FetchAllDatasets200Response fetch_team_datasets_status(team_id, status, sort=sort, with_metadata=with_metadata)
-
-TeamDatasetController@indexStatus
-
-Returns a list of a team's datasets with the given status
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.fetch_all_datasets200_response import FetchAllDatasets200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    team_id = 1 # int | ID of the team to filter by
-    status = 'active' # str | Status of the dataset (active, draft, or archived). Defaults to active if not provided. (default to 'active')
-    sort = 'created:desc' # str | Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/> (optional)
-    with_metadata = 'true' # str | Boolean whether to return dataset metadata (optional)
-
-    try:
-        # TeamDatasetController@indexStatus
-        api_response = api_instance.fetch_team_datasets_status(team_id, status, sort=sort, with_metadata=with_metadata)
-        print("The response of DatasetsApi->fetch_team_datasets_status:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->fetch_team_datasets_status: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **team_id** | **int**| ID of the team to filter by | 
- **status** | **str**| Status of the dataset (active, draft, or archived). Defaults to active if not provided. | [default to &#39;active&#39;]
- **sort** | **str**| Field and direction (colon separated) to sort by (default: &#39;created:desc&#39;) ... &lt;br/&gt; &lt;br/&gt;         - ?sort&#x3D;\\&lt;field\\&gt;:\\&lt;direction\\&gt; &lt;br/&gt;         - \\&lt;direction\\&gt; can only be &#39;asc&#39; or &#39;desc&#39;  &lt;br/&gt;         - \\&lt;field\\&gt; can only be a valid field for the dataset table that can be ordered on  &lt;br/&gt;         - \\&lt;field\\&gt; can start with the prefix &#39;metadata.&#39; so that nested values within the field &#39;metadata&#39;  &lt;br/&gt;             (represented by the GWDM JSON structure) can be used to order on.  &lt;br/&gt;  &lt;br/&gt; | [optional] 
- **with_metadata** | **str**| Boolean whether to return dataset metadata | [optional] 
-
-### Return type
-
-[**FetchAllDatasets200Response**](FetchAllDatasets200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **fetch_team_datasets_v2**
-> FetchDatasets200Response fetch_team_datasets_v2(team_id, id, export=export, schema_model=schema_model, schema_version=schema_version)
-
-TeamDatasetController@show
-
-Get dataset by id
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.fetch_datasets200_response import FetchDatasets200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    team_id = 1 # int | team id
-    id = 1 # int | dataset id
-    export = 'structuralMetadata' # str | Alternative output schema model. (optional)
-    schema_model = 'schema_model_example' # str | Alternative output schema model. (optional)
-    schema_version = 'schema_version_example' # str | Alternative output schema version. (optional)
-
-    try:
-        # TeamDatasetController@show
-        api_response = api_instance.fetch_team_datasets_v2(team_id, id, export=export, schema_model=schema_model, schema_version=schema_version)
-        print("The response of DatasetsApi->fetch_team_datasets_v2:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->fetch_team_datasets_v2: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **team_id** | **int**| team id | 
- **id** | **int**| dataset id | 
- **export** | **str**| Alternative output schema model. | [optional] 
- **schema_model** | **str**| Alternative output schema model. | [optional] 
- **schema_version** | **str**| Alternative output schema version. | [optional] 
-
-### Return type
-
-[**FetchDatasets200Response**](FetchDatasets200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success response |  -  |
-**401** | Unauthorized |  -  |
-**404** | Not found response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **patch_datasets**
-> DeleteAliases200Response patch_datasets(id, unarchive=unarchive)
+> DeleteApplications200Response patch_datasets(id, unarchive=unarchive)
 
 DatasetController@edit
 
@@ -2092,7 +1837,7 @@ Patch dataset by id
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -2140,7 +1885,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -2161,7 +1906,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_datasets_integrations**
-> DeleteAliases200Response patch_datasets_integrations(id, unarchive=unarchive)
+> DeleteApplications200Response patch_datasets_integrations(id, unarchive=unarchive)
 
 IntegrationDatasetController@edit
 
@@ -2173,7 +1918,7 @@ Patch dataset by id
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -2221,7 +1966,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -2242,7 +1987,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_datasets_v2**
-> DeleteAliases200Response patch_datasets_v2(id, patch_datasets_v2_request)
+> DeleteApplications200Response patch_datasets_v2(id, patch_datasets_v2_request)
 
 DatasetController@edit
 
@@ -2254,7 +1999,7 @@ Patch dataset by id
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -2303,7 +2048,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -2324,7 +2069,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_team_datasets_v2**
-> DeleteAliases200Response patch_team_datasets_v2(team_id, id, patch_datasets_v2_request)
+> DeleteApplications200Response patch_team_datasets_v2(team_id, id, patch_datasets_v2_request)
 
 TeamDatasetController@edit
 
@@ -2336,7 +2081,7 @@ Edit a dataset owned by a team
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -2387,7 +2132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -2408,7 +2153,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_datasets**
-> CreateCategories200Response update_datasets(id, update_datasets_request)
+> CreateDarIntegration201Response update_datasets(id, update_datasets_request)
 
 DatasetController@update
 
@@ -2420,7 +2165,7 @@ Update a dataset with a new dataset version
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.update_datasets_request import UpdateDatasetsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -2469,7 +2214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -2578,7 +2323,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_datasets_v2**
-> CreateCategories200Response update_datasets_v2(id, update_datasets_request)
+> CreateDarIntegration201Response update_datasets_v2(id, update_datasets_request)
 
 DatasetController@update
 
@@ -2590,7 +2335,7 @@ Update a dataset with a new dataset version
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.update_datasets_request import UpdateDatasetsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -2639,7 +2384,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -2661,7 +2406,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_team_datasets_v2**
-> CreateCategories200Response update_team_datasets_v2(team_id, id, patch_datasets_v2_request)
+> CreateDarIntegration201Response update_team_datasets_v2(team_id, id, patch_datasets_v2_request)
 
 TeamDatasetController@update
 
@@ -2673,7 +2418,7 @@ Update a team dataset with a new dataset version
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -2724,7 +2469,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 

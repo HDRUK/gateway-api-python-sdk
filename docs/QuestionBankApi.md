@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **create_question_bank_question**
-> CreateCategories200Response create_question_bank_question(create_question_bank_question_request)
+> CreateDarIntegration201Response create_question_bank_question(create_question_bank_question_request)
 
 QuestionBank@store
 
@@ -32,7 +32,7 @@ Create a new system question bank question with FE-helpful input format
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_question_bank_question_request import CreateQuestionBankQuestionRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_question_bank_question**
-> DeleteAliases200Response delete_question_bank_question(id)
+> DeleteApplications200Response delete_question_bank_question(id)
 
 QuestionBank@destroy
 
@@ -112,7 +112,7 @@ Delete a system question bank question
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_question_bank_question_file**
-> DeleteAliases200Response download_question_bank_question_file(id, file_id)
+> DeleteApplications200Response download_question_bank_question_file(id, file_id)
 
 QuestionBank@destroyFile
 
@@ -192,7 +192,7 @@ Download a system question bank question
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

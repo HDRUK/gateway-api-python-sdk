@@ -17,8 +17,8 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
 from typing_extensions import Annotated
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.edit_dar_integration_request import EditDarIntegrationRequest
 from gateway_api_sdk.models.fetch_all_dar_integrations200_response import FetchAllDarIntegrations200Response
 from gateway_api_sdk.models.fetch_all_dar_integrations200_response_data_inner import FetchAllDarIntegrations200ResponseDataInner
@@ -60,7 +60,7 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """DarIntegration@store
 
         Creates a new DAR integration enabled on the system
@@ -101,9 +101,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -133,7 +133,7 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """DarIntegration@store
 
         Creates a new DAR integration enabled on the system
@@ -174,9 +174,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -247,9 +247,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -354,7 +354,7 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """DarIntegration@destroy
 
         Delete a system Dar Integration
@@ -392,9 +392,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -423,7 +423,7 @@ class DarIntegrationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """DarIntegration@destroy
 
         Delete a system Dar Integration
@@ -461,9 +461,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -530,9 +530,9 @@ class DarIntegrationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -664,8 +664,8 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "UpdateDarIntegration200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -737,8 +737,8 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "UpdateDarIntegration200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -810,8 +810,8 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "UpdateDarIntegration200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -951,7 +951,7 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllDarIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1015,7 +1015,7 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllDarIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1079,7 +1079,7 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllDarIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1204,8 +1204,8 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllDarIntegrations200ResponseDataInner",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1273,8 +1273,8 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllDarIntegrations200ResponseDataInner",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1342,8 +1342,8 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchAllDarIntegrations200ResponseDataInner",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1475,8 +1475,8 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "UpdateDarIntegration200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1548,8 +1548,8 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "UpdateDarIntegration200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1621,8 +1621,8 @@ class DarIntegrationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "UpdateDarIntegration200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

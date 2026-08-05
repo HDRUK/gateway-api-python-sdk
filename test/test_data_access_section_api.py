@@ -40,20 +40,6 @@ class TestDataAccessSectionApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_dar_section(self) -> None:
-        """Test case for fetch_dar_section
-
-        DataAccessSection@show
-        """
-        pass
-
-    def test_fetch_dar_sections(self) -> None:
-        """Test case for fetch_dar_sections
-
-        DataAccessSection@index
-        """
-        pass
-
     def test_patch_dar_section(self) -> None:
         """Test case for patch_dar_section
 

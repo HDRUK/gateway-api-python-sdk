@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_licenses**
-> CreateCategories200Response create_licenses(create_licenses_request)
+> CreateDarIntegration201Response create_licenses(create_licenses_request)
 
 License@store
 
@@ -25,7 +25,7 @@ Creates a new license
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_licenses_request import CreateLicensesRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_licenses**
-> DeleteAliases200Response delete_licenses(id)
+> DeleteApplications200Response delete_licenses(id)
 
 License@destroy
 
@@ -105,7 +105,7 @@ Delete a License
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

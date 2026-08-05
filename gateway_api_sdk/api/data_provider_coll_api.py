@@ -18,9 +18,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_data_provider_coll_request import CreateDataProviderCollRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.edit_data_provider_coll_request import EditDataProviderCollRequest
 from gateway_api_sdk.models.fetch_data_provider_coll200_response import FetchDataProviderColl200Response
 from gateway_api_sdk.models.fetch_data_provider_coll_summary200_response import FetchDataProviderCollSummary200Response
@@ -62,7 +62,7 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """DataProviderColl@store
 
         Creates a new DataProviderColl
@@ -100,8 +100,8 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -130,7 +130,7 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """DataProviderColl@store
 
         Creates a new DataProviderColl
@@ -168,8 +168,8 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -236,8 +236,8 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -339,7 +339,7 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """DataProviderColl@destroy
 
         Delete a DataProviderColl
@@ -377,9 +377,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -408,7 +408,7 @@ class DataProviderCollApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """DataProviderColl@destroy
 
         Delete a DataProviderColl
@@ -446,9 +446,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -515,9 +515,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -648,9 +648,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDataProviderColl200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -721,9 +721,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDataProviderColl200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -794,9 +794,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDataProviderColl200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -940,7 +940,7 @@ class DataProviderCollApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDataProviderColl200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1008,7 +1008,7 @@ class DataProviderCollApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDataProviderColl200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1076,7 +1076,7 @@ class DataProviderCollApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDataProviderColl200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1204,7 +1204,7 @@ class DataProviderCollApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDataProviderCollSummary200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1272,7 +1272,7 @@ class DataProviderCollApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDataProviderCollSummary200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1340,7 +1340,7 @@ class DataProviderCollApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDataProviderCollSummary200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1734,9 +1734,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDataProviderColl200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1807,9 +1807,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDataProviderColl200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1880,9 +1880,9 @@ class DataProviderCollApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDataProviderColl200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

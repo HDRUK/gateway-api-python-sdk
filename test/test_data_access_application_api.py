@@ -26,13 +26,6 @@ class TestDataAccessApplicationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_dar_applications(self) -> None:
-        """Test case for create_dar_applications
-
-        DataAccessApplication@store
-        """
-        pass
-
     def test_delete_dar_application_files(self) -> None:
         """Test case for delete_dar_application_files
 
@@ -49,20 +42,6 @@ class TestDataAccessApplicationApi(unittest.TestCase):
 
     def test_delete_team_dar_application_file(self) -> None:
         """Test case for delete_team_dar_application_file
-
-        DataAccessApplication@destroyFile
-        """
-        pass
-
-    def test_delete_user_dar_application(self) -> None:
-        """Test case for delete_user_dar_application
-
-        DataAccessApplication@destroy
-        """
-        pass
-
-    def test_delete_user_dar_application_file(self) -> None:
-        """Test case for delete_user_dar_application_file
 
         DataAccessApplication@destroyFile
         """
@@ -103,36 +82,8 @@ class TestDataAccessApplicationApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_user_dar_application_file(self) -> None:
-        """Test case for fetch_user_dar_application_file
-
-        DataAccessApplication@downloadFile
-        """
-        pass
-
-    def test_fetch_user_dar_application_files(self) -> None:
-        """Test case for fetch_user_dar_application_files
-
-        DataAccessApplication@showFiles
-        """
-        pass
-
-    def test_patch_user_dar_application(self) -> None:
-        """Test case for patch_user_dar_application
-
-        DataAccessApplication@update
-        """
-        pass
-
     def test_update_team_dar_application(self) -> None:
         """Test case for update_team_dar_application
-
-        DataAccessApplication@update
-        """
-        pass
-
-    def test_update_user_dar_application(self) -> None:
-        """Test case for update_user_dar_application
 
         DataAccessApplication@update
         """

@@ -26,24 +26,10 @@ class TestToolsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_count_team_unique_fields_tools_v2(self) -> None:
-        """Test case for count_team_unique_fields_tools_v2
-
-        TeamToolController@count
-        """
-        pass
-
     def test_count_unique_fields_tools(self) -> None:
         """Test case for count_unique_fields_tools
 
         ToolController@count
-        """
-        pass
-
-    def test_count_user_unique_fields_tools_v2(self) -> None:
-        """Test case for count_user_unique_fields_tools_v2
-
-        UserToolController@count
         """
         pass
 
@@ -58,13 +44,6 @@ class TestToolsApi(unittest.TestCase):
         """Test case for create_tools_by_team_v2
 
         ToolController@store
-        """
-        pass
-
-    def test_create_tools_by_user_v2(self) -> None:
-        """Test case for create_tools_by_user_v2
-
-        UserToolController@store
         """
         pass
 
@@ -89,13 +68,6 @@ class TestToolsApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_tools_by_user_v2(self) -> None:
-        """Test case for delete_tools_by_user_v2
-
-        UserToolController@destroy
-        """
-        pass
-
     def test_delete_tools_integrations(self) -> None:
         """Test case for delete_tools_integrations
 
@@ -117,31 +89,10 @@ class TestToolsApi(unittest.TestCase):
         """
         pass
 
-    def test_edit_tools_by_user_v2(self) -> None:
-        """Test case for edit_tools_by_user_v2
-
-        UserToolController@edit
-        """
-        pass
-
     def test_edit_tools_integrations(self) -> None:
         """Test case for edit_tools_integrations
 
         IntegrationToolController@edit
-        """
-        pass
-
-    def test_fetch_all_tool_by_team_and_status_v2(self) -> None:
-        """Test case for fetch_all_tool_by_team_and_status_v2
-
-        TeamToolController@indexStatus
-        """
-        pass
-
-    def test_fetch_all_tool_by_user_and_status_v2(self) -> None:
-        """Test case for fetch_all_tool_by_user_and_status_v2
-
-        UserToolController@indexStatus
         """
         pass
 
@@ -173,20 +124,6 @@ class TestToolsApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_tools_by_team_and_by_id_v2(self) -> None:
-        """Test case for fetch_tools_by_team_and_by_id_v2
-
-        TeamToolController@show
-        """
-        pass
-
-    def test_fetch_tools_by_user_and_by_id_v2(self) -> None:
-        """Test case for fetch_tools_by_user_and_by_id_v2
-
-        UserToolController@show
-        """
-        pass
-
     def test_fetch_tools_integrations(self) -> None:
         """Test case for fetch_tools_integrations
 
@@ -212,13 +149,6 @@ class TestToolsApi(unittest.TestCase):
         """Test case for update_tools_by_teamid_v2
 
         TeamToolController@update
-        """
-        pass
-
-    def test_update_tools_by_user_v2(self) -> None:
-        """Test case for update_tools_by_user_v2
-
-        UserToolController@update
         """
         pass
 

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_collections_integrations**
-> CreateCategories200Response create_collections_integrations(update_team_collections_request)
+> CreateDarIntegration201Response create_collections_integrations(create_collections_integrations_request)
 
 IntegrationCollectionController@store
 
@@ -25,8 +25,8 @@ Create a new collection
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
-from gateway_api_sdk.models.update_team_collections_request import UpdateTeamCollectionsRequest
+from gateway_api_sdk.models.create_collections_integrations_request import CreateCollectionsIntegrationsRequest
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -50,11 +50,11 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.IntegrationCollectionsApi(api_client)
-    update_team_collections_request = gateway_api_sdk.UpdateTeamCollectionsRequest() # UpdateTeamCollectionsRequest | Pass user credentials
+    create_collections_integrations_request = gateway_api_sdk.CreateCollectionsIntegrationsRequest() # CreateCollectionsIntegrationsRequest | Pass user credentials
 
     try:
         # IntegrationCollectionController@store
-        api_response = api_instance.create_collections_integrations(update_team_collections_request)
+        api_response = api_instance.create_collections_integrations(create_collections_integrations_request)
         print("The response of IntegrationCollectionsApi->create_collections_integrations:\n")
         pprint(api_response)
     except Exception as e:
@@ -68,11 +68,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_team_collections_request** | [**UpdateTeamCollectionsRequest**](UpdateTeamCollectionsRequest.md)| Pass user credentials | 
+ **create_collections_integrations_request** | [**CreateCollectionsIntegrationsRequest**](CreateCollectionsIntegrationsRequest.md)| Pass user credentials | 
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_collections_integrations**
-> DeleteAliases200Response delete_collections_integrations(id)
+> DeleteApplications200Response delete_collections_integrations(id)
 
 Delete a collection
 
@@ -106,7 +106,7 @@ Delete a collection
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_collections_integrations**
-> FetchCollections200Response edit_collections_integrations(id, update_team_collections_request)
+> FetchCollections200Response edit_collections_integrations(id, create_collections_integrations_request)
 
 Edit a collection
 
@@ -186,8 +186,8 @@ Edit a collection
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_collections_integrations_request import CreateCollectionsIntegrationsRequest
 from gateway_api_sdk.models.fetch_collections200_response import FetchCollections200Response
-from gateway_api_sdk.models.update_team_collections_request import UpdateTeamCollectionsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -212,11 +212,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.IntegrationCollectionsApi(api_client)
     id = 1 # int | collection id
-    update_team_collections_request = gateway_api_sdk.UpdateTeamCollectionsRequest() # UpdateTeamCollectionsRequest | Pass user credentials
+    create_collections_integrations_request = gateway_api_sdk.CreateCollectionsIntegrationsRequest() # CreateCollectionsIntegrationsRequest | Pass user credentials
 
     try:
         # Edit a collection
-        api_response = api_instance.edit_collections_integrations(id, update_team_collections_request)
+        api_response = api_instance.edit_collections_integrations(id, create_collections_integrations_request)
         print("The response of IntegrationCollectionsApi->edit_collections_integrations:\n")
         pprint(api_response)
     except Exception as e:
@@ -231,7 +231,7 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| collection id | 
- **update_team_collections_request** | [**UpdateTeamCollectionsRequest**](UpdateTeamCollectionsRequest.md)| Pass user credentials | 
+ **create_collections_integrations_request** | [**CreateCollectionsIntegrationsRequest**](CreateCollectionsIntegrationsRequest.md)| Pass user credentials | 
 
 ### Return type
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_collections_integrations**
-> FetchCollections200Response update_collections_integrations(id, update_team_collections_request)
+> FetchCollections200Response update_collections_integrations(id, create_collections_integrations_request)
 
 Update a collection
 
@@ -427,8 +427,8 @@ Update a collection
 
 ```python
 import gateway_api_sdk
+from gateway_api_sdk.models.create_collections_integrations_request import CreateCollectionsIntegrationsRequest
 from gateway_api_sdk.models.fetch_collections200_response import FetchCollections200Response
-from gateway_api_sdk.models.update_team_collections_request import UpdateTeamCollectionsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -453,11 +453,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.IntegrationCollectionsApi(api_client)
     id = 1 # int | collection id
-    update_team_collections_request = gateway_api_sdk.UpdateTeamCollectionsRequest() # UpdateTeamCollectionsRequest | Pass user credentials
+    create_collections_integrations_request = gateway_api_sdk.CreateCollectionsIntegrationsRequest() # CreateCollectionsIntegrationsRequest | Pass user credentials
 
     try:
         # Update a collection
-        api_response = api_instance.update_collections_integrations(id, update_team_collections_request)
+        api_response = api_instance.update_collections_integrations(id, create_collections_integrations_request)
         print("The response of IntegrationCollectionsApi->update_collections_integrations:\n")
         pprint(api_response)
     except Exception as e:
@@ -472,7 +472,7 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| collection id | 
- **update_team_collections_request** | [**UpdateTeamCollectionsRequest**](UpdateTeamCollectionsRequest.md)| Pass user credentials | 
+ **create_collections_integrations_request** | [**CreateCollectionsIntegrationsRequest**](CreateCollectionsIntegrationsRequest.md)| Pass user credentials | 
 
 ### Return type
 

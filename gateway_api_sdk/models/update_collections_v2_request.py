@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from gateway_api_sdk.models.create_team_collections_request_datasets_inner import CreateTeamCollectionsRequestDatasetsInner
+from gateway_api_sdk.models.create_collections_integrations_request_datasets_inner import CreateCollectionsIntegrationsRequestDatasetsInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -33,9 +33,9 @@ class UpdateCollectionsV2Request(BaseModel):
     image_link: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["https://via.placeholder.com/640x480.png/0022bb?text=animals+cumque"]})
     enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     keywords: Optional[List[StrictStr]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
-    datasets: Optional[List[CreateTeamCollectionsRequestDatasetsInner]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
-    dur: Optional[List[CreateTeamCollectionsRequestDatasetsInner]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
-    publications: Optional[List[CreateTeamCollectionsRequestDatasetsInner]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
+    datasets: Optional[List[CreateCollectionsIntegrationsRequestDatasetsInner]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
+    dur: Optional[List[CreateCollectionsIntegrationsRequestDatasetsInner]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
+    publications: Optional[List[CreateCollectionsIntegrationsRequestDatasetsInner]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
     collaborators: Optional[List[StrictInt]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
     public: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["name", "description", "image_link", "enabled", "keywords", "datasets", "dur", "publications", "collaborators", "public"]
@@ -117,9 +117,9 @@ class UpdateCollectionsV2Request(BaseModel):
             "image_link": obj.get("image_link"),
             "enabled": obj.get("enabled"),
             "keywords": obj.get("keywords"),
-            "datasets": [CreateTeamCollectionsRequestDatasetsInner.from_dict(_item) for _item in obj["datasets"]] if obj.get("datasets") is not None else None,
-            "dur": [CreateTeamCollectionsRequestDatasetsInner.from_dict(_item) for _item in obj["dur"]] if obj.get("dur") is not None else None,
-            "publications": [CreateTeamCollectionsRequestDatasetsInner.from_dict(_item) for _item in obj["publications"]] if obj.get("publications") is not None else None,
+            "datasets": [CreateCollectionsIntegrationsRequestDatasetsInner.from_dict(_item) for _item in obj["datasets"]] if obj.get("datasets") is not None else None,
+            "dur": [CreateCollectionsIntegrationsRequestDatasetsInner.from_dict(_item) for _item in obj["dur"]] if obj.get("dur") is not None else None,
+            "publications": [CreateCollectionsIntegrationsRequestDatasetsInner.from_dict(_item) for _item in obj["publications"]] if obj.get("publications") is not None else None,
             "collaborators": obj.get("collaborators"),
             "public": obj.get("public")
         })

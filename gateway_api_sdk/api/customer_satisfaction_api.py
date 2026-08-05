@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing_extensions import Annotated
 from gateway_api_sdk.models.create_csat_request import CreateCsatRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.edit_csat200_response import EditCsat200Response
 from gateway_api_sdk.models.edit_csat_request import EditCsatRequest
 
@@ -56,7 +56,7 @@ class CustomerSatisfactionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """Create Customer Satisfaction Score
 
         Creates a customer satisfaction score between 0 and 5
@@ -94,9 +94,9 @@ class CustomerSatisfactionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "DeleteAliases200Response",
+            '201': "DeleteApplications200Response",
             '422': "CreateCsat422Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -125,7 +125,7 @@ class CustomerSatisfactionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """Create Customer Satisfaction Score
 
         Creates a customer satisfaction score between 0 and 5
@@ -163,9 +163,9 @@ class CustomerSatisfactionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "DeleteAliases200Response",
+            '201': "DeleteApplications200Response",
             '422': "CreateCsat422Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -232,9 +232,9 @@ class CustomerSatisfactionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "DeleteAliases200Response",
+            '201': "DeleteApplications200Response",
             '422': "CreateCsat422Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

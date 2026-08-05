@@ -20,7 +20,7 @@ from typing import Optional
 from typing_extensions import Annotated
 from gateway_api_sdk.models.create_widget201_response import CreateWidget201Response
 from gateway_api_sdk.models.create_widget_request import CreateWidgetRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.fetch_all_widgets200_response import FetchAllWidgets200Response
 from gateway_api_sdk.models.fetch_widget200_response import FetchWidget200Response
 from gateway_api_sdk.models.fetch_widget_data_sources200_response import FetchWidgetDataSources200Response
@@ -108,7 +108,7 @@ class WidgetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateWidget201Response",
             '400': "CreateWidget400Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -181,7 +181,7 @@ class WidgetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateWidget201Response",
             '400': "CreateWidget400Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -254,7 +254,7 @@ class WidgetsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateWidget201Response",
             '400': "CreateWidget400Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -360,7 +360,7 @@ class WidgetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """Delete a widget
 
         Soft delete a widget belonging to a specific team
@@ -401,9 +401,9 @@ class WidgetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -433,7 +433,7 @@ class WidgetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """Delete a widget
 
         Soft delete a widget belonging to a specific team
@@ -474,9 +474,9 @@ class WidgetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -547,9 +547,9 @@ class WidgetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -945,7 +945,7 @@ class WidgetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchWidget200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1017,7 +1017,7 @@ class WidgetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchWidget200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1089,7 +1089,7 @@ class WidgetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchWidget200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,

@@ -17,9 +17,9 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
 from typing_extensions import Annotated
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_licenses_request import CreateLicensesRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.fetch_all_licenses200_response import FetchAllLicenses200Response
 from gateway_api_sdk.models.fetch_licenses200_response import FetchLicenses200Response
 from gateway_api_sdk.models.update_licenses200_response import UpdateLicenses200Response
@@ -58,7 +58,7 @@ class LicenseApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """License@store
 
         Creates a new license
@@ -96,8 +96,8 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -126,7 +126,7 @@ class LicenseApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """License@store
 
         Creates a new license
@@ -164,8 +164,8 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -232,8 +232,8 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -335,7 +335,7 @@ class LicenseApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """License@destroy
 
         Delete a License
@@ -373,9 +373,9 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -404,7 +404,7 @@ class LicenseApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """License@destroy
 
         Delete a License
@@ -442,9 +442,9 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -511,9 +511,9 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -644,9 +644,9 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateLicenses200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -717,9 +717,9 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateLicenses200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -790,9 +790,9 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateLicenses200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1181,7 +1181,7 @@ class LicenseApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchLicenses200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1249,7 +1249,7 @@ class LicenseApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchLicenses200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1317,7 +1317,7 @@ class LicenseApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchLicenses200Response",
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1447,9 +1447,9 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateLicenses200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1520,9 +1520,9 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateLicenses200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1593,9 +1593,9 @@ class LicenseApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateLicenses200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

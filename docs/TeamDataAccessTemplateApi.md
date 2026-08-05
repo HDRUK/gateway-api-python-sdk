@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **delete_team_dar_template_file**
-> DeleteAliases200Response delete_team_dar_template_file(team_id, id, file_id)
+> DeleteApplications200Response delete_team_dar_template_file(team_id, id, file_id)
 
 TeamDataAccessTemplateController@destroyFile
 
@@ -22,7 +22,7 @@ Delete a file associated with a DAR template
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

@@ -47,34 +47,6 @@ class TestUsersApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_all_users(self) -> None:
-        """Test case for fetch_all_users
-
-        UserController@index
-        """
-        pass
-
-    def test_fetch_users(self) -> None:
-        """Test case for fetch_users
-
-        UserController@show
-        """
-        pass
-
-    def test_resend_secondary_verification_email(self) -> None:
-        """Test case for resend_secondary_verification_email
-
-        Resend secondary email verification
-        """
-        pass
-
-    def test_update_users(self) -> None:
-        """Test case for update_users
-
-        UserController@update
-        """
-        pass
-
     def test_verify_secondary_email(self) -> None:
         """Test case for verify_secondary_email
 

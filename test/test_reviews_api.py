@@ -26,13 +26,6 @@ class TestReviewsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_reviews(self) -> None:
-        """Test case for create_reviews
-
-        ReviewController@store
-        """
-        pass
-
     def test_delete_reviews(self) -> None:
         """Test case for delete_reviews
 
@@ -44,20 +37,6 @@ class TestReviewsApi(unittest.TestCase):
         """Test case for edit_reviews
 
         Edit a review
-        """
-        pass
-
-    def test_fetch_all_reviews(self) -> None:
-        """Test case for fetch_all_reviews
-
-        ReviewController@index
-        """
-        pass
-
-    def test_fetch_reviews(self) -> None:
-        """Test case for fetch_reviews
-
-        ReviewController@show
         """
         pass
 

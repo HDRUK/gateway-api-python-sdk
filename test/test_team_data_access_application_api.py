@@ -47,13 +47,6 @@ class TestTeamDataAccessApplicationApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_team_dar_application_header(self) -> None:
-        """Test case for fetch_team_dar_application_header
-
-        TeamDataAccessApplicationController@showHeader
-        """
-        pass
-
     def test_fetch_team_dar_applications(self) -> None:
         """Test case for fetch_team_dar_applications
 

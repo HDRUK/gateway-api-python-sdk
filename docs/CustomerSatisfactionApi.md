@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **create_csat**
-> DeleteAliases200Response create_csat(create_csat_request)
+> DeleteApplications200Response create_csat(create_csat_request)
 
 Create Customer Satisfaction Score
 
@@ -22,7 +22,7 @@ Creates a customer satisfaction score between 0 and 5
 ```python
 import gateway_api_sdk
 from gateway_api_sdk.models.create_csat_request import CreateCsatRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

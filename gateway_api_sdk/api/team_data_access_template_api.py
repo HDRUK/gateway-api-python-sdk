@@ -19,7 +19,7 @@ from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.fetch_dar_templates200_response import FetchDarTemplates200Response
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
@@ -58,7 +58,7 @@ class TeamDataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """TeamDataAccessTemplateController@destroyFile
 
         Delete a file associated with a DAR template
@@ -102,9 +102,9 @@ class TeamDataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': "CreateTeamCollections401Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -135,7 +135,7 @@ class TeamDataAccessTemplateApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """TeamDataAccessTemplateController@destroyFile
 
         Delete a file associated with a DAR template
@@ -179,9 +179,9 @@ class TeamDataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': "CreateTeamCollections401Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -256,9 +256,9 @@ class TeamDataAccessTemplateApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': "CreateTeamCollections401Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

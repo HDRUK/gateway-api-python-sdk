@@ -47,20 +47,6 @@ class TestProgrammingPackageApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_all_programming_packages(self) -> None:
-        """Test case for fetch_all_programming_packages
-
-        ProgrammingPackage@index
-        """
-        pass
-
-    def test_fetch_programming_packages(self) -> None:
-        """Test case for fetch_programming_packages
-
-        ProgrammingPackage@show
-        """
-        pass
-
     def test_update_programming_packages(self) -> None:
         """Test case for update_programming_packages
 

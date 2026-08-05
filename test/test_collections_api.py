@@ -26,13 +26,6 @@ class TestCollectionsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_count_team_unique_fields_collection_v2(self) -> None:
-        """Test case for count_team_unique_fields_collection_v2
-
-        TeamCollectionController@count
-        """
-        pass
-
     def test_count_unique_fields_collections(self) -> None:
         """Test case for count_unique_fields_collections
 
@@ -47,38 +40,10 @@ class TestCollectionsApi(unittest.TestCase):
         """
         pass
 
-    def test_count_user_unique_fields_collection_v2(self) -> None:
-        """Test case for count_user_unique_fields_collection_v2
-
-        UserCollectionController@count
-        """
-        pass
-
     def test_create_collections(self) -> None:
         """Test case for create_collections
 
         CollectionController@store
-        """
-        pass
-
-    def test_create_team_collections(self) -> None:
-        """Test case for create_team_collections
-
-        CollectionController@store
-        """
-        pass
-
-    def test_create_team_collections_v2(self) -> None:
-        """Test case for create_team_collections_v2
-
-        TeamCollectionController@store
-        """
-        pass
-
-    def test_create_user_collections(self) -> None:
-        """Test case for create_user_collections
-
-        UserCollectionController@store
         """
         pass
 
@@ -89,50 +54,8 @@ class TestCollectionsApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_team_collections(self) -> None:
-        """Test case for delete_team_collections
-
-        Delete a collection
-        """
-        pass
-
-    def test_delete_team_collections_v2(self) -> None:
-        """Test case for delete_team_collections_v2
-
-        Delete a collection
-        """
-        pass
-
-    def test_delete_user_collections_v2(self) -> None:
-        """Test case for delete_user_collections_v2
-
-        Delete a collection
-        """
-        pass
-
     def test_edit_collections_v2(self) -> None:
         """Test case for edit_collections_v2
-
-        Edit a collection
-        """
-        pass
-
-    def test_edit_team_collections(self) -> None:
-        """Test case for edit_team_collections
-
-        Edit a collection
-        """
-        pass
-
-    def test_edit_team_collections_v2(self) -> None:
-        """Test case for edit_team_collections_v2
-
-        Edit a collection
-        """
-        pass
-
-    def test_edit_user_collections_v2(self) -> None:
-        """Test case for edit_user_collections_v2
 
         Edit a collection
         """
@@ -166,85 +89,8 @@ class TestCollectionsApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_team_active_collections_v2(self) -> None:
-        """Test case for fetch_team_active_collections_v2
-
-        TeamCollectionController@indexActive
-        """
-        pass
-
-    def test_fetch_team_archived_collections_v2(self) -> None:
-        """Test case for fetch_team_archived_collections_v2
-
-        TeamCollectionController@indexArchived
-        """
-        pass
-
-    def test_fetch_team_collection_v2(self) -> None:
-        """Test case for fetch_team_collection_v2
-
-        TeamCollectionController@show
-        """
-        pass
-
-    def test_fetch_team_draft_collections_v2(self) -> None:
-        """Test case for fetch_team_draft_collections_v2
-
-        TeamCollectionController@indexDraft
-        """
-        pass
-
-    def test_fetch_user_archived_collections_v2(self) -> None:
-        """Test case for fetch_user_archived_collections_v2
-
-        UserCollectionController@indexArchived
-        """
-        pass
-
-    def test_fetch_user_collection_v2(self) -> None:
-        """Test case for fetch_user_collection_v2
-
-        CollectionController@show
-        """
-        pass
-
-    def test_fetch_user_collections_v2(self) -> None:
-        """Test case for fetch_user_collections_v2
-
-        UserCollectionController@indexActive
-        """
-        pass
-
-    def test_fetch_user_draft_collections_v2(self) -> None:
-        """Test case for fetch_user_draft_collections_v2
-
-        UserCollectionController@indexDraft
-        """
-        pass
-
     def test_update_collections_v2(self) -> None:
         """Test case for update_collections_v2
-
-        Update a collection
-        """
-        pass
-
-    def test_update_team_collections(self) -> None:
-        """Test case for update_team_collections
-
-        Update a collection
-        """
-        pass
-
-    def test_update_team_collections_v2(self) -> None:
-        """Test case for update_team_collections_v2
-
-        Update a collection
-        """
-        pass
-
-    def test_update_user_collections_v2(self) -> None:
-        """Test case for update_user_collections_v2
 
         Update a collection
         """

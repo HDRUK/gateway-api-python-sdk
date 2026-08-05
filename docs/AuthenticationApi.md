@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authentication**](AuthenticationApi.md#authentication) | **POST** /api/v1/auth | AuthController@checkAuthorization
 [**login**](AuthenticationApi.md#login) | **POST** /api/v1/auth/login | AuthController@login
-[**refresh_token**](AuthenticationApi.md#refresh_token) | **POST** /api/v1/refresh_token | AuthController@refreshToken
 [**register**](AuthenticationApi.md#register) | **POST** /api/v1/auth/register | AuthController@register
 
 
@@ -148,81 +147,6 @@ No authorization required
 **200** | Success response |  -  |
 **400** | Validation error |  -  |
 **401** | Invalid credentials |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **refresh_token**
-> Authentication200Response refresh_token()
-
-AuthController@refreshToken
-
-Regenerate jwt token
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.authentication200_response import Authentication200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.AuthenticationApi(api_client)
-
-    try:
-        # AuthController@refreshToken
-        api_response = api_instance.refresh_token()
-        print("The response of AuthenticationApi->refresh_token:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling AuthenticationApi->refresh_token: %s\n" % e)
-```
-
-
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Authentication200Response**](Authentication200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success response |  -  |
-**401** | Missing Property |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

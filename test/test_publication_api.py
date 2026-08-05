@@ -26,24 +26,10 @@ class TestPublicationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_count_team_unique_fields_publication_v2(self) -> None:
-        """Test case for count_team_unique_fields_publication_v2
-
-        TeamPublicationController@count
-        """
-        pass
-
     def test_count_unique_fields_publications(self) -> None:
         """Test case for count_unique_fields_publications
 
         PublicationController@count
-        """
-        pass
-
-    def test_count_user_unique_fields_publication_v2(self) -> None:
-        """Test case for count_user_unique_fields_publication_v2
-
-        UserPublicationController@count
         """
         pass
 
@@ -54,38 +40,10 @@ class TestPublicationApi(unittest.TestCase):
         """
         pass
 
-    def test_create_publications_v2_by_team_id(self) -> None:
-        """Test case for create_publications_v2_by_team_id
-
-        TeamPublicationController@store
-        """
-        pass
-
-    def test_create_publications_v2_by_user_id(self) -> None:
-        """Test case for create_publications_v2_by_user_id
-
-        UserPublicationController@store
-        """
-        pass
-
     def test_delete_publications(self) -> None:
         """Test case for delete_publications
 
         PublicationController@destroy
-        """
-        pass
-
-    def test_delete_publications_v2_by_team_id(self) -> None:
-        """Test case for delete_publications_v2_by_team_id
-
-        TeamPublicationController@destroy
-        """
-        pass
-
-    def test_delete_publications_v2_by_user_id(self) -> None:
-        """Test case for delete_publications_v2_by_user_id
-
-        UserPublicationController@destroy
         """
         pass
 
@@ -96,38 +54,10 @@ class TestPublicationApi(unittest.TestCase):
         """
         pass
 
-    def test_edit_publications_v2_by_team_id(self) -> None:
-        """Test case for edit_publications_v2_by_team_id
-
-        TeamPublicationController@edit
-        """
-        pass
-
-    def test_edit_publications_v2_by_user_id(self) -> None:
-        """Test case for edit_publications_v2_by_user_id
-
-        UserPublicationController@edit
-        """
-        pass
-
     def test_fetch_all_publications(self) -> None:
         """Test case for fetch_all_publications
 
         PublicationController@index
-        """
-        pass
-
-    def test_fetch_all_publications_by_team_and_status_v2(self) -> None:
-        """Test case for fetch_all_publications_by_team_and_status_v2
-
-        TeamPublicationController@indexStatus
-        """
-        pass
-
-    def test_fetch_all_publications_by_user_and_status_v2(self) -> None:
-        """Test case for fetch_all_publications_by_user_and_status_v2
-
-        UserPublicationController@indexStatus
         """
         pass
 
@@ -145,20 +75,6 @@ class TestPublicationApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_publications_by_team_and_by_id_v2(self) -> None:
-        """Test case for fetch_publications_by_team_and_by_id_v2
-
-        TeamPublicationController@show
-        """
-        pass
-
-    def test_fetch_publications_by_user_and_by_id_v2(self) -> None:
-        """Test case for fetch_publications_by_user_and_by_id_v2
-
-        UserPublicationController@show
-        """
-        pass
-
     def test_fetch_publications_v2(self) -> None:
         """Test case for fetch_publications_v2
 
@@ -170,20 +86,6 @@ class TestPublicationApi(unittest.TestCase):
         """Test case for update_publications
 
         PublicationController@update
-        """
-        pass
-
-    def test_update_publications_v2_by_team_id(self) -> None:
-        """Test case for update_publications_v2_by_team_id
-
-        TeamPublicationController@update
-        """
-        pass
-
-    def test_update_publications_v2_by_user_id(self) -> None:
-        """Test case for update_publications_v2_by_user_id
-
-        UserPublicationController@update
         """
         pass
 

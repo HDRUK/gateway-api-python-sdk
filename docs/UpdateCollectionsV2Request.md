@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **image_link** | **str** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
 **keywords** | **List[str]** |  | [optional] 
-**datasets** | [**List[CreateTeamCollectionsRequestDatasetsInner]**](CreateTeamCollectionsRequestDatasetsInner.md) |  | [optional] 
-**dur** | [**List[CreateTeamCollectionsRequestDatasetsInner]**](CreateTeamCollectionsRequestDatasetsInner.md) |  | [optional] 
-**publications** | [**List[CreateTeamCollectionsRequestDatasetsInner]**](CreateTeamCollectionsRequestDatasetsInner.md) |  | [optional] 
+**datasets** | [**List[CreateCollectionsIntegrationsRequestDatasetsInner]**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  | [optional] 
+**dur** | [**List[CreateCollectionsIntegrationsRequestDatasetsInner]**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  | [optional] 
+**publications** | [**List[CreateCollectionsIntegrationsRequestDatasetsInner]**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  | [optional] 
 **collaborators** | **List[int]** |  | [optional] 
 **public** | **bool** |  | [optional] 
 

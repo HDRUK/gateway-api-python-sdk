@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **integrations_datasets_test**
-> CreateCategories200Response integrations_datasets_test(datasets_test_request)
+> CreateDarIntegration201Response integrations_datasets_test(datasets_test_request)
 
 IntegrationDatasetController@datasetTest
 
@@ -19,7 +19,7 @@ Integrations datasets test
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.datasets_test_request import DatasetsTestRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 

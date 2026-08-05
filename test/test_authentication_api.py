@@ -40,13 +40,6 @@ class TestAuthenticationApi(unittest.TestCase):
         """
         pass
 
-    def test_refresh_token(self) -> None:
-        """Test case for refresh_token
-
-        AuthController@refreshToken
-        """
-        pass
-
     def test_register(self) -> None:
         """Test case for register
 

@@ -18,9 +18,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_dur_integrations_request import CreateDurIntegrationsRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.fetch_all_dur_integrations200_response import FetchAllDurIntegrations200Response
 from gateway_api_sdk.models.fetch_dur_by_id_integrations200_response import FetchDurByIdIntegrations200Response
 from gateway_api_sdk.models.project_title_ascupdated_at_asc import ProjectTitleAscupdatedAtAsc
@@ -60,7 +60,7 @@ class IntegrationDataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """IntegrationDurController@store
 
         Create a new dur
@@ -98,9 +98,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -129,7 +129,7 @@ class IntegrationDataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """IntegrationDurController@store
 
         Create a new dur
@@ -167,9 +167,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -236,9 +236,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -340,7 +340,7 @@ class IntegrationDataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """(Deprecated) Delete a dur
 
         Delete a dur
@@ -379,9 +379,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -410,7 +410,7 @@ class IntegrationDataUseRegistersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """(Deprecated) Delete a dur
 
         Delete a dur
@@ -449,9 +449,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -519,9 +519,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -653,9 +653,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDurIntegrations200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -727,9 +727,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDurIntegrations200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -801,9 +801,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDurIntegrations200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1497,9 +1497,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDurIntegrations200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1571,9 +1571,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDurIntegrations200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1645,9 +1645,9 @@ class IntegrationDataUseRegistersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateDurIntegrations200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

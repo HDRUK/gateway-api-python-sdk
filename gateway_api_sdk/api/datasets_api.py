@@ -19,7 +19,7 @@ from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_datasets_linkage_extraction200_response import CreateDatasetsLinkageExtraction200Response
 from gateway_api_sdk.models.create_datasets_linkage_extraction_request import CreateDatasetsLinkageExtractionRequest
 from gateway_api_sdk.models.create_datasets_request import CreateDatasetsRequest
@@ -28,7 +28,7 @@ from gateway_api_sdk.models.create_datasets_term_extraction_request import Creat
 from gateway_api_sdk.models.create_datasets_v2_request import CreateDatasetsV2Request
 from gateway_api_sdk.models.create_team_datasets_v2_request import CreateTeamDatasetsV2Request
 from gateway_api_sdk.models.datasets_test_request import DatasetsTestRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.fetch_all_datasets200_response import FetchAllDatasets200Response
 from gateway_api_sdk.models.fetch_datasets200_response import FetchDatasets200Response
 from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request
@@ -50,282 +50,6 @@ class DatasetsApi:
         if api_client is None:
             api_client = ApiClient.get_default()
         self.api_client = api_client
-
-
-    @validate_call
-    def count_team_unique_fields_datasets_v2(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CountUniqueFieldsCollections200Response:
-        """TeamDatasetController@count
-
-        Get team counts for distinct entries of a field in the model
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_team_unique_fields_datasets_v2_serialize(
-            team_id=team_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def count_team_unique_fields_datasets_v2_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CountUniqueFieldsCollections200Response]:
-        """TeamDatasetController@count
-
-        Get team counts for distinct entries of a field in the model
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_team_unique_fields_datasets_v2_serialize(
-            team_id=team_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def count_team_unique_fields_datasets_v2_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """TeamDatasetController@count
-
-        Get team counts for distinct entries of a field in the model
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_team_unique_fields_datasets_v2_serialize(
-            team_id=team_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _count_team_unique_fields_datasets_v2_serialize(
-        self,
-        team_id,
-        var_field,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if var_field is not None:
-            _path_params['field'] = var_field
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/teams/{teamId}/datasets/count/{field}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
 
 
     @validate_call
@@ -625,7 +349,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """(Deprecated) DatasetController@store
 
         Create a new dataset
@@ -664,9 +388,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -695,7 +419,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """(Deprecated) DatasetController@store
 
         Create a new dataset
@@ -734,9 +458,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -804,9 +528,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -910,7 +634,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """(Deprecated) IntegrationDatasetController@store
 
         Create a new dataset
@@ -955,9 +679,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -988,7 +712,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """(Deprecated) IntegrationDatasetController@store
 
         Create a new dataset
@@ -1033,9 +757,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1111,9 +835,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1822,7 +1546,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """DatasetController@store
 
         Create a new dataset
@@ -1860,9 +1584,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1891,7 +1615,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """DatasetController@store
 
         Create a new dataset
@@ -1929,9 +1653,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1998,9 +1722,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2103,7 +1827,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """TeamDatasetController@store
 
         Create a new dataset for a team
@@ -2144,9 +1868,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2176,7 +1900,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """TeamDatasetController@store
 
         Create a new dataset for a team
@@ -2217,9 +1941,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2290,9 +2014,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2397,7 +2121,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """(Deprecated) DatasetController@destroy
 
         Delete a dataset
@@ -2436,9 +2160,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2467,7 +2191,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """(Deprecated) DatasetController@destroy
 
         Delete a dataset
@@ -2506,9 +2230,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2576,9 +2300,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2667,7 +2391,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """(Deprecated) IntegrationDatasetController@destroy
 
         Delete a dataset
@@ -2706,9 +2430,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2737,7 +2461,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """(Deprecated) IntegrationDatasetController@destroy
 
         Delete a dataset
@@ -2776,9 +2500,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2846,9 +2570,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2937,7 +2661,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """Delete a dataset
 
         Delete a dataset
@@ -2975,9 +2699,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3006,7 +2730,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """Delete a dataset
 
         Delete a dataset
@@ -3044,9 +2768,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3113,9 +2837,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3205,7 +2929,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """TeamDatasetController@destroy
 
         Delete a team's dataset
@@ -3246,9 +2970,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3278,7 +3002,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """TeamDatasetController@destroy
 
         Delete a team's dataset
@@ -3319,9 +3043,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3392,9 +3116,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3811,7 +3535,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3883,7 +3607,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3955,7 +3679,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4095,7 +3819,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4167,7 +3891,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4239,7 +3963,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4375,7 +4099,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -4444,7 +4168,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -4513,7 +4237,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -4645,7 +4369,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -4714,7 +4438,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -4783,7 +4507,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "CreateTeamCollections401Response",
+            '401': "FetchAllDarIntegrations401Response",
             '404': "ExportMockDataset404Response",
         }
         response_data = self.api_client.call_api(
@@ -5910,8 +5634,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5992,8 +5716,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6074,8 +5798,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6227,8 +5951,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6305,8 +6029,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6383,8 +6107,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6534,8 +6258,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6615,8 +6339,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6696,8 +6420,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6786,649 +6510,6 @@ class DatasetsApi:
 
 
     @validate_call
-    def fetch_team_datasets_status(
-        self,
-        team_id: Annotated[StrictInt, Field(description="ID of the team to filter by")],
-        status: Annotated[StrictStr, Field(description="Status of the dataset (active, draft, or archived). Defaults to active if not provided.")],
-        sort: Annotated[Optional[StrictStr], Field(description="Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/>")] = None,
-        with_metadata: Annotated[Optional[StrictStr], Field(description="Boolean whether to return dataset metadata")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchAllDatasets200Response:
-        """TeamDatasetController@indexStatus
-
-        Returns a list of a team's datasets with the given status
-
-        :param team_id: ID of the team to filter by (required)
-        :type team_id: int
-        :param status: Status of the dataset (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param sort: Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/>
-        :type sort: str
-        :param with_metadata: Boolean whether to return dataset metadata
-        :type with_metadata: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_team_datasets_status_serialize(
-            team_id=team_id,
-            status=status,
-            sort=sort,
-            with_metadata=with_metadata,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllDatasets200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fetch_team_datasets_status_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="ID of the team to filter by")],
-        status: Annotated[StrictStr, Field(description="Status of the dataset (active, draft, or archived). Defaults to active if not provided.")],
-        sort: Annotated[Optional[StrictStr], Field(description="Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/>")] = None,
-        with_metadata: Annotated[Optional[StrictStr], Field(description="Boolean whether to return dataset metadata")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchAllDatasets200Response]:
-        """TeamDatasetController@indexStatus
-
-        Returns a list of a team's datasets with the given status
-
-        :param team_id: ID of the team to filter by (required)
-        :type team_id: int
-        :param status: Status of the dataset (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param sort: Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/>
-        :type sort: str
-        :param with_metadata: Boolean whether to return dataset metadata
-        :type with_metadata: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_team_datasets_status_serialize(
-            team_id=team_id,
-            status=status,
-            sort=sort,
-            with_metadata=with_metadata,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllDatasets200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fetch_team_datasets_status_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="ID of the team to filter by")],
-        status: Annotated[StrictStr, Field(description="Status of the dataset (active, draft, or archived). Defaults to active if not provided.")],
-        sort: Annotated[Optional[StrictStr], Field(description="Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/>")] = None,
-        with_metadata: Annotated[Optional[StrictStr], Field(description="Boolean whether to return dataset metadata")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """TeamDatasetController@indexStatus
-
-        Returns a list of a team's datasets with the given status
-
-        :param team_id: ID of the team to filter by (required)
-        :type team_id: int
-        :param status: Status of the dataset (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param sort: Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/>
-        :type sort: str
-        :param with_metadata: Boolean whether to return dataset metadata
-        :type with_metadata: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_team_datasets_status_serialize(
-            team_id=team_id,
-            status=status,
-            sort=sort,
-            with_metadata=with_metadata,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllDatasets200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fetch_team_datasets_status_serialize(
-        self,
-        team_id,
-        status,
-        sort,
-        with_metadata,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if status is not None:
-            _path_params['status'] = status
-        # process the query parameters
-        if sort is not None:
-            
-            _query_params.append(('sort', sort))
-            
-        if with_metadata is not None:
-            
-            _query_params.append(('with_metadata', with_metadata))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/teams/{teamId}/datasets/status/{status}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def fetch_team_datasets_v2(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        id: Annotated[StrictInt, Field(description="dataset id")],
-        export: Annotated[Optional[StrictStr], Field(description="Alternative output schema model.")] = None,
-        schema_model: Annotated[Optional[StrictStr], Field(description="Alternative output schema model.")] = None,
-        schema_version: Annotated[Optional[StrictStr], Field(description="Alternative output schema version.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchDatasets200Response:
-        """TeamDatasetController@show
-
-        Get dataset by id
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param id: dataset id (required)
-        :type id: int
-        :param export: Alternative output schema model.
-        :type export: str
-        :param schema_model: Alternative output schema model.
-        :type schema_model: str
-        :param schema_version: Alternative output schema version.
-        :type schema_version: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_team_datasets_v2_serialize(
-            team_id=team_id,
-            id=id,
-            export=export,
-            schema_model=schema_model,
-            schema_version=schema_version,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fetch_team_datasets_v2_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        id: Annotated[StrictInt, Field(description="dataset id")],
-        export: Annotated[Optional[StrictStr], Field(description="Alternative output schema model.")] = None,
-        schema_model: Annotated[Optional[StrictStr], Field(description="Alternative output schema model.")] = None,
-        schema_version: Annotated[Optional[StrictStr], Field(description="Alternative output schema version.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchDatasets200Response]:
-        """TeamDatasetController@show
-
-        Get dataset by id
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param id: dataset id (required)
-        :type id: int
-        :param export: Alternative output schema model.
-        :type export: str
-        :param schema_model: Alternative output schema model.
-        :type schema_model: str
-        :param schema_version: Alternative output schema version.
-        :type schema_version: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_team_datasets_v2_serialize(
-            team_id=team_id,
-            id=id,
-            export=export,
-            schema_model=schema_model,
-            schema_version=schema_version,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fetch_team_datasets_v2_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        id: Annotated[StrictInt, Field(description="dataset id")],
-        export: Annotated[Optional[StrictStr], Field(description="Alternative output schema model.")] = None,
-        schema_model: Annotated[Optional[StrictStr], Field(description="Alternative output schema model.")] = None,
-        schema_version: Annotated[Optional[StrictStr], Field(description="Alternative output schema version.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """TeamDatasetController@show
-
-        Get dataset by id
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param id: dataset id (required)
-        :type id: int
-        :param export: Alternative output schema model.
-        :type export: str
-        :param schema_model: Alternative output schema model.
-        :type schema_model: str
-        :param schema_version: Alternative output schema version.
-        :type schema_version: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_team_datasets_v2_serialize(
-            team_id=team_id,
-            id=id,
-            export=export,
-            schema_model=schema_model,
-            schema_version=schema_version,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fetch_team_datasets_v2_serialize(
-        self,
-        team_id,
-        id,
-        export,
-        schema_model,
-        schema_version,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        if export is not None:
-            
-            _query_params.append(('export', export))
-            
-        if schema_model is not None:
-            
-            _query_params.append(('schema_model', schema_model))
-            
-        if schema_version is not None:
-            
-            _query_params.append(('schema_version', schema_version))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/teams/{teamId}/datasets/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def patch_datasets(
         self,
         id: Annotated[StrictInt, Field(description="dataset id")],
@@ -7445,7 +6526,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """(Deprecated) DatasetController@edit
 
         Patch dataset by id
@@ -7487,8 +6568,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7518,7 +6599,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """(Deprecated) DatasetController@edit
 
         Patch dataset by id
@@ -7560,8 +6641,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7633,8 +6714,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7729,7 +6810,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """(Deprecated) IntegrationDatasetController@edit
 
         Patch dataset by id
@@ -7771,8 +6852,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7802,7 +6883,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """(Deprecated) IntegrationDatasetController@edit
 
         Patch dataset by id
@@ -7844,8 +6925,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7917,8 +6998,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8013,7 +7094,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """DatasetController@edit
 
         Patch dataset by id
@@ -8054,8 +7135,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8085,7 +7166,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """DatasetController@edit
 
         Patch dataset by id
@@ -8126,8 +7207,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8198,8 +7279,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8306,7 +7387,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """TeamDatasetController@edit
 
         Edit a dataset owned by a team
@@ -8350,8 +7431,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8382,7 +7463,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """TeamDatasetController@edit
 
         Edit a dataset owned by a team
@@ -8426,8 +7507,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8502,8 +7583,8 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8612,7 +7693,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """(Deprecated) DatasetController@update
 
         Update a dataset with a new dataset version
@@ -8654,9 +7735,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8686,7 +7767,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """(Deprecated) DatasetController@update
 
         Update a dataset with a new dataset version
@@ -8728,9 +7809,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8802,9 +7883,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8961,8 +8042,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9043,8 +8124,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9125,8 +8206,8 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchDatasets200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9242,7 +8323,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """DatasetController@update
 
         Update a dataset with a new dataset version
@@ -9283,9 +8364,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9315,7 +8396,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """DatasetController@update
 
         Update a dataset with a new dataset version
@@ -9356,9 +8437,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9429,9 +8510,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9538,7 +8619,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """TeamDatasetController@update
 
         Update a team dataset with a new dataset version
@@ -9582,9 +8663,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9615,7 +8696,7 @@ class DatasetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """TeamDatasetController@update
 
         Update a team dataset with a new dataset version
@@ -9659,9 +8740,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9736,9 +8817,9 @@ class DatasetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

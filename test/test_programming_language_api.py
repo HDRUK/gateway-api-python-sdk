@@ -47,20 +47,6 @@ class TestProgrammingLanguageApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_all_programming_languages(self) -> None:
-        """Test case for fetch_all_programming_languages
-
-        ProgrammingLanguage@index
-        """
-        pass
-
-    def test_fetch_programming_languages(self) -> None:
-        """Test case for fetch_programming_languages
-
-        ProgrammingLanguage@show
-        """
-        pass
-
     def test_update_programming_languages(self) -> None:
         """Test case for update_programming_languages
 

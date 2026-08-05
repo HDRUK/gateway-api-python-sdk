@@ -18,11 +18,11 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.create_collections_integrations_request import CreateCollectionsIntegrationsRequest
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.fetch_all_collections200_response import FetchAllCollections200Response
 from gateway_api_sdk.models.fetch_collections200_response import FetchCollections200Response
-from gateway_api_sdk.models.update_team_collections_request import UpdateTeamCollectionsRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -45,7 +45,7 @@ class IntegrationCollectionsApi:
     @validate_call
     def create_collections_integrations(
         self,
-        update_team_collections_request: Annotated[UpdateTeamCollectionsRequest, Field(description="Pass user credentials")],
+        create_collections_integrations_request: Annotated[CreateCollectionsIntegrationsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -58,13 +58,13 @@ class IntegrationCollectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """IntegrationCollectionController@store
 
         Create a new collection
 
-        :param update_team_collections_request: Pass user credentials (required)
-        :type update_team_collections_request: UpdateTeamCollectionsRequest
+        :param create_collections_integrations_request: Pass user credentials (required)
+        :type create_collections_integrations_request: CreateCollectionsIntegrationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -88,7 +88,7 @@ class IntegrationCollectionsApi:
         """ # noqa: E501
 
         _param = self._create_collections_integrations_serialize(
-            update_team_collections_request=update_team_collections_request,
+            create_collections_integrations_request=create_collections_integrations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -96,9 +96,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -114,7 +114,7 @@ class IntegrationCollectionsApi:
     @validate_call
     def create_collections_integrations_with_http_info(
         self,
-        update_team_collections_request: Annotated[UpdateTeamCollectionsRequest, Field(description="Pass user credentials")],
+        create_collections_integrations_request: Annotated[CreateCollectionsIntegrationsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -127,13 +127,13 @@ class IntegrationCollectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """IntegrationCollectionController@store
 
         Create a new collection
 
-        :param update_team_collections_request: Pass user credentials (required)
-        :type update_team_collections_request: UpdateTeamCollectionsRequest
+        :param create_collections_integrations_request: Pass user credentials (required)
+        :type create_collections_integrations_request: CreateCollectionsIntegrationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -157,7 +157,7 @@ class IntegrationCollectionsApi:
         """ # noqa: E501
 
         _param = self._create_collections_integrations_serialize(
-            update_team_collections_request=update_team_collections_request,
+            create_collections_integrations_request=create_collections_integrations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -165,9 +165,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -183,7 +183,7 @@ class IntegrationCollectionsApi:
     @validate_call
     def create_collections_integrations_without_preload_content(
         self,
-        update_team_collections_request: Annotated[UpdateTeamCollectionsRequest, Field(description="Pass user credentials")],
+        create_collections_integrations_request: Annotated[CreateCollectionsIntegrationsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -201,8 +201,8 @@ class IntegrationCollectionsApi:
 
         Create a new collection
 
-        :param update_team_collections_request: Pass user credentials (required)
-        :type update_team_collections_request: UpdateTeamCollectionsRequest
+        :param create_collections_integrations_request: Pass user credentials (required)
+        :type create_collections_integrations_request: CreateCollectionsIntegrationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -226,7 +226,7 @@ class IntegrationCollectionsApi:
         """ # noqa: E501
 
         _param = self._create_collections_integrations_serialize(
-            update_team_collections_request=update_team_collections_request,
+            create_collections_integrations_request=create_collections_integrations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -234,9 +234,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '201': "CreateDarIntegration201Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -247,7 +247,7 @@ class IntegrationCollectionsApi:
 
     def _create_collections_integrations_serialize(
         self,
-        update_team_collections_request,
+        create_collections_integrations_request,
         _request_auth,
         _content_type,
         _headers,
@@ -273,8 +273,8 @@ class IntegrationCollectionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if update_team_collections_request is not None:
-            _body_params = update_team_collections_request
+        if create_collections_integrations_request is not None:
+            _body_params = create_collections_integrations_request
 
 
         # set the HTTP header `Accept`
@@ -338,7 +338,7 @@ class IntegrationCollectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """Delete a collection
 
         Delete a collection
@@ -376,9 +376,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -407,7 +407,7 @@ class IntegrationCollectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """Delete a collection
 
         Delete a collection
@@ -445,9 +445,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -514,9 +514,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -593,7 +593,7 @@ class IntegrationCollectionsApi:
     def edit_collections_integrations(
         self,
         id: Annotated[StrictInt, Field(description="collection id")],
-        update_team_collections_request: Annotated[UpdateTeamCollectionsRequest, Field(description="Pass user credentials")],
+        create_collections_integrations_request: Annotated[CreateCollectionsIntegrationsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -613,8 +613,8 @@ class IntegrationCollectionsApi:
 
         :param id: collection id (required)
         :type id: int
-        :param update_team_collections_request: Pass user credentials (required)
-        :type update_team_collections_request: UpdateTeamCollectionsRequest
+        :param create_collections_integrations_request: Pass user credentials (required)
+        :type create_collections_integrations_request: CreateCollectionsIntegrationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -639,7 +639,7 @@ class IntegrationCollectionsApi:
 
         _param = self._edit_collections_integrations_serialize(
             id=id,
-            update_team_collections_request=update_team_collections_request,
+            create_collections_integrations_request=create_collections_integrations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -647,9 +647,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "FetchCollections200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -666,7 +666,7 @@ class IntegrationCollectionsApi:
     def edit_collections_integrations_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="collection id")],
-        update_team_collections_request: Annotated[UpdateTeamCollectionsRequest, Field(description="Pass user credentials")],
+        create_collections_integrations_request: Annotated[CreateCollectionsIntegrationsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -686,8 +686,8 @@ class IntegrationCollectionsApi:
 
         :param id: collection id (required)
         :type id: int
-        :param update_team_collections_request: Pass user credentials (required)
-        :type update_team_collections_request: UpdateTeamCollectionsRequest
+        :param create_collections_integrations_request: Pass user credentials (required)
+        :type create_collections_integrations_request: CreateCollectionsIntegrationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -712,7 +712,7 @@ class IntegrationCollectionsApi:
 
         _param = self._edit_collections_integrations_serialize(
             id=id,
-            update_team_collections_request=update_team_collections_request,
+            create_collections_integrations_request=create_collections_integrations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -720,9 +720,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "FetchCollections200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -739,7 +739,7 @@ class IntegrationCollectionsApi:
     def edit_collections_integrations_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="collection id")],
-        update_team_collections_request: Annotated[UpdateTeamCollectionsRequest, Field(description="Pass user credentials")],
+        create_collections_integrations_request: Annotated[CreateCollectionsIntegrationsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -759,8 +759,8 @@ class IntegrationCollectionsApi:
 
         :param id: collection id (required)
         :type id: int
-        :param update_team_collections_request: Pass user credentials (required)
-        :type update_team_collections_request: UpdateTeamCollectionsRequest
+        :param create_collections_integrations_request: Pass user credentials (required)
+        :type create_collections_integrations_request: CreateCollectionsIntegrationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -785,7 +785,7 @@ class IntegrationCollectionsApi:
 
         _param = self._edit_collections_integrations_serialize(
             id=id,
-            update_team_collections_request=update_team_collections_request,
+            create_collections_integrations_request=create_collections_integrations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -793,9 +793,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "FetchCollections200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -807,7 +807,7 @@ class IntegrationCollectionsApi:
     def _edit_collections_integrations_serialize(
         self,
         id,
-        update_team_collections_request,
+        create_collections_integrations_request,
         _request_auth,
         _content_type,
         _headers,
@@ -835,8 +835,8 @@ class IntegrationCollectionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if update_team_collections_request is not None:
-            _body_params = update_team_collections_request
+        if create_collections_integrations_request is not None:
+            _body_params = create_collections_integrations_request
 
 
         # set the HTTP header `Accept`
@@ -1429,7 +1429,7 @@ class IntegrationCollectionsApi:
     def update_collections_integrations(
         self,
         id: Annotated[StrictInt, Field(description="collection id")],
-        update_team_collections_request: Annotated[UpdateTeamCollectionsRequest, Field(description="Pass user credentials")],
+        create_collections_integrations_request: Annotated[CreateCollectionsIntegrationsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1449,8 +1449,8 @@ class IntegrationCollectionsApi:
 
         :param id: collection id (required)
         :type id: int
-        :param update_team_collections_request: Pass user credentials (required)
-        :type update_team_collections_request: UpdateTeamCollectionsRequest
+        :param create_collections_integrations_request: Pass user credentials (required)
+        :type create_collections_integrations_request: CreateCollectionsIntegrationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1475,7 +1475,7 @@ class IntegrationCollectionsApi:
 
         _param = self._update_collections_integrations_serialize(
             id=id,
-            update_team_collections_request=update_team_collections_request,
+            create_collections_integrations_request=create_collections_integrations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1483,9 +1483,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "FetchCollections200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1502,7 +1502,7 @@ class IntegrationCollectionsApi:
     def update_collections_integrations_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="collection id")],
-        update_team_collections_request: Annotated[UpdateTeamCollectionsRequest, Field(description="Pass user credentials")],
+        create_collections_integrations_request: Annotated[CreateCollectionsIntegrationsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1522,8 +1522,8 @@ class IntegrationCollectionsApi:
 
         :param id: collection id (required)
         :type id: int
-        :param update_team_collections_request: Pass user credentials (required)
-        :type update_team_collections_request: UpdateTeamCollectionsRequest
+        :param create_collections_integrations_request: Pass user credentials (required)
+        :type create_collections_integrations_request: CreateCollectionsIntegrationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1548,7 +1548,7 @@ class IntegrationCollectionsApi:
 
         _param = self._update_collections_integrations_serialize(
             id=id,
-            update_team_collections_request=update_team_collections_request,
+            create_collections_integrations_request=create_collections_integrations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1556,9 +1556,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "FetchCollections200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1575,7 +1575,7 @@ class IntegrationCollectionsApi:
     def update_collections_integrations_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="collection id")],
-        update_team_collections_request: Annotated[UpdateTeamCollectionsRequest, Field(description="Pass user credentials")],
+        create_collections_integrations_request: Annotated[CreateCollectionsIntegrationsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1595,8 +1595,8 @@ class IntegrationCollectionsApi:
 
         :param id: collection id (required)
         :type id: int
-        :param update_team_collections_request: Pass user credentials (required)
-        :type update_team_collections_request: UpdateTeamCollectionsRequest
+        :param create_collections_integrations_request: Pass user credentials (required)
+        :type create_collections_integrations_request: CreateCollectionsIntegrationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1621,7 +1621,7 @@ class IntegrationCollectionsApi:
 
         _param = self._update_collections_integrations_serialize(
             id=id,
-            update_team_collections_request=update_team_collections_request,
+            create_collections_integrations_request=create_collections_integrations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1629,9 +1629,9 @@ class IntegrationCollectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "FetchCollections200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1643,7 +1643,7 @@ class IntegrationCollectionsApi:
     def _update_collections_integrations_serialize(
         self,
         id,
-        update_team_collections_request,
+        create_collections_integrations_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1671,8 +1671,8 @@ class IntegrationCollectionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if update_team_collections_request is not None:
-            _body_params = update_team_collections_request
+        if create_collections_integrations_request is not None:
+            _body_params = create_collections_integrations_request
 
 
         # set the HTTP header `Accept`

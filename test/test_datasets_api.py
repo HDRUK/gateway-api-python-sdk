@@ -26,13 +26,6 @@ class TestDatasetsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_count_team_unique_fields_datasets_v2(self) -> None:
-        """Test case for count_team_unique_fields_datasets_v2
-
-        TeamDatasetController@count
-        """
-        pass
-
     def test_count_unique_fields(self) -> None:
         """Test case for count_unique_fields
 
@@ -184,20 +177,6 @@ class TestDatasetsApi(unittest.TestCase):
         """Test case for fetch_datasets_v2
 
         DatasetController@showActive
-        """
-        pass
-
-    def test_fetch_team_datasets_status(self) -> None:
-        """Test case for fetch_team_datasets_status
-
-        TeamDatasetController@indexStatus
-        """
-        pass
-
-    def test_fetch_team_datasets_v2(self) -> None:
-        """Test case for fetch_team_datasets_v2
-
-        TeamDatasetController@show
         """
         pass
 

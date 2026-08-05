@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_dar_template**](DataAccessTemplateApi.md#create_dar_template) | **POST** /api/v1/dar/templates | DataAccessTemplate@store
 [**delete_dar_template**](DataAccessTemplateApi.md#delete_dar_template) | **DELETE** /api/v1/dar/templates/{id} | DataAccessTemplate@destroy
-[**download_dar_template_file**](DataAccessTemplateApi.md#download_dar_template_file) | **GET** /api/v1/dar/templates/{id}/download | DataAccessTemplate@downloadFile
 [**fetch_dar_template**](DataAccessTemplateApi.md#fetch_dar_template) | **GET** /api/v1/dar/templates/{id} | DataAccessTemplate@show
 [**fetch_dar_templates**](DataAccessTemplateApi.md#fetch_dar_templates) | **GET** /api/v1/dar/templates | DataAccessTemplate@index
 [**patch_dar_template**](DataAccessTemplateApi.md#patch_dar_template) | **PATCH** /api/v1/dar/templates/{id} | DataAccessTemplate@update
@@ -14,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_dar_template**
-> CreateCategories200Response create_dar_template(create_dar_template_request)
+> CreateDarIntegration201Response create_dar_template(create_dar_template_request)
 
 DataAccessTemplate@store
 
@@ -26,7 +25,7 @@ Creates a new DAR template
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_dar_template_request import CreateDarTemplateRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -73,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -94,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_dar_template**
-> DeleteAliases200Response delete_dar_template(id)
+> DeleteApplications200Response delete_dar_template(id)
 
 DataAccessTemplate@destroy
 
@@ -106,7 +105,7 @@ Delete a system DAR template
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -152,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -170,82 +169,6 @@ Name | Type | Description  | Notes
 **404** | Not found response |  -  |
 **200** | Success |  -  |
 **500** | Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **download_dar_template_file**
-> download_dar_template_file(id)
-
-DataAccessTemplate@downloadFile
-
-Download the template for a file based DAR application
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DataAccessTemplateApi(api_client)
-    id = 1 # int | DAR template id
-
-    try:
-        # DataAccessTemplate@downloadFile
-        api_instance.download_dar_template_file(id)
-    except Exception as e:
-        print("Exception when calling DataAccessTemplateApi->download_dar_template_file: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| DAR template id | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: file, application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-**404** | Not found response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

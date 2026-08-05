@@ -40,13 +40,6 @@ class TestDataAccessTemplateApi(unittest.TestCase):
         """
         pass
 
-    def test_download_dar_template_file(self) -> None:
-        """Test case for download_dar_template_file
-
-        DataAccessTemplate@downloadFile
-        """
-        pass
-
     def test_fetch_dar_template(self) -> None:
         """Test case for fetch_dar_template
 

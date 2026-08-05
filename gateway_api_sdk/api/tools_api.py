@@ -15,11 +15,11 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictInt, StrictStr, field_validator
+from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_tools_integrations_request import CreateToolsIntegrationsRequest
 from gateway_api_sdk.models.create_tools_request import CreateToolsRequest
 from gateway_api_sdk.models.delete_federation200_response import DeleteFederation200Response
@@ -45,282 +45,6 @@ class ToolsApi:
         if api_client is None:
             api_client = ApiClient.get_default()
         self.api_client = api_client
-
-
-    @validate_call
-    def count_team_unique_fields_tools_v2(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CountUniqueFieldsCollections200Response:
-        """TeamToolController@count
-
-        Get team counts for distinct entries of a field in the model
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_team_unique_fields_tools_v2_serialize(
-            team_id=team_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def count_team_unique_fields_tools_v2_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CountUniqueFieldsCollections200Response]:
-        """TeamToolController@count
-
-        Get team counts for distinct entries of a field in the model
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_team_unique_fields_tools_v2_serialize(
-            team_id=team_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def count_team_unique_fields_tools_v2_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """TeamToolController@count
-
-        Get team counts for distinct entries of a field in the model
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_team_unique_fields_tools_v2_serialize(
-            team_id=team_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _count_team_unique_fields_tools_v2_serialize(
-        self,
-        team_id,
-        var_field,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if var_field is not None:
-            _path_params['field'] = var_field
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/teams/{teamId}/tools/count/{field}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
 
 
     @validate_call
@@ -605,282 +329,6 @@ class ToolsApi:
 
 
     @validate_call
-    def count_user_unique_fields_tools_v2(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CountUniqueFieldsCollections200Response:
-        """UserToolController@count
-
-        Get user counts for distinct entries of a field in the model
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_user_unique_fields_tools_v2_serialize(
-            user_id=user_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def count_user_unique_fields_tools_v2_with_http_info(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CountUniqueFieldsCollections200Response]:
-        """UserToolController@count
-
-        Get user counts for distinct entries of a field in the model
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_user_unique_fields_tools_v2_serialize(
-            user_id=user_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def count_user_unique_fields_tools_v2_without_preload_content(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        var_field: Annotated[StrictStr, Field(description="name of the field to perform a count on")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """UserToolController@count
-
-        Get user counts for distinct entries of a field in the model
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param var_field: name of the field to perform a count on (required)
-        :type var_field: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._count_user_unique_fields_tools_v2_serialize(
-            user_id=user_id,
-            var_field=var_field,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CountUniqueFieldsCollections200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _count_user_unique_fields_tools_v2_serialize(
-        self,
-        user_id,
-        var_field,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if user_id is not None:
-            _path_params['userId'] = user_id
-        if var_field is not None:
-            _path_params['field'] = var_field
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/users/{userId}/tools/count/{field}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def create_tools(
         self,
         create_tools_request: Annotated[CreateToolsRequest, Field(description="Pass user credentials")],
@@ -896,7 +344,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """(Deprecated) ToolController@store
 
         Create a new tool
@@ -935,10 +383,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
+            '201': "CreateDarIntegration201Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -967,7 +415,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """(Deprecated) ToolController@store
 
         Create a new tool
@@ -1006,10 +454,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
+            '201': "CreateDarIntegration201Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1077,10 +525,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
+            '201': "CreateDarIntegration201Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1183,7 +631,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """ToolController@store
 
         Create a new tool by team v2
@@ -1224,10 +672,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
+            '201': "CreateDarIntegration201Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1257,7 +705,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """ToolController@store
 
         Create a new tool by team v2
@@ -1298,10 +746,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
+            '201': "CreateDarIntegration201Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1372,10 +820,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
+            '201': "CreateDarIntegration201Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1465,304 +913,6 @@ class ToolsApi:
 
 
     @validate_call
-    def create_tools_by_user_v2(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        create_tools_request: Annotated[CreateToolsRequest, Field(description="Pass user credentials")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
-        """UserToolController@store
-
-        Create a new tool by user v2
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param create_tools_request: Pass user credentials (required)
-        :type create_tools_request: CreateToolsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._create_tools_by_user_v2_serialize(
-            user_id=user_id,
-            create_tools_request=create_tools_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def create_tools_by_user_v2_with_http_info(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        create_tools_request: Annotated[CreateToolsRequest, Field(description="Pass user credentials")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
-        """UserToolController@store
-
-        Create a new tool by user v2
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param create_tools_request: Pass user credentials (required)
-        :type create_tools_request: CreateToolsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._create_tools_by_user_v2_serialize(
-            user_id=user_id,
-            create_tools_request=create_tools_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def create_tools_by_user_v2_without_preload_content(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        create_tools_request: Annotated[CreateToolsRequest, Field(description="Pass user credentials")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """UserToolController@store
-
-        Create a new tool by user v2
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param create_tools_request: Pass user credentials (required)
-        :type create_tools_request: CreateToolsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._create_tools_by_user_v2_serialize(
-            user_id=user_id,
-            create_tools_request=create_tools_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
-            '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _create_tools_by_user_v2_serialize(
-        self,
-        user_id,
-        create_tools_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if user_id is not None:
-            _path_params['userId'] = user_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if create_tools_request is not None:
-            _body_params = create_tools_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v2/users/{userId}/tools',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def create_tools_integrations(
         self,
         create_tools_integrations_request: Annotated[CreateToolsIntegrationsRequest, Field(description="Pass user credentials")],
@@ -1778,7 +928,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """(Deprecated) IntegrationToolController@store
 
         Create a new tool
@@ -1817,10 +967,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
+            '201': "CreateDarIntegration201Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1849,7 +999,7 @@ class ToolsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """(Deprecated) IntegrationToolController@store
 
         Create a new tool
@@ -1888,10 +1038,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
+            '201': "CreateDarIntegration201Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1959,10 +1109,10 @@ class ToolsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateCategories200Response",
+            '201': "CreateDarIntegration201Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2105,8 +1255,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2176,8 +1326,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2247,8 +1397,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2381,8 +1531,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2455,8 +1605,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2529,8 +1679,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2607,291 +1757,6 @@ class ToolsApi:
 
 
     @validate_call
-    def delete_tools_by_user_v2(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteFederation200Response:
-        """UserToolController@destroy
-
-        Delete tool by id and by user
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._delete_tools_by_user_v2_serialize(
-            user_id=user_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteFederation200Response",
-            '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def delete_tools_by_user_v2_with_http_info(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteFederation200Response]:
-        """UserToolController@destroy
-
-        Delete tool by id and by user
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._delete_tools_by_user_v2_serialize(
-            user_id=user_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteFederation200Response",
-            '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def delete_tools_by_user_v2_without_preload_content(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """UserToolController@destroy
-
-        Delete tool by id and by user
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._delete_tools_by_user_v2_serialize(
-            user_id=user_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteFederation200Response",
-            '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _delete_tools_by_user_v2_serialize(
-        self,
-        user_id,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if user_id is not None:
-            _path_params['userId'] = user_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/api/v2/users/{userId}/tools/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def delete_tools_integrations(
         self,
         id: Annotated[StrictInt, Field(description="tool id")],
@@ -2948,8 +1813,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3019,8 +1884,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3090,8 +1955,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteFederation200Response",
             '404': "DeleteFederation404Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3229,8 +2094,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3308,8 +2173,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3387,8 +2252,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3546,8 +2411,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3624,8 +2489,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3702,8 +2567,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3796,319 +2661,6 @@ class ToolsApi:
 
 
     @validate_call
-    def edit_tools_by_user_v2(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        update_tools_request: Annotated[UpdateToolsRequest, Field(description="Pass user credentials")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchToolsIntegrations200Response:
-        """UserToolController@edit
-
-        Edit tool by id and by user
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param update_tools_request: Pass user credentials (required)
-        :type update_tools_request: UpdateToolsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._edit_tools_by_user_v2_serialize(
-            user_id=user_id,
-            id=id,
-            update_tools_request=update_tools_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def edit_tools_by_user_v2_with_http_info(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        update_tools_request: Annotated[UpdateToolsRequest, Field(description="Pass user credentials")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchToolsIntegrations200Response]:
-        """UserToolController@edit
-
-        Edit tool by id and by user
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param update_tools_request: Pass user credentials (required)
-        :type update_tools_request: UpdateToolsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._edit_tools_by_user_v2_serialize(
-            user_id=user_id,
-            id=id,
-            update_tools_request=update_tools_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def edit_tools_by_user_v2_without_preload_content(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        update_tools_request: Annotated[UpdateToolsRequest, Field(description="Pass user credentials")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """UserToolController@edit
-
-        Edit tool by id and by user
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param update_tools_request: Pass user credentials (required)
-        :type update_tools_request: UpdateToolsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._edit_tools_by_user_v2_serialize(
-            user_id=user_id,
-            id=id,
-            update_tools_request=update_tools_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _edit_tools_by_user_v2_serialize(
-        self,
-        user_id,
-        id,
-        update_tools_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if user_id is not None:
-            _path_params['userId'] = user_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if update_tools_request is not None:
-            _body_params = update_tools_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v2/users/{userId}/tools/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def edit_tools_integrations(
         self,
         id: Annotated[StrictInt, Field(description="tool id")],
@@ -4169,8 +2721,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4244,8 +2796,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4319,8 +2871,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4394,564 +2946,6 @@ class ToolsApi:
         return self.api_client.param_serialize(
             method='PATCH',
             resource_path='/api/v1/integrations/tools/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def fetch_all_tool_by_team_and_status_v2(
-        self,
-        team_id: Annotated[StrictInt, Field(description="ID of the team")],
-        status: Annotated[StrictStr, Field(description="Status of the tool (active, draft, or archived). Defaults to active if not provided.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchAllToolsIntegrations200Response:
-        """TeamToolController@indexStatus
-
-        Returns a list of a teams tools with given status
-
-        :param team_id: ID of the team (required)
-        :type team_id: int
-        :param status: Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_tool_by_team_and_status_v2_serialize(
-            team_id=team_id,
-            status=status,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllToolsIntegrations200Response",
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fetch_all_tool_by_team_and_status_v2_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="ID of the team")],
-        status: Annotated[StrictStr, Field(description="Status of the tool (active, draft, or archived). Defaults to active if not provided.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchAllToolsIntegrations200Response]:
-        """TeamToolController@indexStatus
-
-        Returns a list of a teams tools with given status
-
-        :param team_id: ID of the team (required)
-        :type team_id: int
-        :param status: Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_tool_by_team_and_status_v2_serialize(
-            team_id=team_id,
-            status=status,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllToolsIntegrations200Response",
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fetch_all_tool_by_team_and_status_v2_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="ID of the team")],
-        status: Annotated[StrictStr, Field(description="Status of the tool (active, draft, or archived). Defaults to active if not provided.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """TeamToolController@indexStatus
-
-        Returns a list of a teams tools with given status
-
-        :param team_id: ID of the team (required)
-        :type team_id: int
-        :param status: Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_tool_by_team_and_status_v2_serialize(
-            team_id=team_id,
-            status=status,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllToolsIntegrations200Response",
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fetch_all_tool_by_team_and_status_v2_serialize(
-        self,
-        team_id,
-        status,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if status is not None:
-            _path_params['status'] = status
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/teams/{teamId}/tools/status/{status}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def fetch_all_tool_by_user_and_status_v2(
-        self,
-        user_id: Annotated[StrictInt, Field(description="ID of the user")],
-        status: Annotated[StrictStr, Field(description="Status of the tool (active, draft, or archived). Defaults to active if not provided.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchAllToolsIntegrations200Response:
-        """UserToolController@indexStatus
-
-        Returns a list of a user tools
-
-        :param user_id: ID of the user (required)
-        :type user_id: int
-        :param status: Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_tool_by_user_and_status_v2_serialize(
-            user_id=user_id,
-            status=status,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllToolsIntegrations200Response",
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fetch_all_tool_by_user_and_status_v2_with_http_info(
-        self,
-        user_id: Annotated[StrictInt, Field(description="ID of the user")],
-        status: Annotated[StrictStr, Field(description="Status of the tool (active, draft, or archived). Defaults to active if not provided.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchAllToolsIntegrations200Response]:
-        """UserToolController@indexStatus
-
-        Returns a list of a user tools
-
-        :param user_id: ID of the user (required)
-        :type user_id: int
-        :param status: Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_tool_by_user_and_status_v2_serialize(
-            user_id=user_id,
-            status=status,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllToolsIntegrations200Response",
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fetch_all_tool_by_user_and_status_v2_without_preload_content(
-        self,
-        user_id: Annotated[StrictInt, Field(description="ID of the user")],
-        status: Annotated[StrictStr, Field(description="Status of the tool (active, draft, or archived). Defaults to active if not provided.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """UserToolController@indexStatus
-
-        Returns a list of a user tools
-
-        :param user_id: ID of the user (required)
-        :type user_id: int
-        :param status: Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-        :type status: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_tool_by_user_and_status_v2_serialize(
-            user_id=user_id,
-            status=status,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllToolsIntegrations200Response",
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fetch_all_tool_by_user_and_status_v2_serialize(
-        self,
-        user_id,
-        status,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if user_id is not None:
-            _path_params['userId'] = user_id
-        if status is not None:
-            _path_params['status'] = status
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/users/{userId}/tools/status/{status}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5902,8 +3896,8 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5976,8 +3970,8 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6050,8 +4044,8 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6130,604 +4124,6 @@ class ToolsApi:
 
 
     @validate_call
-    def fetch_tools_by_team_and_by_id_v2(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        view_type: Annotated[Optional[StrictStr], Field(description="Query flag to show full tool data or a trimmed version (defaults to full).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchToolsIntegrations200Response:
-        """TeamToolController@show
-
-        Get tool by team id and by id
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param view_type: Query flag to show full tool data or a trimmed version (defaults to full).
-        :type view_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_tools_by_team_and_by_id_v2_serialize(
-            team_id=team_id,
-            id=id,
-            view_type=view_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fetch_tools_by_team_and_by_id_v2_with_http_info(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        view_type: Annotated[Optional[StrictStr], Field(description="Query flag to show full tool data or a trimmed version (defaults to full).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchToolsIntegrations200Response]:
-        """TeamToolController@show
-
-        Get tool by team id and by id
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param view_type: Query flag to show full tool data or a trimmed version (defaults to full).
-        :type view_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_tools_by_team_and_by_id_v2_serialize(
-            team_id=team_id,
-            id=id,
-            view_type=view_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fetch_tools_by_team_and_by_id_v2_without_preload_content(
-        self,
-        team_id: Annotated[StrictInt, Field(description="team id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        view_type: Annotated[Optional[StrictStr], Field(description="Query flag to show full tool data or a trimmed version (defaults to full).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """TeamToolController@show
-
-        Get tool by team id and by id
-
-        :param team_id: team id (required)
-        :type team_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param view_type: Query flag to show full tool data or a trimmed version (defaults to full).
-        :type view_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_tools_by_team_and_by_id_v2_serialize(
-            team_id=team_id,
-            id=id,
-            view_type=view_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fetch_tools_by_team_and_by_id_v2_serialize(
-        self,
-        team_id,
-        id,
-        view_type,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if team_id is not None:
-            _path_params['teamId'] = team_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        if view_type is not None:
-            
-            _query_params.append(('view_type', view_type))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/teams/{teamId}/tools/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def fetch_tools_by_user_and_by_id_v2(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        view_type: Annotated[Optional[StrictStr], Field(description="Query flag to show full tool data or a trimmed version (defaults to full).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchToolsIntegrations200Response:
-        """UserToolController@show
-
-        Get tool by user id and by id
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param view_type: Query flag to show full tool data or a trimmed version (defaults to full).
-        :type view_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_tools_by_user_and_by_id_v2_serialize(
-            user_id=user_id,
-            id=id,
-            view_type=view_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fetch_tools_by_user_and_by_id_v2_with_http_info(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        view_type: Annotated[Optional[StrictStr], Field(description="Query flag to show full tool data or a trimmed version (defaults to full).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchToolsIntegrations200Response]:
-        """UserToolController@show
-
-        Get tool by user id and by id
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param view_type: Query flag to show full tool data or a trimmed version (defaults to full).
-        :type view_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_tools_by_user_and_by_id_v2_serialize(
-            user_id=user_id,
-            id=id,
-            view_type=view_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fetch_tools_by_user_and_by_id_v2_without_preload_content(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        view_type: Annotated[Optional[StrictStr], Field(description="Query flag to show full tool data or a trimmed version (defaults to full).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """UserToolController@show
-
-        Get tool by user id and by id
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param view_type: Query flag to show full tool data or a trimmed version (defaults to full).
-        :type view_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_tools_by_user_and_by_id_v2_serialize(
-            user_id=user_id,
-            id=id,
-            view_type=view_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fetch_tools_by_user_and_by_id_v2_serialize(
-        self,
-        user_id,
-        id,
-        view_type,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if user_id is not None:
-            _path_params['userId'] = user_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        if view_type is not None:
-            
-            _query_params.append(('view_type', view_type))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/users/{userId}/tools/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def fetch_tools_integrations(
         self,
         id: Annotated[StrictInt, Field(description="tool id")],
@@ -6783,8 +4179,8 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6853,8 +4249,8 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6923,8 +4319,8 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7052,8 +4448,8 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7121,8 +4517,8 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7190,8 +4586,8 @@ class ToolsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
-            '401': "CreateTeamCollections401Response",
-            '404': "FetchAliases404Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '404': "UpdateApplications404Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7325,8 +4721,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7400,8 +4796,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7475,8 +4871,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7629,8 +5025,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7707,8 +5103,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7785,8 +5181,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7879,319 +5275,6 @@ class ToolsApi:
 
 
     @validate_call
-    def update_tools_by_user_v2(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        update_tools_request: Annotated[UpdateToolsRequest, Field(description="Pass user credentials")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchToolsIntegrations200Response:
-        """UserToolController@update
-
-        Update tools by user id
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param update_tools_request: Pass user credentials (required)
-        :type update_tools_request: UpdateToolsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._update_tools_by_user_v2_serialize(
-            user_id=user_id,
-            id=id,
-            update_tools_request=update_tools_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def update_tools_by_user_v2_with_http_info(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        update_tools_request: Annotated[UpdateToolsRequest, Field(description="Pass user credentials")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchToolsIntegrations200Response]:
-        """UserToolController@update
-
-        Update tools by user id
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param update_tools_request: Pass user credentials (required)
-        :type update_tools_request: UpdateToolsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._update_tools_by_user_v2_serialize(
-            user_id=user_id,
-            id=id,
-            update_tools_request=update_tools_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def update_tools_by_user_v2_without_preload_content(
-        self,
-        user_id: Annotated[StrictInt, Field(description="user id")],
-        id: Annotated[StrictInt, Field(description="tool id")],
-        update_tools_request: Annotated[UpdateToolsRequest, Field(description="Pass user credentials")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """UserToolController@update
-
-        Update tools by user id
-
-        :param user_id: user id (required)
-        :type user_id: int
-        :param id: tool id (required)
-        :type id: int
-        :param update_tools_request: Pass user credentials (required)
-        :type update_tools_request: UpdateToolsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._update_tools_by_user_v2_serialize(
-            user_id=user_id,
-            id=id,
-            update_tools_request=update_tools_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchToolsIntegrations200Response",
-            '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _update_tools_by_user_v2_serialize(
-        self,
-        user_id,
-        id,
-        update_tools_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if user_id is not None:
-            _path_params['userId'] = user_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if update_tools_request is not None:
-            _body_params = update_tools_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v2/users/{userId}/tools/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def update_tools_integrations(
         self,
         id: Annotated[StrictInt, Field(description="tool id")],
@@ -8252,8 +5335,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8327,8 +5410,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8402,8 +5485,8 @@ class ToolsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FetchToolsIntegrations200Response",
             '400': "CreateToolsIntegrations400Response",
-            '401': "CreateTeamCollections401Response",
-            '500': "CreateAliases500Response",
+            '401': "FetchAllDarIntegrations401Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,

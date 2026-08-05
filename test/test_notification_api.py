@@ -26,45 +26,10 @@ class TestNotificationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_notifications(self) -> None:
-        """Test case for create_notifications
-
-        Notification@store
-        """
-        pass
-
     def test_delete_notifications(self) -> None:
         """Test case for delete_notifications
 
         Notification@destroy
-        """
-        pass
-
-    def test_edit_notifications(self) -> None:
-        """Test case for edit_notifications
-
-        Notification@edit
-        """
-        pass
-
-    def test_fetch_all_notifications(self) -> None:
-        """Test case for fetch_all_notifications
-
-        Notification@index
-        """
-        pass
-
-    def test_fetch_notifications(self) -> None:
-        """Test case for fetch_notifications
-
-        Notification@show
-        """
-        pass
-
-    def test_update_notifications(self) -> None:
-        """Test case for update_notifications
-
-        Notification@update
         """
         pass
 

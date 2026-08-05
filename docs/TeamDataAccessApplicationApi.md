@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**count_team_dar_applications**](TeamDataAccessApplicationApi.md#count_team_dar_applications) | **GET** /api/v1/teams/{teamId}/dar/applications/count | TeamDataAccessApplicationController@allCounts
 [**count_unique_fields_dar_applications**](TeamDataAccessApplicationApi.md#count_unique_fields_dar_applications) | **GET** /api/v1/teams/{teamId}/dar/applications/count/{field} | TeamDataAccessApplicationController@count
 [**fetch_team_dar_application**](TeamDataAccessApplicationApi.md#fetch_team_dar_application) | **GET** /api/v1/teams/{teamId}/dar/applications/{id} | TeamDataAccessApplicationController@show
-[**fetch_team_dar_application_header**](TeamDataAccessApplicationApi.md#fetch_team_dar_application_header) | **GET** /api/v1/teams/{teamId}/dar/applications/{id}/showHeader | TeamDataAccessApplicationController@showHeader
 [**fetch_team_dar_applications**](TeamDataAccessApplicationApi.md#fetch_team_dar_applications) | **GET** /api/v1/teams/{teamId}/dar/applications | TeamDataAccessApplicationController@index
 
 
@@ -247,86 +246,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Success |  -  |
 **404** | Not found response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **fetch_team_dar_application_header**
-> FetchTeamDarApplicationHeader200Response fetch_team_dar_application_header(team_id, id)
-
-TeamDataAccessApplicationController@showHeader
-
-Get header information about a specific DAR
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.fetch_team_dar_application_header200_response import FetchTeamDarApplicationHeader200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.TeamDataAccessApplicationApi(api_client)
-    team_id = 1 # int | Team id
-    id = 1 # int | DAR application id
-
-    try:
-        # TeamDataAccessApplicationController@showHeader
-        api_response = api_instance.fetch_team_dar_application_header(team_id, id)
-        print("The response of TeamDataAccessApplicationApi->fetch_team_dar_application_header:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling TeamDataAccessApplicationApi->fetch_team_dar_application_header: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **team_id** | **int**| Team id | 
- **id** | **int**| DAR application id | 
-
-### Return type
-
-[**FetchTeamDarApplicationHeader200Response**](FetchTeamDarApplicationHeader200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

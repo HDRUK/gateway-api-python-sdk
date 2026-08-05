@@ -17,14 +17,12 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
 from typing_extensions import Annotated
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
-from gateway_api_sdk.models.create_categories_request import CreateCategoriesRequest
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
-from gateway_api_sdk.models.edit_categories_request import EditCategoriesRequest
-from gateway_api_sdk.models.fetch_all_programming_languages200_response import FetchAllProgrammingLanguages200Response
-from gateway_api_sdk.models.fetch_programming_languages200_response import FetchProgrammingLanguages200Response
-from gateway_api_sdk.models.update_categories_request import UpdateCategoriesRequest
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
+from gateway_api_sdk.models.create_programming_languages_request import CreateProgrammingLanguagesRequest
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
+from gateway_api_sdk.models.edit_programming_languages_request import EditProgrammingLanguagesRequest
 from gateway_api_sdk.models.update_programming_languages200_response import UpdateProgrammingLanguages200Response
+from gateway_api_sdk.models.update_programming_languages_request import UpdateProgrammingLanguagesRequest
 
 from gateway_api_sdk.api_client import ApiClient, RequestSerialized
 from gateway_api_sdk.api_response import ApiResponse
@@ -47,7 +45,7 @@ class ProgrammingLanguageApi:
     @validate_call
     def create_programming_languages(
         self,
-        create_categories_request: Annotated[CreateCategoriesRequest, Field(description="Programming language definition")],
+        create_programming_languages_request: Annotated[CreateProgrammingLanguagesRequest, Field(description="Programming language definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -60,13 +58,13 @@ class ProgrammingLanguageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCategories200Response:
+    ) -> CreateDarIntegration201Response:
         """ProgrammingLanguage@store
 
         Creates a new system programming language
 
-        :param create_categories_request: Programming language definition (required)
-        :type create_categories_request: CreateCategoriesRequest
+        :param create_programming_languages_request: Programming language definition (required)
+        :type create_programming_languages_request: CreateProgrammingLanguagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -90,7 +88,7 @@ class ProgrammingLanguageApi:
         """ # noqa: E501
 
         _param = self._create_programming_languages_serialize(
-            create_categories_request=create_categories_request,
+            create_programming_languages_request=create_programming_languages_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -98,8 +96,8 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -115,7 +113,7 @@ class ProgrammingLanguageApi:
     @validate_call
     def create_programming_languages_with_http_info(
         self,
-        create_categories_request: Annotated[CreateCategoriesRequest, Field(description="Programming language definition")],
+        create_programming_languages_request: Annotated[CreateProgrammingLanguagesRequest, Field(description="Programming language definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -128,13 +126,13 @@ class ProgrammingLanguageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCategories200Response]:
+    ) -> ApiResponse[CreateDarIntegration201Response]:
         """ProgrammingLanguage@store
 
         Creates a new system programming language
 
-        :param create_categories_request: Programming language definition (required)
-        :type create_categories_request: CreateCategoriesRequest
+        :param create_programming_languages_request: Programming language definition (required)
+        :type create_programming_languages_request: CreateProgrammingLanguagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -158,7 +156,7 @@ class ProgrammingLanguageApi:
         """ # noqa: E501
 
         _param = self._create_programming_languages_serialize(
-            create_categories_request=create_categories_request,
+            create_programming_languages_request=create_programming_languages_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -166,8 +164,8 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -183,7 +181,7 @@ class ProgrammingLanguageApi:
     @validate_call
     def create_programming_languages_without_preload_content(
         self,
-        create_categories_request: Annotated[CreateCategoriesRequest, Field(description="Programming language definition")],
+        create_programming_languages_request: Annotated[CreateProgrammingLanguagesRequest, Field(description="Programming language definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -201,8 +199,8 @@ class ProgrammingLanguageApi:
 
         Creates a new system programming language
 
-        :param create_categories_request: Programming language definition (required)
-        :type create_categories_request: CreateCategoriesRequest
+        :param create_programming_languages_request: Programming language definition (required)
+        :type create_programming_languages_request: CreateProgrammingLanguagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -226,7 +224,7 @@ class ProgrammingLanguageApi:
         """ # noqa: E501
 
         _param = self._create_programming_languages_serialize(
-            create_categories_request=create_categories_request,
+            create_programming_languages_request=create_programming_languages_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -234,8 +232,8 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCategories200Response",
-            '500': "CreateAliases500Response",
+            '200': "CreateDarIntegration201Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -246,7 +244,7 @@ class ProgrammingLanguageApi:
 
     def _create_programming_languages_serialize(
         self,
-        create_categories_request,
+        create_programming_languages_request,
         _request_auth,
         _content_type,
         _headers,
@@ -272,8 +270,8 @@ class ProgrammingLanguageApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if create_categories_request is not None:
-            _body_params = create_categories_request
+        if create_programming_languages_request is not None:
+            _body_params = create_programming_languages_request
 
 
         # set the HTTP header `Accept`
@@ -337,7 +335,7 @@ class ProgrammingLanguageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteAliases200Response:
+    ) -> DeleteApplications200Response:
         """ProgrammingLanguage@destroy
 
         Delete a system programming language
@@ -375,9 +373,9 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -406,7 +404,7 @@ class ProgrammingLanguageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteAliases200Response]:
+    ) -> ApiResponse[DeleteApplications200Response]:
         """ProgrammingLanguage@destroy
 
         Delete a system programming language
@@ -444,9 +442,9 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -513,9 +511,9 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
-            '200': "DeleteAliases200Response",
-            '500': "CreateAliases500Response",
+            '404': "UpdateApplications404Response",
+            '200': "DeleteApplications200Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -592,7 +590,7 @@ class ProgrammingLanguageApi:
     def edit_programming_languages(
         self,
         id: Annotated[StrictInt, Field(description="programming language id")],
-        edit_categories_request: Annotated[EditCategoriesRequest, Field(description="ProgrammingLanguage definition")],
+        edit_programming_languages_request: Annotated[EditProgrammingLanguagesRequest, Field(description="ProgrammingLanguage definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -612,8 +610,8 @@ class ProgrammingLanguageApi:
 
         :param id: programming language id (required)
         :type id: int
-        :param edit_categories_request: ProgrammingLanguage definition (required)
-        :type edit_categories_request: EditCategoriesRequest
+        :param edit_programming_languages_request: ProgrammingLanguage definition (required)
+        :type edit_programming_languages_request: EditProgrammingLanguagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -638,7 +636,7 @@ class ProgrammingLanguageApi:
 
         _param = self._edit_programming_languages_serialize(
             id=id,
-            edit_categories_request=edit_categories_request,
+            edit_programming_languages_request=edit_programming_languages_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -646,9 +644,9 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateProgrammingLanguages200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -665,7 +663,7 @@ class ProgrammingLanguageApi:
     def edit_programming_languages_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="programming language id")],
-        edit_categories_request: Annotated[EditCategoriesRequest, Field(description="ProgrammingLanguage definition")],
+        edit_programming_languages_request: Annotated[EditProgrammingLanguagesRequest, Field(description="ProgrammingLanguage definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -685,8 +683,8 @@ class ProgrammingLanguageApi:
 
         :param id: programming language id (required)
         :type id: int
-        :param edit_categories_request: ProgrammingLanguage definition (required)
-        :type edit_categories_request: EditCategoriesRequest
+        :param edit_programming_languages_request: ProgrammingLanguage definition (required)
+        :type edit_programming_languages_request: EditProgrammingLanguagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -711,7 +709,7 @@ class ProgrammingLanguageApi:
 
         _param = self._edit_programming_languages_serialize(
             id=id,
-            edit_categories_request=edit_categories_request,
+            edit_programming_languages_request=edit_programming_languages_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -719,9 +717,9 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateProgrammingLanguages200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -738,7 +736,7 @@ class ProgrammingLanguageApi:
     def edit_programming_languages_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="programming language id")],
-        edit_categories_request: Annotated[EditCategoriesRequest, Field(description="ProgrammingLanguage definition")],
+        edit_programming_languages_request: Annotated[EditProgrammingLanguagesRequest, Field(description="ProgrammingLanguage definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -758,8 +756,8 @@ class ProgrammingLanguageApi:
 
         :param id: programming language id (required)
         :type id: int
-        :param edit_categories_request: ProgrammingLanguage definition (required)
-        :type edit_categories_request: EditCategoriesRequest
+        :param edit_programming_languages_request: ProgrammingLanguage definition (required)
+        :type edit_programming_languages_request: EditProgrammingLanguagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -784,7 +782,7 @@ class ProgrammingLanguageApi:
 
         _param = self._edit_programming_languages_serialize(
             id=id,
-            edit_categories_request=edit_categories_request,
+            edit_programming_languages_request=edit_programming_languages_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -792,9 +790,9 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateProgrammingLanguages200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -806,7 +804,7 @@ class ProgrammingLanguageApi:
     def _edit_programming_languages_serialize(
         self,
         id,
-        edit_categories_request,
+        edit_programming_languages_request,
         _request_auth,
         _content_type,
         _headers,
@@ -834,8 +832,8 @@ class ProgrammingLanguageApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if edit_categories_request is not None:
-            _body_params = edit_categories_request
+        if edit_programming_languages_request is not None:
+            _body_params = edit_programming_languages_request
 
 
         # set the HTTP header `Accept`
@@ -884,520 +882,10 @@ class ProgrammingLanguageApi:
 
 
     @validate_call
-    def fetch_all_programming_languages(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchAllProgrammingLanguages200Response:
-        """ProgrammingLanguage@index
-
-        Returns a list of programming languages enabled on the system
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_programming_languages_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllProgrammingLanguages200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fetch_all_programming_languages_with_http_info(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchAllProgrammingLanguages200Response]:
-        """ProgrammingLanguage@index
-
-        Returns a list of programming languages enabled on the system
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_programming_languages_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllProgrammingLanguages200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fetch_all_programming_languages_without_preload_content(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """ProgrammingLanguage@index
-
-        Returns a list of programming languages enabled on the system
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_all_programming_languages_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchAllProgrammingLanguages200Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fetch_all_programming_languages_serialize(
-        self,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/programming_languages',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def fetch_programming_languages(
-        self,
-        id: Annotated[StrictInt, Field(description="programming language id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchProgrammingLanguages200Response:
-        """ProgrammingLanguage@show
-
-        Return a single system programming language
-
-        :param id: programming language id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_programming_languages_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchProgrammingLanguages200Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def fetch_programming_languages_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="programming language id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchProgrammingLanguages200Response]:
-        """ProgrammingLanguage@show
-
-        Return a single system programming language
-
-        :param id: programming language id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_programming_languages_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchProgrammingLanguages200Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def fetch_programming_languages_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="programming language id")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """ProgrammingLanguage@show
-
-        Return a single system programming language
-
-        :param id: programming language id (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._fetch_programming_languages_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchProgrammingLanguages200Response",
-            '404': "FetchAliases404Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _fetch_programming_languages_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/programming_languages/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def update_programming_languages(
         self,
         id: Annotated[StrictInt, Field(description="programming language id")],
-        update_categories_request: Annotated[UpdateCategoriesRequest, Field(description="ProgrammingLanguage definition")],
+        update_programming_languages_request: Annotated[UpdateProgrammingLanguagesRequest, Field(description="ProgrammingLanguage definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1417,8 +905,8 @@ class ProgrammingLanguageApi:
 
         :param id: programming language id (required)
         :type id: int
-        :param update_categories_request: ProgrammingLanguage definition (required)
-        :type update_categories_request: UpdateCategoriesRequest
+        :param update_programming_languages_request: ProgrammingLanguage definition (required)
+        :type update_programming_languages_request: UpdateProgrammingLanguagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1443,7 +931,7 @@ class ProgrammingLanguageApi:
 
         _param = self._update_programming_languages_serialize(
             id=id,
-            update_categories_request=update_categories_request,
+            update_programming_languages_request=update_programming_languages_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1451,9 +939,9 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateProgrammingLanguages200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1470,7 +958,7 @@ class ProgrammingLanguageApi:
     def update_programming_languages_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="programming language id")],
-        update_categories_request: Annotated[UpdateCategoriesRequest, Field(description="ProgrammingLanguage definition")],
+        update_programming_languages_request: Annotated[UpdateProgrammingLanguagesRequest, Field(description="ProgrammingLanguage definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1490,8 +978,8 @@ class ProgrammingLanguageApi:
 
         :param id: programming language id (required)
         :type id: int
-        :param update_categories_request: ProgrammingLanguage definition (required)
-        :type update_categories_request: UpdateCategoriesRequest
+        :param update_programming_languages_request: ProgrammingLanguage definition (required)
+        :type update_programming_languages_request: UpdateProgrammingLanguagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1516,7 +1004,7 @@ class ProgrammingLanguageApi:
 
         _param = self._update_programming_languages_serialize(
             id=id,
-            update_categories_request=update_categories_request,
+            update_programming_languages_request=update_programming_languages_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1524,9 +1012,9 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateProgrammingLanguages200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1543,7 +1031,7 @@ class ProgrammingLanguageApi:
     def update_programming_languages_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="programming language id")],
-        update_categories_request: Annotated[UpdateCategoriesRequest, Field(description="ProgrammingLanguage definition")],
+        update_programming_languages_request: Annotated[UpdateProgrammingLanguagesRequest, Field(description="ProgrammingLanguage definition")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1563,8 +1051,8 @@ class ProgrammingLanguageApi:
 
         :param id: programming language id (required)
         :type id: int
-        :param update_categories_request: ProgrammingLanguage definition (required)
-        :type update_categories_request: UpdateCategoriesRequest
+        :param update_programming_languages_request: ProgrammingLanguage definition (required)
+        :type update_programming_languages_request: UpdateProgrammingLanguagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1589,7 +1077,7 @@ class ProgrammingLanguageApi:
 
         _param = self._update_programming_languages_serialize(
             id=id,
-            update_categories_request=update_categories_request,
+            update_programming_languages_request=update_programming_languages_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1597,9 +1085,9 @@ class ProgrammingLanguageApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "FetchAliases404Response",
+            '404': "UpdateApplications404Response",
             '200': "UpdateProgrammingLanguages200Response",
-            '500': "CreateAliases500Response",
+            '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1611,7 +1099,7 @@ class ProgrammingLanguageApi:
     def _update_programming_languages_serialize(
         self,
         id,
-        update_categories_request,
+        update_programming_languages_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1639,8 +1127,8 @@ class ProgrammingLanguageApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if update_categories_request is not None:
-            _body_params = update_categories_request
+        if update_programming_languages_request is not None:
+            _body_params = update_programming_languages_request
 
 
         # set the HTTP header `Accept`

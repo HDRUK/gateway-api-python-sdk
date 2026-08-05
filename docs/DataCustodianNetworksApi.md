@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **create_data_custodian_network**
-> CreateCategories200Response create_data_custodian_network(create_data_provider_coll_request)
+> CreateDarIntegration201Response create_data_custodian_network(create_data_provider_coll_request)
 
 DataCustodianNetworks@store
 
@@ -29,7 +29,7 @@ Creates a new DataCustodianNetwork
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.create_categories200_response import CreateCategories200Response
+from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_data_provider_coll_request import CreateDataProviderCollRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_data_custodian_network**
-> DeleteAliases200Response delete_data_custodian_network(id)
+> DeleteApplications200Response delete_data_custodian_network(id)
 
 DataCustodianNetworks@destroy
 
@@ -109,7 +109,7 @@ Delete a DataCustodianNetwork
 
 ```python
 import gateway_api_sdk
-from gateway_api_sdk.models.delete_aliases200_response import DeleteAliases200Response
+from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
