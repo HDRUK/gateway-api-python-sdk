@@ -23,12 +23,12 @@ from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class FetchKeyMetricsV2200Response(BaseModel):
+class CreateProjectGrant201Response(BaseModel):
     """
-    FetchKeyMetricsV2200Response
+    CreateProjectGrant201Response
     """ # noqa: E501
-    message: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["success"]})
-    data: Optional[List[List[Any]]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
+    message: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["created"]})
+    data: Optional[Dict[str, Any]] = None
     __properties: ClassVar[List[str]] = ["message", "data"]
 
     model_config = ConfigDict(
@@ -49,7 +49,7 @@ class FetchKeyMetricsV2200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FetchKeyMetricsV2200Response from a JSON string"""
+        """Create an instance of CreateProjectGrant201Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +74,7 @@ class FetchKeyMetricsV2200Response(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FetchKeyMetricsV2200Response from a dict"""
+        """Create an instance of CreateProjectGrant201Response from a dict"""
         if obj is None:
             return None
 

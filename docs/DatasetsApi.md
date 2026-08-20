@@ -6,11 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**count_unique_fields**](DatasetsApi.md#count_unique_fields) | **GET** /api/v1/datasets/count/{field} | DatasetController@count
 [**create_datasets**](DatasetsApi.md#create_datasets) | **POST** /api/v1/datasets | DatasetController@store
-[**create_datasets_integrations**](DatasetsApi.md#create_datasets_integrations) | **POST** /api/v1/integrations/datasets | IntegrationDatasetController@store
 [**create_datasets_v2**](DatasetsApi.md#create_datasets_v2) | **POST** /api/v2/datasets | DatasetController@store
 [**create_team_datasets_v2**](DatasetsApi.md#create_team_datasets_v2) | **POST** /api/v2/teams/{teamId}/datasets | TeamDatasetController@store
 [**delete_datasets**](DatasetsApi.md#delete_datasets) | **DELETE** /api/v1/datasets/{id} | DatasetController@destroy
-[**delete_datasets_integrations**](DatasetsApi.md#delete_datasets_integrations) | **DELETE** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@destroy
 [**delete_datasets_v2**](DatasetsApi.md#delete_datasets_v2) | **DELETE** /api/v2/datasets/{id} | Delete a dataset
 [**delete_team_datasets_v2**](DatasetsApi.md#delete_team_datasets_v2) | **DELETE** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@destroy
 [**export_dataset_metadata**](DatasetsApi.md#export_dataset_metadata) | **GET** /api/v1/datasets/export_metadata/{id} | DatasetController@exportMetadata
@@ -19,17 +17,13 @@ Method | HTTP request | Description
 [**export_mock_dataset**](DatasetsApi.md#export_mock_dataset) | **GET** /api/v1/datasets/export/mock | DatasetController@exportMock
 [**export_mock_dataset_v2**](DatasetsApi.md#export_mock_dataset_v2) | **GET** /api/v2/datasets/export/mock | DatasetController@exportMock
 [**fetch_all_datasets**](DatasetsApi.md#fetch_all_datasets) | **GET** /api/v1/datasets | DatasetController@index
-[**fetch_all_datasets_integrations**](DatasetsApi.md#fetch_all_datasets_integrations) | **GET** /api/v1/integrations/datasets | IntegrationDatasetController@index
 [**fetch_all_datasets_v2**](DatasetsApi.md#fetch_all_datasets_v2) | **GET** /api/v2/datasets | DatasetController@index
 [**fetch_datasets**](DatasetsApi.md#fetch_datasets) | **GET** /api/v1/datasets/{id} | DatasetController@show
-[**fetch_datasets_integrations**](DatasetsApi.md#fetch_datasets_integrations) | **GET** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@show
 [**fetch_datasets_v2**](DatasetsApi.md#fetch_datasets_v2) | **GET** /api/v2/datasets/{id} | DatasetController@showActive
 [**patch_datasets**](DatasetsApi.md#patch_datasets) | **PATCH** /api/v1/datasets/{id} | DatasetController@edit
-[**patch_datasets_integrations**](DatasetsApi.md#patch_datasets_integrations) | **PATCH** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@edit
 [**patch_datasets_v2**](DatasetsApi.md#patch_datasets_v2) | **PATCH** /api/v2/datasets/{id} | DatasetController@edit
 [**patch_team_datasets_v2**](DatasetsApi.md#patch_team_datasets_v2) | **PATCH** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@edit
 [**update_datasets**](DatasetsApi.md#update_datasets) | **PUT** /api/v1/datasets/{id} | DatasetController@update
-[**update_datasets_integrations**](DatasetsApi.md#update_datasets_integrations) | **PUT** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@update
 [**update_datasets_v2**](DatasetsApi.md#update_datasets_v2) | **PUT** /api/v2/datasets/{id} | DatasetController@update
 [**update_team_datasets_v2**](DatasetsApi.md#update_team_datasets_v2) | **PUT** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@update
 
@@ -171,91 +165,6 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_datasets_request** | [**CreateDatasetsRequest**](CreateDatasetsRequest.md)| Pass user credentials | 
-
-### Return type
-
-[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Created |  -  |
-**401** | Unauthorized |  -  |
-**500** | Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **create_datasets_integrations**
-> CreateDarIntegration201Response create_datasets_integrations(datasets_test_request, input_schema=input_schema, input_version=input_version)
-
-IntegrationDatasetController@store
-
-Create a new dataset
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
-from gateway_api_sdk.models.datasets_test_request import DatasetsTestRequest
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    datasets_test_request = gateway_api_sdk.DatasetsTestRequest() # DatasetsTestRequest | Pass user credentials
-    input_schema = 'HDRUK' # str | Input schema model. (optional)
-    input_version = '3.0.0' # str | Input schema version. (optional)
-
-    try:
-        # IntegrationDatasetController@store
-        api_response = api_instance.create_datasets_integrations(datasets_test_request, input_schema=input_schema, input_version=input_version)
-        print("The response of DatasetsApi->create_datasets_integrations:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->create_datasets_integrations: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **datasets_test_request** | [**DatasetsTestRequest**](DatasetsTestRequest.md)| Pass user credentials | 
- **input_schema** | **str**| Input schema model. | [optional] 
- **input_version** | **str**| Input schema version. | [optional] 
 
 ### Return type
 
@@ -490,86 +399,6 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
         pprint(api_response)
     except Exception as e:
         print("Exception when calling DatasetsApi->delete_datasets: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| dataset id | 
-
-### Return type
-
-[**DeleteApplications200Response**](DeleteApplications200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**404** | Not found response |  -  |
-**200** | Success |  -  |
-**500** | Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **delete_datasets_integrations**
-> DeleteApplications200Response delete_datasets_integrations(id)
-
-IntegrationDatasetController@destroy
-
-Delete a dataset
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    id = 1 # int | dataset id
-
-    try:
-        # IntegrationDatasetController@destroy
-        api_response = api_instance.delete_datasets_integrations(id)
-        print("The response of DatasetsApi->delete_datasets_integrations:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->delete_datasets_integrations: %s\n" % e)
 ```
 
 
@@ -1250,92 +1079,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **fetch_all_datasets_integrations**
-> FetchAllDatasets200Response fetch_all_datasets_integrations(team_id, pid=pid, sort=sort, title=title, status=status)
-
-IntegrationDatasetController@index
-
-Get All Datasets
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.fetch_all_datasets200_response import FetchAllDatasets200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    team_id = 1 # int | team id
-    pid = 'aa588d1c-21e7-42d9-9b60-48e3d6b784a9' # str | get based on a pid (optional)
-    sort = 'created:desc' # str | Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/> (optional)
-    title = 'hdr' # str | Three or more characters to filter dataset titles by (optional)
-    status = 'ACTIVE' # str | Dataset status to filter by ('ACTIVE', 'DRAFT', 'ARCHIVED') (optional)
-
-    try:
-        # IntegrationDatasetController@index
-        api_response = api_instance.fetch_all_datasets_integrations(team_id, pid=pid, sort=sort, title=title, status=status)
-        print("The response of DatasetsApi->fetch_all_datasets_integrations:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->fetch_all_datasets_integrations: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **team_id** | **int**| team id | 
- **pid** | **str**| get based on a pid | [optional] 
- **sort** | **str**| Field and direction (colon separated) to sort by (default: &#39;created:desc&#39;) ... &lt;br/&gt; &lt;br/&gt;         - ?sort&#x3D;\\&lt;field\\&gt;:\\&lt;direction\\&gt; &lt;br/&gt;         - \\&lt;direction\\&gt; can only be &#39;asc&#39; or &#39;desc&#39;  &lt;br/&gt;         - \\&lt;field\\&gt; can only be a valid field for the dataset table that can be ordered on  &lt;br/&gt;         - \\&lt;field\\&gt; can start with the prefix &#39;metadata.&#39; so that nested values within the field &#39;metadata&#39;  &lt;br/&gt;             (represented by the GWDM JSON structure) can be used to order on.  &lt;br/&gt;  &lt;br/&gt; | [optional] 
- **title** | **str**| Three or more characters to filter dataset titles by | [optional] 
- **status** | **str**| Dataset status to filter by (&#39;ACTIVE&#39;, &#39;DRAFT&#39;, &#39;ARCHIVED&#39;) | [optional] 
-
-### Return type
-
-[**FetchAllDatasets200Response**](FetchAllDatasets200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **fetch_all_datasets_v2**
 > FetchAllDatasets200Response fetch_all_datasets_v2(sort=sort, title=title, status=status, with_metadata=with_metadata)
 
@@ -1506,90 +1249,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **fetch_datasets_integrations**
-> FetchDatasets200Response fetch_datasets_integrations(id, schema_model=schema_model, schema_version=schema_version)
-
-IntegrationDatasetController@show
-
-Get dataset by id
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.fetch_datasets200_response import FetchDatasets200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    id = 1 # int | dataset id
-    schema_model = 'schema_model_example' # str | Alternative output schema model. (optional)
-    schema_version = 'schema_version_example' # str | Alternative output schema version. (optional)
-
-    try:
-        # IntegrationDatasetController@show
-        api_response = api_instance.fetch_datasets_integrations(id, schema_model=schema_model, schema_version=schema_version)
-        print("The response of DatasetsApi->fetch_datasets_integrations:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->fetch_datasets_integrations: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| dataset id | 
- **schema_model** | **str**| Alternative output schema model. | [optional] 
- **schema_version** | **str**| Alternative output schema version. | [optional] 
-
-### Return type
-
-[**FetchDatasets200Response**](FetchDatasets200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success response |  -  |
-**401** | Unauthorized |  -  |
-**404** | Not found response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **fetch_datasets_v2**
 > FetchDatasets200Response fetch_datasets_v2(id, export=export, schema_model=schema_model, schema_version=schema_version)
 
@@ -1723,87 +1382,6 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
         pprint(api_response)
     except Exception as e:
         print("Exception when calling DatasetsApi->patch_datasets: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| dataset id | 
- **unarchive** | **str**| Unarchive a dataset | [optional] 
-
-### Return type
-
-[**DeleteApplications200Response**](DeleteApplications200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-**500** | Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **patch_datasets_integrations**
-> DeleteApplications200Response patch_datasets_integrations(id, unarchive=unarchive)
-
-IntegrationDatasetController@edit
-
-Patch dataset by id
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    id = 1 # int | dataset id
-    unarchive = 'unarchive_example' # str | Unarchive a dataset (optional)
-
-    try:
-        # IntegrationDatasetController@edit
-        api_response = api_instance.patch_datasets_integrations(id, unarchive=unarchive)
-        print("The response of DatasetsApi->patch_datasets_integrations:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->patch_datasets_integrations: %s\n" % e)
 ```
 
 
@@ -2067,93 +1645,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Created |  -  |
-**401** | Unauthorized |  -  |
-**500** | Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **update_datasets_integrations**
-> FetchDatasets200Response update_datasets_integrations(id, update_datasets_request, input_schema=input_schema, input_version=input_version)
-
-IntegrationDatasetController@update
-
-Update a dataset with a new dataset version
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import gateway_api_sdk
-from gateway_api_sdk.models.fetch_datasets200_response import FetchDatasets200Response
-from gateway_api_sdk.models.update_datasets_request import UpdateDatasetsRequest
-from gateway_api_sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = gateway_api_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = gateway_api_sdk.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with gateway_api_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    id = 1 # int | dataset id
-    update_datasets_request = gateway_api_sdk.UpdateDatasetsRequest() # UpdateDatasetsRequest | Pass user credentials
-    input_schema = 'HDRUK' # str | Input schema model. (optional)
-    input_version = '3.0.0' # str | Input schema version. (optional)
-
-    try:
-        # IntegrationDatasetController@update
-        api_response = api_instance.update_datasets_integrations(id, update_datasets_request, input_schema=input_schema, input_version=input_version)
-        print("The response of DatasetsApi->update_datasets_integrations:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DatasetsApi->update_datasets_integrations: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| dataset id | 
- **update_datasets_request** | [**UpdateDatasetsRequest**](UpdateDatasetsRequest.md)| Pass user credentials | 
- **input_schema** | **str**| Input schema model. | [optional] 
- **input_version** | **str**| Input schema version. | [optional] 
-
-### Return type
-
-[**FetchDatasets200Response**](FetchDatasets200Response.md)
 
 ### Authorization
 

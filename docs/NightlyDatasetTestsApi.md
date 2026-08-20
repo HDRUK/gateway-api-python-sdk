@@ -1,18 +1,18 @@
-# gateway_api_sdk.MetricsApi
+# gateway_api_sdk.NightlyDatasetTestsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fetch_key_metrics_v2**](MetricsApi.md#fetch_key_metrics_v2) | **GET** /api/v2/metrics | KeyMetricController@index
+[**fetch_nightly_dataset_tests_v2**](NightlyDatasetTestsApi.md#fetch_nightly_dataset_tests_v2) | **GET** /api/v2/nightly_dataset_tests | NightlyDatasetTestController@index
 
 
-# **fetch_key_metrics_v2**
-> FetchDatasetLinkCheckResultsV2200Response fetch_key_metrics_v2()
+# **fetch_nightly_dataset_tests_v2**
+> FetchDatasetLinkCheckResultsV2200Response fetch_nightly_dataset_tests_v2()
 
-KeyMetricController@index
+NightlyDatasetTestController@index
 
-Get key metrics
+Get the results of the nightly dataset reachability check, with a summary and a list of failures
 
 ### Example
 
@@ -33,15 +33,15 @@ configuration = gateway_api_sdk.Configuration(
 # Enter a context with an instance of the API client
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gateway_api_sdk.MetricsApi(api_client)
+    api_instance = gateway_api_sdk.NightlyDatasetTestsApi(api_client)
 
     try:
-        # KeyMetricController@index
-        api_response = api_instance.fetch_key_metrics_v2()
-        print("The response of MetricsApi->fetch_key_metrics_v2:\n")
+        # NightlyDatasetTestController@index
+        api_response = api_instance.fetch_nightly_dataset_tests_v2()
+        print("The response of NightlyDatasetTestsApi->fetch_nightly_dataset_tests_v2:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MetricsApi->fetch_key_metrics_v2: %s\n" % e)
+        print("Exception when calling NightlyDatasetTestsApi->fetch_nightly_dataset_tests_v2: %s\n" % e)
 ```
 
 

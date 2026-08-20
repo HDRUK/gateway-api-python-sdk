@@ -38,6 +38,7 @@ class GetFederationByFederationIdAndTeamId200ResponseData(BaseModel):
     run_time_hour: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [5]})
     run_time_minute: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["00"]})
     enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
+    enabled_at: Optional[datetime] = None
     counter: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [34319]})
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
@@ -45,7 +46,7 @@ class GetFederationByFederationIdAndTeamId200ResponseData(BaseModel):
     tested: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     notifications: Optional[List[Any]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
     is_running: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
-    __properties: ClassVar[List[str]] = ["id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "counter", "created_at", "updated_at", "deleted_at", "tested", "notifications", "is_running"]
+    __properties: ClassVar[List[str]] = ["id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "enabled_at", "counter", "created_at", "updated_at", "deleted_at", "tested", "notifications", "is_running"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -86,6 +87,11 @@ class GetFederationByFederationIdAndTeamId200ResponseData(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if enabled_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.enabled_at is None and "enabled_at" in self.model_fields_set:
+            _dict['enabled_at'] = None
+
         return _dict
 
     @classmethod
@@ -108,6 +114,7 @@ class GetFederationByFederationIdAndTeamId200ResponseData(BaseModel):
             "run_time_hour": obj.get("run_time_hour"),
             "run_time_minute": obj.get("run_time_minute"),
             "enabled": obj.get("enabled"),
+            "enabled_at": obj.get("enabled_at"),
             "counter": obj.get("counter"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),

@@ -1,18 +1,18 @@
-# gateway_api_sdk.MetricsApi
+# gateway_api_sdk.DatasetLinkCheckResultsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fetch_key_metrics_v2**](MetricsApi.md#fetch_key_metrics_v2) | **GET** /api/v2/metrics | KeyMetricController@index
+[**fetch_dataset_link_check_results_v2**](DatasetLinkCheckResultsApi.md#fetch_dataset_link_check_results_v2) | **GET** /api/v2/dataset_link_check_results | DatasetLinkCheckResultController@index
 
 
-# **fetch_key_metrics_v2**
-> FetchDatasetLinkCheckResultsV2200Response fetch_key_metrics_v2()
+# **fetch_dataset_link_check_results_v2**
+> FetchDatasetLinkCheckResultsV2200Response fetch_dataset_link_check_results_v2()
 
-KeyMetricController@index
+DatasetLinkCheckResultController@index
 
-Get key metrics
+Get the confirmed dead links (HTTP 404, verified across multiple checks) found in active dataset metadata by the nightly link check
 
 ### Example
 
@@ -33,15 +33,15 @@ configuration = gateway_api_sdk.Configuration(
 # Enter a context with an instance of the API client
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gateway_api_sdk.MetricsApi(api_client)
+    api_instance = gateway_api_sdk.DatasetLinkCheckResultsApi(api_client)
 
     try:
-        # KeyMetricController@index
-        api_response = api_instance.fetch_key_metrics_v2()
-        print("The response of MetricsApi->fetch_key_metrics_v2:\n")
+        # DatasetLinkCheckResultController@index
+        api_response = api_instance.fetch_dataset_link_check_results_v2()
+        print("The response of DatasetLinkCheckResultsApi->fetch_dataset_link_check_results_v2:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MetricsApi->fetch_key_metrics_v2: %s\n" % e)
+        print("Exception when calling DatasetLinkCheckResultsApi->fetch_dataset_link_check_results_v2: %s\n" % e)
 ```
 
 

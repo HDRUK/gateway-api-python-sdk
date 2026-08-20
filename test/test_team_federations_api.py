@@ -40,13 +40,6 @@ class TestTeamFederationsApi(unittest.TestCase):
         """
         pass
 
-    def test_edit_federation_team(self) -> None:
-        """Test case for edit_federation_team
-
-        FederationController@edit
-        """
-        pass
-
     def test_get_federation_by_federation_id_and_team_id(self) -> None:
         """Test case for get_federation_by_federation_id_and_team_id
 

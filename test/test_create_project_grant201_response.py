@@ -14,10 +14,10 @@
 
 import unittest
 
-from gateway_api_sdk.models.fetch_key_metrics_v2200_response import FetchKeyMetricsV2200Response
+from gateway_api_sdk.models.create_project_grant201_response import CreateProjectGrant201Response
 
-class TestFetchKeyMetricsV2200Response(unittest.TestCase):
-    """FetchKeyMetricsV2200Response unit test stubs"""
+class TestCreateProjectGrant201Response(unittest.TestCase):
+    """CreateProjectGrant201Response unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,26 +25,26 @@ class TestFetchKeyMetricsV2200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> FetchKeyMetricsV2200Response:
-        """Test FetchKeyMetricsV2200Response
+    def make_instance(self, include_optional) -> CreateProjectGrant201Response:
+        """Test CreateProjectGrant201Response
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `FetchKeyMetricsV2200Response`
+        # uncomment below to create an instance of `CreateProjectGrant201Response`
         """
-        model = FetchKeyMetricsV2200Response()
+        model = CreateProjectGrant201Response()
         if include_optional:
-            return FetchKeyMetricsV2200Response(
-                message = 'success',
-                data = []
+            return CreateProjectGrant201Response(
+                message = 'created',
+                data = None
             )
         else:
-            return FetchKeyMetricsV2200Response(
+            return CreateProjectGrant201Response(
         )
         """
 
-    def testFetchKeyMetricsV2200Response(self):
-        """Test FetchKeyMetricsV2200Response"""
+    def testCreateProjectGrant201Response(self):
+        """Test CreateProjectGrant201Response"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

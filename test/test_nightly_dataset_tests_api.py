@@ -14,22 +14,22 @@
 
 import unittest
 
-from gateway_api_sdk.api.integrations_datasets_test_api import IntegrationsDatasetsTestApi
+from gateway_api_sdk.api.nightly_dataset_tests_api import NightlyDatasetTestsApi
 
 
-class TestIntegrationsDatasetsTestApi(unittest.TestCase):
-    """IntegrationsDatasetsTestApi unit test stubs"""
+class TestNightlyDatasetTestsApi(unittest.TestCase):
+    """NightlyDatasetTestsApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = IntegrationsDatasetsTestApi()
+        self.api = NightlyDatasetTestsApi()
 
     def tearDown(self) -> None:
         pass
 
-    def test_integrations_datasets_test(self) -> None:
-        """Test case for integrations_datasets_test
+    def test_fetch_nightly_dataset_tests_v2(self) -> None:
+        """Test case for fetch_nightly_dataset_tests_v2
 
-        IntegrationDatasetController@datasetTest
+        NightlyDatasetTestController@index
         """
         pass
 

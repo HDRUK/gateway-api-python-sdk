@@ -26,6 +26,13 @@ class TestProjectGrantApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_create_project_grant(self) -> None:
+        """Test case for create_project_grant
+
+        ProjectGrantController@store
+        """
+        pass
+
     def test_fetch_all_project_grants(self) -> None:
         """Test case for fetch_all_project_grants
 

@@ -38,6 +38,7 @@ class GetFederationTeamId200ResponseDataInner(BaseModel):
     run_time_hour: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [5]})
     run_time_minute: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["00"]})
     enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
+    enabled_at: Optional[datetime] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
     deleted_at: Optional[datetime] = None
@@ -45,7 +46,7 @@ class GetFederationTeamId200ResponseDataInner(BaseModel):
     is_running: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     notifications: Optional[List[Any]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
     last_run_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "created_at", "updated_at", "deleted_at", "tested", "is_running", "notifications", "last_run_at"]
+    __properties: ClassVar[List[str]] = ["id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "enabled_at", "created_at", "updated_at", "deleted_at", "tested", "is_running", "notifications", "last_run_at"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -86,6 +87,11 @@ class GetFederationTeamId200ResponseDataInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if enabled_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.enabled_at is None and "enabled_at" in self.model_fields_set:
+            _dict['enabled_at'] = None
+
         # set to None if last_run_at (nullable) is None
         # and model_fields_set contains the field
         if self.last_run_at is None and "last_run_at" in self.model_fields_set:
@@ -113,6 +119,7 @@ class GetFederationTeamId200ResponseDataInner(BaseModel):
             "run_time_hour": obj.get("run_time_hour"),
             "run_time_minute": obj.get("run_time_minute"),
             "enabled": obj.get("enabled"),
+            "enabled_at": obj.get("enabled_at"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),
             "deleted_at": obj.get("deleted_at"),

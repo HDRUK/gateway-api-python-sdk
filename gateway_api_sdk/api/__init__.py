@@ -15,13 +15,14 @@ from gateway_api_sdk.api.data_access_templates_api import DataAccessTemplatesApi
 from gateway_api_sdk.api.data_custodian_networks_api import DataCustodianNetworksApi
 from gateway_api_sdk.api.data_provider_coll_api import DataProviderCollApi
 from gateway_api_sdk.api.data_use_registers_api import DataUseRegistersApi
+from gateway_api_sdk.api.dataset_link_check_results_api import DatasetLinkCheckResultsApi
 from gateway_api_sdk.api.datasets_api import DatasetsApi
 from gateway_api_sdk.api.form_hydration_api import FormHydrationApi
 from gateway_api_sdk.api.integration_collections_api import IntegrationCollectionsApi
 from gateway_api_sdk.api.integration_data_use_registers_api import IntegrationDataUseRegistersApi
-from gateway_api_sdk.api.integrations_datasets_test_api import IntegrationsDatasetsTestApi
 from gateway_api_sdk.api.license_api import LicenseApi
 from gateway_api_sdk.api.metrics_api import MetricsApi
+from gateway_api_sdk.api.nightly_dataset_tests_api import NightlyDatasetTestsApi
 from gateway_api_sdk.api.project_grant_api import ProjectGrantApi
 from gateway_api_sdk.api.publication_api import PublicationApi
 from gateway_api_sdk.api.question_bank_api import QuestionBankApi

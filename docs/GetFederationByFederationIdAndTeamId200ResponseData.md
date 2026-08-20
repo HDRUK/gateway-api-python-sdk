@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **run_time_hour** | **int** |  | [optional] 
 **run_time_minute** | **str** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
+**enabled_at** | **datetime** |  | [optional] 
 **counter** | **int** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 

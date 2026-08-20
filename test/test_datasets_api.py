@@ -40,13 +40,6 @@ class TestDatasetsApi(unittest.TestCase):
         """
         pass
 
-    def test_create_datasets_integrations(self) -> None:
-        """Test case for create_datasets_integrations
-
-        IntegrationDatasetController@store
-        """
-        pass
-
     def test_create_datasets_v2(self) -> None:
         """Test case for create_datasets_v2
 
@@ -65,13 +58,6 @@ class TestDatasetsApi(unittest.TestCase):
         """Test case for delete_datasets
 
         DatasetController@destroy
-        """
-        pass
-
-    def test_delete_datasets_integrations(self) -> None:
-        """Test case for delete_datasets_integrations
-
-        IntegrationDatasetController@destroy
         """
         pass
 
@@ -131,13 +117,6 @@ class TestDatasetsApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_all_datasets_integrations(self) -> None:
-        """Test case for fetch_all_datasets_integrations
-
-        IntegrationDatasetController@index
-        """
-        pass
-
     def test_fetch_all_datasets_v2(self) -> None:
         """Test case for fetch_all_datasets_v2
 
@@ -152,13 +131,6 @@ class TestDatasetsApi(unittest.TestCase):
         """
         pass
 
-    def test_fetch_datasets_integrations(self) -> None:
-        """Test case for fetch_datasets_integrations
-
-        IntegrationDatasetController@show
-        """
-        pass
-
     def test_fetch_datasets_v2(self) -> None:
         """Test case for fetch_datasets_v2
 
@@ -170,13 +142,6 @@ class TestDatasetsApi(unittest.TestCase):
         """Test case for patch_datasets
 
         DatasetController@edit
-        """
-        pass
-
-    def test_patch_datasets_integrations(self) -> None:
-        """Test case for patch_datasets_integrations
-
-        IntegrationDatasetController@edit
         """
         pass
 
@@ -198,13 +163,6 @@ class TestDatasetsApi(unittest.TestCase):
         """Test case for update_datasets
 
         DatasetController@update
-        """
-        pass
-
-    def test_update_datasets_integrations(self) -> None:
-        """Test case for update_datasets_integrations
-
-        IntegrationDatasetController@update
         """
         pass
 

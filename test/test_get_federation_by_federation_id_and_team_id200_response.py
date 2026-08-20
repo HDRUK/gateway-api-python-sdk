@@ -47,6 +47,7 @@ class TestGetFederationByFederationIdAndTeamId200Response(unittest.TestCase):
                     run_time_hour = 5, 
                     run_time_minute = '00', 
                     enabled = False, 
+                    enabled_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     counter = 34319, 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 

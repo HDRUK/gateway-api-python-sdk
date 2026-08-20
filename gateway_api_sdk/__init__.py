@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.0-test6"
+__version__ = "2.48.0"
 
 # Define package exports
 __all__ = [
@@ -32,13 +32,14 @@ __all__ = [
     "DataCustodianNetworksApi",
     "DataProviderCollApi",
     "DataUseRegistersApi",
+    "DatasetLinkCheckResultsApi",
     "DatasetsApi",
     "FormHydrationApi",
     "IntegrationCollectionsApi",
     "IntegrationDataUseRegistersApi",
-    "IntegrationsDatasetsTestApi",
     "LicenseApi",
     "MetricsApi",
+    "NightlyDatasetTestsApi",
     "ProjectGrantApi",
     "PublicationApi",
     "QuestionBankApi",
@@ -94,6 +95,7 @@ __all__ = [
     "CreateDurRequestTeamInner",
     "CreateDurRequestUsersInner",
     "CreateFederationTeamRequest",
+    "CreateProjectGrant201Response",
     "CreatePublicationsRequest",
     "CreatePublicationsRequestDatasetsInner",
     "CreatePublicationsRequestToolsInner",
@@ -172,11 +174,11 @@ __all__ = [
     "FetchDataProviderCollSummary200ResponseData",
     "FetchDataProviderColls200Response",
     "FetchDataProviderColls200ResponseDataInner",
+    "FetchDatasetLinkCheckResultsV2200Response",
     "FetchDatasets200Response",
     "FetchDurById200Response",
     "FetchDurByIdIntegrations200Response",
     "FetchDurByIdIntegrations200ResponseDataInner",
-    "FetchKeyMetricsV2200Response",
     "FetchLicenses200Response",
     "FetchPublications200Response",
     "FetchQuestionBankQuestion200Response",
@@ -321,13 +323,14 @@ from gateway_api_sdk.api.data_access_templates_api import DataAccessTemplatesApi
 from gateway_api_sdk.api.data_custodian_networks_api import DataCustodianNetworksApi as DataCustodianNetworksApi
 from gateway_api_sdk.api.data_provider_coll_api import DataProviderCollApi as DataProviderCollApi
 from gateway_api_sdk.api.data_use_registers_api import DataUseRegistersApi as DataUseRegistersApi
+from gateway_api_sdk.api.dataset_link_check_results_api import DatasetLinkCheckResultsApi as DatasetLinkCheckResultsApi
 from gateway_api_sdk.api.datasets_api import DatasetsApi as DatasetsApi
 from gateway_api_sdk.api.form_hydration_api import FormHydrationApi as FormHydrationApi
 from gateway_api_sdk.api.integration_collections_api import IntegrationCollectionsApi as IntegrationCollectionsApi
 from gateway_api_sdk.api.integration_data_use_registers_api import IntegrationDataUseRegistersApi as IntegrationDataUseRegistersApi
-from gateway_api_sdk.api.integrations_datasets_test_api import IntegrationsDatasetsTestApi as IntegrationsDatasetsTestApi
 from gateway_api_sdk.api.license_api import LicenseApi as LicenseApi
 from gateway_api_sdk.api.metrics_api import MetricsApi as MetricsApi
+from gateway_api_sdk.api.nightly_dataset_tests_api import NightlyDatasetTestsApi as NightlyDatasetTestsApi
 from gateway_api_sdk.api.project_grant_api import ProjectGrantApi as ProjectGrantApi
 from gateway_api_sdk.api.publication_api import PublicationApi as PublicationApi
 from gateway_api_sdk.api.question_bank_api import QuestionBankApi as QuestionBankApi
@@ -387,6 +390,7 @@ from gateway_api_sdk.models.create_dur_request_publications_inner import CreateD
 from gateway_api_sdk.models.create_dur_request_team_inner import CreateDurRequestTeamInner as CreateDurRequestTeamInner
 from gateway_api_sdk.models.create_dur_request_users_inner import CreateDurRequestUsersInner as CreateDurRequestUsersInner
 from gateway_api_sdk.models.create_federation_team_request import CreateFederationTeamRequest as CreateFederationTeamRequest
+from gateway_api_sdk.models.create_project_grant201_response import CreateProjectGrant201Response as CreateProjectGrant201Response
 from gateway_api_sdk.models.create_publications_request import CreatePublicationsRequest as CreatePublicationsRequest
 from gateway_api_sdk.models.create_publications_request_datasets_inner import CreatePublicationsRequestDatasetsInner as CreatePublicationsRequestDatasetsInner
 from gateway_api_sdk.models.create_publications_request_tools_inner import CreatePublicationsRequestToolsInner as CreatePublicationsRequestToolsInner
@@ -465,11 +469,11 @@ from gateway_api_sdk.models.fetch_data_provider_coll_summary200_response import 
 from gateway_api_sdk.models.fetch_data_provider_coll_summary200_response_data import FetchDataProviderCollSummary200ResponseData as FetchDataProviderCollSummary200ResponseData
 from gateway_api_sdk.models.fetch_data_provider_colls200_response import FetchDataProviderColls200Response as FetchDataProviderColls200Response
 from gateway_api_sdk.models.fetch_data_provider_colls200_response_data_inner import FetchDataProviderColls200ResponseDataInner as FetchDataProviderColls200ResponseDataInner
+from gateway_api_sdk.models.fetch_dataset_link_check_results_v2200_response import FetchDatasetLinkCheckResultsV2200Response as FetchDatasetLinkCheckResultsV2200Response
 from gateway_api_sdk.models.fetch_datasets200_response import FetchDatasets200Response as FetchDatasets200Response
 from gateway_api_sdk.models.fetch_dur_by_id200_response import FetchDurById200Response as FetchDurById200Response
 from gateway_api_sdk.models.fetch_dur_by_id_integrations200_response import FetchDurByIdIntegrations200Response as FetchDurByIdIntegrations200Response
 from gateway_api_sdk.models.fetch_dur_by_id_integrations200_response_data_inner import FetchDurByIdIntegrations200ResponseDataInner as FetchDurByIdIntegrations200ResponseDataInner
-from gateway_api_sdk.models.fetch_key_metrics_v2200_response import FetchKeyMetricsV2200Response as FetchKeyMetricsV2200Response
 from gateway_api_sdk.models.fetch_licenses200_response import FetchLicenses200Response as FetchLicenses200Response
 from gateway_api_sdk.models.fetch_publications200_response import FetchPublications200Response as FetchPublications200Response
 from gateway_api_sdk.models.fetch_question_bank_question200_response import FetchQuestionBankQuestion200Response as FetchQuestionBankQuestion200Response
