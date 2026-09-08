@@ -8,9 +8,6 @@ Name | Type | Description | Notes
 **team_id** | **int** |  | [optional] 
 **user_id** | **int** |  | [optional] 
 **create_origin** | **str** |  | [optional] 
-**mongo_object_id** | **str** |  | [optional] 
-**mongo_id** | **str** |  | [optional] 
-**mongo_pid** | **str** |  | [optional] 
 **datasetid** | **str** |  | [optional] 
 **metadata** | **object** |  | [optional] 
 

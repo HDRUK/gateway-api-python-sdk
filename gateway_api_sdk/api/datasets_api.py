@@ -21,8 +21,6 @@ from typing_extensions import Annotated
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
 from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
 from gateway_api_sdk.models.create_datasets_request import CreateDatasetsRequest
-from gateway_api_sdk.models.create_datasets_v2_request import CreateDatasetsV2Request
-from gateway_api_sdk.models.create_team_datasets_v2_request import CreateTeamDatasetsV2Request
 from gateway_api_sdk.models.delete_applications200_response import DeleteApplications200Response
 from gateway_api_sdk.models.fetch_all_datasets200_response import FetchAllDatasets200Response
 from gateway_api_sdk.models.fetch_datasets200_response import FetchDatasets200Response
@@ -614,7 +612,7 @@ class DatasetsApi:
     @validate_call
     def create_datasets_v2(
         self,
-        create_datasets_v2_request: Annotated[CreateDatasetsV2Request, Field(description="Pass user credentials")],
+        update_datasets_request: Annotated[UpdateDatasetsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -632,8 +630,8 @@ class DatasetsApi:
 
         Create a new dataset
 
-        :param create_datasets_v2_request: Pass user credentials (required)
-        :type create_datasets_v2_request: CreateDatasetsV2Request
+        :param update_datasets_request: Pass user credentials (required)
+        :type update_datasets_request: UpdateDatasetsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -657,7 +655,7 @@ class DatasetsApi:
         """ # noqa: E501
 
         _param = self._create_datasets_v2_serialize(
-            create_datasets_v2_request=create_datasets_v2_request,
+            update_datasets_request=update_datasets_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -683,7 +681,7 @@ class DatasetsApi:
     @validate_call
     def create_datasets_v2_with_http_info(
         self,
-        create_datasets_v2_request: Annotated[CreateDatasetsV2Request, Field(description="Pass user credentials")],
+        update_datasets_request: Annotated[UpdateDatasetsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -701,8 +699,8 @@ class DatasetsApi:
 
         Create a new dataset
 
-        :param create_datasets_v2_request: Pass user credentials (required)
-        :type create_datasets_v2_request: CreateDatasetsV2Request
+        :param update_datasets_request: Pass user credentials (required)
+        :type update_datasets_request: UpdateDatasetsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -726,7 +724,7 @@ class DatasetsApi:
         """ # noqa: E501
 
         _param = self._create_datasets_v2_serialize(
-            create_datasets_v2_request=create_datasets_v2_request,
+            update_datasets_request=update_datasets_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -752,7 +750,7 @@ class DatasetsApi:
     @validate_call
     def create_datasets_v2_without_preload_content(
         self,
-        create_datasets_v2_request: Annotated[CreateDatasetsV2Request, Field(description="Pass user credentials")],
+        update_datasets_request: Annotated[UpdateDatasetsRequest, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -770,8 +768,8 @@ class DatasetsApi:
 
         Create a new dataset
 
-        :param create_datasets_v2_request: Pass user credentials (required)
-        :type create_datasets_v2_request: CreateDatasetsV2Request
+        :param update_datasets_request: Pass user credentials (required)
+        :type update_datasets_request: UpdateDatasetsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -795,7 +793,7 @@ class DatasetsApi:
         """ # noqa: E501
 
         _param = self._create_datasets_v2_serialize(
-            create_datasets_v2_request=create_datasets_v2_request,
+            update_datasets_request=update_datasets_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -816,7 +814,7 @@ class DatasetsApi:
 
     def _create_datasets_v2_serialize(
         self,
-        create_datasets_v2_request,
+        update_datasets_request,
         _request_auth,
         _content_type,
         _headers,
@@ -842,8 +840,8 @@ class DatasetsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if create_datasets_v2_request is not None:
-            _body_params = create_datasets_v2_request
+        if update_datasets_request is not None:
+            _body_params = update_datasets_request
 
 
         # set the HTTP header `Accept`
@@ -895,7 +893,7 @@ class DatasetsApi:
     def create_team_datasets_v2(
         self,
         team_id: Annotated[StrictInt, Field(description="team id")],
-        create_team_datasets_v2_request: Annotated[CreateTeamDatasetsV2Request, Field(description="Pass user credentials")],
+        patch_datasets_v2_request: Annotated[PatchDatasetsV2Request, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -915,8 +913,8 @@ class DatasetsApi:
 
         :param team_id: team id (required)
         :type team_id: int
-        :param create_team_datasets_v2_request: Pass user credentials (required)
-        :type create_team_datasets_v2_request: CreateTeamDatasetsV2Request
+        :param patch_datasets_v2_request: Pass user credentials (required)
+        :type patch_datasets_v2_request: PatchDatasetsV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -941,7 +939,7 @@ class DatasetsApi:
 
         _param = self._create_team_datasets_v2_serialize(
             team_id=team_id,
-            create_team_datasets_v2_request=create_team_datasets_v2_request,
+            patch_datasets_v2_request=patch_datasets_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -968,7 +966,7 @@ class DatasetsApi:
     def create_team_datasets_v2_with_http_info(
         self,
         team_id: Annotated[StrictInt, Field(description="team id")],
-        create_team_datasets_v2_request: Annotated[CreateTeamDatasetsV2Request, Field(description="Pass user credentials")],
+        patch_datasets_v2_request: Annotated[PatchDatasetsV2Request, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -988,8 +986,8 @@ class DatasetsApi:
 
         :param team_id: team id (required)
         :type team_id: int
-        :param create_team_datasets_v2_request: Pass user credentials (required)
-        :type create_team_datasets_v2_request: CreateTeamDatasetsV2Request
+        :param patch_datasets_v2_request: Pass user credentials (required)
+        :type patch_datasets_v2_request: PatchDatasetsV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1014,7 +1012,7 @@ class DatasetsApi:
 
         _param = self._create_team_datasets_v2_serialize(
             team_id=team_id,
-            create_team_datasets_v2_request=create_team_datasets_v2_request,
+            patch_datasets_v2_request=patch_datasets_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1041,7 +1039,7 @@ class DatasetsApi:
     def create_team_datasets_v2_without_preload_content(
         self,
         team_id: Annotated[StrictInt, Field(description="team id")],
-        create_team_datasets_v2_request: Annotated[CreateTeamDatasetsV2Request, Field(description="Pass user credentials")],
+        patch_datasets_v2_request: Annotated[PatchDatasetsV2Request, Field(description="Pass user credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1061,8 +1059,8 @@ class DatasetsApi:
 
         :param team_id: team id (required)
         :type team_id: int
-        :param create_team_datasets_v2_request: Pass user credentials (required)
-        :type create_team_datasets_v2_request: CreateTeamDatasetsV2Request
+        :param patch_datasets_v2_request: Pass user credentials (required)
+        :type patch_datasets_v2_request: PatchDatasetsV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1087,7 +1085,7 @@ class DatasetsApi:
 
         _param = self._create_team_datasets_v2_serialize(
             team_id=team_id,
-            create_team_datasets_v2_request=create_team_datasets_v2_request,
+            patch_datasets_v2_request=patch_datasets_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1109,7 +1107,7 @@ class DatasetsApi:
     def _create_team_datasets_v2_serialize(
         self,
         team_id,
-        create_team_datasets_v2_request,
+        patch_datasets_v2_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1137,8 +1135,8 @@ class DatasetsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if create_team_datasets_v2_request is not None:
-            _body_params = create_team_datasets_v2_request
+        if patch_datasets_v2_request is not None:
+            _body_params = patch_datasets_v2_request
 
 
         # set the HTTP header `Accept`

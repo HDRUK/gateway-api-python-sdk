@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "2.49.0"
+__version__ = "2.50.0"
 
 # Define package exports
 __all__ = [
@@ -87,7 +87,6 @@ __all__ = [
     "CreateDarTemplateRequest",
     "CreateDarTemplateRequestQuestionsInner",
     "CreateDatasetsRequest",
-    "CreateDatasetsV2Request",
     "CreateDurIntegrationsRequest",
     "CreateDurRequest",
     "CreateDurRequestDatasetsInner",
@@ -104,7 +103,6 @@ __all__ = [
     "CreateQuestionBankQuestionRequestOptionsInnerChildrenInner",
     "CreateQuestionBankQuestionRequestOptionsInnerChildrenInnerOptionsInner",
     "CreateTeamDarApplicationReviewRequest",
-    "CreateTeamDatasetsV2Request",
     "CreateToolsIntegrations400Response",
     "CreateToolsIntegrationsRequest",
     "CreateToolsIntegrationsRequestDatasetInner",
@@ -382,7 +380,6 @@ from gateway_api_sdk.models.create_dar_section_request import CreateDarSectionRe
 from gateway_api_sdk.models.create_dar_template_request import CreateDarTemplateRequest as CreateDarTemplateRequest
 from gateway_api_sdk.models.create_dar_template_request_questions_inner import CreateDarTemplateRequestQuestionsInner as CreateDarTemplateRequestQuestionsInner
 from gateway_api_sdk.models.create_datasets_request import CreateDatasetsRequest as CreateDatasetsRequest
-from gateway_api_sdk.models.create_datasets_v2_request import CreateDatasetsV2Request as CreateDatasetsV2Request
 from gateway_api_sdk.models.create_dur_integrations_request import CreateDurIntegrationsRequest as CreateDurIntegrationsRequest
 from gateway_api_sdk.models.create_dur_request import CreateDurRequest as CreateDurRequest
 from gateway_api_sdk.models.create_dur_request_datasets_inner import CreateDurRequestDatasetsInner as CreateDurRequestDatasetsInner
@@ -399,7 +396,6 @@ from gateway_api_sdk.models.create_question_bank_question_request_options_inner 
 from gateway_api_sdk.models.create_question_bank_question_request_options_inner_children_inner import CreateQuestionBankQuestionRequestOptionsInnerChildrenInner as CreateQuestionBankQuestionRequestOptionsInnerChildrenInner
 from gateway_api_sdk.models.create_question_bank_question_request_options_inner_children_inner_options_inner import CreateQuestionBankQuestionRequestOptionsInnerChildrenInnerOptionsInner as CreateQuestionBankQuestionRequestOptionsInnerChildrenInnerOptionsInner
 from gateway_api_sdk.models.create_team_dar_application_review_request import CreateTeamDarApplicationReviewRequest as CreateTeamDarApplicationReviewRequest
-from gateway_api_sdk.models.create_team_datasets_v2_request import CreateTeamDatasetsV2Request as CreateTeamDatasetsV2Request
 from gateway_api_sdk.models.create_tools_integrations400_response import CreateToolsIntegrations400Response as CreateToolsIntegrations400Response
 from gateway_api_sdk.models.create_tools_integrations_request import CreateToolsIntegrationsRequest as CreateToolsIntegrationsRequest
 from gateway_api_sdk.models.create_tools_integrations_request_dataset_inner import CreateToolsIntegrationsRequestDatasetInner as CreateToolsIntegrationsRequestDatasetInner

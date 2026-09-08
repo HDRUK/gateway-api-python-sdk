@@ -38,9 +38,6 @@ class TestCreateDatasetsRequest(unittest.TestCase):
                 team_id = 1,
                 user_id = 3,
                 create_origin = 'MANUAL',
-                mongo_object_id = 'abc123',
-                mongo_id = '456',
-                mongo_pid = 'def789',
                 datasetid = 'xyz1011',
                 metadata = None
             )

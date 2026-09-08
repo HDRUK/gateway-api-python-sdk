@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **journal_name** | **str** |  | [optional] 
 **abstract** | **str** |  | [optional] 
 **url** | **str** |  | [optional] 
-**mongo_id** | **str** |  | [optional] 
 **datasets** | [**List[CreatePublicationsRequestDatasetsInner]**](CreatePublicationsRequestDatasetsInner.md) |  | [optional] 
 **tools** | [**List[CreatePublicationsRequestToolsInner]**](CreatePublicationsRequestToolsInner.md) |  | [optional] 
 

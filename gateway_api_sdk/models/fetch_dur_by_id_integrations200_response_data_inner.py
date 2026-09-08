@@ -66,12 +66,9 @@ class FetchDurByIdIntegrations200ResponseDataInner(BaseModel):
     request_category_type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["Health Services & Delivery"]})
     request_frequency: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["Public Health Research"]})
     access_type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["Efficacy & Mechanism Evaluation"]})
-    mongo_object_dar_id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["MOBJIDDAR-2387"]})
     enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     last_activity: Optional[datetime] = None
     counter: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [34319]})
-    mongo_object_id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["5f32a7d53b1d85c427e97c01"]})
-    mongo_id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["38873389090594430"]})
     datasets: Optional[List[Any]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
     publications: Optional[List[Any]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
     tools: Optional[List[Any]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
@@ -83,7 +80,7 @@ class FetchDurByIdIntegrations200ResponseDataInner(BaseModel):
     application: Optional[List[Any]] = Field(default=None, json_schema_extra={"examples": ["{}"]})
     applicantions: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": [""]})
     status: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "deleted_at", "non_gateway_datasets", "non_gateway_applicants", "funders_and_sponsors", "other_approval_committees", "gateway_outputs_tools", "gateway_outputs_papers", "non_gateway_outputs", "project_title", "project_id_text", "organisation_name", "organisation_sector", "lay_summary", "technical_summary", "latest_approval_date", "manual_upload", "rejection_reason", "sublicence_arrangements", "public_benefit_statement", "data_sensitivity_level", "project_start_date", "project_end_date", "access_date", "accredited_researcher_status", "confidential_data_description", "dataset_linkage_description", "duty_of_confidentiality", "legal_basis_for_data_article6", "legal_basis_for_data_article9", "national_data_optout", "organisation_id", "privacy_enhancements", "request_category_type", "request_frequency", "access_type", "mongo_object_dar_id", "enabled", "last_activity", "counter", "mongo_object_id", "mongo_id", "datasets", "publications", "tools", "keywords", "users", "applications", "user", "team", "application", "applicantions", "status"]
+    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "deleted_at", "non_gateway_datasets", "non_gateway_applicants", "funders_and_sponsors", "other_approval_committees", "gateway_outputs_tools", "gateway_outputs_papers", "non_gateway_outputs", "project_title", "project_id_text", "organisation_name", "organisation_sector", "lay_summary", "technical_summary", "latest_approval_date", "manual_upload", "rejection_reason", "sublicence_arrangements", "public_benefit_statement", "data_sensitivity_level", "project_start_date", "project_end_date", "access_date", "accredited_researcher_status", "confidential_data_description", "dataset_linkage_description", "duty_of_confidentiality", "legal_basis_for_data_article6", "legal_basis_for_data_article9", "national_data_optout", "organisation_id", "privacy_enhancements", "request_category_type", "request_frequency", "access_type", "enabled", "last_activity", "counter", "datasets", "publications", "tools", "keywords", "users", "applications", "user", "team", "application", "applicantions", "status"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -184,12 +181,9 @@ class FetchDurByIdIntegrations200ResponseDataInner(BaseModel):
             "request_category_type": obj.get("request_category_type"),
             "request_frequency": obj.get("request_frequency"),
             "access_type": obj.get("access_type"),
-            "mongo_object_dar_id": obj.get("mongo_object_dar_id"),
             "enabled": obj.get("enabled"),
             "last_activity": obj.get("last_activity"),
             "counter": obj.get("counter"),
-            "mongo_object_id": obj.get("mongo_object_id"),
-            "mongo_id": obj.get("mongo_id"),
             "datasets": obj.get("datasets"),
             "publications": obj.get("publications"),
             "tools": obj.get("tools"),

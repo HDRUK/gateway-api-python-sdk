@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_datasets_v2**
-> CreateDarIntegration201Response create_datasets_v2(create_datasets_v2_request)
+> CreateDarIntegration201Response create_datasets_v2(update_datasets_request)
 
 DatasetController@store
 
@@ -203,7 +203,7 @@ Create a new dataset
 ```python
 import gateway_api_sdk
 from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
-from gateway_api_sdk.models.create_datasets_v2_request import CreateDatasetsV2Request
+from gateway_api_sdk.models.update_datasets_request import UpdateDatasetsRequest
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -227,11 +227,11 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.DatasetsApi(api_client)
-    create_datasets_v2_request = gateway_api_sdk.CreateDatasetsV2Request() # CreateDatasetsV2Request | Pass user credentials
+    update_datasets_request = gateway_api_sdk.UpdateDatasetsRequest() # UpdateDatasetsRequest | Pass user credentials
 
     try:
         # DatasetController@store
-        api_response = api_instance.create_datasets_v2(create_datasets_v2_request)
+        api_response = api_instance.create_datasets_v2(update_datasets_request)
         print("The response of DatasetsApi->create_datasets_v2:\n")
         pprint(api_response)
     except Exception as e:
@@ -245,7 +245,7 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_datasets_v2_request** | [**CreateDatasetsV2Request**](CreateDatasetsV2Request.md)| Pass user credentials | 
+ **update_datasets_request** | [**UpdateDatasetsRequest**](UpdateDatasetsRequest.md)| Pass user credentials | 
 
 ### Return type
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_team_datasets_v2**
-> CreateDarIntegration201Response create_team_datasets_v2(team_id, create_team_datasets_v2_request)
+> CreateDarIntegration201Response create_team_datasets_v2(team_id, patch_datasets_v2_request)
 
 TeamDatasetController@store
 
@@ -284,7 +284,7 @@ Create a new dataset for a team
 ```python
 import gateway_api_sdk
 from gateway_api_sdk.models.create_dar_integration201_response import CreateDarIntegration201Response
-from gateway_api_sdk.models.create_team_datasets_v2_request import CreateTeamDatasetsV2Request
+from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request
 from gateway_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -309,11 +309,11 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.DatasetsApi(api_client)
     team_id = 1 # int | team id
-    create_team_datasets_v2_request = gateway_api_sdk.CreateTeamDatasetsV2Request() # CreateTeamDatasetsV2Request | Pass user credentials
+    patch_datasets_v2_request = gateway_api_sdk.PatchDatasetsV2Request() # PatchDatasetsV2Request | Pass user credentials
 
     try:
         # TeamDatasetController@store
-        api_response = api_instance.create_team_datasets_v2(team_id, create_team_datasets_v2_request)
+        api_response = api_instance.create_team_datasets_v2(team_id, patch_datasets_v2_request)
         print("The response of DatasetsApi->create_team_datasets_v2:\n")
         pprint(api_response)
     except Exception as e:
@@ -328,7 +328,7 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **team_id** | **int**| team id | 
- **create_team_datasets_v2_request** | [**CreateTeamDatasetsV2Request**](CreateTeamDatasetsV2Request.md)| Pass user credentials | 
+ **patch_datasets_v2_request** | [**PatchDatasetsV2Request**](PatchDatasetsV2Request.md)| Pass user credentials | 
 
 ### Return type
 

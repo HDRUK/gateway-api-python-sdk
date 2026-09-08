@@ -855,7 +855,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fetch_all_tools**
-> FetchAllTools200Response fetch_all_tools(mongo_id=mongo_id, team_id=team_id, user_id=user_id, title=title, sort=sort)
+> FetchAllTools200Response fetch_all_tools(team_id=team_id, user_id=user_id, title=title, sort=sort)
 
 Fetch all tools
 
@@ -891,7 +891,6 @@ configuration = gateway_api_sdk.Configuration(
 with gateway_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gateway_api_sdk.ToolsApi(api_client)
-    mongo_id = 'mongo_id_example' # str | Filter tools by mongo ID (optional)
     team_id = 56 # int | Filter tools by team ID (optional)
     user_id = 56 # int | Filter tools by user ID (optional)
     title = 'title_example' # str | Filter tools by title (optional)
@@ -899,7 +898,7 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Fetch all tools
-        api_response = api_instance.fetch_all_tools(mongo_id=mongo_id, team_id=team_id, user_id=user_id, title=title, sort=sort)
+        api_response = api_instance.fetch_all_tools(team_id=team_id, user_id=user_id, title=title, sort=sort)
         print("The response of ToolsApi->fetch_all_tools:\n")
         pprint(api_response)
     except Exception as e:
@@ -913,7 +912,6 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mongo_id** | **str**| Filter tools by mongo ID | [optional] 
  **team_id** | **int**| Filter tools by team ID | [optional] 
  **user_id** | **int**| Filter tools by user ID | [optional] 
  **title** | **str**| Filter tools by title | [optional] 

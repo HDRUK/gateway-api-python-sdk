@@ -30,12 +30,9 @@ class CreateDatasetsRequest(BaseModel):
     team_id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1]})
     user_id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [3]})
     create_origin: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["MANUAL"]})
-    mongo_object_id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["abc123"]})
-    mongo_id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["456"]})
-    mongo_pid: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["def789"]})
     datasetid: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["xyz1011"]})
     metadata: Optional[Dict[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["team_id", "user_id", "create_origin", "mongo_object_id", "mongo_id", "mongo_pid", "datasetid", "metadata"]
+    __properties: ClassVar[List[str]] = ["team_id", "user_id", "create_origin", "datasetid", "metadata"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -91,9 +88,6 @@ class CreateDatasetsRequest(BaseModel):
             "team_id": obj.get("team_id"),
             "user_id": obj.get("user_id"),
             "create_origin": obj.get("create_origin"),
-            "mongo_object_id": obj.get("mongo_object_id"),
-            "mongo_id": obj.get("mongo_id"),
-            "mongo_pid": obj.get("mongo_pid"),
             "datasetid": obj.get("datasetid"),
             "metadata": obj.get("metadata")
         })

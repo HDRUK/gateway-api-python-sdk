@@ -2964,7 +2964,6 @@ class ToolsApi:
     @validate_call
     def fetch_all_tools(
         self,
-        mongo_id: Annotated[Optional[StrictStr], Field(description="Filter tools by mongo ID")] = None,
         team_id: Annotated[Optional[StrictInt], Field(description="Filter tools by team ID")] = None,
         user_id: Annotated[Optional[StrictInt], Field(description="Filter tools by user ID")] = None,
         title: Annotated[Optional[StrictStr], Field(description="Filter tools by title")] = None,
@@ -2986,8 +2985,6 @@ class ToolsApi:
 
         Get all tools with optional filters and sorting
 
-        :param mongo_id: Filter tools by mongo ID
-        :type mongo_id: str
         :param team_id: Filter tools by team ID
         :type team_id: int
         :param user_id: Filter tools by user ID
@@ -3020,7 +3017,6 @@ class ToolsApi:
         warnings.warn("GET /api/v1/tools is deprecated.", DeprecationWarning)
 
         _param = self._fetch_all_tools_serialize(
-            mongo_id=mongo_id,
             team_id=team_id,
             user_id=user_id,
             title=title,
@@ -3050,7 +3046,6 @@ class ToolsApi:
     @validate_call
     def fetch_all_tools_with_http_info(
         self,
-        mongo_id: Annotated[Optional[StrictStr], Field(description="Filter tools by mongo ID")] = None,
         team_id: Annotated[Optional[StrictInt], Field(description="Filter tools by team ID")] = None,
         user_id: Annotated[Optional[StrictInt], Field(description="Filter tools by user ID")] = None,
         title: Annotated[Optional[StrictStr], Field(description="Filter tools by title")] = None,
@@ -3072,8 +3067,6 @@ class ToolsApi:
 
         Get all tools with optional filters and sorting
 
-        :param mongo_id: Filter tools by mongo ID
-        :type mongo_id: str
         :param team_id: Filter tools by team ID
         :type team_id: int
         :param user_id: Filter tools by user ID
@@ -3106,7 +3099,6 @@ class ToolsApi:
         warnings.warn("GET /api/v1/tools is deprecated.", DeprecationWarning)
 
         _param = self._fetch_all_tools_serialize(
-            mongo_id=mongo_id,
             team_id=team_id,
             user_id=user_id,
             title=title,
@@ -3136,7 +3128,6 @@ class ToolsApi:
     @validate_call
     def fetch_all_tools_without_preload_content(
         self,
-        mongo_id: Annotated[Optional[StrictStr], Field(description="Filter tools by mongo ID")] = None,
         team_id: Annotated[Optional[StrictInt], Field(description="Filter tools by team ID")] = None,
         user_id: Annotated[Optional[StrictInt], Field(description="Filter tools by user ID")] = None,
         title: Annotated[Optional[StrictStr], Field(description="Filter tools by title")] = None,
@@ -3158,8 +3149,6 @@ class ToolsApi:
 
         Get all tools with optional filters and sorting
 
-        :param mongo_id: Filter tools by mongo ID
-        :type mongo_id: str
         :param team_id: Filter tools by team ID
         :type team_id: int
         :param user_id: Filter tools by user ID
@@ -3192,7 +3181,6 @@ class ToolsApi:
         warnings.warn("GET /api/v1/tools is deprecated.", DeprecationWarning)
 
         _param = self._fetch_all_tools_serialize(
-            mongo_id=mongo_id,
             team_id=team_id,
             user_id=user_id,
             title=title,
@@ -3217,7 +3205,6 @@ class ToolsApi:
 
     def _fetch_all_tools_serialize(
         self,
-        mongo_id,
         team_id,
         user_id,
         title,
@@ -3244,10 +3231,6 @@ class ToolsApi:
 
         # process the path parameters
         # process the query parameters
-        if mongo_id is not None:
-            
-            _query_params.append(('mongo_id', mongo_id))
-            
         if team_id is not None:
             
             _query_params.append(('team_id', team_id))

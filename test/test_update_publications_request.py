@@ -43,7 +43,6 @@ class TestUpdatePublicationsRequest(unittest.TestCase):
                 journal_name = 'A Journal',
                 abstract = 'A long description of the paper',
                 url = 'http://example',
-                mongo_id = '38873389090594430',
                 status = 'ACTIVE',
                 datasets = [
                     gateway_api_sdk.models.create_publications_request_datasets_inner.create_publications_request_datasets_inner(

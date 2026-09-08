@@ -37,10 +37,9 @@ class CreatePublicationsRequest(BaseModel):
     journal_name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["A Journal"]})
     abstract: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["A long description of the paper"]})
     url: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["http://example"]})
-    mongo_id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["38873389090594430"]})
     datasets: Optional[List[CreatePublicationsRequestDatasetsInner]] = None
     tools: Optional[List[CreatePublicationsRequestToolsInner]] = None
-    __properties: ClassVar[List[str]] = ["paper_title", "authors", "year_of_publication", "paper_doi", "publication_type", "journal_name", "abstract", "url", "mongo_id", "datasets", "tools"]
+    __properties: ClassVar[List[str]] = ["paper_title", "authors", "year_of_publication", "paper_doi", "publication_type", "journal_name", "abstract", "url", "datasets", "tools"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -115,7 +114,6 @@ class CreatePublicationsRequest(BaseModel):
             "journal_name": obj.get("journal_name"),
             "abstract": obj.get("abstract"),
             "url": obj.get("url"),
-            "mongo_id": obj.get("mongo_id"),
             "datasets": [CreatePublicationsRequestDatasetsInner.from_dict(_item) for _item in obj["datasets"]] if obj.get("datasets") is not None else None,
             "tools": [CreatePublicationsRequestToolsInner.from_dict(_item) for _item in obj["tools"]] if obj.get("tools") is not None else None
         })
