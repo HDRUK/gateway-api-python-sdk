@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from gateway_api_sdk.models.get_federation_team_id200_response_data_inner_progress import GetFederationTeamId200ResponseDataInnerProgress
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -46,7 +47,8 @@ class GetFederationTeamId200ResponseDataInner(BaseModel):
     is_running: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     notifications: Optional[List[Any]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
     last_run_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "enabled_at", "created_at", "updated_at", "deleted_at", "tested", "is_running", "notifications", "last_run_at"]
+    progress: Optional[GetFederationTeamId200ResponseDataInnerProgress] = None
+    __properties: ClassVar[List[str]] = ["id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "enabled_at", "created_at", "updated_at", "deleted_at", "tested", "is_running", "notifications", "last_run_at", "progress"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,6 +89,9 @@ class GetFederationTeamId200ResponseDataInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of progress
+        if self.progress:
+            _dict['progress'] = self.progress.to_dict()
         # set to None if enabled_at (nullable) is None
         # and model_fields_set contains the field
         if self.enabled_at is None and "enabled_at" in self.model_fields_set:
@@ -96,6 +101,11 @@ class GetFederationTeamId200ResponseDataInner(BaseModel):
         # and model_fields_set contains the field
         if self.last_run_at is None and "last_run_at" in self.model_fields_set:
             _dict['last_run_at'] = None
+
+        # set to None if progress (nullable) is None
+        # and model_fields_set contains the field
+        if self.progress is None and "progress" in self.model_fields_set:
+            _dict['progress'] = None
 
         return _dict
 
@@ -126,7 +136,8 @@ class GetFederationTeamId200ResponseDataInner(BaseModel):
             "tested": obj.get("tested"),
             "is_running": obj.get("is_running"),
             "notifications": obj.get("notifications"),
-            "last_run_at": obj.get("last_run_at")
+            "last_run_at": obj.get("last_run_at"),
+            "progress": GetFederationTeamId200ResponseDataInnerProgress.from_dict(obj["progress"]) if obj.get("progress") is not None else None
         })
         return _obj
 

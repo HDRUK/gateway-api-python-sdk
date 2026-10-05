@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **is_running** | **bool** |  | [optional] 
 **notifications** | **List[object]** |  | [optional] 
 **last_run_at** | **datetime** |  | [optional] 
+**progress** | [**GetFederationTeamId200ResponseDataInnerProgress**](GetFederationTeamId200ResponseDataInnerProgress.md) |  | [optional] 
 
 ## Example
 

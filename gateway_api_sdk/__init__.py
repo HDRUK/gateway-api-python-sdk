@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "2.53.0"
+__version__ = "2.54.0"
 
 # Define package exports
 __all__ = [
@@ -211,6 +211,7 @@ __all__ = [
     "GetFederationHistory200ResponseDataInnerFailedDatasetsInner",
     "GetFederationTeamId200Response",
     "GetFederationTeamId200ResponseDataInner",
+    "GetFederationTeamId200ResponseDataInnerProgress",
     "Keyword",
     "License",
     "LoginRequest",
@@ -229,6 +230,8 @@ __all__ = [
     "RegisterRequest",
     "RetrieveWidgetData200Response",
     "RetrieveWidgetData403Response",
+    "RunFederation404Response",
+    "RunFederation409Response",
     "SavedSearch",
     "SearchCollections200Response",
     "SearchCollections200ResponseDataInner",
@@ -504,6 +507,7 @@ from gateway_api_sdk.models.get_federation_history200_response_data_inner import
 from gateway_api_sdk.models.get_federation_history200_response_data_inner_failed_datasets_inner import GetFederationHistory200ResponseDataInnerFailedDatasetsInner as GetFederationHistory200ResponseDataInnerFailedDatasetsInner
 from gateway_api_sdk.models.get_federation_team_id200_response import GetFederationTeamId200Response as GetFederationTeamId200Response
 from gateway_api_sdk.models.get_federation_team_id200_response_data_inner import GetFederationTeamId200ResponseDataInner as GetFederationTeamId200ResponseDataInner
+from gateway_api_sdk.models.get_federation_team_id200_response_data_inner_progress import GetFederationTeamId200ResponseDataInnerProgress as GetFederationTeamId200ResponseDataInnerProgress
 from gateway_api_sdk.models.keyword import Keyword as Keyword
 from gateway_api_sdk.models.license import License as License
 from gateway_api_sdk.models.login_request import LoginRequest as LoginRequest
@@ -522,6 +526,8 @@ from gateway_api_sdk.models.register200_response_user import Register200Response
 from gateway_api_sdk.models.register_request import RegisterRequest as RegisterRequest
 from gateway_api_sdk.models.retrieve_widget_data200_response import RetrieveWidgetData200Response as RetrieveWidgetData200Response
 from gateway_api_sdk.models.retrieve_widget_data403_response import RetrieveWidgetData403Response as RetrieveWidgetData403Response
+from gateway_api_sdk.models.run_federation404_response import RunFederation404Response as RunFederation404Response
+from gateway_api_sdk.models.run_federation409_response import RunFederation409Response as RunFederation409Response
 from gateway_api_sdk.models.saved_search import SavedSearch as SavedSearch
 from gateway_api_sdk.models.search_collections200_response import SearchCollections200Response as SearchCollections200Response
 from gateway_api_sdk.models.search_collections200_response_data_inner import SearchCollections200ResponseDataInner as SearchCollections200ResponseDataInner

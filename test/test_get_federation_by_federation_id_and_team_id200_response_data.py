@@ -52,7 +52,13 @@ class TestGetFederationByFederationIdAndTeamId200ResponseData(unittest.TestCase)
                 deleted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 tested = False,
                 notifications = [],
-                is_running = False
+                is_running = False,
+                progress = gateway_api_sdk.models.get_federation_team_id_200_response_data_inner_progress.get_federation_team_id_200_response_data_inner_progress(
+                    total = 128, 
+                    processed = 63, 
+                    failed = 2, 
+                    pending = 65, 
+                    started_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
             )
         else:
             return GetFederationByFederationIdAndTeamId200ResponseData(

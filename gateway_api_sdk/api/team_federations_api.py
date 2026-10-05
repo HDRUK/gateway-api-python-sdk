@@ -1514,6 +1514,8 @@ class TeamFederationsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "TestFederation200Response",
+            '404': "RunFederation404Response",
+            '409': "RunFederation409Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1585,6 +1587,8 @@ class TeamFederationsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "TestFederation200Response",
+            '404': "RunFederation404Response",
+            '409': "RunFederation409Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1656,6 +1660,8 @@ class TeamFederationsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "TestFederation200Response",
+            '404': "RunFederation404Response",
+            '409': "RunFederation409Response",
         }
         response_data = self.api_client.call_api(
             *_param,

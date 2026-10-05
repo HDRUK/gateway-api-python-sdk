@@ -55,7 +55,13 @@ class TestGetFederationTeamId200Response(unittest.TestCase):
                         tested = False, 
                         is_running = False, 
                         notifications = [], 
-                        last_run_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        last_run_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        progress = gateway_api_sdk.models.get_federation_team_id_200_response_data_inner_progress.get_federation_team_id_200_response_data_inner_progress(
+                            total = 128, 
+                            processed = 63, 
+                            failed = 2, 
+                            pending = 65, 
+                            started_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), )
                     ],
                 first_page_url = 'http:\/\/localhost:8000\/api\/v1\/teams\/19\/federations?page=1',
                 var_from = 1,
