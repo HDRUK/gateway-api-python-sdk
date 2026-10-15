@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **tools** | **List[object]** |  | [optional] 
 **collections** | **List[object]** |  | [optional] 
 **durs** | **List[object]** |  | [optional] 
+**publications** | **List[object]** |  | [optional] 
 
 ## Example
 

@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 
 WidgetController@getWidgetData
 
-Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, DURS and publications
 
 ### Example
 
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 
 Retrieve data related to a widget
 
-Fetches datasets, data uses, scripts, and collections linked to a widget
+Fetches datasets, data uses, scripts, collections and publications linked to a widget
 
 ### Example
 

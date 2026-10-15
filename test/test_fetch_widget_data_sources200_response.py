@@ -46,6 +46,9 @@ class TestFetchWidgetDataSources200Response(unittest.TestCase):
                     ],
                 durs = [
                     None
+                    ],
+                publications = [
+                    None
                     ]
             )
         else:

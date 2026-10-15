@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **included_data_uses** | **List[int]** |  | [optional] 
 **included_scripts** | **List[int]** |  | [optional] 
 **included_collections** | **List[int]** |  | [optional] 
+**included_publications** | **List[int]** |  | [optional] 
 **data_custodian_entities_ids** | **List[int]** |  | [optional] 
 
 ## Example

@@ -46,8 +46,8 @@ class TrackWidgetEventRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['dataset', 'tool', 'collection', 'dur']):
-            raise ValueError("must be one of enum values ('dataset', 'tool', 'collection', 'dur')")
+        if value not in set(['dataset', 'tool', 'collection', 'dur', 'publication']):
+            raise ValueError("must be one of enum values ('dataset', 'tool', 'collection', 'dur', 'publication')")
         return value
 
     model_config = ConfigDict(

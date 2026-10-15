@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **data_custodian_entities_ids** | **List[int]** |  | [optional] 
 **included_scripts** | **List[int]** |  | [optional] 
 **included_collections** | **List[int]** |  | [optional] 
+**included_publications** | **List[int]** |  | [optional] 
 
 ## Example
 

@@ -46,6 +46,9 @@ class TestRetrieveWidgetData200Response(unittest.TestCase):
                     ],
                 collections = [
                     None
+                    ],
+                publications = [
+                    None
                     ]
             )
         else:

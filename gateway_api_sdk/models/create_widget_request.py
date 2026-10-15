@@ -39,8 +39,9 @@ class CreateWidgetRequest(BaseModel):
     included_data_uses: Optional[List[StrictInt]] = Field(default=None, json_schema_extra={"examples": [[10, 11]]})
     included_scripts: Optional[List[StrictInt]] = Field(default=None, json_schema_extra={"examples": [[5, 6]]})
     included_collections: Optional[List[StrictInt]] = Field(default=None, json_schema_extra={"examples": [[99, 100]]})
+    included_publications: Optional[List[StrictInt]] = Field(default=None, json_schema_extra={"examples": [[3, 4]]})
     data_custodian_entities_ids: Optional[List[StrictInt]] = Field(default=None, json_schema_extra={"examples": [[99, 100]]})
-    __properties: ClassVar[List[str]] = ["widget_name", "size_width", "size_height", "unit", "include_search_bar", "include_cohort_link", "keep_proportions", "permitted_domains", "included_datasets", "included_data_uses", "included_scripts", "included_collections", "data_custodian_entities_ids"]
+    __properties: ClassVar[List[str]] = ["widget_name", "size_width", "size_height", "unit", "include_search_bar", "include_cohort_link", "keep_proportions", "permitted_domains", "included_datasets", "included_data_uses", "included_scripts", "included_collections", "included_publications", "data_custodian_entities_ids"]
 
     @field_validator('unit')
     def unit_validate_enum(cls, value):
@@ -115,6 +116,7 @@ class CreateWidgetRequest(BaseModel):
             "included_data_uses": obj.get("included_data_uses"),
             "included_scripts": obj.get("included_scripts"),
             "included_collections": obj.get("included_collections"),
+            "included_publications": obj.get("included_publications"),
             "data_custodian_entities_ids": obj.get("data_custodian_entities_ids")
         })
         return _obj

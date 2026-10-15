@@ -15,7 +15,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictInt, StrictStr, field_validator
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
 from gateway_api_sdk.models.count_unique_fields_collections200_response import CountUniqueFieldsCollections200Response
@@ -5866,6 +5866,8 @@ class DatasetsApi:
         self,
         id: Annotated[StrictInt, Field(description="dataset id")],
         update_datasets_request: UpdateDatasetsRequest,
+        validate_input: Annotated[Optional[StrictBool], Field(description="Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation)")] = None,
+        validate_output: Annotated[Optional[StrictBool], Field(description="Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5887,6 +5889,10 @@ class DatasetsApi:
         :type id: int
         :param update_datasets_request: (required)
         :type update_datasets_request: UpdateDatasetsRequest
+        :param validate_input: Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation)
+        :type validate_input: bool
+        :param validate_output: Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation)
+        :type validate_output: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5912,6 +5918,8 @@ class DatasetsApi:
         _param = self._update_datasets_v2_serialize(
             id=id,
             update_datasets_request=update_datasets_request,
+            validate_input=validate_input,
+            validate_output=validate_output,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5939,6 +5947,8 @@ class DatasetsApi:
         self,
         id: Annotated[StrictInt, Field(description="dataset id")],
         update_datasets_request: UpdateDatasetsRequest,
+        validate_input: Annotated[Optional[StrictBool], Field(description="Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation)")] = None,
+        validate_output: Annotated[Optional[StrictBool], Field(description="Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5960,6 +5970,10 @@ class DatasetsApi:
         :type id: int
         :param update_datasets_request: (required)
         :type update_datasets_request: UpdateDatasetsRequest
+        :param validate_input: Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation)
+        :type validate_input: bool
+        :param validate_output: Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation)
+        :type validate_output: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5985,6 +5999,8 @@ class DatasetsApi:
         _param = self._update_datasets_v2_serialize(
             id=id,
             update_datasets_request=update_datasets_request,
+            validate_input=validate_input,
+            validate_output=validate_output,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6012,6 +6028,8 @@ class DatasetsApi:
         self,
         id: Annotated[StrictInt, Field(description="dataset id")],
         update_datasets_request: UpdateDatasetsRequest,
+        validate_input: Annotated[Optional[StrictBool], Field(description="Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation)")] = None,
+        validate_output: Annotated[Optional[StrictBool], Field(description="Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6033,6 +6051,10 @@ class DatasetsApi:
         :type id: int
         :param update_datasets_request: (required)
         :type update_datasets_request: UpdateDatasetsRequest
+        :param validate_input: Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation)
+        :type validate_input: bool
+        :param validate_output: Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation)
+        :type validate_output: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6058,6 +6080,8 @@ class DatasetsApi:
         _param = self._update_datasets_v2_serialize(
             id=id,
             update_datasets_request=update_datasets_request,
+            validate_input=validate_input,
+            validate_output=validate_output,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6080,6 +6104,8 @@ class DatasetsApi:
         self,
         id,
         update_datasets_request,
+        validate_input,
+        validate_output,
         _request_auth,
         _content_type,
         _headers,
@@ -6104,6 +6130,14 @@ class DatasetsApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if validate_input is not None:
+            
+            _query_params.append(('validate_input', validate_input))
+            
+        if validate_output is not None:
+            
+            _query_params.append(('validate_output', validate_output))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

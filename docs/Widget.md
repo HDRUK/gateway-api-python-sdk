@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **included_data_uses** | **str** |  | [optional] 
 **included_scripts** | **str** |  | [optional] 
 **included_collections** | **str** |  | [optional] 
+**included_publications** | **str** |  | [optional] 
 **include_search_bar** | **bool** |  | [optional] 
 **include_cohort_link** | **bool** |  | [optional] 
 **size_width** | **int** |  | [optional] 

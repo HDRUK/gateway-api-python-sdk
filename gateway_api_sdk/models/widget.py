@@ -35,6 +35,7 @@ class Widget(BaseModel):
     included_data_uses: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["[5]"]})
     included_scripts: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["[2]"]})
     included_collections: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["[8]"]})
+    included_publications: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["[3]"]})
     include_search_bar: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     include_cohort_link: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     size_width: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [400]})
@@ -48,7 +49,7 @@ class Widget(BaseModel):
     branding_neutral: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["#ffffff"]})
     created_at: Optional[datetime] = Field(default=None, json_schema_extra={"examples": ["2024-01-15T10:30:00Z"]})
     updated_at: Optional[datetime] = Field(default=None, json_schema_extra={"examples": ["2024-06-01T08:00:00Z"]})
-    __properties: ClassVar[List[str]] = ["id", "team_id", "data_custodian_entities_ids", "included_datasets", "included_data_uses", "included_scripts", "included_collections", "include_search_bar", "include_cohort_link", "size_width", "size_height", "unit", "keep_proportions", "widget_name", "permitted_domains", "branding_primary", "branding_secondary", "branding_neutral", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["id", "team_id", "data_custodian_entities_ids", "included_datasets", "included_data_uses", "included_scripts", "included_collections", "included_publications", "include_search_bar", "include_cohort_link", "size_width", "size_height", "unit", "keep_proportions", "widget_name", "permitted_domains", "branding_primary", "branding_secondary", "branding_neutral", "created_at", "updated_at"]
 
     @field_validator('unit')
     def unit_validate_enum(cls, value):
@@ -124,6 +125,11 @@ class Widget(BaseModel):
         if self.included_collections is None and "included_collections" in self.model_fields_set:
             _dict['included_collections'] = None
 
+        # set to None if included_publications (nullable) is None
+        # and model_fields_set contains the field
+        if self.included_publications is None and "included_publications" in self.model_fields_set:
+            _dict['included_publications'] = None
+
         # set to None if size_width (nullable) is None
         # and model_fields_set contains the field
         if self.size_width is None and "size_width" in self.model_fields_set:
@@ -173,6 +179,7 @@ class Widget(BaseModel):
             "included_data_uses": obj.get("included_data_uses"),
             "included_scripts": obj.get("included_scripts"),
             "included_collections": obj.get("included_collections"),
+            "included_publications": obj.get("included_publications"),
             "include_search_bar": obj.get("include_search_bar"),
             "include_cohort_link": obj.get("include_cohort_link"),
             "size_width": obj.get("size_width"),

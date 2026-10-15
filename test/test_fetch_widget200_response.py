@@ -43,6 +43,7 @@ class TestFetchWidget200Response(unittest.TestCase):
                     included_data_uses = '[5]', 
                     included_scripts = '[2]', 
                     included_collections = '[8]', 
+                    included_publications = '[3]', 
                     include_search_bar = False, 
                     include_cohort_link = False, 
                     size_width = 400, 

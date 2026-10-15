@@ -1185,7 +1185,7 @@ class WidgetsApi:
     ) -> FetchWidgetDataSources200Response:
         """WidgetController@getWidgetData
 
-        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, DURS and publications
 
         :param team_id: Team ID (required)
         :type team_id: int
@@ -1257,7 +1257,7 @@ class WidgetsApi:
     ) -> ApiResponse[FetchWidgetDataSources200Response]:
         """WidgetController@getWidgetData
 
-        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, DURS and publications
 
         :param team_id: Team ID (required)
         :type team_id: int
@@ -1329,7 +1329,7 @@ class WidgetsApi:
     ) -> RESTResponseType:
         """WidgetController@getWidgetData
 
-        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+        Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, DURS and publications
 
         :param team_id: Team ID (required)
         :type team_id: int
@@ -1467,7 +1467,7 @@ class WidgetsApi:
     ) -> RetrieveWidgetData200Response:
         """Retrieve data related to a widget
 
-        Fetches datasets, data uses, scripts, and collections linked to a widget
+        Fetches datasets, data uses, scripts, collections and publications linked to a widget
 
         :param team_id: Team ID (required)
         :type team_id: int
@@ -1544,7 +1544,7 @@ class WidgetsApi:
     ) -> ApiResponse[RetrieveWidgetData200Response]:
         """Retrieve data related to a widget
 
-        Fetches datasets, data uses, scripts, and collections linked to a widget
+        Fetches datasets, data uses, scripts, collections and publications linked to a widget
 
         :param team_id: Team ID (required)
         :type team_id: int
@@ -1621,7 +1621,7 @@ class WidgetsApi:
     ) -> RESTResponseType:
         """Retrieve data related to a widget
 
-        Fetches datasets, data uses, scripts, and collections linked to a widget
+        Fetches datasets, data uses, scripts, collections and publications linked to a widget
 
         :param team_id: Team ID (required)
         :type team_id: int

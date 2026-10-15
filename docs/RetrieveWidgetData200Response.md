@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **data_uses** | **List[object]** |  | [optional] 
 **scripts** | **List[object]** |  | [optional] 
 **collections** | **List[object]** |  | [optional] 
+**publications** | **List[object]** |  | [optional] 
 
 ## Example
 

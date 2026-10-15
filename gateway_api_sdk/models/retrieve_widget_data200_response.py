@@ -31,7 +31,8 @@ class RetrieveWidgetData200Response(BaseModel):
     data_uses: Optional[List[Dict[str, Any]]] = None
     scripts: Optional[List[Dict[str, Any]]] = None
     collections: Optional[List[Dict[str, Any]]] = None
-    __properties: ClassVar[List[str]] = ["datasets", "data_uses", "scripts", "collections"]
+    publications: Optional[List[Dict[str, Any]]] = None
+    __properties: ClassVar[List[str]] = ["datasets", "data_uses", "scripts", "collections", "publications"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,7 +88,8 @@ class RetrieveWidgetData200Response(BaseModel):
             "datasets": obj.get("datasets"),
             "data_uses": obj.get("data_uses"),
             "scripts": obj.get("scripts"),
-            "collections": obj.get("collections")
+            "collections": obj.get("collections"),
+            "publications": obj.get("publications")
         })
         return _obj
 

@@ -47,6 +47,7 @@ class TestCreateWidgetRequest(unittest.TestCase):
                 included_data_uses = [10,11],
                 included_scripts = [5,6],
                 included_collections = [99,100],
+                included_publications = [3,4],
                 data_custodian_entities_ids = [99,100]
             )
         else:

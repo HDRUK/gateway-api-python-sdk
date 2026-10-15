@@ -31,7 +31,8 @@ class FetchWidgetDataSources200Response(BaseModel):
     tools: Optional[List[Dict[str, Any]]] = None
     collections: Optional[List[Dict[str, Any]]] = None
     durs: Optional[List[Dict[str, Any]]] = None
-    __properties: ClassVar[List[str]] = ["datasets", "tools", "collections", "durs"]
+    publications: Optional[List[Dict[str, Any]]] = None
+    __properties: ClassVar[List[str]] = ["datasets", "tools", "collections", "durs", "publications"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,7 +88,8 @@ class FetchWidgetDataSources200Response(BaseModel):
             "datasets": obj.get("datasets"),
             "tools": obj.get("tools"),
             "collections": obj.get("collections"),
-            "durs": obj.get("durs")
+            "durs": obj.get("durs"),
+            "publications": obj.get("publications")
         })
         return _obj
 

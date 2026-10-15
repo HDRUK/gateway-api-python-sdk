@@ -1666,7 +1666,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_datasets_v2**
-> CreateDarIntegration201Response update_datasets_v2(id, update_datasets_request)
+> CreateDarIntegration201Response update_datasets_v2(id, update_datasets_request, validate_input=validate_input, validate_output=validate_output)
 
 DatasetController@update
 
@@ -1705,10 +1705,12 @@ with gateway_api_sdk.ApiClient(configuration) as api_client:
     api_instance = gateway_api_sdk.DatasetsApi(api_client)
     id = 1 # int | dataset id
     update_datasets_request = gateway_api_sdk.UpdateDatasetsRequest() # UpdateDatasetsRequest | 
+    validate_input = True # bool | Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation) (optional)
+    validate_output = True # bool | Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation) (optional)
 
     try:
         # DatasetController@update
-        api_response = api_instance.update_datasets_v2(id, update_datasets_request)
+        api_response = api_instance.update_datasets_v2(id, update_datasets_request, validate_input=validate_input, validate_output=validate_output)
         print("The response of DatasetsApi->update_datasets_v2:\n")
         pprint(api_response)
     except Exception as e:
@@ -1724,6 +1726,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| dataset id | 
  **update_datasets_request** | [**UpdateDatasetsRequest**](UpdateDatasetsRequest.md)|  | 
+ **validate_input** | **bool**| Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation) | [optional] 
+ **validate_output** | **bool**| Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation) | [optional] 
 
 ### Return type
 
