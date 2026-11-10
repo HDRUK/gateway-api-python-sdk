@@ -60,7 +60,7 @@ class TestGetFederationByFederationIdAndTeamId200Response(unittest.TestCase):
                         processed = 63, 
                         failed = 2, 
                         pending = 65, 
-                        started_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), )
+                        started_at = '2026-09-29T09:12:04Z', ), )
             )
         else:
             return GetFederationByFederationIdAndTeamId200Response(

@@ -1,6 +1,7 @@
 # flake8: noqa
 
 # import apis into api package
+from gateway_api_sdk.api.admin_api import AdminApi
 from gateway_api_sdk.api.application_api import ApplicationApi
 from gateway_api_sdk.api.authentication_api import AuthenticationApi
 from gateway_api_sdk.api.cancer_type_filter_api import CancerTypeFilterApi

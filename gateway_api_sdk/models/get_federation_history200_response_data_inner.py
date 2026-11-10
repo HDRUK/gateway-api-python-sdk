@@ -30,8 +30,8 @@ class GetFederationHistory200ResponseDataInner(BaseModel):
     GetFederationHistory200ResponseDataInner
     """ # noqa: E501
     job_uuid: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["6d6b0e2e-6e4a-4a63-8f3c-2f9d9c8a1e11"]})
-    started_at: Optional[datetime] = None
-    finished_at: Optional[datetime] = None
+    started_at: Optional[datetime] = Field(default=None, json_schema_extra={"examples": ["2025-03-13T14:00:00Z"]})
+    finished_at: Optional[datetime] = Field(default=None, json_schema_extra={"examples": ["2025-03-13T14:02:31Z"]})
     status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["failed"]})
     message: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2 of 5 datasets failed"]})
     failed_datasets: Optional[List[GetFederationHistory200ResponseDataInnerFailedDatasetsInner]] = None
@@ -93,6 +93,11 @@ class GetFederationHistory200ResponseDataInner(BaseModel):
                 if _item_failed_datasets:
                     _items.append(_item_failed_datasets.to_dict())
             _dict['failed_datasets'] = _items
+        # set to None if finished_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.finished_at is None and "finished_at" in self.model_fields_set:
+            _dict['finished_at'] = None
+
         # set to None if message (nullable) is None
         # and model_fields_set contains the field
         if self.message is None and "message" in self.model_fields_set:

@@ -36,8 +36,8 @@ class TestGetFederationHistory200ResponseDataInner(unittest.TestCase):
         if include_optional:
             return GetFederationHistory200ResponseDataInner(
                 job_uuid = '6d6b0e2e-6e4a-4a63-8f3c-2f9d9c8a1e11',
-                started_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                finished_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                started_at = '2025-03-13T14:00Z',
+                finished_at = '2025-03-13T14:02:31Z',
                 status = 'failed',
                 message = '2 of 5 datasets failed',
                 failed_datasets = [

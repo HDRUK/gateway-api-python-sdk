@@ -46,7 +46,7 @@ class GetFederationTeamId200ResponseDataInner(BaseModel):
     tested: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     is_running: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     notifications: Optional[List[Any]] = Field(default=None, json_schema_extra={"examples": ["[]"]})
-    last_run_at: Optional[datetime] = None
+    last_run_at: Optional[datetime] = Field(default=None, json_schema_extra={"examples": ["2026-07-25T09:12:04Z"]})
     progress: Optional[GetFederationTeamId200ResponseDataInnerProgress] = None
     __properties: ClassVar[List[str]] = ["id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "enabled_at", "created_at", "updated_at", "deleted_at", "tested", "is_running", "notifications", "last_run_at", "progress"]
 

@@ -32,7 +32,7 @@ class GetFederationTeamId200ResponseDataInnerProgress(BaseModel):
     processed: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [63]})
     failed: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [2]})
     pending: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [65]})
-    started_at: Optional[datetime] = None
+    started_at: Optional[datetime] = Field(default=None, json_schema_extra={"examples": ["2026-09-29T09:12:04Z"]})
     __properties: ClassVar[List[str]] = ["total", "processed", "failed", "pending", "started_at"]
 
     model_config = ConfigDict(

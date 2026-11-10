@@ -14,10 +14,11 @@
 """  # noqa: E501
 
 
-__version__ = "2.56.0"
+__version__ = "2.57.0"
 
 # Define package exports
 __all__ = [
+    "AdminApi",
     "ApplicationApi",
     "AuthenticationApi",
     "CancerTypeFilterApi",
@@ -230,6 +231,8 @@ __all__ = [
     "RegisterRequest",
     "RetrieveWidgetData200Response",
     "RetrieveWidgetData403Response",
+    "RevokeAllTokensV2200Response",
+    "RevokeAllTokensV2200ResponseData",
     "RunFederation404Response",
     "RunFederation409Response",
     "SavedSearch",
@@ -310,6 +313,7 @@ __all__ = [
 ]
 
 # import apis into sdk package
+from gateway_api_sdk.api.admin_api import AdminApi as AdminApi
 from gateway_api_sdk.api.application_api import ApplicationApi as ApplicationApi
 from gateway_api_sdk.api.authentication_api import AuthenticationApi as AuthenticationApi
 from gateway_api_sdk.api.cancer_type_filter_api import CancerTypeFilterApi as CancerTypeFilterApi
@@ -526,6 +530,8 @@ from gateway_api_sdk.models.register200_response_user import Register200Response
 from gateway_api_sdk.models.register_request import RegisterRequest as RegisterRequest
 from gateway_api_sdk.models.retrieve_widget_data200_response import RetrieveWidgetData200Response as RetrieveWidgetData200Response
 from gateway_api_sdk.models.retrieve_widget_data403_response import RetrieveWidgetData403Response as RetrieveWidgetData403Response
+from gateway_api_sdk.models.revoke_all_tokens_v2200_response import RevokeAllTokensV2200Response as RevokeAllTokensV2200Response
+from gateway_api_sdk.models.revoke_all_tokens_v2200_response_data import RevokeAllTokensV2200ResponseData as RevokeAllTokensV2200ResponseData
 from gateway_api_sdk.models.run_federation404_response import RunFederation404Response as RunFederation404Response
 from gateway_api_sdk.models.run_federation409_response import RunFederation409Response as RunFederation409Response
 from gateway_api_sdk.models.saved_search import SavedSearch as SavedSearch
