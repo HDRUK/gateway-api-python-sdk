@@ -5319,6 +5319,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteApplications200Response",
+            '422': "PatchTeamDatasetsV2422Response",
             '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
@@ -5395,6 +5396,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteApplications200Response",
+            '422': "PatchTeamDatasetsV2422Response",
             '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(
@@ -5471,6 +5473,7 @@ class DatasetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteApplications200Response",
+            '422': "PatchTeamDatasetsV2422Response",
             '500': "CreateApplications500Response",
         }
         response_data = self.api_client.call_api(

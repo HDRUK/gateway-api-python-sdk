@@ -1578,6 +1578,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
+**422** | Activating a draft refused because its metadata fails source-schema or GWDM validation, or leaves a required list of values empty (SchemaOnboardingForm flag only) |  -  |
 **500** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

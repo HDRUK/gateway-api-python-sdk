@@ -17,19 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
-from gateway_api_sdk.models.search_similar_datasets200_response_data_inner import SearchSimilarDatasets200ResponseDataInner
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class SearchSimilarDatasets200Response(BaseModel):
+class SearchSimilarDatasetsV2Request(BaseModel):
     """
-    SearchSimilarDatasets200Response
+    SearchSimilarDatasetsV2Request
     """ # noqa: E501
-    data: Optional[List[SearchSimilarDatasets200ResponseDataInner]] = None
-    __properties: ClassVar[List[str]] = ["data"]
+    id: StrictInt = Field(description="Dataset id", json_schema_extra={"examples": [1]})
+    __properties: ClassVar[List[str]] = ["id"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -49,7 +48,7 @@ class SearchSimilarDatasets200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SearchSimilarDatasets200Response from a JSON string"""
+        """Create an instance of SearchSimilarDatasetsV2Request from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,18 +69,11 @@ class SearchSimilarDatasets200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
-        _items = []
-        if self.data:
-            for _item_data in self.data:
-                if _item_data:
-                    _items.append(_item_data.to_dict())
-            _dict['data'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SearchSimilarDatasets200Response from a dict"""
+        """Create an instance of SearchSimilarDatasetsV2Request from a dict"""
         if obj is None:
             return None
 
@@ -89,7 +81,7 @@ class SearchSimilarDatasets200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [SearchSimilarDatasets200ResponseDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "id": obj.get("id")
         })
         return _obj
 

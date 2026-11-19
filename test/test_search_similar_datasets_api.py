@@ -29,7 +29,14 @@ class TestSearchSimilarDatasetsApi(unittest.TestCase):
     def test_search_similar_datasets(self) -> None:
         """Test case for search_similar_datasets
 
-        Search@similarDatasets
+        Search for similar datasets (deprecated)
+        """
+        pass
+
+    def test_search_similar_datasets_v2(self) -> None:
+        """Test case for search_similar_datasets_v2
+
+        Search for similar datasets
         """
         pass
 

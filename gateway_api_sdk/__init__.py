@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "2.57.1"
+__version__ = "2.58.0"
 
 # Define package exports
 __all__ = [
@@ -68,6 +68,7 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "ActiveExperiment",
     "Alias",
     "Authentication200Response",
     "AuthenticationRequest",
@@ -129,6 +130,14 @@ __all__ = [
     "EditCsatRequest",
     "EditDarIntegrationRequest",
     "EditQuestionBankQuestionRequest",
+    "Experiment",
+    "ExperimentDefinition",
+    "ExperimentDefinitionStepsInner",
+    "ExperimentDefinitionStepsInnerBlocksInner",
+    "ExperimentInput",
+    "ExperimentResponseInput",
+    "ExperimentTargeting",
+    "ExperimentTrigger",
     "ExportDatasetMetadata400Response",
     "ExportMockDataset404Response",
     "FetchAllApplications200Response",
@@ -217,11 +226,14 @@ __all__ = [
     "License",
     "LoginRequest",
     "Notification",
+    "OnboardingForm",
+    "OnboardingFormSchemasInner",
     "PatchDarSectionRequest",
     "PatchDarTemplate200Response",
     "PatchDarTemplate200ResponseData",
     "PatchDarTemplateRequest",
     "PatchDatasetsV2Request",
+    "PatchTeamDatasetsV2422Response",
     "ProgrammingLanguage",
     "ProgrammingPackage",
     "Publication",
@@ -265,9 +277,9 @@ __all__ = [
     "SearchPublicationsByDoi200Response",
     "SearchPublicationsByDoiRequest",
     "SearchPublicationsRequest",
-    "SearchSimilarDatasets200Response",
-    "SearchSimilarDatasets200ResponseDataInner",
-    "SearchSimilarDatasetsRequest",
+    "SearchSimilarDatasetsV2200Response",
+    "SearchSimilarDatasetsV2200ResponseDataInner",
+    "SearchSimilarDatasetsV2Request",
     "SearchTools200Response",
     "SearchTools200ResponseDataInner",
     "SearchTools200ResponseDataInnerHighlightInner",
@@ -367,6 +379,7 @@ from gateway_api_sdk.exceptions import ApiAttributeError as ApiAttributeError
 from gateway_api_sdk.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from gateway_api_sdk.models.active_experiment import ActiveExperiment as ActiveExperiment
 from gateway_api_sdk.models.alias import Alias as Alias
 from gateway_api_sdk.models.authentication200_response import Authentication200Response as Authentication200Response
 from gateway_api_sdk.models.authentication_request import AuthenticationRequest as AuthenticationRequest
@@ -428,6 +441,14 @@ from gateway_api_sdk.models.edit_csat200_response import EditCsat200Response as 
 from gateway_api_sdk.models.edit_csat_request import EditCsatRequest as EditCsatRequest
 from gateway_api_sdk.models.edit_dar_integration_request import EditDarIntegrationRequest as EditDarIntegrationRequest
 from gateway_api_sdk.models.edit_question_bank_question_request import EditQuestionBankQuestionRequest as EditQuestionBankQuestionRequest
+from gateway_api_sdk.models.experiment import Experiment as Experiment
+from gateway_api_sdk.models.experiment_definition import ExperimentDefinition as ExperimentDefinition
+from gateway_api_sdk.models.experiment_definition_steps_inner import ExperimentDefinitionStepsInner as ExperimentDefinitionStepsInner
+from gateway_api_sdk.models.experiment_definition_steps_inner_blocks_inner import ExperimentDefinitionStepsInnerBlocksInner as ExperimentDefinitionStepsInnerBlocksInner
+from gateway_api_sdk.models.experiment_input import ExperimentInput as ExperimentInput
+from gateway_api_sdk.models.experiment_response_input import ExperimentResponseInput as ExperimentResponseInput
+from gateway_api_sdk.models.experiment_targeting import ExperimentTargeting as ExperimentTargeting
+from gateway_api_sdk.models.experiment_trigger import ExperimentTrigger as ExperimentTrigger
 from gateway_api_sdk.models.export_dataset_metadata400_response import ExportDatasetMetadata400Response as ExportDatasetMetadata400Response
 from gateway_api_sdk.models.export_mock_dataset404_response import ExportMockDataset404Response as ExportMockDataset404Response
 from gateway_api_sdk.models.fetch_all_applications200_response import FetchAllApplications200Response as FetchAllApplications200Response
@@ -516,11 +537,14 @@ from gateway_api_sdk.models.keyword import Keyword as Keyword
 from gateway_api_sdk.models.license import License as License
 from gateway_api_sdk.models.login_request import LoginRequest as LoginRequest
 from gateway_api_sdk.models.notification import Notification as Notification
+from gateway_api_sdk.models.onboarding_form import OnboardingForm as OnboardingForm
+from gateway_api_sdk.models.onboarding_form_schemas_inner import OnboardingFormSchemasInner as OnboardingFormSchemasInner
 from gateway_api_sdk.models.patch_dar_section_request import PatchDarSectionRequest as PatchDarSectionRequest
 from gateway_api_sdk.models.patch_dar_template200_response import PatchDarTemplate200Response as PatchDarTemplate200Response
 from gateway_api_sdk.models.patch_dar_template200_response_data import PatchDarTemplate200ResponseData as PatchDarTemplate200ResponseData
 from gateway_api_sdk.models.patch_dar_template_request import PatchDarTemplateRequest as PatchDarTemplateRequest
 from gateway_api_sdk.models.patch_datasets_v2_request import PatchDatasetsV2Request as PatchDatasetsV2Request
+from gateway_api_sdk.models.patch_team_datasets_v2422_response import PatchTeamDatasetsV2422Response as PatchTeamDatasetsV2422Response
 from gateway_api_sdk.models.programming_language import ProgrammingLanguage as ProgrammingLanguage
 from gateway_api_sdk.models.programming_package import ProgrammingPackage as ProgrammingPackage
 from gateway_api_sdk.models.publication import Publication as Publication
@@ -564,9 +588,9 @@ from gateway_api_sdk.models.search_publications200_response_data_inner_source_in
 from gateway_api_sdk.models.search_publications_by_doi200_response import SearchPublicationsByDoi200Response as SearchPublicationsByDoi200Response
 from gateway_api_sdk.models.search_publications_by_doi_request import SearchPublicationsByDoiRequest as SearchPublicationsByDoiRequest
 from gateway_api_sdk.models.search_publications_request import SearchPublicationsRequest as SearchPublicationsRequest
-from gateway_api_sdk.models.search_similar_datasets200_response import SearchSimilarDatasets200Response as SearchSimilarDatasets200Response
-from gateway_api_sdk.models.search_similar_datasets200_response_data_inner import SearchSimilarDatasets200ResponseDataInner as SearchSimilarDatasets200ResponseDataInner
-from gateway_api_sdk.models.search_similar_datasets_request import SearchSimilarDatasetsRequest as SearchSimilarDatasetsRequest
+from gateway_api_sdk.models.search_similar_datasets_v2200_response import SearchSimilarDatasetsV2200Response as SearchSimilarDatasetsV2200Response
+from gateway_api_sdk.models.search_similar_datasets_v2200_response_data_inner import SearchSimilarDatasetsV2200ResponseDataInner as SearchSimilarDatasetsV2200ResponseDataInner
+from gateway_api_sdk.models.search_similar_datasets_v2_request import SearchSimilarDatasetsV2Request as SearchSimilarDatasetsV2Request
 from gateway_api_sdk.models.search_tools200_response import SearchTools200Response as SearchTools200Response
 from gateway_api_sdk.models.search_tools200_response_data_inner import SearchTools200ResponseDataInner as SearchTools200ResponseDataInner
 from gateway_api_sdk.models.search_tools200_response_data_inner_highlight_inner import SearchTools200ResponseDataInnerHighlightInner as SearchTools200ResponseDataInnerHighlightInner

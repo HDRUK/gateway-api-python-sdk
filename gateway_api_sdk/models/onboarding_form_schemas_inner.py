@@ -17,18 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class SearchSimilarDatasetsRequest(BaseModel):
+class OnboardingFormSchemasInner(BaseModel):
     """
-    SearchSimilarDatasetsRequest
+    OnboardingFormSchemasInner
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1]})
-    __properties: ClassVar[List[str]] = ["id"]
+    model: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["HDRUK"]})
+    version: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["4.1.0"]})
+    __properties: ClassVar[List[str]] = ["model", "version"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -48,7 +49,7 @@ class SearchSimilarDatasetsRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SearchSimilarDatasetsRequest from a JSON string"""
+        """Create an instance of OnboardingFormSchemasInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,7 +74,7 @@ class SearchSimilarDatasetsRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SearchSimilarDatasetsRequest from a dict"""
+        """Create an instance of OnboardingFormSchemasInner from a dict"""
         if obj is None:
             return None
 
@@ -81,7 +82,8 @@ class SearchSimilarDatasetsRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id")
+            "model": obj.get("model"),
+            "version": obj.get("version")
         })
         return _obj
 

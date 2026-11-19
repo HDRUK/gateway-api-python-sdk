@@ -14,10 +14,10 @@
 
 import unittest
 
-from gateway_api_sdk.models.search_similar_datasets_request import SearchSimilarDatasetsRequest
+from gateway_api_sdk.models.active_experiment import ActiveExperiment
 
-class TestSearchSimilarDatasetsRequest(unittest.TestCase):
-    """SearchSimilarDatasetsRequest unit test stubs"""
+class TestActiveExperiment(unittest.TestCase):
+    """ActiveExperiment unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,25 +25,33 @@ class TestSearchSimilarDatasetsRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> SearchSimilarDatasetsRequest:
-        """Test SearchSimilarDatasetsRequest
+    def make_instance(self, include_optional) -> ActiveExperiment:
+        """Test ActiveExperiment
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `SearchSimilarDatasetsRequest`
+        # uncomment below to create an instance of `ActiveExperiment`
         """
-        model = SearchSimilarDatasetsRequest()
+        model = ActiveExperiment()
         if include_optional:
-            return SearchSimilarDatasetsRequest(
-                id = 1
+            return ActiveExperiment(
+                id = 1,
+                name = 'Search feedback',
+                paths = [
+                    '/en/search'
+                    ],
+                trigger = None,
+                definition = None,
+                variant = '',
+                ends_at = 'Tue Dec 01 00:00:00 UTC 2026'
             )
         else:
-            return SearchSimilarDatasetsRequest(
+            return ActiveExperiment(
         )
         """
 
-    def testSearchSimilarDatasetsRequest(self):
-        """Test SearchSimilarDatasetsRequest"""
+    def testActiveExperiment(self):
+        """Test ActiveExperiment"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

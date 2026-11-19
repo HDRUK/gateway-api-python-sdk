@@ -17,20 +17,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from gateway_api_sdk.models.search_datasets200_response_data_inner_source_inner import SearchDatasets200ResponseDataInnerSourceInner
+from gateway_api_sdk.models.onboarding_form_schemas_inner import OnboardingFormSchemasInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class SearchSimilarDatasets200ResponseDataInner(BaseModel):
+class OnboardingForm(BaseModel):
     """
-    SearchSimilarDatasets200ResponseDataInner
+    The data the metadata onboarding form is generated from
     """ # noqa: E501
-    source: Optional[List[SearchDatasets200ResponseDataInnerSourceInner]] = Field(default=None, alias="_source")
-    metadata: Optional[List[Any]] = None
-    __properties: ClassVar[List[str]] = ["_source", "metadata"]
+    schemas: Optional[List[OnboardingFormSchemasInner]] = None
+    model: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["HDRUK"]})
+    version: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["4.1.0"]})
+    var_schema: Optional[Dict[str, Any]] = Field(default=None, description="JSON Schema of the selected input schema", alias="schema")
+    default_values: Optional[Dict[str, Any]] = Field(default=None, description="Team defaults in the selected schema", alias="defaultValues")
+    metadata: Optional[Dict[str, Any]] = Field(default=None, description="Only with dataset_id")
+    __properties: ClassVar[List[str]] = ["schemas", "model", "version", "schema", "defaultValues", "metadata"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -50,7 +54,7 @@ class SearchSimilarDatasets200ResponseDataInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SearchSimilarDatasets200ResponseDataInner from a JSON string"""
+        """Create an instance of OnboardingForm from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,18 +75,23 @@ class SearchSimilarDatasets200ResponseDataInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in source (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in schemas (list)
         _items = []
-        if self.source:
-            for _item_source in self.source:
-                if _item_source:
-                    _items.append(_item_source.to_dict())
-            _dict['_source'] = _items
+        if self.schemas:
+            for _item_schemas in self.schemas:
+                if _item_schemas:
+                    _items.append(_item_schemas.to_dict())
+            _dict['schemas'] = _items
+        # set to None if metadata (nullable) is None
+        # and model_fields_set contains the field
+        if self.metadata is None and "metadata" in self.model_fields_set:
+            _dict['metadata'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SearchSimilarDatasets200ResponseDataInner from a dict"""
+        """Create an instance of OnboardingForm from a dict"""
         if obj is None:
             return None
 
@@ -90,7 +99,11 @@ class SearchSimilarDatasets200ResponseDataInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "_source": [SearchDatasets200ResponseDataInnerSourceInner.from_dict(_item) for _item in obj["_source"]] if obj.get("_source") is not None else None,
+            "schemas": [OnboardingFormSchemasInner.from_dict(_item) for _item in obj["schemas"]] if obj.get("schemas") is not None else None,
+            "model": obj.get("model"),
+            "version": obj.get("version"),
+            "schema": obj.get("schema"),
+            "defaultValues": obj.get("defaultValues"),
             "metadata": obj.get("metadata")
         })
         return _obj
